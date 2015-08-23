@@ -1,0 +1,61 @@
+{
+    "app": {
+        "title":"Vacunas y Suministros de Gestión",
+        "copyright":"Derechos de autor &copy; 2015 Todos los derechos reservados.",
+        "user_manual":"Manual de usuario",
+        "help":"Ayuda"
+    },
+    "menu":{
+        "home": "Zuhause",
+        "group":"Gruppe",
+        "edit_profile":"Editar perfil",
+        "reset_password": "Restablecer la contraseña",
+        "logout": "Cerrar sesión",
+        "warnings":"Advertencias",
+        "dashboard":"Tablero",
+        "arrival":"llegada",
+        "dispatch":"Despacho",
+        "reports":"Informes",
+        "adjustment":"Ajuste",
+        "basic_data":"Datos básicos",
+        "configuration":"Configuración",
+        "recipients":"destinatarios",
+        "recipient_levels":"Niveles de destinatarios",
+        "user_management":"Gestión de usuarios",
+        "vaccine_diluent":"Vacunas & diluyente",
+        "GTIN_lookup":"GTIN Buscar",
+        "items_max_min":"Los productos Max Min",
+        "sources":"Fuentes",
+        "stores":"Tiendas",
+        "transport_mode":"Modo de transporte",
+        "adjustment_reasons":"ajuste Razones",
+        "activities":"Actividades",
+        "manufactures":"Manufacturas",
+        "recipients":"destinatarios",
+        "recipients_levels":"Destinatarios Niveles",
+        "annual_quota":"Cuota anual",
+        "system_settings":"Ajustes del sistema",
+        "arrival_adjustment":"Ajuste de llegada",
+        "dispatch_adjustment":"Ajuste de Despacho",
+        "stock_adjustment":"Stock de Ajuste",
+        "sample_report":"Ejemplo de informe",
+        "system_settings":"Ajustes del sistema",
+        "move_items":"mover elementos"
+
+    },
+    "labels":{
+        "navigation":"Navegación",
+        "you_are_here":"Tú estás aquí"
+    },
+    "global": {
+        "back": "Zurück",
+        "logout": "Abmelden",
+        "ign_in": "Anmelden",
+        "submit": "Einreichen",
+        "submitting": "Einreichen...",
+        "loading": "Laden...",
+        "signed_in_as_message": "Angemeldet als {{name}}"
+    },
+    "BUTTON_TEXT_DE":"deutsch",
+    "BUTTON_TEXT_EN":"englisch"
+}

@@ -1,0 +1,67 @@
+{
+    "app": {
+        "title":"Vaccines and Supplies Stock Management",
+        "copyright":"Copyrights &copy; 2015  All rights reserved.",
+        "user_manual":"User Manual",
+        "help":"Help"
+    },
+    "menu":{
+        "home": "Home",
+        "group":"group",
+        "edit_profile":"Edit Profile",
+        "reset_password": "Reset Password",
+        "logout": "Logout",
+        "warnings":"Warnings",
+        "dashboard":"Dashboard",
+        "arrival":"Arrival",
+        "dispatch":"Dispatch",
+        "reports":"Reports",
+        "adjustment":"Adjustment",
+        "basic_data":"Basic Data",
+        "configuration":"Configuration",
+        "recipients":"Recipients",
+        "recipient_levels":"Recipient Levels",
+        "user_management":"User Management",
+        "vaccine_diluent":"Vaccine & Diluent",
+        "GTIN_lookup":"GTIN_Lookup",
+        "items_max_min":"Items Max Min",
+        "sources":"Sources",
+        "stores":"Stores",
+        "transport_mode":"Transport Mode",
+        "adjustment_reasons":"Adjustment Reasons",
+        "activities":"Activities",
+        "manufactures":"Manufactures",
+        "recipients":"Recipients",
+        "recipients_levels":"Recipients Levels",
+        "annual_quota":"Annual Quota",
+        "system_settings":"System Settings",
+        "arrival_adjustment":"Arrival Adjustment",
+        "dispatch_adjustment":"Dispatch Adjustment",
+        "stock_adjustment":"Stock Adjustment",
+        "sample_report":"Sample Report",
+        "system_settings":"System  Settings",
+        "move_items":"Move Items"
+
+    },
+    "labels":{
+        "navigation":"Navigation",
+        "you_are_here":"You Are Here"
+    },
+    "error": {
+        "contact_email": "or contact Freshbooks support at <a href=\"mailto:support@freshbooks.com\">support@freshbooks.com</a>.",
+        "occurred": "An error occurred",
+        "see_topic": "See <a>this topic</a> for troubleshooting",
+        "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience"
+    },
+    "global": {
+        "back": "Back",
+        "logout": "logout",
+        "sign_in": "Sign in",
+        "submit": "Submit",
+        "submitting": "Submitting...",
+        "loading": "Loading...",
+        "signed_in_as_message": "Signed in as {{name}}"
+    },
+    "BUTTON_TEXT_DE":"German",
+    "BUTTON_TEXT_EN":"english"
+}
