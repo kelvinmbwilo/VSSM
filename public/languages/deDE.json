@@ -22,8 +22,10 @@
         "recipients":"destinatarios",
         "recipient_levels":"Niveles de destinatarios",
         "user_management":"Gestión de usuarios",
+        "users":"Usuarios",
+        "user_roles":"Funciones de usuario",
         "vaccine_diluent":"Vacunas & diluyente",
-        "GTIN_lookup":"GTIN Buscar",
+    "GTIN_lookup":"Información Embalaje",
         "items_max_min":"Los productos Max Min",
         "sources":"Fuentes",
         "stores":"Tiendas",
@@ -43,9 +45,65 @@
         "move_items":"mover elementos"
 
     },
+    "error": {
+        "contact_email": "or contact Freshbooks support at <a href=\"mailto:support@freshbooks.com\">support@freshbooks.com</a>.",
+        "occurred": "Ocurrio un error",
+        "see_topic": "See <a>this topic</a> for troubleshooting",
+        "save_success": "Tema creado con éxito !",
+        "save_falure": "Algo salió mal , El artículo fue no se guarda !",
+        "update_success": "Artículo actualizado correctamente !",
+        "update_falure": "Algo salió mal , El artículo fue no se actualiza !",
+        "delete_success": "Elemento eliminado con éxito !",
+        "delete_falure": "Algo salió mal , El artículo fue no eliminados !",
+        "oldBrowserError":"Está utilizando un < strong> obsoleta < / strong > navegador. Por favor, <a href='http://browsehappy.com/'> actualizar su navegador </a> para mejorar tu experiencia"
+    },
     "labels":{
         "navigation":"Navegación",
-        "you_are_here":"Tú estás aquí"
+        "you_are_here":"Tú estás aquí",
+        "add": "Añadir",
+        "ok": "OK",
+        "cancel": "cancelar",
+        "add_recipient_level": "Añadir Nivel destinatario",
+        "update_recipient_level": "Actualización Nivel destinatario",
+        "confirm_delete":"¿Seguro que quieres borrar este elemento",
+        "irreversible_warning":"Esta acción es irreversible",
+        "code": "prefijo",
+        "name": "Nombre",
+        "submit":"Enviar",
+        "saving":"Ahorrar...",
+        "status":"Estado",
+        "action":"Acción",
+        "deleting":"Borrado...",
+        "active":"vivo",
+        "inactive":"Inactivo",
+        "notes":"Notas",
+        "distance":"Distancia",
+        "recipient_tree" : "Lista de Destinatarios",
+        "select_recipient" : "Para Iniciar seleccionar un destinatario en Derecho",
+        "update_user_roles":"Actualización función de usuario",
+        "add_user_roles":"Añadir función de usuario",
+        "first_name":"Nombre de pila",
+        "middle_name":"Segundo nombre",
+        "last_name": "Apellido",
+        "user_name": "Nombre de usuario",
+        "phone":"Teléfono",
+        "email":"Email",
+        "role": "Papel Sistema",
+        "select":"seleccionar",
+        "recipients":"destinatario",
+        "password": "Contraseña",
+        "re_password": "Re - contraseña"
+    },
+    "help": {
+        "add_another" : "Agrega otro",
+        "add_another_recipient" : "Agregar destinatario Para {{ name }}",
+        "update":"actualización",
+        "delete":"borrar",
+        "details":"Más información",
+        "add_another_user": "Añadir usuario del sistema",
+        "update_user": "Actualización del sistema del usuario",
+        "passwod_no_match":"Dos contraseña no coinciden",
+        "system_usage": "Uso de Vista System"
     },
     "global": {
         "back": "Zurück",
@@ -57,5 +115,43 @@
         "signed_in_as_message": "Angemeldet als {{name}}"
     },
     "BUTTON_TEXT_DE":"deutsch",
-    "BUTTON_TEXT_EN":"englisch"
+    "BUTTON_TEXT_EN":"englisch",
+    "dataTable": {
+        "sEmptyTable":     "No data available in table",
+        "sInfo":           "Mostrando _START_ a _END_ de entradas _TOTAL_",
+        "sInfoEmpty":      "Showing 0 to 0 of 0 entries",
+        "sInfoFiltered":   "(filtrada de las entradas totales _MAX_)",
+        "sInfoPostFix":    "",
+        "sInfoThousands":  ",",
+        "sLengthMenu":     "Mostrar entradas _MENU_",
+        "sLoadingRecords": "Cargando...",
+        "sProcessing":     "Procesamiento ...",
+        "sSearch":         "Buscar:",
+        "sZeroRecords":    "No se encontraron registros coincidentes",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "previo"
+        },
+        "oAria": {
+            "sSortAscending":  ": aactivar para ordenar la columna ascendente",
+            "sSortDescending": ": activar para ordenar la columna descendente"
+        }
+    },
+    "roles": {
+        "see_recipient_levels" : "Ver Niveles de destinatarios",
+        "add_recipient_levels" : "Crear Niveles de destinatarios",
+        "update_recipient_levels" : "Niveles de actualización de destinatarios",
+        "delete_recipient_levels" : "Eliminar Niveles de destinatarios",
+        "see_recipients" : "ver destinatarios",
+        "add_recipients" : "crear destinatarios",
+        "update_recipients" : "Actualizar destinatarios",
+        "delete_recipients" : "eliminar destinatarios",
+        "see_users" : "ver Usuarios",
+        "add_users" : "crear usuarios",
+        "update_users" : "Actualizar Usuarios",
+        "delete_users" : "borrar o"
+    }
+
 }

@@ -22,8 +22,10 @@
         "recipients":"Recipients",
         "recipient_levels":"Recipient Levels",
         "user_management":"User Management",
+        "users":"Users",
+        "user_roles":"User Roles",
         "vaccine_diluent":"Vaccine & Diluent",
-        "GTIN_lookup":"GTIN_Lookup",
+        "GTIN_lookup":"Packaging Information",
         "items_max_min":"Items Max Min",
         "sources":"Sources",
         "stores":"Stores",
@@ -45,13 +47,63 @@
     },
     "labels":{
         "navigation":"Navigation",
-        "you_are_here":"You Are Here"
+        "you_are_here":"You Are Here",
+        "add": "Add",
+        "ok": "OK",
+        "cancel": "Cancel",
+        "add_recipient_level": "Add Recipient Level",
+        "update_recipient_level": "Update Recipient Level",
+        "confirm_delete":"Are you sure you want to delete this item",
+        "irreversible_warning":"This action is irreversible",
+        "code": "Code",
+        "name": "Name",
+        "submit":"Submit",
+        "saving":"Saving...",
+        "status":"Status",
+        "action":"Action",
+        "deleting":"Deleting",
+        "active":"Active",
+        "inactive":"Inactive",
+        "notes":"Notes",
+        "distance":"Distance",
+        "recipient_tree" : "Recipients List",
+        "select_recipient": "To Start Select a Recipient on Right",
+        "update_user_roles":"Update User Roles",
+        "add_user_roles":"Add User Roles",
+        "first_name":"First Name",
+        "middle_name":"Middle Name",
+        "last_name": "Last Name",
+        "user_name": "User Name",
+        "phone":"Phone Number",
+        "email":"Email Address",
+        "role": "System Role",
+        "select":"Select",
+        "recipients":"Recipient",
+        "password": "Password",
+        "re_password": "Re-Password"
     },
     "error": {
         "contact_email": "or contact Freshbooks support at <a href=\"mailto:support@freshbooks.com\">support@freshbooks.com</a>.",
         "occurred": "An error occurred",
         "see_topic": "See <a>this topic</a> for troubleshooting",
+        "save_success": "Item Created Successfully!",
+        "save_falure": "Something Went Wrong, Item was Not Saved!",
+        "update_success": "Item Updated Successfully!",
+        "update_falure": "Something Went Wrong, Item was Not Updated!",
+        "delete_success": "Item Deleted Successfully!",
+        "delete_falure": "Something Went Wrong, Item was Not Deleted!",
         "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience"
+    },
+    "help": {
+        "add_another" : "Add Another",
+        "add_another_recipient" : "Add Recipient For {{ name }}",
+        "update":"Update",
+        "delete":"Delete",
+        "details":"More Information",
+        "add_another_user": "Add System User",
+        "update_user": "Update System User",
+        "passwod_no_match":"Two Password Do not Match",
+        "system_usage": "View System Usage"
     },
     "global": {
         "back": "Back",
@@ -63,5 +115,43 @@
         "signed_in_as_message": "Signed in as {{name}}"
     },
     "BUTTON_TEXT_DE":"German",
-    "BUTTON_TEXT_EN":"english"
+    "BUTTON_TEXT_EN":"english",
+    "dataTable": {
+        "sEmptyTable":     "No data available in table",
+        "sInfo":           "Mostrando _START_ a _END_ de entradas _TOTAL_",
+        "sInfoEmpty":      "Showing 0 to 0 of 0 entries",
+        "sInfoFiltered":   "(filtrada de las entradas totales _MAX_)",
+        "sInfoPostFix":    "",
+        "sInfoThousands":  ",",
+        "sLengthMenu":     "Mostrar entradas _MENU_",
+        "sLoadingRecords": "Cargando...",
+        "sProcessing":     "Procesamiento ...",
+        "sSearch":         "Buscar:",
+        "sZeroRecords":    "No se encontraron registros coincidentes",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "previo"
+        },
+        "oAria": {
+            "sSortAscending":  ": aactivar para ordenar la columna ascendente",
+            "sSortDescending": ": activar para ordenar la columna descendente"
+        }
+
+    },
+    "roles": {
+        "see_recipient_levels" : "See Recipient Levels",
+        "add_recipient_levels" : "Create Recipient Levels",
+        "update_recipient_levels" : "Update Recipient Levels",
+        "delete_recipient_levels" : "Delete Recipient Levels",
+        "see_recipients" : "See Recipients",
+        "add_recipients" : "Create Recipients",
+        "update_recipients" : "Update Recipients",
+        "delete_recipients" : "Delete Recipients",
+        "see_users" : "See Users",
+        "add_users" : "Create Users",
+        "update_users" : "Update Users",
+        "delete_users" : "Delete Users"
+    }
 }

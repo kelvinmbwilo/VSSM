@@ -1,3 +1,10 @@
+<?php
+if(Auth::guest()){
+
+    echo \Illuminate\Support\Facades\Redirect::to("login");
+}
+else{
+?>
 <!DOCTYPE html><!--[if lt IE 8]>
 <html class="no-js lt-ie8" ng-app="bahariApp" ng-controller="mainCtrl">
 <![endif]--><!--[if gt IE 8]><!-->
@@ -21,8 +28,11 @@
 <!--    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel=stylesheet type=text/css>-->
     <link href="<?php echo  asset('bower_components/angular-material/angular-material.min.css')  ?>" rel="stylesheet">
     <!-- Css files -->
+    <link rel=stylesheet href="<?php echo  asset('css/abn_tree.css') ?>">
     <link rel=stylesheet href="<?php echo  asset('css/main.min.css') ?>">
-<!--    <link rel=stylesheet href="--><?php //echo  asset('css/pace.css') ?><!--">-->
+    <link rel=stylesheet href="<?php echo  asset('bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css') ?>">
+
+    <!--    <link rel=stylesheet href="--><?php //echo  asset('css/pace.css') ?><!--">-->
     <!-- Fav and touch icons -->
     <link rel=icon href="<?php echo  asset('favicon.ico') ?>" type=image/png>
     <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
@@ -34,6 +44,7 @@
 <p class="browsehappy" translate="error.oldBrowserError">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]--><!-- .#header -->
 <div id=header>
+
     <nav class="navbar navbar-default" role=navigation>
         <div class=navbar-header><a class=navbar-brand href="./#dashboard">VSSM</a></div>
         <div id=navbar-no-collapse class=navbar-no-collapse>
@@ -65,13 +76,13 @@
                     </ul>
                 </li>
                 <li class=dropdown>
-                    <a href="blank.html#" class="dropdown-toggle avatar" data-toggle=dropdown><img src="img/avatar.jpg" alt="" class="image"> <span class=txt>admin@supr.com</span> <b class=caret></b></a>
+                    <a href="blank.html#" class="dropdown-toggle avatar" data-toggle=dropdown><i class="fa fa-user"></i> <span class=txt>{{ logedInUserName }}</span> <b class=caret></b></a>
                     <ul class="dropdown-menu right">
                         <li class=menu style="min-width: 200px;">
                             <ul>
                                 <li><a href="blank.html#"><i class="s16 icomoon-icon-user-plus" translate="menu.edit_profile"></i></a></li>
                                 <li><a href="blank.html#"><i class="s16 icomoon-icon-lock" translate="menu.reset_password"></i></a></li>
-                                <li><a href="blank.html#"><i class="s16 fa fa-sign-out" translate="menu.logout"></i></a></li>
+                                <li><a href="<?php echo url('logout') ?>"><i class="s16 fa fa-sign-out" translate="menu.logout"></i></a></li>
                                 <li class="seperator"></li>
                                 <li>
                                     <button class="btn-info pull-left" ng-click="changeLanguage('enUS')"><img style="height: 16px;width: 16px" src="<?php echo asset('img/en.png') ?>"> En</button>
@@ -107,12 +118,12 @@
             <!-- End .sidenav-widget -->
             <div class=mainnav>
                 <ul>
-                    <li><a href="index.html"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
+                    <li><a href="index.html" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
                     <li>
-                        <a href="blank.html#"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
+                        <a href="blank.html#"  ng-class="{ active: isActive('/group') || isActive('/home') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
-                            <li><a href="./#group"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="./#home"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
+                            <li><a href="./#group" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li><a href="./#home" ng-class="{ active1: isActive('/home') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
                     </li>
@@ -147,17 +158,17 @@
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-table-2"></i><span class=txt translate="menu.basic_data">Basic Data</span></a>
                         <ul class=sub>
-                            <li><a href="icons.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="icons.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.GTIN_lookup"></span></a></li>
-                            <li><a href="buttons.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.items_max_min"></span></a></li>
-                            <li><a href="tabs.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sources"></span></a></li>
-                            <li><a href="accordions.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stores"></span></a></li>
-                            <li><a href="modals.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transport_mode"></span></a></li>
-                            <li><a href="sliders.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
-                            <li><a href="progressbars.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
-                            <li><a href="notifications.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
-                            <li><a href="typo.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
-                            <li><a href="lists.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
+                            <li><a href="./#vaccine_diluent"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li><a href="./#packaging"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.GTIN_lookup"></span></a></li>
+                            <li><a href="./#item_min_max"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.items_max_min"></span></a></li>
+                            <li><a href="./#sources"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sources"></span></a></li>
+                            <li><a href="./#stores"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stores"></span></a></li>
+                            <li><a href="./#transport_modes"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transport_mode"></span></a></li>
+                            <li><a href="./#adjustment_reason"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
+                            <li><a href="./#activities"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
+                            <li><a href="./#manufactures"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
+                            <li><a href="./#annual_quota"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -168,13 +179,20 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="blank.html#"><i class="s16 icomoon-icon-location-3"></i><span class=txt translate="menu.recipients"></span></a>
+                        <a href="blank.html#" ng-class="{ active: isActive('/recipient') || isActive('/recipient_level') }"><i class="s16 icomoon-icon-location-3"></i><span class=txt translate="menu.recipients"></span></a>
                         <ul class=sub>
-                            <li><a href="maps-google.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
-                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients_levels"></span></a></li>
+                            <li><a href="./#recipient" ng-class="{ active1: isActive('/recipient') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
+                            <li><a href="./#recipient_level" ng-class="{ active1: isActive('/recipient_level') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients_levels"></span></a></li>
                         </ul>
                     </li>
-                    <li><a href="widgets.html"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a></li>
+                    <li>
+                        <a href="blank.html#" ng-class="{ active: isActive('/users') || isActive('/user_roles') }"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a>
+                        <ul class=sub>
+                            <li><a href="./#users" ng-class="{ active1: isActive('/users') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.users"></span></a></li>
+                            <li><a href="./#user_roles" ng-class="{ active1: isActive('/user_roles') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.user_roles"></span></a></li>
+                        </ul>
+                    </li>
+<!--                    <li><a href="widgets.html"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a></li>-->
                     <li><a href="widgets.html"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">9</span></a></li>
 
                 </ul>
@@ -188,6 +206,7 @@
 </div>
 
 <div id=content class="page-content clearfix" style="margin-right: 0px">
+
     <div ng-view></div>
     <!-- End contentwrapper -->
 </div>
@@ -220,17 +239,33 @@
 <script src="<?php echo  asset('bower_components/angular-animate/angular-animate.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-aria/angular-aria.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-material/angular-material.min.js')  ?>"></script>
+<script src="<?php echo  asset('js/abn_tree_directive.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-datatables/dist/angular-datatables.min.js')  ?>"></script>
+<script src="<?php echo  asset('bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js')  ?>"></script>
+<script src="<?php echo  asset('bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.min.js')  ?>"></script>
+<script src="<?php echo  asset('bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-translate/angular-translate.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-sanitize/angular-sanitize.min.js')  ?>"></script>
 <script>
-    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'pascalprecht.translate','ngSanitize']);
+    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree']);
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
+
+//angularJs Controllers
 <script src="<?php echo  asset('controllers/homeCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/groupCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/recipient/recipientCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/recipient/recipientLevelCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/users/userCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/users/userRolesCtrl.js')  ?>"></script>
 <!--<script src="--><?php //echo  asset('bootstrap/js/bootstrap.min.js')  ?><!--"></script>-->
 <script src="<?php echo  asset('js/ie10-viewport-bug-workaround.js')  ?>"></script>
 <script src="<?php echo  asset('js/pages/blank.js') ?>"></script>
+<script>
+    $(document).ready(function(){
+        $(".dashboard11").removeClass("active");
+    })
+</script>
+<?php } ?>

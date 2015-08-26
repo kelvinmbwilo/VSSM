@@ -14,6 +14,8 @@ class CreateRecipientsTable extends Migration
     {
         Schema::create('recipients', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('level');
+            $table->integer('parent_id');
             $table->string('code');
             $table->string('name');
             $table->string('transport_mode_id');

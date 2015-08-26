@@ -1,0 +1,17 @@
+{
+    "roles": {
+        //recipient levels
+       "see_recipient_levels" : "See Recipient Levels",
+       "add_recipient_levels" : "Create Recipient Levels",
+       "update_recipient_levels" : "Update Recipient Levels",
+       "delete_recipient_levels" : "Delete Recipient Levels",
+       "see_recipients" : "See Recipients",
+       "add_recipients" : "Create Recipients",
+       "update_recipients" : "Update Recipients",
+       "delete_recipients" : "Delete Recipients",
+       "see_users" : "See Users",
+       "add_users" : "Create Users",
+       "update_users" : "Update Users",
+       "delete_users" : "Delete Users"
+    }
+}

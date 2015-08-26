@@ -27,6 +27,7 @@ return array(
     'CreateStoreStocksTable' => $baseDir . '/database/migrations/2015_08_23_075334_create_store_stocks_table.php',
     'CreateStoresTable' => $baseDir . '/database/migrations/2015_08_22_094914_create_stores_table.php',
     'CreateTransportModesTable' => $baseDir . '/database/migrations/2015_08_22_100059_create_transport_modes_table.php',
+    'CreateUserRolesTable' => $baseDir . '/database/migrations/2015_08_25_205655_create_user_roles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateVaccineTable' => $baseDir . '/database/migrations/2015_08_22_093018_create_vaccine_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

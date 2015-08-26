@@ -1,0 +1,86 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="help.add_another_user" translate-values="{ name: data.currentOrgUnit }"></h4>
+</div>
+<div class="modal-body">
+    <form class="col-md-12" novalidate name="myForm">
+        <div class="col-md-6">
+            <!--first_name-->
+            <div class="form-group">
+                <label class="required" for="first_name" translate="labels.first_name"></label>
+                <input required="" type="text" ng-model="newItem.first_name" class="form-control" id="first_name" placeholder="{{ 'labels.first_name' | translate }}">
+            </div>
+            <!--last_name-->
+            <div class="form-group">
+                <label class="required" for="last_name" translate="labels.last_name"></label>
+                <input required="" type="text" ng-model="newItem.last_name" class="form-control" id="last_name" placeholder="{{ 'labels.last_name' | translate }}">
+            </div>
+            <!--phone-->
+            <div class="form-group">
+                <label for="phone" translate="labels.phone"></label>
+                <input type="text" ng-model="newItem.phone" class="form-control" id="phone" placeholder="{{ 'labels.phone' | translate }}">
+            </div>
+            <!--password-->
+            <div class="form-group">
+                <label class="required"  for="password" translate="labels.password"></label>
+                <input required="" ng-change="passwordNoMatch()" type="password" ng-model="newItem.password" class="form-control" id="password" placeholder="{{ 'labels.password' | translate }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <!--middle_name-->
+            <div class="form-group">
+                <label class="" for="middle_name" translate="labels.middle_name"></label>
+                <input type="text" ng-model="newItem.middle_name" class="form-control" id="middle_name" placeholder="{{ 'labels.middle_name' | translate }}">
+            </div>
+            <!--user_name-->
+            <div class="form-group">
+                <label class="required" for="user_name" translate="labels.user_name"></label>
+                <input required="" type="text" ng-model="newItem.user_name" class="form-control" id="user_name" placeholder="{{ 'labels.user_name' | translate }}">
+            </div>
+            <!--email-->
+            <div class="form-group">
+                <label class="required" for="email" translate="labels.email"></label>
+                <input required="" type="email" ng-model="newItem.email" class="form-control" id="email" placeholder="{{ 'labels.email' | translate }}">
+            </div>
+            <!--re_password-->
+            <div class="form-group">
+                <label class="required" for="re_password" translate="labels.re_password"></label>
+                <input required="" type="password" required="" ng-change="passwordNoMatch()" ng-model="newItem.re_password" class="form-control" id="re_password" placeholder="{{ 'labels.re_password' | translate }}">
+            </div>
+        </div>
+        <!--password warning-->
+        <div class="form-group">
+            <h5 class="text-warning" ng-if="passcheck"><i class='fa fa-warning fa-2x'></i> <span translate="help.passwod_no_match"> </span></h5>
+        </div>
+        <div class="form-group">
+        <label class="required" for="role" translate="labels.role"></label>
+        <select required="" type="text" ng-model="newItem.role" class="form-control" id="role">
+        <option value="" translate="labels.select"></option>
+        <option ng-repeat="role in userroles" value="{{ role.id }}">{{ role.name }}</option>
+        </select>
+        </div>
+        <!--recipients-->
+        <div class="form-group">
+        <label class="required" translate="labels.recipients"></label>
+            <abn-tree
+                    tree-data         = "data.orgUnit"
+                    tree-control      = "my_tree"
+                    icon-leaf         = "fa fa-file"
+                    icon-expand       = "fa fa-plus"
+                    icon-collapse     = "fa fa-minus"
+                    expand-level      = "2"
+                    style="font-size: 13px;border: 1px solid">
+                ></abn-tree>
+        </div>
+
+
+
+        <button type="submit" ng-disabled="myForm.$invalid || passcheck" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+        <br>
+        <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+    </form>
+
+</div>
+<div class="modal-footer">
+</div>

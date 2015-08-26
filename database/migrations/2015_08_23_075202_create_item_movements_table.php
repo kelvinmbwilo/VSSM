@@ -19,6 +19,7 @@ class CreateItemMovementsTable extends Migration
             $table->integer('store_item_id');
             $table->integer('user_id');
             $table->integer('amount');
+            $table->integer('recipient_id');
             $table->timestamps();
         });
     }

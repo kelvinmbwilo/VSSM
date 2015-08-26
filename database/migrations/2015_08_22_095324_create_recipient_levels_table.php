@@ -17,6 +17,7 @@ class CreateRecipientLevelsTable extends Migration
             $table->string('order');
             $table->string('name');
             $table->string('status');
+            $table->string('code');
             $table->timestamps();
         });
     }
