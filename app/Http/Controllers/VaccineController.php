@@ -41,14 +41,14 @@ class VaccineController extends Controller
     public function store(Request $request)
     {
         $item = new Vaccine;
-        $item->status   = "active";
-        $item->name     = $request->input("name");
-        $item->code     = $request->input("code");
-        $item->     = $request->input("");
-        $item->     = $request->input("");
-        $item->     = $request->input("");
-        $item->     = $request->input("");
-        $item->     = $request->input("");
+        $item->status               = "active";
+        $item->name                 = $request->input("name");
+        $item->code                 = $request->input("code");
+        $item->days_before_expiry   = $request->input("");
+        $item->type                 = $request->input("");
+        $item->require_diluent      = $request->input("");
+        $item->storage_type         = $request->input("");
+        $item->diluent_id           = $request->input("");
 
         $item->save();
         return $item;
@@ -76,11 +76,18 @@ class VaccineController extends Controller
     public function update(Request $request,$id)
     {
 
-        $recipient = Vaccine::find($id);
-        $recipient->name = $request->input('name');
-        $recipient->code = $request->input('code');
-        $recipient->status = $request->input('status');
-        $recipient->save();
+        $item = Vaccine::find($id);
+        $item->status               = $request->input('status');
+        $item->name                 = $request->input("name");
+        $item->code                 = $request->input("code");
+        $item->days_before_expiry   = $request->input("");
+        $item->type                 = $request->input("");
+        $item->require_diluent      = $request->input("");
+        $item->storage_type         = $request->input("");
+        $item->diluent_id           = $request->input("");
+
+        $item->save();
+        return $item;
     }
 
 
@@ -92,8 +99,8 @@ class VaccineController extends Controller
      */
     public function destroy($id)
     {
-        $recipient = Vaccine::find($id);
-        $recipient->delete();
+        $item = Vaccine::find($id);
+        $item->delete();
     }
 
 }

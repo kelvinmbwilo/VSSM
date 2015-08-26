@@ -260,6 +260,7 @@ else{
 <script src="<?php echo  asset('controllers/recipient/recipientLevelCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/users/userCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/users/userRolesCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/basicdata/basicDataCtrl.js')  ?>"></script>
 <!--<script src="--><?php //echo  asset('bootstrap/js/bootstrap.min.js')  ?><!--"></script>-->
 <script src="<?php echo  asset('js/ie10-viewport-bug-workaround.js')  ?>"></script>
 <script src="<?php echo  asset('js/pages/blank.js') ?>"></script>

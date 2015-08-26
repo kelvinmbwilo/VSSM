@@ -32,7 +32,7 @@ License: You must have a valid license purchased only from themeforest (the abov
 <div id=header class="animated fadeInDown">
     <div class=row>
         <div class=navbar>
-            <div class="container text-center"><a class=navbar-brand href="http://themes.suggelab.com/supr/dashboard.html">Supr.<span class=slogan>admin</span></a>
+            <div class="container text-center"><a class=navbar-brand href="#">VSSM<span class=slogan> (Vaccine Supplies and Stock Management) </span></a>
             </div>
         </div>
         <!-- /navbar -->

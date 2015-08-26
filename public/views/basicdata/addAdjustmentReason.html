@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="help.add_adjustment_reason"></h4>
+</div>
+<div class="modal-body">
+    <form class="col-md-8 col-md-offset-2" novalidate name="myForm">
+        <div class="form-group">
+            <label class="required" for="exampleInputEmail1" translate="labels.code"></label>
+            <input required="" type="text" ng-model="newItem.code" class="form-control" id="exampleInputEmail1" placeholder="{{ 'labels.code' | translate }}">
+        </div>
+        <div class="form-group">
+            <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
+            <input required="" type="text" ng-model="newItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
+        </div>
+
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+        <br>
+        <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+    </form>
+
+</div>
+<div class="modal-footer">
+</div>

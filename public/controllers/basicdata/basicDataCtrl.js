@@ -60,24 +60,24 @@ angular.module("vssmApp")
                 return data
             });
         }
-        $scope.showAEdit = function(item){
+        $scope.showAEdit = function(item,view){
             $scope.myItem = item;
             $modal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: 'views/recipient/updateRecipientLevel.html',
+                templateUrl: 'views/basicdata/'+view+'.html',
                 scope: $scope,
-                controller: 'AddModalInstanceCtrl',
+                controller: 'BasicModalInstanceCtrl',
                 size: "lg",
                 "backdrop":"static"
             });
         }
 
-        $scope.showAdd = function(){
+        $scope.showAdd = function(view){
             var modalInstance = $modal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: 'views/recipient/addRecipientLevel.html',
+                templateUrl: 'views/basicdata/'+view+'.html',
                 scope: $scope,
-                controller: 'AddModalInstanceCtrl',
+                controller: 'BasicModalInstanceCtrl',
                 size: "lg",
                 "backdrop":"static"
             });
@@ -141,18 +141,17 @@ angular.module("vssmApp")
 
             });
         };
-    }).controller('AddModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
+    }).controller('BasicModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
         var $translate = $filter('translate');
 
         $scope.ok = function () {
             $modalInstance.close();
         };
         $scope.currentSaving = false;
-        $scope.save = function(item){
-
+        $scope.save = function(item,route,items){
             $scope.currentSaving = true;
-            $http.post("index.php/recipient_levels", item).success(function (Item) {
-                $scope.recipients.push(Item);
+            $http.post("index.php/"+route, item).success(function (Item) {
+                items.push(Item);
                 $scope.newItem = {};
                 $mdToast.show(
                     $mdToast.simple()
@@ -176,12 +175,12 @@ angular.module("vssmApp")
 
         //updating an Item
         $scope.currentUpdating = false;
-        $scope.update = function(item){
+        $scope.update = function(item,route,items){
             $scope.currentUpdating = true;
-            $http.post("index.php/recipient_levels/"+item.id, item).success(function (newItem) {
-                for (var i = 0; i < $scope.recipients.length; i++) {
-                    if ($scope.recipients[i].id == newItem.id) {
-                        $scope.recipients[i] = newItem;
+            $http.post("index.php/"+route+"/"+item.id, item).success(function (newItem) {
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].id == newItem.id) {
+                        items[i] = newItem;
                         break;
                     }
                 }
