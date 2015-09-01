@@ -118,11 +118,12 @@ else{
             <!-- End .sidenav-widget -->
             <div class=mainnav>
                 <ul>
-                    <li><a href="index.html" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
+                    <li><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/group') || isActive('/home') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
                             <li><a href="./#group" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li><a href="./#group" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
                             <li><a href="./#home" ng-class="{ active1: isActive('/home') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
@@ -130,29 +131,32 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.dispatch"></span></a>
                         <ul class=sub>
-                            <li><a href="forms-basic.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Basic forms</span></a></li>
-                            <li><a href="forms-advanced.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Advanced forms</span></a></li>
-                            <li><a href="forms-layouts.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Form layouts</span></a></li>
-                            <li><a href="forms-wizard.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Form wizard</span></a></li>
-                            <li><a href="forms-validation.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>From validation</span></a></li>
-                            <li><a href="code-editor.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Code editor</span></a></li>
+                            <li><a href="forms-basic.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
+                            <li><a href="forms-advanced.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.summary"></span></a>
+                        <ul class=sub>
+                            <li><a href="forms-basic.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
+                            <li><a href="forms-advanced.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-stats-up"></i><span class=txt translate="menu.reports"></span></a>
                         <ul class=sub>
-                            <li><a href="tables-basic.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
-                            <li><a href="tables-data.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
-                            <li><a href="tables-ajax.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
-                            <li><a href="tables-pricing.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-equalizer-2"></i><span class=txt translate="menu.adjustment">Adjustment</span></a>
                         <ul class=sub>
-                            <li><a href="email-inbox.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
-                            <li><a href="email-read.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
-                            <li><a href="email-write.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -174,7 +178,7 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-cog-2"></i><span class=txt translate="menu.configuration"></span></a>
                         <ul class=sub>
-                            <li><a href="maps-google.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
 <!--                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Vector maps</span></a></li>-->
                         </ul>
                     </li>
@@ -193,7 +197,8 @@ else{
                         </ul>
                     </li>
 <!--                    <li><a href="widgets.html"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a></li>-->
-                    <li><a href="widgets.html"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">9</span></a></li>
+                    <li><a href="./#pre_advice"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
+                    <li><a href="./#"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">9</span></a></li>
 
                 </ul>
             </div>
@@ -248,8 +253,9 @@ else{
 <script src="<?php echo  asset('bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-sanitize/angular-sanitize.min.js')  ?>"></script>
+<script src="<?php echo  asset('bower_components/angular-ui-date/src/date.js')  ?>"></script>
 <script>
-    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree']);
+    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date']);
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
 

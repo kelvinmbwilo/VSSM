@@ -26,9 +26,9 @@ class VaccineController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function getDiluents()
     {
-        //
+        return Vaccine::where('type','diluent')->get();
     }
 
 
@@ -44,11 +44,11 @@ class VaccineController extends Controller
         $item->status               = "active";
         $item->name                 = $request->input("name");
         $item->code                 = $request->input("code");
-        $item->days_before_expiry   = $request->input("");
-        $item->type                 = $request->input("");
-        $item->require_diluent      = $request->input("");
-        $item->storage_type         = $request->input("");
-        $item->diluent_id           = $request->input("");
+        $item->days_before_expiry   = $request->input("days_before_expiry");
+        $item->type                 = $request->input("type");
+        $item->require_diluent      = ($request->has('require_diluent'))?$request->input("require_diluent"):false;
+        $item->storage_type         = $request->input("storage_type");
+        $item->diluent_id           = ($request->has('diluent_id'))?$request->input("diluent_id"):0;
 
         $item->save();
         return $item;
@@ -80,11 +80,11 @@ class VaccineController extends Controller
         $item->status               = $request->input('status');
         $item->name                 = $request->input("name");
         $item->code                 = $request->input("code");
-        $item->days_before_expiry   = $request->input("");
-        $item->type                 = $request->input("");
-        $item->require_diluent      = $request->input("");
-        $item->storage_type         = $request->input("");
-        $item->diluent_id           = $request->input("");
+        $item->days_before_expiry   = $request->input("days_before_expiry");
+        $item->type                 = $request->input("type");
+        $item->require_diluent      = ($request->has('require_diluent'))?$request->input("require_diluent"):"no";
+        $item->storage_type         = $request->input("storage_type");
+        $item->diluent_id           = ($request->has('diluent_id'))?$request->input("diluent_id"):0;
 
         $item->save();
         return $item;

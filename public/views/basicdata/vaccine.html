@@ -20,9 +20,13 @@
             <thead>
             <tr>
                 <th width="5%">#</th>
-                <th width="15%" translate="labels.code"></th>
-                <th width="15%" translate="labels.name"></th>
-                <th width="15%" translate="labels.status">Status</th>
+                <th width="10%" translate="labels.code"></th>
+                <th width="10%" translate="labels.name"></th>
+                <th width="10%" translate="labels.type"></th>
+                <th width="15%" translate="labels.days_before_expiry"></th>
+                <th width="15%" translate="labels.storage_type"></th>
+                <th width="15%" translate="labels.require_diluent"></th>
+                <th width="10%" translate="labels.status">Status</th>
                 <th width="10%" translate="labels.action">Action</th>
             </tr>
             </thead>
@@ -31,6 +35,18 @@
                 <td>{{ $index+1 }}</td>
                 <td>{{ item.code }}</td>
                 <td>{{ item.name }}</td>
+                <!--type-->
+                <td ng-if="item.type == 'vaccine'" translate="labels.vaccine"></td>
+                <td ng-if="item.type == 'diluent'" translate="labels.diluent"></td>
+                <td>{{ item.days_before_expiry }}</td>
+                <!--store types-->
+                <td ng-if="item.storage_type == 'above_zero'" translate="labels.above_zero"></td>
+                <td ng-if="item.storage_type == 'below_zero'" translate="labels.below_zero"></td>
+                <td ng-if="item.storage_type == 'dry_store'" translate="labels.dry_store"></td>
+                <!--diluent-->
+                <td ng-if="item.require_diluent == 'yes'" >{{ 'labels.yes' | translate }} <span style="font-weight: bold"> ({{ getDiluentName(item.diluent_id) }})</span></td>
+                <td ng-if="item.require_diluent == 'no'" translate="labels.no"></td>
+                <!--status-->
                 <td ng-if="item.status == 'active'" translate="labels.active"></td>
                 <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
                 <td>

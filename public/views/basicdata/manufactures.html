@@ -20,9 +20,12 @@
             <thead>
             <tr>
                 <th width="5%">#</th>
-                <th width="15%" translate="labels.code"></th>
+                <th width="10%" translate="labels.code"></th>
                 <th width="15%" translate="labels.name"></th>
-                <th width="15%" translate="labels.status">Status</th>
+                <th width="15%" translate="labels.physical_address"></th>
+                <th width="10%" translate="labels.country"></th>
+                <th width="15%" translate="labels.product_type"></th>
+                <th width="10%" translate="labels.status">Status</th>
                 <th width="10%" translate="labels.action">Action</th>
             </tr>
             </thead>
@@ -31,6 +34,10 @@
                 <td>{{ $index+1 }}</td>
                 <td>{{ item.code }}</td>
                 <td>{{ item.name }}</td>
+                <td>{{ item.physical_address }}</td>
+                <td>{{ item.country }}</td>
+                <td ng-if="item.product_type == 'vaccine'" translate="labels.vaccine"></td>
+                <td ng-if="item.product_type == 'diluent'" translate="labels.diluent"></td>
                 <td ng-if="item.status == 'active'" translate="labels.active"></td>
                 <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
                 <td>

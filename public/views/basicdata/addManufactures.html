@@ -8,12 +8,33 @@
             <label class="required" for="exampleInputEmail1" translate="labels.code"></label>
             <input required="" type="text" ng-model="newItem.code" class="form-control" id="exampleInputEmail1" placeholder="{{ 'labels.code' | translate }}">
         </div>
+        <!--name-->
         <div class="form-group">
             <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
             <input required="" type="text" ng-model="newItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
         </div>
+        <!--country-->
+        <div class="form-group">
+            <label for="country" translate="labels.country"></label>
+            <input type="text" ng-model="newItem.country" class="form-control" id="country" placeholder="{{ 'labels.country' | translate }}">
+        </div>
+        <!--product type-->
+        <div class="form-group">
+            <label class="required" for="product_type" translate="labels.product_type"></label>
+            <select required="" type="text" ng-model="newItem.product_type" class="form-control" id="product_type" >
+                <option value="" translate="labels.select"></option>
+                <option value="vaccine" translate="labels.vaccine"></option>
+                <option value="diluent" translate="labels.diluent"></option>
+            </select>
+        </div>
+        <!--physcal_address-->
+        <div class="form-group">
+            <label for="physical_address" translate="labels.physical_address"></label>
+            <input type="text" ng-model="newItem.physical_address" class="form-control" id="physical_address" placeholder="{{ 'labels.physical_address' | translate }}">
+        </div>
 
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'manufactures',manufactures)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

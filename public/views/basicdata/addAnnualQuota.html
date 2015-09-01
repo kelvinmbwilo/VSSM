@@ -4,16 +4,27 @@
 </div>
 <div class="modal-body">
     <form class="col-md-8 col-md-offset-2" novalidate name="myForm">
+        <!--recipient_id-->
         <div class="form-group">
-            <label class="required" for="exampleInputEmail1" translate="labels.code"></label>
-            <input required="" type="text" ng-model="newItem.code" class="form-control" id="exampleInputEmail1" placeholder="{{ 'labels.code' | translate }}">
+            <label class="required" for="recipient_id" translate="labels.recipients"></label>
+            <select ng-change="pullAnnualQuota(newItem.recipient_id,newItem.item_id)" required="" id="recipient_id" class="form-control" ng-model="newItem.recipient_id"  ng-options="obj.id as obj.name for obj in userRecipients">
+                <option value="" translate="labels.select"></option>
+            </select>
         </div>
+        <!--item_id-->
         <div class="form-group">
-            <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
-            <input required="" type="text" ng-model="newItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
+            <label class="required" for="item_id" translate="labels.product"></label>
+            <select ng-change="pullAnnualQuota(newItem.recipient_id,newItem.item_id)" required="" id="item_id" class="form-control" ng-model="newItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <!--expected_annual_need-->
+        <div class="form-group">
+            <label class="required" for="expected_annual_need" translate="labels.expected_annual_need"></label>
+            <input required="" type="text" ng-model="newItem.expected_annual_need" class="form-control" id="expected_annual_need" placeholder="{{ 'labels.expected_annual_need' | translate }}">
         </div>
 
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'annual_quota',annual_quota)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

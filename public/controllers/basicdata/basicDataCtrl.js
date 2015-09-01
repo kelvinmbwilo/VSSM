@@ -5,7 +5,9 @@
 angular.module("vssmApp")
     .controller("basicDataCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
         $scope.recipients = [];
+        $scope.newItem = {};
         $scope.currentSaving = false;
+        $scope.dataFormat = true;
         //get Activities
         $http.get("index.php/activities").success(function(data){
             $scope.activities = data;
@@ -50,16 +52,116 @@ angular.module("vssmApp")
             $scope.manufactures = data;
         });
 
-        //get annual_quota
+        //switch annual quota formats
+         $scope.switchFormats = function(val){
+             $scope.dataFormat = val;
+        };
         $http.get("index.php/annual_quota").success(function(data){
             $scope.annual_quota = data;
+//            angular.forEach(data,function(value){
+//                $scope.data.recipient_annual_quota[value.recipient_id] = [];
+//                $scope.data.recipient_annual_quota[value.recipient_id][value.item_id] = value;
+//            })
         });
 
-        $scope.getRecipients = function(order){
-            $http.get("index.php/recipient_levels/recipients/"+order).success(function(data){
-                return data
+        //save recipient annual quota
+        $scope.getAnnualQuota = function(itemId,recipientId){
+            var name = "";
+            angular.forEach($scope.annual_quota,function(value){
+                if(value.recipient_id == recipientId && value.item_id == itemId){
+                    name = value.expected_annual_need;
+                }
+            });
+            return name;
+        }
+        //save recipient annual quota
+        $scope.pullAnnualQuota = function(recipientId,itemId){
+            angular.forEach($scope.annual_quota,function(value){
+                if(value.recipient_id == recipientId && value.item_id == itemId){
+                    $scope.newItem.expected_annual_need = value.expected_annual_need;
+                }
             });
         }
+
+        //change formulas to use with min max
+        $scope.active11 = "btn-info";
+        $scope.useFormular1 = true;
+        $scope.changeFormula  = function(val){
+            $scope.newItem = {};
+            if(val == 1){
+                $scope.active11 = "btn-info";
+                $scope.active12 = "btn-default";
+                $scope.active13 = "btn-default";
+                $scope.useFormular1 = true;
+                $scope.useFormular2 = false;
+                $scope.useFormular3 = false;
+
+            }if(val == 2){
+                $scope.active11 = "btn-default";
+                $scope.active12 = "btn-info";
+                $scope.active13 = "btn-default";
+                $scope.useFormular1 = false;
+                $scope.useFormular2 = true;
+                $scope.useFormular3 = false;
+            }if(val == 3){
+                $scope.active11 = "btn-default";
+                $scope.active12 = "btn-default";
+                $scope.active13 = "btn-info";
+                $scope.useFormular1 = false;
+                $scope.useFormular2 = false;
+                $scope.useFormular3 = true;
+            }
+        }
+
+        //get annual_quota
+        $http.get("index.php/diluents").success(function(data){
+            $scope.diluents = data;
+        });
+        //get user_recipients
+        $http.get("index.php/user/recipients").success(function(data){
+            $scope.userRecipients = data;
+        });
+        //update Diluent list
+        $scope.updatedDiluents = function(){
+            $http.get("index.php/diluents").success(function(data){
+                $scope.diluents = data;
+            });
+        }
+        $scope.getDiluentName = function(id){
+            var name = "";
+            angular.forEach($scope.vaccines,function(value){
+                if(value.id == id){
+                    name =  value.name;
+                }
+            });
+            return name;
+        }
+        //updating add Model
+        $scope.isVaccine = true;
+        $scope.changeVaccine = function(val){
+            if(val == 'vaccine'){
+                $scope.isVaccine = true;
+            }else if(val == 'diluent'){
+                $scope.isVaccine = false;
+                delete $scope.newItem['diluent_id'];
+                $scope.newItem.require_diluent = "no";
+            }else{
+                $scope.isVaccine = false;
+            }
+        }
+
+        $scope.dilluentRequired = false;
+        $scope.changeRequire = function(val){
+            if(val == 'yes'){
+                $scope.dilluentRequired = true;
+                $scope.updatedDiluents();
+            }else {
+                $scope.dilluentRequired = false;
+                delete $scope.newItem['diluent_id'];
+            }
+        }
+
+
         $scope.showAEdit = function(item,view){
             $scope.myItem = item;
             $modal.open({
@@ -110,7 +212,7 @@ angular.module("vssmApp")
         var $translate = $filter('translate');
         $scope.deletedItem = [];
         $scope.deletingItem = [];
-        $scope.showConfirm = function(ev,id) {
+        $scope.showConfirm = function(ev,id,route) {
             var confirm = $mdDialog.confirm()
                 .title($translate('labels.confirm_delete'))
                 .content($translate('labels.irreversible_warning'))
@@ -120,7 +222,7 @@ angular.module("vssmApp")
                 .targetEvent(ev);
             $mdDialog.show(confirm).then(function() {
                 $scope.deletingItem[id] = true;
-                $http.post("index.php/delete/recipient_levels/"+id).success(function (newVal) {
+                $http.post("index.php/delete/"+route+"/"+id).success(function (newVal) {
                     $scope.deletedItem[id] = true;
                     $mdToast.show(
                         $mdToast.simple()
@@ -141,6 +243,19 @@ angular.module("vssmApp")
 
             });
         };
+
+
+        //preshipments specifics
+        $scope.updatePackaging = function(itemId){
+            $scope.packagingInformation =[];
+            angular.forEach($scope.packaging_information,function(value){
+                if(value.vaccine_id == itemId){
+                    value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                    $scope.packagingInformation.push(value);
+                }
+            });
+        }
+
     }).controller('BasicModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
         var $translate = $filter('translate');
 
@@ -208,3 +323,15 @@ angular.module("vssmApp")
             $modalInstance.dismiss('cancel');
         };
     });
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}

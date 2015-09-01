@@ -15,6 +15,13 @@ angular.module("vssmApp")
         //Variables Initialization
         $scope.data = {};
 
+        //date picker initialization
+        $scope.dateOptions = {
+            changeYear: true,
+            changeMonth: true,
+            dateFormat: 'yyyy-mm-dd'
+        };
+
         //getting the recipients level2
         $http.get("index.php/loggenInuser").success(function(data){
             $scope.logedInUser = data;

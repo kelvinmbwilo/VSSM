@@ -2,18 +2,18 @@
     <!--Content wrapper-->
     <div class=heading>
         <!--  .heading-->
-        <h3 translate="menu.adjustment_reasons"></h3>
+        <h3 translate="menu.pre_advice"></h3>
         <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
 
         <ul class=breadcrumb>
             <li translate="labels.you_are_here"></li>
             <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
-            <li class=active translate="menu.adjustment_reasons"></li>
+            <li class=active translate="menu.pre_advice"></li>
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
 
-    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addAdjustmentReason')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addPreAdvice')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     <div class="row">
 
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
@@ -27,19 +27,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="item in adjustment_reasons" ng-hide="deletedItem[item.id]">
+            <tr ng-repeat="item in pre_shipments" ng-hide="deletedItem[item.id]">
                 <td>{{ $index+1 }}</td>
                 <td>{{ item.code }}</td>
                 <td>{{ item.name }}</td>
                 <td ng-if="item.status == 'active'" translate="labels.active"></td>
                 <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
                 <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateAdustmenReason')"><i class="fa fa-pencil-square"></i>
+                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateActivies')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>
                             <span translate="help.update"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'adjustment_reasons')"><i class="fa fa-trash-o"></i>
+                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'pre_shipments')"><i class="fa fa-trash-o"></i>
 
                         <md-tooltip>
                             <span translate="help.delete"></span>

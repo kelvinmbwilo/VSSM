@@ -20,19 +20,18 @@
             <thead>
             <tr>
                 <th width="5%">#</th>
-                <th width="15%" translate="labels.code"></th>
-                <th width="15%" translate="labels.name"></th>
-                <th width="15%" translate="labels.status">Status</th>
+                <th width="15%" translate="labels.product"></th>
+                <th width="15%" translate="labels.min_value"></th>
+                <th width="15%" translate="labels.max_value"></th>
                 <th width="10%" translate="labels.action">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="item in items_min_max" ng-hide="deletedItem[item.id]">
                 <td>{{ $index+1 }}</td>
-                <td>{{ item.code }}</td>
-                <td>{{ item.name }}</td>
-                <td ng-if="item.status == 'active'" translate="labels.active"></td>
-                <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
+                <td>{{ item.vaccine.name }}</td>
+                <td>{{ item.min_value }}</td>
+                <td>{{ item.max_value }}</td>
                 <td>
                     <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateItemMaxMin')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>

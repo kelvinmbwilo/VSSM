@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ItemMinMaxController extends Controller
 {
@@ -17,7 +18,7 @@ class ItemMinMaxController extends Controller
      */
     public function index()
     {
-        return ItemMinMax::all();
+        return ItemMinMax::where('recipient_id',Auth::user()->recipient_id)->with('vaccine')->get();
     }
 
 
@@ -40,15 +41,18 @@ class ItemMinMaxController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new ItemMinMax;
-
-        $item->order    = count(ItemMinMax::all())+1;
-        $item->status   = "active";
-        $item->name     = $request->input("name");
-        $item->code     = $request->input("code");
-
+        $rec_id = Auth::user()->recipient_id;
+        if(count(ItemMinMax::where('recipient_id',$rec_id)->where('item_id',$request->input("item_id"))) != 0){
+            $item = ItemMinMax::where('recipient_id',$rec_id)->where('item_id',$request->input("item_id"))->first();
+        }else{
+            $item = new ItemMinMax;
+        }
+        $item->recipient_id   = Auth::user()->recipient_id;
+        $item->item_id     = $request->input("item_id");
+        $item->min_value     = $request->input("min_value");
+        $item->max_value     = $request->input("max_value");
         $item->save();
-        return $item;
+        return $item->load('vaccine');
     }
 
     /**
@@ -73,11 +77,12 @@ class ItemMinMaxController extends Controller
     public function update(Request $request,$id)
     {
 
-        $recipient = ItemMinMax::find($id);
-        $recipient->name = $request->input('name');
-        $recipient->code = $request->input('code');
-        $recipient->status = $request->input('status');
-        $recipient->save();
+        $item = ItemMinMax::find($id);
+        $item->item_id     = $request->input("item_id");
+        $item->min_value     = $request->input("min_value");
+        $item->max_value     = $request->input("max_value");
+        $item->save();
+        return $item->load('vaccine');
     }
 
 

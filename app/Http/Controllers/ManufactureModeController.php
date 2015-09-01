@@ -41,12 +41,12 @@ class ManufactureModeController extends Controller
     public function store(Request $request)
     {
         $item = new Manufacture;
-        $item->status   = "active";
-        $item->name     = $request->input("name");
-        $item->code     = $request->input("code");
-        $item->country     = $request->input("country");
-        $item->physical_address   = $request->input("physical_address");
-        $item->product_type   = $request->input("product_type");
+        $item->status           = "active";
+        $item->name             = $request->input("name");
+        $item->code             = $request->input("code");
+        $item->country          = ($request->has('country'))?$request->input("country"):"";
+        $item->physical_address = ($request->has('physical_address'))?$request->input("physical_address"):"";
+        $item->product_type     = $request->input("product_type");
         $item->save();
         return $item;
     }
@@ -74,12 +74,12 @@ class ManufactureModeController extends Controller
     {
 
         $item = Manufacture::find($id);
-        $item->status = $request->input('status');;
-        $item->name     = $request->input("name");
-        $item->code     = $request->input("code");
-        $item->country     = $request->input("country");
-        $item->physical_address   = $request->input("physical_address");
-        $item->product_type   = $request->input("product_type");
+        $item->status           = $request->input('status');;
+        $item->name             = $request->input("name");
+        $item->code             = $request->input("code");
+        $item->country          = $request->input("country");
+        $item->physical_address = $request->input("physical_address");
+        $item->product_type     = $request->input("product_type");
         $item->save();
         return $item;
     }

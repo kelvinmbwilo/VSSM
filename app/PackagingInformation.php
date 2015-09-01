@@ -18,6 +18,10 @@ class PackagingInformation extends Model
         return $this->belongsTo('App\Vaccine', 'vaccine_id', 'id');
     }
 
+    public function manufacture(){
+        return $this->belongsTo('App\Manufacture', 'manufacture_id', 'id');
+    }
+
     public function arrivalItems(){
         return $this->hasMany('App\ArrivalItem', 'packaging_id', 'id');
     }

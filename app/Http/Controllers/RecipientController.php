@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class RecipientController extends Controller
 {
@@ -25,9 +26,9 @@ class RecipientController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function userRecipients()
     {
-        //
+        return Recipient::find(Auth::user()->recipient_id)->childrens()->where('status','active')->get();
     }
 
     /**

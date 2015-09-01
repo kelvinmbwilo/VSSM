@@ -14,25 +14,27 @@
     <!-- End  / heading--><!-- Start .row -->
 
     <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addAnnualQuota')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
-    <div class="row">
+    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="switchFormats(false)" ng-if="dataFormat"><i class="s16 icomoon-icon-table"></i><span translate="labels.show_report"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="switchFormats(true)" ng-if="!dataFormat"><i class="s16 icomoon-icon-pen"></i><span translate="labels.show_data"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+
+    <div class="row" ng-if="dataFormat">
 
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
             <thead>
             <tr>
                 <th width="5%">#</th>
-                <th width="15%" translate="labels.code"></th>
-                <th width="15%" translate="labels.name"></th>
-                <th width="15%" translate="labels.status">Status</th>
+                <th width="15%" translate="labels.recipients"></th>
+                <th width="15%" translate="labels.product"></th>
+                <th width="15%" translate="labels.expected_annual_need"></th>
                 <th width="10%" translate="labels.action">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="item in annual_quota" ng-hide="deletedItem[item.id]">
                 <td>{{ $index+1 }}</td>
-                <td>{{ item.code }}</td>
-                <td>{{ item.name }}</td>
-                <td ng-if="item.status == 'active'" translate="labels.active"></td>
-                <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
+                <td>{{ item.recipient.name }}</td>
+                <td>{{ item.vaccine.name }}</td>
+                <td>{{ item.expected_annual_need }}</td>
                 <td>
                     <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateAnnualQuota')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>
@@ -46,6 +48,30 @@
                         </md-tooltip>
                     </md-button>
                     <span ng-if="deletingItem[item.id]"><i class="fa fa-spin fa-spinner"></i> <span translate="labels.deleting"></span></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- End .row -->
+
+    <div class="row" ng-if="!dataFormat">
+        <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+            <thead>
+            <tr>
+                <th width="5%">#</th>
+                <th  translate="labels.recipients"></th>
+                <th  ng-repeat="vaccine in vaccines | filter:{status:'active'}:true">{{ vaccine.name }}</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in userRecipients">
+                <td>{{ $index+1 }}</td>
+                <td>{{ item.name }}</td>
+                <td ng-repeat="vaccine in vaccines | filter:{status:'active'}:true">
+                    {{ getAnnualQuota(vaccine.id,item.id) }}
                 </td>
             </tr>
             </tbody>

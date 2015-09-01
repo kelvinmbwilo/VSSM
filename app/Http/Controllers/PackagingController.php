@@ -17,7 +17,7 @@ class PackagingController extends Controller
      */
     public function index()
     {
-        return PackagingInformation::all();
+        return PackagingInformation::where('status','!=','deleted')->with('vaccine','manufacture')->get();
     }
 
 
@@ -41,14 +41,16 @@ class PackagingController extends Controller
     public function store(Request $request)
     {
         $item = new PackagingInformation;
-        $item->vaccine_id     = $request->input("vaccine_id");
-        $item->GTIN     = $request->input("GTIN");
-        $item->dose_per_vial     = $request->input("dose_per_vial");
-        $item->vials_per_box     = $request->input("vials_per_box");
-        $item->cm_per_dose     = $request->input("cm_per_dose");
+        $item->vaccine_id         = $request->input("vaccine_id");
+        $item->GTIN               = $request->input("GTIN");
+        $item->dose_per_vial      = $request->input("dose_per_vial");
+        $item->vials_per_box      = $request->input("vials_per_box");
+        $item->cm_per_dose        = $request->input("cm_per_dose");
         $item->manufacture_id     = $request->input("manufacture_id");
+        $item->commercial_name    = $request->input("commercial_name");
+        $item->status               = "active";
         $item->save();
-        return $item;
+        return $item->load('vaccine','manufacture');
     }
 
     /**
@@ -79,8 +81,10 @@ class PackagingController extends Controller
         $item->vials_per_box     = $request->input("vials_per_box");
         $item->cm_per_dose     = $request->input("cm_per_dose");
         $item->manufacture_id     = $request->input("manufacture_id");
+        $item->commercial_name    = $request->input("commercial_name");
+        $item->status               = $request->input('status');
         $item->save();
-        return $item;
+        return $item->load('vaccine','manufacture');
     }
 
 
@@ -93,7 +97,8 @@ class PackagingController extends Controller
     public function destroy($id)
     {
         $item = PackagingInformation::find($id);
-        $item->delete();
+        $item->status = "deleted";
+        $item->save();
     }
 
 }

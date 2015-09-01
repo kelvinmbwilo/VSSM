@@ -90,6 +90,7 @@ class RecipientLevelController extends Controller
         $recipient->code = $request->input('code');
         $recipient->status = $request->input('status');
         $recipient->save();
+        return $recipient;
     }
 
 

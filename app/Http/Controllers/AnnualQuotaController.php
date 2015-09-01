@@ -17,7 +17,7 @@ class AnnualQuotaController extends Controller
      */
     public function index()
     {
-        return RecipientAnnualQuota::all();
+        return RecipientAnnualQuota::with('recipient','vaccine')->get();
     }
 
 
@@ -40,12 +40,16 @@ class AnnualQuotaController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new RecipientAnnualQuota;
-        $item->recipient_id   = "recipient_id";
+        if(count(RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))) != 0){
+          $item = RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->first();
+        }else{
+            $item = new RecipientAnnualQuota;
+        }
+        $item->recipient_id   = $request->input("recipient_id");
         $item->item_id    = $request->input("item_id");
         $item->expected_annual_need  = $request->input("expected_annual_need");
         $item->save();
-        return $item;
+        return $item->load('recipient','vaccine')->get();
     }
 
     /**
@@ -71,11 +75,11 @@ class AnnualQuotaController extends Controller
     {
 
         $item = RecipientAnnualQuota::find($id);
-        $item->recipient_id   = "recipient_id";
+        $item->recipient_id   = $request->input("recipient_id");
         $item->item_id    = $request->input("item_id");
         $item->expected_annual_need  = $request->input("expected_annual_need");
         $item->save();
-        return $item;
+        return $item->load('recipient','vaccine')->get();
     }
 
 

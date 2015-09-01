@@ -52,6 +52,19 @@ angular.module("vssmApp")
             });
         }
 
+        $scope.showLogs = function(item){
+            $scope.logItem = item;
+            $scope.currUsername = item.first_name +" "+item.last_name
+            $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/users/logs.html',
+                scope: $scope,
+                controller: 'UserModalInstanceCtrl',
+                size: "lg",
+                "backdrop":"static"
+            });
+        }
+
         $scope.showAdd = function(){
             var modalInstance = $modal.open({
                 animation: $scope.animationsEnabled,

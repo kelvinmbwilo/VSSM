@@ -1,9 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="help.update_packaging"></h4>
+</div>
+<div class="modal-body">
+    <form class="col-md-8 col-md-offset-2" novalidate name="myForm">
+        <!--vaccine-->
+        <div class="form-group">
+            <label class="required" for="exampleInputEmail1" translate="labels.product"></label>
+            <select required="" class="form-control" ng-model="myItem.vaccine_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>        </div>
+        <!--GTIN-->
+        <div class="form-group">
+            <label class="required" for="GTIN" translate="labels.GTIN"></label>
+            <input required="" type="text" ng-model="myItem.GTIN" class="form-control" id="GTIN" placeholder="{{ 'labels.GTIN' | translate }}">
+        </div>
+        <!--dose_per_vial-->
+        <div class="form-group">
+            <label class="required" for="dose_per_vial" translate="labels.dose_per_vial"></label>
+            <input required="" type="text" ng-model="myItem.dose_per_vial" class="form-control" id="dose_per_vial" placeholder="{{ 'labels.dose_per_vial' | translate }}">
+        </div>
+        <!--vials_per_box-->
+        <div class="form-group">
+            <label class="required" for="vials_per_box" translate="labels.vials_per_box"></label>
+            <input required="" type="text" ng-model="myItem.vials_per_box" class="form-control" id="vials_per_box" placeholder="{{ 'labels.vials_per_box' | translate }}">
+        </div>
+        <!--cm_per_dose-->
+        <div class="form-group">
+            <label class="required" for="cm_per_dose" translate="labels.cm_per_dose"></label>
+            <input required="" type="text" ng-model="myItem.cm_per_dose" class="form-control" id="cm_per_dose">
+        </div>
+        <!--manufacture_id-->
+        <div class="form-group">
+            <label class="required" for="manufacture_id" translate="labels.manufacture"></label>
+            <select id="manufacture_id" required="" class="form-control" ng-model="myItem.manufacture_id"  ng-options="obj.id as obj.name for obj in manufactures | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <!--commercial_name-->
+        <div class="form-group">
+            <label class="required" for="commercial_name" translate="labels.commercial_name"></label>
+            <input required="" type="text" ng-model="myItem.commercial_name" class="form-control" id="commercial_name" placeholder="{{ 'labels.commercial_name' | translate }}">
+        </div>
+        <!--status-->
+        <div class="form-group">
+            <label class="required" for="exampleInputPassword2" translate="labels.status"></label>
+            <select required="" type="text" ng-model="myItem.status" class="form-control" id="exampleInputPassword2" >
+                <option value="active" translate="labels.active"></option>
+                <option value="inactive" translate="labels.inactive"></option>
+            </select>
+            <span class="help-block"></span>
+        </div>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="update(myItem,'packaging_information',packaging_information)"></button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+        <br>
+        <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+    </form>
 
-</body>
-</html>
+</div>
+<div class="modal-footer">
+</div>

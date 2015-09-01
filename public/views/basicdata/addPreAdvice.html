@@ -1,0 +1,76 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="help.add_pre_advice"></h4>
+</div>
+<div class="modal-body">
+    <form class="col-md-10 col-md-offset-1" novalidate name="myForm">
+        <div class="col-sm-6">
+            <!--package_id-->
+            <div class="form-group">
+                <label class="required" for="package_id" translate="labels.package_id"></label>
+                <input required="" type="text" ng-model="newItem.package_id" class="form-control" id="package_id" placeholder="{{ 'labels.package_id' | translate }}">
+            </div>
+            <!--item_id-->
+            <div class="form-group">
+                <label class="required" for="item_id" translate="labels.product"></label>
+                <select required=""  ng-change="updatePackaging(newItem.item_id)" id="item_id" class="form-control" ng-model="newItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <!--expected_time_of_arrival-->
+            <div class="form-group">
+                <label class="required" for="expected_time_of_arrival" translate="labels.expected_time_of_arrival"></label>
+                <input required=""  type="text" ng-model="newItem.expected_time_of_arrival" class="form-control" id="expected_time_of_arrival" placeholder="{{ 'labels.expected_time_of_arrival' | translate }}">
+            </div>
+            <!--total_weight-->
+            <div class="form-group">
+                <label class="required" for="vials_per_box" translate="labels.total_weight"></label>
+                <input required="" type="text" ng-model="newItem.vials_per_box" class="form-control" id="vials_per_box" placeholder="{{ 'labels.vials_per_box' | translate }}">
+            </div>
+            <!--manufacture_date-->
+            <div class="form-group">
+                <label  for="manufacture_date" translate="labels.manufacture_date"></label>
+                <input  type="text" ng-model="newItem.manufacture_date" class="form-control" id="manufacture_date" placeholder="{{ 'labels.manufacture_date' | translate }}">
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+            <!--source_id-->
+            <div class="form-group">
+                <label class="required" for="exampleInputEmail1" translate="labels.source"></label>
+                <select required="" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <!--packaging_id-->
+            <div class="form-group">
+                <label class="required" for="packaging_id" translate="labels.packaging_id"></label>
+                <select required="" id="packaging_id" class="form-control" ng-model="newItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <!--number_of_doses-->
+            <div class="form-group">
+                <label class="required" for="number_of_doses" translate="labels.number_of_doses"></label>
+                <input required="" type="text" ng-model="newItem.number_of_doses" class="form-control" id="number_of_doses" placeholder="{{ 'labels.number_of_doses' | translate }}">
+            </div>
+            <!--lot_number-->
+            <div class="form-group">
+                <label class="required" for="lot_number" translate="labels.lot_number"></label>
+                <input required="" type="text" ng-model="newItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
+            </div>
+            <!--expired_date-->
+            <div class="form-group">
+                <label class="required" for="expired_date" translate="labels.expired_date"></label>
+                <input required="" type="text"  ng-model="newItem.expired_date" class="form-control" id="expired_date" placeholder="{{ 'labels.expired_date' | translate }}">
+            </div>
+        </div>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'pre_shipments',pre_shipments)"></button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+        <br>
+        <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+    </form>
+
+</div>
+<div class="modal-footer">
+</div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
@@ -44,10 +45,9 @@ class StoreController extends Controller
         $item->status           = "active";
         $item->name             = $request->input("name");
         $item->code             = $request->input("code");
-        $item->recipient_id     = $request->input("");
-        $item->net_volume       = $request->input("");
-        $item->store_type       = $request->input("");
-        $item->temperature      = $request->input("");
+        $item->recipient_id     = Auth::user()->recipient_id;
+        $item->net_volume       = $request->input("net_volume");
+        $item->store_type       = $request->input("store_type");
         $item->save();
         return $item;
     }
@@ -78,10 +78,8 @@ class StoreController extends Controller
         $item->status           = $request->input('status');
         $item->name             = $request->input("name");
         $item->code             = $request->input("code");
-        $item->recipient_id     = $request->input("");
-        $item->net_volume       = $request->input("");
-        $item->store_type       = $request->input("");
-        $item->temperature      = $request->input("");
+        $item->net_volume       = $request->input("net_volume");
+        $item->store_type       = $request->input("store_type");
         $item->save();
         return $item;
     }

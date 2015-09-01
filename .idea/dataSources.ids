@@ -2609,6 +2609,9 @@
       <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="decrease_amount" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="increase_amount" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="consider_wastage" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="adjustments" schema="" catalog="vssm" type="TABLE">
@@ -2709,12 +2712,14 @@
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="vaccine_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="GTIN" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="dose_per_vial" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="vials_per_box" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="cm_per_dose" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="manufacture_id" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="dose_per_vial" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="vials_per_box" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="cm_per_dose" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="manufacture_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="commercial_name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="password_resets" schema="" catalog="vssm" type="TABLE">
@@ -2723,6 +2728,36 @@
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <index name="password_resets_email_index" unique="false" columns="email"/>
       <index name="password_resets_token_index" unique="false" columns="token"/>
+    </table>
+    <table name="pre_advice" schema="" catalog="vssm" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="source_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="expected_time_of_arrival" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="total_weight" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="item_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="packaging_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="number_of_doses" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="lot_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="manufacture_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="expired_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="package_id" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="pre_advice_items" schema="" catalog="vssm" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="package_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="item_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="packaging_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="number_of_doses" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="lot_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="expired_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="recipient_annual_quota" schema="" catalog="vssm" type="TABLE">
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -2833,8 +2868,17 @@
       <column name="name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="net_volume" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="store_type" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="temperature" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="system_settings" schema="" catalog="vssm" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="language" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="main_currency" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="voucher_tittle" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="start_year" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <primary-key name="PRIMARY" columns="id"/>

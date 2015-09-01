@@ -12,8 +12,48 @@
             <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
             <input required="" type="text" ng-model="newItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
         </div>
+        <!--type -->
+        <div class="form-group">
+            <label class="required" for="type" translate="labels.type"></label>
+            <select required="" type="text" ng-model="newItem.type" class="form-control" id="type" ng-change="changeVaccine(newItem.type)">
+                <option value="" translate="labels.select"></option>
+                <option value="vaccine" translate="labels.vaccine"></option>
+                <option value="diluent" translate="labels.diluent"></option>
+            </select>
+        </div>
+        <!--days_before_expiry -->
+        <div class="form-group">
+            <label class="required" for="days_before_expiry" translate="labels.days_before_expiry"></label>
+            <input required="" type="text" ng-model="newItem.days_before_expiry" class="form-control" id="days_before_expiry" placeholder="{{ 'labels.days_before_expiry' | translate }}">
+        </div>
+        <!--storage_type -->
+        <div class="form-group">
+            <label class="required" for="storage_type" translate="labels.storage_type"></label>
+            <select required="" type="text" ng-model="newItem.storage_type" class="form-control" id="storage_type" >
+                <option value="" translate="labels.select"></option>
+                <option value="above_zero" translate="labels.above_zero"></option>
+                <option value="below_zero" translate="labels.below_zero"></option>
+                <option value="dry_store" translate="labels.dry_store"></option>
+            </select>
+        </div>
+        <!--require_diluent -->
+        <div class="form-group" ng-if="isVaccine">
+            <label for="exampleInputPassword1">
+                <input ng-true-value="'yes'" ng-false-value="'no'"  type="checkbox" ng-model="newItem.require_diluent" ng-change="changeRequire(newItem.require_diluent)"> <span translate="labels.require_diluent"></span>
+            </label>
+        </div>
+        <!--diluent_id-->
+        <div class="form-group" ng-if="dilluentRequired && isVaccine">
+            <label class="required"  for="diluent" translate="labels.diluent"></label>
+            <select required="" ng-model="newItem.diluent_id" class="form-control" id="diluent">
+                <option value="" translate="labels.select"></option>
+                <option ng-repeat="dil in diluents" value="{{ dil.id }}">{{ dil.name }}</option>
+            </select>
+            <!--<input type="text" ng-model="newItem.diluent_id"  placeholder="{{ 'labels.diluent' | translate }}">-->
+        </div>
 
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'vaccines',vaccines)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

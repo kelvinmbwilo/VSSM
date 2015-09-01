@@ -56,7 +56,7 @@ class UserController extends Controller
         $user->password     = Hash::make($request->input('password'));
         $user->recipient_id = $request->input('recipient_id');
         $user->save();
-        return $user->load('recipient', 'roles');;
+        return $user->load('recipient', 'roles');
     }
 
 

@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="labels.system_usage" translate-values="{ name: currUsername }"></h4>
+</div>
+<div class="modal-body">
+    <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+        <thead>
+        <tr>
+            <th width="5%">#</th>
+            <th width="15%" translate="labels.action"></th>
+            <th width="15%" translate="labels.date"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in userLogs" ng-hide="deletedItem[item.id]">
+            <td>{{ $index+1 }}</td>
+            <td>{{ item.action }} </td>
+            <td>{{ item.created_at }}</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+
+</div>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoresTable extends Migration
+class CreateSystemSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,12 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('system_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('recipient_id');
-            $table->string('code');
-            $table->string('name');
-            $table->string('net_volume');
-            $table->string('store_type');
-            $table->string('status');
+            $table->string('language');
+            $table->string('main_currency');
+            $table->string('voucher_tittle');
+            $table->string('start_year');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateStoresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stores');
+        Schema::drop('system_settings');
     }
 }

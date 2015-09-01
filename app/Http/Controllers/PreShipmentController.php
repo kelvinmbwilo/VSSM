@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PreShipment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,18 +17,30 @@ class PreShipmentController extends Controller
      */
     public function index()
     {
-        return RecipientLevel::all();
+        return PreShipment::where('status','!=','deleted')->with('vaccine','packaging','source')->get();
     }
 
 
     /**
-     * Show the form for creating a new resource.
+     * Show the pre shipment with specific status.
      *
+     * @param $status
      * @return Response
      */
-    public function create()
+    public function getWithStatus($status)
     {
-        //
+        return PreShipment::where('status',$status)->with('vaccine','packaging','source')->get();
+    }
+
+    /**
+     * Show the preshiment with specific id
+     *
+     * @param $id
+     * @return Response
+     */
+    public function getWithPackId($id)
+    {
+        return PreShipment::where('package_id',$id)->with('vaccine','packaging','source')->get();
     }
 
 
@@ -39,15 +52,21 @@ class PreShipmentController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new RecipientLevel;
-
-        $item->order    = count(RecipientLevel::all())+1;
-        $item->status   = "active";
-        $item->name     = $request->input("name");
-        $item->code     = $request->input("code");
+        $item = new PreShipment();
+        $item->status   = "pending";
+        $item->source_id     = $request->input("source_id");
+        $item->package_id     = $request->input("package_id");
+        $item->expected_time_of_arrival     = $request->input("expected_time_of_arrival");
+        $item->total_weight     = $request->input("total_weight");
+        $item->item_id     = $request->input("item_id");
+        $item->packaging_id     = $request->input("packaging_id");
+        $item->number_of_doses     = $request->input("number_of_doses");
+        $item->lot_number     = $request->input("lot_number");
+        $item->manufacture_date     = $request->input("manufacture_date");
+        $item->expired_date     = $request->input("expired_date");
 
         $item->save();
-        return $item;
+        return $item->load('vaccine','packaging','source');
     }
 
     /**
@@ -72,11 +91,19 @@ class PreShipmentController extends Controller
     public function update(Request $request,$id)
     {
 
-        $recipient = RecipientLevel::find($id);
-        $recipient->name = $request->input('name');
-        $recipient->code = $request->input('code');
-        $recipient->status = $request->input('status');
-        $recipient->save();
+        $item = PreShipment::find($id);
+        $item->source_id     = $request->input("source_id");
+        $item->package_id     = $request->input("package_id");
+        $item->expected_time_of_arrival     = $request->input("expected_time_of_arrival");
+        $item->total_weight     = $request->input("total_weight");
+        $item->item_id     = $request->input("item_id");
+        $item->packaging_id     = $request->input("packaging_id");
+        $item->number_of_doses     = $request->input("number_of_doses");
+        $item->lot_number     = $request->input("lot_number");
+        $item->manufacture_date     = $request->input("manufacture_date");
+        $item->expired_date     = $request->input("expired_date");
+        $item->save();
+        $item->load('vaccine','packaging','source');
     }
 
 
@@ -88,8 +115,9 @@ class PreShipmentController extends Controller
      */
     public function destroy($id)
     {
-        $recipient = RecipientLevel::find($id);
-        $recipient->delete();
+        $item = PreShipment::find($id);
+        $item->status = 'deleted';
+        $item->save();
     }
 
 }

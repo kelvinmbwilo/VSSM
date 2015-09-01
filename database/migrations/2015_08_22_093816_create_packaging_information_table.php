@@ -16,10 +16,12 @@ class CreatePackagingInformationTable extends Migration
             $table->increments('id');
             $table->integer('vaccine_id');
             $table->string('GTIN');
-            $table->string('dose_per_vial');
-            $table->string('vials_per_box');
+            $table->integer('dose_per_vial');
+            $table->integer('vials_per_box');
             $table->string('cm_per_dose');
-            $table->string('manufacture_id');
+            $table->string('commercial_name');
+            $table->integer('manufacture_id');
+            $table->string('status');
             $table->timestamps();
         });
     }

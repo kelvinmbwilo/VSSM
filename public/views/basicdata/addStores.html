@@ -12,8 +12,24 @@
             <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
             <input required="" type="text" ng-model="newItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
         </div>
+        <!--net volume-->
+        <div class="form-group">
+            <label class="required" for="net_volume" translate="labels.net_volume"></label>
+            <input required="" type="text" ng-model="newItem.net_volume" class="form-control" id="net_volume" placeholder="{{ 'labels.net_volume' | translate }}">
+        </div>
+        <!--store type-->
+        <div class="form-group">
+            <label class="required" for="store_type" translate="labels.store_type"></label>
+            <select required="" type="text" ng-model="newItem.store_type" class="form-control" id="store_type" >
+                <option value="" translate="labels.select"></option>
+                <option value="above_zero" translate="labels.above_zero"></option>
+                <option value="below_zero" translate="labels.below_zero"></option>
+                <option value="dry_store" translate="labels.dry_store"></option>
+            </select>
+        </div>
 
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'stores',stores)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

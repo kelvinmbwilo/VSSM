@@ -12,8 +12,25 @@
             <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
             <input required="" type="text" ng-model="newItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
         </div>
-
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem)"></button>
+        <!--decrease_amount -->
+        <div class="form-group">
+            <label for="decrease_amount">
+                <input id="decrease_amount" ng-true-value="'yes'" ng-false-value="'no'"  type="checkbox" ng-model="newItem.decrease_amount"> <span translate="labels.decrease_amount"></span>
+            </label>
+        </div>
+        <!-- increase_amount-->
+        <div class="form-group">
+            <label for="increase_amount">
+                <input id="increase_amount" ng-true-value="'yes'" ng-false-value="'no'"  type="checkbox" ng-model="newItem.increase_amount"> <span translate="labels.increase_amount"></span>
+            </label>
+        </div>
+        <!--consider_wastage -->
+        <div class="form-group">
+            <label for="consider_wastage">
+                <input id="consider_wastage" ng-true-value="'yes'" ng-false-value="'no'"  type="checkbox" ng-model="newItem.consider_wastage"> <span translate="labels.consider_wastage"></span>
+            </label>
+        </div>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'adjustment_reasons',adjustment_reasons)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

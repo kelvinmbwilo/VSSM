@@ -41,11 +41,6 @@ angular.module("vssmApp")
             controller: 'userRolesCtrl'
         });
 
-        $routeProvider.when("/",{
-            templateUrl: 'views/basicdata/',
-            controller: 'basicDataCtrl'
-        });
-
         $routeProvider.when("/activities",{
             templateUrl: 'views/basicdata/activities.html',
             controller: 'basicDataCtrl'
@@ -93,6 +88,11 @@ angular.module("vssmApp")
 
          $routeProvider.when("/vaccine_diluent",{
             templateUrl: 'views/basicdata/vaccine.html',
+            controller: 'basicDataCtrl'
+        });
+
+        $routeProvider.when("/pre_advice",{
+            templateUrl: 'views/pre_advice/pre_advice.html',
             controller: 'basicDataCtrl'
         });
 

@@ -41,10 +41,12 @@ class AdjustmentReasonModeController extends Controller
     public function store(Request $request)
     {
         $item = new AdjustmentReason;
-        $item->status   = "active";
-        $item->name     = $request->input("name");
-        $item->code     = $request->input("code");
-
+        $item->status               = "active";
+        $item->name                 = $request->input("name");
+        $item->code                 = $request->input("code");
+        $item->decrease_amount      = $request->input("decrease_amount");
+        $item->increase_amount      = $request->input("increase_amount");
+        $item->consider_wastage     = $request->input("consider_wastage");
         $item->save();
         return $item;
     }
@@ -75,6 +77,9 @@ class AdjustmentReasonModeController extends Controller
         $item->name = $request->input('name');
         $item->code = $request->input('code');
         $item->status = $request->input('status');
+        $item->decrease_amount      = $request->input("decrease_amount");
+        $item->increase_amount      = $request->input("increase_amount");
+        $item->consider_wastage     = $request->input("consider_wastage");
         $item->save();
         return $item;
     }

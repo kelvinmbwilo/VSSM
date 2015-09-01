@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdjustmentReasonsTable extends Migration
+class CreatePreAdviceItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,15 @@ class CreateAdjustmentReasonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('adjustment_reasons', function (Blueprint $table) {
+        Schema::create('pre_advice_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code');
-            $table->string('name');
+            $table->integer('package_id');
+            $table->integer('item_id');
+            $table->integer('packaging_id');
+            $table->integer('number_of_doses');
+            $table->string('lot_number');
+            $table->date('expired_date');
             $table->string('status');
-            $table->string('decrease_amount');
-            $table->string('increase_amount');
-            $table->string('consider_wastage');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateAdjustmentReasonsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('adjustment_reasons');
+        Schema::drop('pre_advice_items');
     }
 }

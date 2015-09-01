@@ -88,6 +88,9 @@ Route::get('recipients/{levelId}',array('uses'=>'RecipientController@getRecipien
 //getting recipients
 Route::get('recipients',array('uses'=>'RecipientController@index'));
 
+//getting recipients
+Route::get('user/recipients',array('uses'=>'RecipientController@userRecipients'));
+
 //saving a recipient
 Route::post('recipients',array('uses'=>'RecipientController@store'));
 
@@ -117,8 +120,11 @@ Route::post('activities/{id}',array('uses'=>'ActivitiesController@update'));
  * Vaccines
  */
 
-//getting Vaccines
+//getting Vaccines and Diluents
 Route::get('vaccines',array('uses'=>'VaccineController@index'));
+
+//getting Diluents alone
+Route::get('diluents',array('uses'=>'VaccineController@getDiluents'));
 
 //saving new Vaccines
 Route::post('vaccines',array('uses'=>'VaccineController@store'));
@@ -263,6 +269,9 @@ Route::post('annual_quota/{id}',array('uses'=>'AnnualQuotaController@update'));
 
 //getting pre_shipments
 Route::get('pre_shipments',array('uses'=>'PreShipmentController@index'));
+
+//getting pre_shipments of certain package_id
+Route::get('pre_shipments/{package_id}',array('uses'=>'PreShipmentController@getWithPackId'));
 
 //saving new pre_shipments
 Route::post('pre_shipments',array('uses'=>'PreShipmentController@store'));
