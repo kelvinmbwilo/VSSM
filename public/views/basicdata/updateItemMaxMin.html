@@ -1,9 +1,135 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="help.add_item_min_max"></h4>
+</div>
+<div class="modal-body">
+    <div class="col-md-10 col-md-offset-1" style="margin-bottom: 15px">
+        <button class="btn btn-group col-md-4 {{ active11 }}" ng-click="changeFormula(1)">Manual</button>
+        <button class="btn btn-group col-md-4 {{ active12 }}" ng-click="changeFormula(2)">Option One</button>
+        <button class="btn btn-group col-md-4 {{ active13 }}" ng-click="changeFormula(3)">Option two</button>
+    </div>
 
-</body>
-</html>
+    <form class="col-md-12" novalidate name="myForm" ng-if="useFormular1">
+        <!--item_id-->
+        <div class="form-group">
+            <label class="required" for="item_id" translate="labels.product"></label>
+            <select required="" id="item_id" class="form-control" ng-model="myItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <!--min_value-->
+        <div class="form-group">
+            <label class="required" for="min_value" translate="labels.min_value"></label>
+            <input required="" type="text" ng-model="myItem.min_value" class="form-control" id="min_value" placeholder="{{ 'labels.min_value' | translate }}">
+        </div>
+        <!--max_value-->
+        <div class="form-group">
+            <label class="required" for="max_value" translate="labels.max_value"></label>
+            <input required="" type="text" ng-model="myItem.max_value" class="form-control" id="max_value" placeholder="{{ 'labels.max_value' | translate }}">
+        </div>
+
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(myItem,'items_min_max',items_min_max)"></button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+        <br>
+        <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+    </form>
+
+    <!--formula two-->
+    <form class="col-md-12" novalidate name="myForm"  ng-if="useFormular2">
+        <!--item_id-->
+        <div class="form-group">
+            <div class="col-md-12"  style="margin-bottom: 15px">
+                <label class="required" for="item_id" translate="labels.product"></label>
+                <select required="" id="item_id" class="form-control" ng-model="myItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+        </div>
+        <!--item_id-->
+        <div class="form-group" >
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="annual_need" translate="labels.annual_need"></label>
+                <input required="" type="text" ng-model="myItem.annual_need" class="form-control" id="annual_need" placeholder="{{ 'labels.annual_need' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="shipments_per_year" translate="labels.shipments_per_year"></label>
+                <input required="" type="text" ng-model="myItem.shipments_per_year" class="form-control" id="shipments_per_year" placeholder="{{ 'labels.shipments_per_year' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="exampleInputPassword1" translate="labels.annual_need_safety"></label>
+                <input required="" type="text" ng-model="myItem.annual_need_safety" class="form-control" id="annual_need_safety" placeholder="{{ 'labels.annual_need_safety' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="lead_time" translate="labels.lead_time"></label>
+                <input required="" type="text" ng-model="myItem.lead_time" class="form-control" id="lead_time" placeholder="{{ 'labels.lead_time' | translate }}">
+            </div>
+
+        </div>
+        <div class="col-md-12" style="margin-top: 10px">
+            <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveFromFormula1(myItem,'items_min_max',items_min_max)"></button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+            <br>
+            <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+        </div>
+    </form>
+
+    <!--formula three-->
+    <form class="col-md-12" novalidate name="myForm"  ng-if="useFormular3">
+        <!--item_id-->
+        <div class="form-group" >
+            <div class="col-md-12"  style="margin-bottom: 15px">
+                <label class="required" for="item_id" translate="labels.product"></label>
+                <select required="" id="item_id" class="form-control" ng-model="myItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+        </div>
+        <!--item_id-->
+        <div class="form-group" >
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="total_population" translate="labels.total_population"></label>
+                <input required="" type="text" ng-model="myItem.annual_need" class="form-control" id="total_population" placeholder="{{ 'labels.total_population' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="under_one" translate="labels.under_one"></label>
+                <input required="" type="text" ng-model="myItem.under_one" class="form-control" id="under_one" placeholder="{{ 'labels.under_one' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="no_doses" translate="labels.no_doses"></label>
+                <input required="" type="text" ng-model="myItem.no_doses" class="form-control" id="no_doses" placeholder="{{ 'labels.no_doses' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="lead_time" translate="labels.wastage_factor"></label>
+                <input required="" type="text" ng-model="myItem.wastage_factor" class="form-control" id="wastage_factor" placeholder="{{ 'labels.wastage_factor' | translate }}">
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="annual_need" translate="labels.coverage"></label>
+                <input required="" type="text" ng-model="myItem.coverage" class="form-control" id="coverage" placeholder="{{ 'labels.coverage' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="shipments_per_year1" translate="labels.shipments_per_year"></label>
+                <input required="" type="text" ng-model="myItem.shipments_per_year" class="form-control" id="shipments_per_year1" placeholder="{{ 'labels.shipments_per_year' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="annual_need_safety1" translate="labels.annual_need_safety"></label>
+                <input required="" type="text" ng-model="myItem.annual_need_safety" class="form-control" id="annual_need_safety1" placeholder="{{ 'labels.annual_need_safety' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="lead_time1" translate="labels.lead_time"></label>
+                <input required="" type="text" ng-model="myItem.lead_time" class="form-control" id="lead_time1" placeholder="{{ 'labels.lead_time' | translate }}">
+            </div>
+
+        </div>
+        <div class="col-md-12"  style="margin-top: 10px">
+            <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveFromFormula1(myItem,'items_min_max',items_min_max)"></button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+            <br>
+            <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+</div>

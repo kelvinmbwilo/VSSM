@@ -122,24 +122,25 @@ else{
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/group') || isActive('/home') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
-                            <li><a href="./#group" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="./#group" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
-                            <li><a href="./#home" ng-class="{ active1: isActive('/home') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
+                            <li><a href="./#receive" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li><a href="./#receive_pre" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
+                            <li><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
+                            <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.open_stock"></span></a></li>
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.dispatch"></span></a>
                         <ul class=sub>
-                            <li><a href="forms-basic.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
-                            <li><a href="forms-advanced.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>
+                            <li><a href="./#dispatch"  ng-class="{ active1: isActive('/dispatch') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
+                            <li><a href="./#requests" ng-class="{ active1: isActive('/requests') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.summary"></span></a>
+                        <a href="blank.html#"><i class="s16 icomoon-icon-tab"></i><span class=txt translate="menu.summary"></span></a>
                         <ul class=sub>
-                            <li><a href="forms-basic.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
-                            <li><a href="forms-advanced.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
+                            <li><a href="./#expected_packages"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
+                            <li><a href="./#dispatched_packeges"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -178,7 +179,7 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-cog-2"></i><span class=txt translate="menu.configuration"></span></a>
                         <ul class=sub>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
+                            <li><a href="./#system_settings"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
 <!--                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Vector maps</span></a></li>-->
                         </ul>
                     </li>
@@ -262,6 +263,9 @@ else{
 //angularJs Controllers
 <script src="<?php echo  asset('controllers/homeCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/groupCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/receiveCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/dispatch.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/openStockCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/recipient/recipientCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/recipient/recipientLevelCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/users/userCtrl.js')  ?>"></script>

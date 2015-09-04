@@ -46,7 +46,7 @@ class VaccineController extends Controller
         $item->code                 = $request->input("code");
         $item->days_before_expiry   = $request->input("days_before_expiry");
         $item->type                 = $request->input("type");
-        $item->require_diluent      = ($request->has('require_diluent'))?$request->input("require_diluent"):false;
+        $item->require_diluent      = ($request->has('require_diluent'))?$request->input("require_diluent"):"no";
         $item->storage_type         = $request->input("storage_type");
         $item->diluent_id           = ($request->has('diluent_id'))?$request->input("diluent_id"):0;
 

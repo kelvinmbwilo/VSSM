@@ -18,7 +18,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return Store::all();
+        return Store::where('recipient_id',Auth::user()->recipient_id)->get();
     }
 
 

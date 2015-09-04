@@ -1,0 +1,110 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" translate="help.add_item"></h4>
+</div>
+<div class="modal-body">
+    <!--formula three-->
+    <form class="col-md-12" novalidate name="myForm">
+        <!--item_id-->
+        <div class="form-group" >
+            <div class="col-md-12"  style="margin-bottom: 15px">
+                <label  for="scan_item" translate="labels.scan_item"></label>
+                <input id="scan_item" ng-change="prepareItems(scanned_value)" type="text" ng-model="scanned_value" class="form-control" id="total_population" placeholder="{{ 'labels.scan_item' | translate }}">
+        </div>
+        </div>
+        <!--item_id-->
+        <div class="form-group" >
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="total_population" translate="labels.product"></label>
+                <select required="" ng-change="updatePackaging(oneItem.item_id)" class="form-control" ng-model="oneItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="packaging_id" translate="labels.Dose_vial"></label>
+                <select required="" ng-change="getVaccineInfo(oneItem.packaging_id)" id="packaging_id" class="form-control" ng-model="oneItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="under_one" translate="labels.manufacture"></label>
+                <select required="" class="form-control" ng-model="oneItem.manufacture_id"  ng-options="obj.id as obj.name for obj in manufactures  | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="no_doses" translate="labels.lot_number"></label>
+                <input required="" type="text" ng-model="oneItem.lot_number" class="form-control" id="no_doses" placeholder="{{ 'labels.lot_number' | translate }}">
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="doses" translate="labels.doses"></label>
+                <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="u_price" translate="labels.u_price"></label>
+                <input required="" ng-change="getTotal(oneItem.u_price,oneItem.doses)" type="text" ng-model="oneItem.u_price" class="form-control" id="u_price" placeholder="{{ 'labels.u_price' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="t_price" translate="labels.t_price"></label>
+                <input required="" ng-change="getUnit(oneItem.t_price,oneItem.doses)" type="text" ng-model="oneItem.t_price" class="form-control" id="t_price" placeholder="{{ 'labels.t_price' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+            <label class="required" for="expired_date" translate="labels.expired_date"></label>
+            <p class="input-group">
+                <input type="text" id="expired_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.expired_date" is-open="status.opened3"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="activity" translate="labels.activity"></label>
+                <select required="" id="activity" class="form-control" ng-model="oneItem.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="store" translate="labels.store"></label>
+                <select required="" id="store" class="form-control" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active',store_type:vaccineStore}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="vvm_stage" translate="labels.vvm_stage"></label>
+                <!--status-->
+                    <select id="vvm_stage"  type="text" ng-model="oneItem.vvm_stage" class="form-control" id="exampleInputPassword2" >
+                        <option value="" translate="labels.select"></option>
+                        <option value="stage1" translate="labels.stage1"></option>
+                        <option value="stage2" translate="labels.stage2"></option>
+                        <option value="stage3" translate="labels.stage3"></option>
+                        <option value="stage4" translate="labels.stage4"></option>
+                    </select>
+                    <span class="help-block"></span>
+             </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label class="required" for="prod_date" translate="labels.prod_date"></label>
+                <p class="input-group">
+                    <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-12"  style="margin-top: 10px">
+            <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveOneItem(oneItem)"></button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+            <br>
+            <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+</div>

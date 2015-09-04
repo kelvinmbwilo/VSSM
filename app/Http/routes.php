@@ -281,3 +281,13 @@ Route::post('delete/pre_shipments/{id}',array('uses'=>'PreShipmentController@des
 
 //Updating  pre_shipments
 Route::post('pre_shipments/{id}',array('uses'=>'PreShipmentController@update'));
+
+/**
+ * system_settings
+ */
+
+//getting pre_shipments
+Route::get('system_settings',array('uses'=>'UserController@getSettings'));
+
+//saving new pre_shipments
+Route::post('system_settings',array('uses'=>'UserController@saveSettings'));

@@ -15,6 +15,11 @@ angular.module("vssmApp")
         //get packaging_information
         $http.get("index.php/packaging_information").success(function(data){
             $scope.packaging_information = data;
+            $scope.packagingInformation =[];
+            angular.forEach($scope.packaging_information,function(value){
+                value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                $scope.packagingInformation.push(value);
+            });
         });
 
         //get vaccines
@@ -58,10 +63,6 @@ angular.module("vssmApp")
         };
         $http.get("index.php/annual_quota").success(function(data){
             $scope.annual_quota = data;
-//            angular.forEach(data,function(value){
-//                $scope.data.recipient_annual_quota[value.recipient_id] = [];
-//                $scope.data.recipient_annual_quota[value.recipient_id][value.item_id] = value;
-//            })
         });
 
         //save recipient annual quota
@@ -113,13 +114,17 @@ angular.module("vssmApp")
             }
         }
 
-        //get annual_quota
+        //get vaccine diluents
         $http.get("index.php/diluents").success(function(data){
             $scope.diluents = data;
         });
         //get user_recipients
         $http.get("index.php/user/recipients").success(function(data){
             $scope.userRecipients = data;
+        });
+        //get pre-shipments
+        $http.get("index.php/pre_shipments").success(function(data){
+            $scope.pre_shipments = data;
         });
         //update Diluent list
         $scope.updatedDiluents = function(){
@@ -136,7 +141,8 @@ angular.module("vssmApp")
             });
             return name;
         }
-        //updating add Model
+
+        //updating add Model when either vaccine or diluent is selected
         $scope.isVaccine = true;
         $scope.changeVaccine = function(val){
             if(val == 'vaccine'){
@@ -150,6 +156,7 @@ angular.module("vssmApp")
             }
         }
 
+        //check if dilluent is requiered
         $scope.dilluentRequired = false;
         $scope.changeRequire = function(val){
             if(val == 'yes'){
@@ -175,6 +182,9 @@ angular.module("vssmApp")
         }
 
         $scope.showAdd = function(view){
+
+            $scope.newItem = {};
+            $scope.dilluentRequired = false;
             var modalInstance = $modal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/basicdata/'+view+'.html',
@@ -244,7 +254,6 @@ angular.module("vssmApp")
             });
         };
 
-
         //preshipments specifics
         $scope.updatePackaging = function(itemId){
             $scope.packagingInformation =[];
@@ -255,6 +264,30 @@ angular.module("vssmApp")
                 }
             });
         }
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
+        $scope.status = {
+            opened: false,
+            opened1: false,
+            opened2: false,
+            opened3: false
+        };
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
+        $scope.open = function($event) {
+            $scope.status.opened = true;
+        };
+        $scope.open1 = function($event) {
+            $scope.status.opened1 = true;
+        };
+        $scope.open2 = function($event) {
+            $scope.status.opened2 = true;
+        };
+        $scope.open3 = function($event) {
+            $scope.status.opened3 = true;
+        };
 
     }).controller('BasicModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
         var $translate = $filter('translate');

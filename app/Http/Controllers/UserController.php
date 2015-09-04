@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SystemSettings;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -152,6 +153,35 @@ class UserController extends Controller
         Auth::logout();
         return Redirect::to("login");
     }
+
+     /**
+     * return system settings
+     *
+     * @return view
+     */
+    public function getSettings(){
+        return SystemSettings::all();
+    }
+
+     /**
+     * save new system settings
+     *
+      * @param  Request  $request
+     * @return view
+     */
+    public function saveSettings(Request $request){
+        if(count(SystemSettings::all()) != 0){
+            $item = SystemSettings::first();
+        }else{
+            $item = new SystemSettings;
+        }
+        $item->language     = $request->input("language");
+        $item->main_currency     = $request->input("main_currency");
+        $item-> start_year    = $request->input("start_year");
+        $item->save();
+        return $item;
+    }
+
 
 
 }

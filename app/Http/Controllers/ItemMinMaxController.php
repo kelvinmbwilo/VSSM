@@ -42,12 +42,12 @@ class ItemMinMaxController extends Controller
     public function store(Request $request)
     {
         $rec_id = Auth::user()->recipient_id;
-        if(count(ItemMinMax::where('recipient_id',$rec_id)->where('item_id',$request->input("item_id"))) != 0){
+        if(count(ItemMinMax::where('recipient_id',$rec_id)->where('item_id',$request->input("item_id"))->get()) != 0){
             $item = ItemMinMax::where('recipient_id',$rec_id)->where('item_id',$request->input("item_id"))->first();
         }else{
             $item = new ItemMinMax;
         }
-        $item->recipient_id   = Auth::user()->recipient_id;
+        $item->recipient_id   = $rec_id;
         $item->item_id     = $request->input("item_id");
         $item->min_value     = $request->input("min_value");
         $item->max_value     = $request->input("max_value");

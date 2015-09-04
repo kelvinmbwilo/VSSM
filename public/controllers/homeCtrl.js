@@ -118,6 +118,15 @@ angular.module("vssmApp")
         $http.get("index.php/recipients/4").success(function(data){
             $scope.data.recipientsLevel4 = data;
         });
+        //getting the recipients level4
+        $http.get("index.php/system_settings").success(function(data){
+            $scope.system_settings = data;
+        });
+        //get user_recipients
+        $http.get("index.php/user/recipients").success(function(data){
+            $scope.userRecipients = data;
+        });
+
     }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast) {
 
     });

@@ -1,0 +1,57 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.system_settings"></h3>
+        <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.system_settings"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+
+    <div class="row">
+        <form class="col-md-8 col-md-offset-2" novalidate name="myForm">
+            <div class="form-group">
+                <label class="required" for="language" translate="labels.language"></label>
+                <select required="" type="text" ng-model="system_settings[0].language" class="form-control" id="language" >
+                    <option value="" translate="labels.select"></option>
+                    <option value="enUS" translate="help.english"></option>
+                    <option value="deDE" translate="help.spanish"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="required" for="exampleInputPassword1" translate="labels.main_currency"></label>
+                <input required="" type="text" ng-model="system_settings[0].main_currency" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.main_currency' | translate }}">
+            </div>
+            <div class="form-group">
+                <label class="required" for="start_year" translate="labels.start_year"></label>
+                <select required="" type="text" ng-model="system_settings[0].start_year" class="form-control" id="start_year" >
+                    <option value="" translate="labels.select"></option>
+                    <option value="01" translate="help.january"></option>
+                    <option value="02" translate="help.february"></option>
+                    <option value="03" translate="help.march"></option>
+                    <option value="04" translate="help.april"></option>
+                    <option value="05" translate="help.may"></option>
+                    <option value="06" translate="help.june"></option>
+                    <option value="07" translate="help.july"></option>
+                    <option value="08" translate="help.august"></option>
+                    <option value="09" translate="help.september"></option>
+                    <option value="10" translate="help.october"></option>
+                    <option value="11" translate="help.november"></option>
+                    <option value="12" translate="help.december"></option>
+                </select>
+            </div>
+
+            <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveSettings(system_settings[0])"></button>
+            <!--<button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>-->
+            <br>
+            <span  ng-if="currentSaving1"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
+        </form>
+
+    </div>
+    <!-- End .row -->
+</div>

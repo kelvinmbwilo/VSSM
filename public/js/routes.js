@@ -95,6 +95,26 @@ angular.module("vssmApp")
             templateUrl: 'views/pre_advice/pre_advice.html',
             controller: 'basicDataCtrl'
         });
+        $routeProvider.when("/receive",{
+            templateUrl: 'views/receive/receive.html',
+            controller: 'receiveCtrl'
+        });
+
+        $routeProvider.when("/dispatch",{
+            templateUrl: 'views/dispatch/dispatch.html',
+            controller: 'dispatchCtrl'
+        });
+
+        $routeProvider.when("/open_stock",{
+            templateUrl: 'views/open_stock/open_stock.html',
+            controller: 'openStockCtrl'
+        });
+
+        $routeProvider.when("/system_settings",{
+            templateUrl: 'views/systemSettings.html',
+            controller: 'groupCtrl'
+        });
+
 
 
         $routeProvider.otherwise({

@@ -1,6 +1,6 @@
 <div class="modal-header">
     <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title" translate="help.add_pre_advice"></h4>
+    <h4 class="modal-title" translate="help.update_pre_advice"></h4>
 </div>
 <div class="modal-body">
     <form class="col-md-10 col-md-offset-1" novalidate name="myForm">
@@ -8,12 +8,12 @@
             <!--package_id-->
             <div class="form-group">
                 <label class="required" for="package_id" translate="labels.package_id"></label>
-                <input required="" type="text" ng-model="newItem.package_id" class="form-control" id="package_id" placeholder="{{ 'labels.package_id' | translate }}">
+                <input required="" type="text" ng-model="myItem.package_id" class="form-control" id="package_id" placeholder="{{ 'labels.package_id' | translate }}">
             </div>
             <!--item_id-->
             <div class="form-group">
                 <label class="required" for="item_id" translate="labels.product"></label>
-                <select required=""  ng-change="updatePackaging(newItem.item_id)" id="item_id" class="form-control" ng-model="newItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                <select required=""  ng-change="updatePackaging(myItem.item_id)" id="item_id" class="form-control" ng-model="myItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
@@ -21,28 +21,28 @@
             <div class="form-group">
                 <label class="required" for="expected_time_of_arrival" translate="labels.expected_time_of_arrival"></label>
                 <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.expected_time_of_arrival" is-open="status.opened3" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expected_time_of_arrival' | translate }}" />
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="myItem.expected_time_of_arrival" is-open="status.opened3" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expected_time_of_arrival' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
                 </p>
-                <!--<input required=""  type="text" ng-model="newItem.expected_time_of_arrival" class="form-control" id="expected_time_of_arrival" placeholder="{{ 'labels.expected_time_of_arrival' | translate }}">-->
+                <!--<input required=""  type="text" ng-model="myItem.expected_time_of_arrival" class="form-control" id="expected_time_of_arrival" placeholder="{{ 'labels.expected_time_of_arrival' | translate }}">-->
             </div>
             <!--total_weight-->
             <div class="form-group">
                 <label class="required" for="total_weight" translate="labels.total_weight"></label>
-                <input required="" type="text" ng-model="newItem.total_weight" class="form-control" id="total_weight" placeholder="{{ 'labels.total_weight' | translate }}">
+                <input required="" type="text" ng-model="myItem.total_weight" class="form-control" id="total_weight" placeholder="{{ 'labels.total_weight' | translate }}">
             </div>
             <!--manufacture_date-->
             <div class="form-group">
                 <label  for="manufacture_date" translate="labels.manufacture_date"></label>
                 <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.manufacture_date" is-open="status.opened1" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.manufacture_date' | translate }}" />
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="myItem.manufacture_date" is-open="status.opened1" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.manufacture_date' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
                 </p>
-                <!--<input  type="text" ng-model="newItem.manufacture_date" class="form-control" id="manufacture_date" placeholder="{{ 'labels.manufacture_date' | translate }}">-->
+                <!--<input  type="text" ng-model="myItem.manufacture_date" class="form-control" id="manufacture_date" placeholder="{{ 'labels.manufacture_date' | translate }}">-->
             </div>
 
         </div>
@@ -50,40 +50,40 @@
             <!--source_id-->
             <div class="form-group">
                 <label class="required" for="exampleInputEmail1" translate="labels.source"></label>
-                <select required="" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                <select required="" class="form-control" ng-model="myItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <!--packaging_id-->
             <div class="form-group">
                 <label class="required" for="packaging_id" translate="labels.packaging_id"></label>
-                <select required="" id="packaging_id" class="form-control" ng-model="newItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
+                <select required="" id="packaging_id" class="form-control" ng-model="myItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <!--number_of_doses-->
             <div class="form-group">
                 <label class="required" for="number_of_doses" translate="labels.number_of_doses"></label>
-                <input required="" type="text" ng-model="newItem.number_of_doses" class="form-control" id="number_of_doses" placeholder="{{ 'labels.number_of_doses' | translate }}">
+                <input required="" type="text" ng-model="myItem.number_of_doses" class="form-control" id="number_of_doses" placeholder="{{ 'labels.number_of_doses' | translate }}">
             </div>
             <!--lot_number-->
             <div class="form-group">
                 <label class="required" for="lot_number" translate="labels.lot_number"></label>
-                <input required="" type="text" ng-model="newItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
+                <input required="" type="text" ng-model="myItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
             </div>
             <!--expired_date-->
             <div class="form-group">
                 <label class="required" translate="labels.expired_date"></label>
                 <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.expired_date" is-open="status.opened2" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="myItem.expired_date" is-open="status.opened2" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
                 </p>
-                <!--<input required="" type="text"  ng-model="newItem.expired_date" class="form-control" id="expired_date" placeholder="{{ 'labels.expired_date' | translate }}">-->
+                <!--<input required="" type="text"  ng-model="myItem.expired_date" class="form-control" id="expired_date" placeholder="{{ 'labels.expired_date' | translate }}">-->
             </div>
         </div>
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'pre_shipments',pre_shipments)"></button>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="update(myItem,'pre_shipments',pre_shipments)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
