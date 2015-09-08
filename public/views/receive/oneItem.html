@@ -71,22 +71,10 @@
                 </select>            </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="store" translate="labels.store"></label>
-                <select required="" id="store" class="form-control" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active',store_type:vaccineStore}:true">
+                <select ng-change="setStoreType(oneItem.store_id)" required="" id="store" class="form-control" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
-            <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="vvm_stage" translate="labels.vvm_stage"></label>
-                <!--status-->
-                    <select id="vvm_stage"  type="text" ng-model="oneItem.vvm_stage" class="form-control" id="exampleInputPassword2" >
-                        <option value="" translate="labels.select"></option>
-                        <option value="stage1" translate="labels.stage1"></option>
-                        <option value="stage2" translate="labels.stage2"></option>
-                        <option value="stage3" translate="labels.stage3"></option>
-                        <option value="stage4" translate="labels.stage4"></option>
-                    </select>
-                    <span class="help-block"></span>
-             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="prod_date" translate="labels.prod_date"></label>
                 <p class="input-group">
@@ -98,6 +86,8 @@
             </div>
 
         </div>
+        <div class="col-sm-12" ng-if="oneItem.store_type != vaccineStore" class="text-warning" translate="error.store_do_not_match"></div>
+
         <div class="col-md-12"  style="margin-top: 10px">
             <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveOneItem(oneItem)"></button>
             <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>

@@ -41,13 +41,13 @@
             <div class="form-group">
                 <div class="col-md-4"  >
                     <label for="transport_mode" translate="labels.transport_mode"></label>
-                    <select  id="transport_mode" class="form-control" ng-model="newItem.transport_mode"  ng-options="obj.id as obj.name for obj in transport_mode | filter:{status:'active'}:true">
+                    <select id="transport_mode" class="form-control" ng-model="newItem.transport_mode"  ng-options="obj.id as obj.name for obj in transport_mode | filter:{status:'active'}:true">
                         <option value="" translate="labels.select"></option>
                     </select>
                 </div>
                 <div class="col-md-4"  >
                     <label  for="packed_volume" translate="labels.request_number"></label>
-                    <input  type="text" ng-model="newItem.packed_volume" class="form-control input-sm" id="packed_volume" placeholder="{{ 'labels.packed_volume' | translate }}">
+                    <input  type="text" ng-model="newItem.request_number" class="form-control input-sm" id="packed_volume" placeholder="{{ 'labels.request_number' | translate }}">
                 </div>
             </div>
         </form>

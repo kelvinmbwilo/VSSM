@@ -1,6 +1,6 @@
 {
     "app": {
-        "title":"Vaccines and Supplies Stock Management",
+        "title":"Vaccines Visibility System",
         "copyright":"Copyrights &copy; 2015  All rights reserved.",
         "user_manual":"User Manual",
         "help":"Help"
@@ -169,7 +169,8 @@
         "language":"Language",
         "voucher_no":"Voucher Number",
         "dispatch_date":"Dispatch Date",
-        "":""
+        "request_number":"Request Number",
+        "transport_mode":"Transport Mode"
     },
     "error": {
         "contact_email": "or contact Freshbooks support at <a href=\"mailto:support@freshbooks.com\">support@freshbooks.com</a>.",
@@ -181,6 +182,9 @@
         "update_falure": "Something Went Wrong, Item was Not Updated!",
         "delete_success": "Item Deleted Successfully!",
         "delete_falure": "Something Went Wrong, Item was Not Deleted!",
+        "store_do_not_match": "**The selected store Does not match the selected vaccine Storage Type",
+        "stock_added_successfull":"Items Received successful",
+        "stock_added_falure":"Something Went Wrong, Items was Not Received!",
         "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience"
     },
     "help": {

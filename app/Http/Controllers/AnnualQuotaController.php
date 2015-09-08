@@ -40,7 +40,7 @@ class AnnualQuotaController extends Controller
      */
     public function store(Request $request)
     {
-        if(count(RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))) != 0){
+        if(count(RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->get()) != 0){
           $item = RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->first();
         }else{
             $item = new RecipientAnnualQuota;

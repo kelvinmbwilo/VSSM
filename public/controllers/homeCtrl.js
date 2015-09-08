@@ -127,6 +127,19 @@ angular.module("vssmApp")
             $scope.userRecipients = data;
         });
 
+        $scope.toastPosition = {
+            bottom: true,
+            top: false,
+            left: false,
+            right: true
+        };
+
+        $scope.getToastPosition = function() {
+            return Object.keys($scope.toastPosition)
+                .filter(function(pos) { return $scope.toastPosition[pos]; })
+                .join(' ');
+        };
+
     }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast) {
 
     });

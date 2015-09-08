@@ -291,3 +291,13 @@ Route::get('system_settings',array('uses'=>'UserController@getSettings'));
 
 //saving new pre_shipments
 Route::post('system_settings',array('uses'=>'UserController@saveSettings'));
+
+/**
+ * system_settings
+ */
+
+//getting pre_shipments
+Route::get('receive',array('uses'=>'UserController@getSettings'));
+
+//saving new received items
+Route::post('receive',array('uses'=>'VaccineController@receive'));

@@ -71,12 +71,12 @@
                 </select>            </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="store" translate="labels.store"></label>
-                <select required="" id="store" class="form-control" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active',store_type:vaccineStore}:true">
+                <select required="" id="store" class="form-control" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="vvm_stage" translate="labels.vvm_stage"></label>
+                <label for="vvm_stage" translate="labels.vvm_stage"></label>
                 <!--status-->
                     <select id="vvm_stage"  type="text" ng-model="oneItem.vvm_stage" class="form-control" id="exampleInputPassword2" >
                         <option value="" translate="labels.select"></option>
@@ -85,10 +85,9 @@
                         <option value="stage3" translate="labels.stage3"></option>
                         <option value="stage4" translate="labels.stage4"></option>
                     </select>
-                    <span class="help-block"></span>
              </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="prod_date" translate="labels.prod_date"></label>
+                <label for="prod_date" translate="labels.prod_date"></label>
                 <p class="input-group">
                     <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
               <span class="input-group-btn">

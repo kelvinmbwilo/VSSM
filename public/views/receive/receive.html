@@ -65,7 +65,7 @@
                         <label style="margin-top: 10px"  for="currency_of_bill" translate="labels.currency_of_bill"></label>
                     </div>
                     <div class="col-sm-6">
-                        <input  type="text" ng-model="newItem.currency_of_bill" class="form-control input-sm" id="main_currency" placeholder="{{ 'labels.main_currency' | translate }}">
+                        <input  type="text" ng-model="newItem.main_currency" class="form-control input-sm" id="main_currency" placeholder="{{ 'labels.main_currency' | translate }}">
                         <input style="margin-top: 5px"  type="text" ng-model="newItem.currency_of_bill" class="form-control input-sm" id="currency_of_bill" placeholder="{{ 'labels.currency_of_bill' | translate }}">
                     </div>
                     <!--<label class="required" for="annual_need_safety1" translate="labels.main_currency"></label>-->
@@ -99,7 +99,7 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th  translate="labels.product"></th>
+                                <th translate="labels.product"></th>
                                 <th translate="labels.manufacture"></th>
                                 <th translate="labels.lot_number"></th>
                                 <th translate="labels.Dose_vial"></th>
@@ -107,7 +107,6 @@
                                 <th translate="labels.doses"></th>
                                 <th translate="labels.vials"></th>
                                 <th translate="labels.total_volume"></th>
-                                <th translate="labels.vvm_stage"></th>
                                 <th translate="labels.prod_date"></th>
                                 <th translate="labels.u_price"></th>
                                 <th translate="labels.t_price"></th>
@@ -117,7 +116,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in newItem.items" ng-hide="deletedItem[item.id]">
+                            <tr ng-repeat="item in newItem.items">
                                 <td>{{ $index+1 }}</td>
                                 <td>{{ item.item }}</td>
                                 <td>{{ item.manufacture }}</td>
@@ -127,7 +126,6 @@
                                 <td>{{ item.doses }}</td>
                                 <td>{{ item.vials }}</td>
                                 <td>{{ item.total_volume }}</td>
-                                <td>{{ item.vvm_stage }}</td>
                                 <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ item.u_price }}</td>
                                 <td>{{ item.t_price }}</td>
@@ -139,7 +137,7 @@
                                             <span translate="help.update"></span>
                                         </md-tooltip>
                                     </md-button>
-                                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'pre_shipments')"><i class="fa fa-trash-o"></i>
+                                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item)"><i class="fa fa-trash-o"></i>
 
                                         <md-tooltip>
                                             <span translate="help.delete"></span>
@@ -160,7 +158,8 @@
     </div>
     <!-- End .row -->
 <div class="col-md-12">
-    <button  ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0"> Save Package</button>
+    <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+    <button ng-click="saveArrival(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0"> Save Package</button>
 </div>
 </div>
 

@@ -58,7 +58,7 @@
                             <thead>
                             <tr>
                                 <th >#</th>
-                                <th  translate="labels.product"></th>
+                                <th translate="labels.product"></th>
                                 <th translate="labels.manufacture"></th>
                                 <th translate="labels.lot_number"></th>
                                 <th translate="labels.Dose_vial"></th>
@@ -66,7 +66,6 @@
                                 <th translate="labels.doses"></th>
                                 <th translate="labels.vials"></th>
                                 <th translate="labels.total_volume"></th>
-                                <th translate="labels.vvm_stage"></th>
                                 <th translate="labels.prod_date"></th>
                                 <th translate="labels.u_price"></th>
                                 <th translate="labels.t_price"></th>
@@ -86,7 +85,6 @@
                                 <td>{{ item.doses }}</td>
                                 <td>{{ item.vials }}</td>
                                 <td>{{ item.total_volume }}</td>
-                                <td>{{ item.vvm_stage }}</td>
                                 <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ item.u_price }}</td>
                                 <td>{{ item.t_price }}</td>
@@ -119,7 +117,8 @@
     </div>
     <!-- End .row -->
     <div class="col-md-12">
-        <button  ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0"> Save Package</button>
+        <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+        <button ng-click="saveArrival(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0"> Save Package</button>
     </div>
 </div>
 

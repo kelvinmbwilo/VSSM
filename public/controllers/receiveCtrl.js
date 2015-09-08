@@ -176,20 +176,6 @@ angular.module("vssmApp")
             $scope.oneItem.u_price = value/value1;
         }
 
-        $scope.updateStores = function(vaccineId){
-            var vaccine = "";
-            angular.forEach($scope.vaccines,function(value1){
-                if(value1.id == vaccineId){
-                    vaccine = value1.storage_type;
-                }
-            });
-            angular.forEach($scope.stores,function(value){
-
-                if(value.store_type == vaccine){
-                    ;
-                }
-            });
-        }
 
         $scope.getActivityName = function(id){
             var name = "";
@@ -220,14 +206,53 @@ angular.module("vssmApp")
                 .cancel($translate('labels.cancel'))
                 .targetEvent(ev);
             $mdDialog.show(confirm).then(function() {
-                $scope.newItem.items.splice(item);
+                delete $scope.newItem.items[$scope.newItem.items.indexOf(item)];
                 if($scope.newItem.items.length == 0){
-
+                    $scope.hasItems = false;
+                }else{
+                    $scope.hasItems = true;
                 }
             }, function() {
 
             });
         };
+        //updating an Item
+        $scope.currentSaving = false;
+        $scope.saveArrival = function(item){
+            $scope.currentSaving = true;
+            $http.post("index.php/receive/", item).success(function (newItem) {
+                $scope.barcode = {};
+                $scope.newItem = {};
+                $scope.newItem.items = [];
+                $scope.hasItems = false;
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_added_successfull'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+
+            }).error(function(){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_added_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+            })
+
+        }
+
+        $scope.setStoreType = function(id){
+            angular.forEach($scope.stores,function(value){
+                if(value.id == id){
+                    $scope.oneItem.store_type = value.store_type;
+                }
+            });
+        }
+
     }).controller('ReceiveModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
         var $translate = $filter('translate');
 
@@ -240,6 +265,7 @@ angular.module("vssmApp")
             item.vials = item.doses / item.dose_vial;
             $scope.newItem.items.push(item);
             $scope.hasItems = true;
+            $scope.oneItem = {};
             $modalInstance.close();
         }
 
