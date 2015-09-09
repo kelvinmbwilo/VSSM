@@ -2750,6 +2750,7 @@
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="package_id" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="packed_volume" sqlType="FLOAT" length="12" precision="0" nullable="false" jdbcType="7"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="pre_advice_items" schema="" catalog="vssm" type="TABLE">
@@ -2853,6 +2854,7 @@
       <column name="expiry_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="store_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="store_stocks" schema="" catalog="vssm" type="TABLE">
@@ -2877,6 +2879,7 @@
       <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="used_volume" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="system_settings" schema="" catalog="vssm" type="TABLE">

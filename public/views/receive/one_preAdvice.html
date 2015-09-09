@@ -5,62 +5,56 @@
 <div class="modal-body">
     <!--formula three-->
     <form class="col-md-12" novalidate name="myForm">
-        <!--item_id-->
-        <div class="form-group" >
-            <div class="col-md-12"  style="margin-bottom: 15px">
-                <label  for="scan_item" translate="labels.scan_item"></label>
-                <input id="scan_item" ng-change="prepareItems(scanned_value)" type="text" ng-model="scanned_value" class="form-control" id="total_population" placeholder="{{ 'labels.scan_item' | translate }}">
-        </div>
-        </div>
+
         <!--item_id-->
         <div class="form-group" >
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="total_population" translate="labels.product"></label>
-                <select required="" ng-change="updatePackaging(oneItem.item_id)" class="form-control" ng-model="oneItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                <select disabled required="" ng-change="updatePackaging(oneItem.item_id)" class="form-control" ng-model="oneItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="packaging_id" translate="labels.Dose_vial"></label>
-                <select required="" ng-change="getVaccineInfo(oneItem.packaging_id)" id="packaging_id" class="form-control" ng-model="oneItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
+                <select disabled required="" ng-change="getVaccineInfo(oneItem.packaging_id)" id="packaging_id" class="form-control" ng-model="oneItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="under_one" translate="labels.manufacture"></label>
-                <select required="" class="form-control" ng-model="oneItem.manufacture_id"  ng-options="obj.id as obj.name for obj in manufactures  | filter:{status:'active'}:true">
+                <select disabled required="" class="form-control" ng-model="oneItem.manufacture_id"  ng-options="obj.id as obj.name for obj in manufactures  | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="no_doses" translate="labels.lot_number"></label>
-                <input required="" type="text" ng-model="oneItem.lot_number" class="form-control" id="no_doses" placeholder="{{ 'labels.lot_number' | translate }}">
+                <input disabled required="" type="text" ng-model="oneItem.lot_number" class="form-control" id="no_doses" placeholder="{{ 'labels.lot_number' | translate }}">
             </div>
 
         </div>
         <div class="form-group">
 
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="doses" translate="labels.doses"></label>
+                <label  class="required" for="doses" translate="labels.doses"></label>
                 <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="u_price" translate="labels.u_price"></label>
-                <input required="" ng-change="getTotal(oneItem.u_price,oneItem.doses)" type="text" ng-model="oneItem.u_price" class="form-control" id="u_price" placeholder="{{ 'labels.u_price' | translate }}">
+                <input  required="" ng-change="getTotal(oneItem.u_price,oneItem.doses)" type="text" ng-model="oneItem.u_price" class="form-control" id="u_price" placeholder="{{ 'labels.u_price' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="t_price" translate="labels.t_price"></label>
                 <input required="" ng-change="getUnit(oneItem.t_price,oneItem.doses)" type="text" ng-model="oneItem.t_price" class="form-control" id="t_price" placeholder="{{ 'labels.t_price' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
-            <label class="required" for="expired_date" translate="labels.expired_date"></label>
-            <p class="input-group">
-                <input type="text" id="expired_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.expired_date" is-open="status.opened3"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
+                <label class="required" for="expired_date" translate="labels.expired_date"></label>
+                <p class="input-group">
+                    <input disabled type="text" id="expired_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.expired_date" is-open="status.opened3"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
-            </p>
-        </div>
+                </p>
+            </div>
 
         </div>
         <div class="form-group">
@@ -97,7 +91,7 @@
             </div>
 
         </div>
-        <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != vaccineStore" class="text-warning" translate="error.store_do_not_match"></div>
+        <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != oneItem.vaccineStore" class="text-danger" translate="error.store_do_not_match"></div>
         <div class="col-sm-12" ng-if="oneItem.store_id" class="text-warning" translate="error.volume_used" translate-value-volume="{{ oneItem.used | number:2 }}" translate-value-volume1="{{ oneItem.used1 | number:2}}" ></div>
 
         <div class="col-md-12"  style="margin-top: 10px">

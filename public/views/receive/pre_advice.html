@@ -17,21 +17,25 @@
         <form class="col-md-12" novalidate name="myForm" >
             <!--item_id-->
             <div class="form-group" >
-
                 <div class="col-md-4"  >
+                    <label  for="arrival_report_no" translate="labels.arrival_report_no"></label>
+                    <input  id="arrival_report_no" ng-change="loadPackage(newItem.arrival_report_no)" type="text" ng-model="newItem.arrival_report_no" class="form-control input-sm"  placeholder="{{ 'labels.arrival_report_no' | translate }}">
+                </div>
+                <div class="col-sm-12" ng-if="!data_ready && errorMessage">
+                    <h4 class="text-danger" translate="error.no_package"></h4>
+                </div>
+                <div class="col-md-4" ng-if="data_ready" >
                     <label for="source" translate="labels.source"></label>
-                    <select  id="source" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                    <select disabled  id="source" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
                         <option value="" translate="labels.select"></option>
                     </select>
                 </div>
-                <div class="col-md-4"  >
-                    <label  for="arrival_report_no" translate="labels.arrival_report_no"></label>
-                    <input  id="arrival_report_no" type="text" ng-model="newItem.arrival_report_no" class="form-control input-sm"  placeholder="{{ 'labels.arrival_report_no' | translate }}">
-                </div>
-                <div class="col-md-4"  >
-                    <label class="required" for="arrival_date" translate="labels.arrival_date"></label>
+
+
+                <div class="col-md-4" ng-if="data_ready" >
+                    <label for="arrival_date" translate="labels.arrival_date"></label>
                     <p class="input-group">
-                        <input type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.arrival_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
+                        <input type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.arrival_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>
@@ -39,7 +43,7 @@
                 </div>
 
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-if="data_ready">
                 <div class="col-md-4"  >
                     <label for="freight_cost" translate="labels.freight_cost"></label>
                     <input  type="text" ng-model="newItem.freight_cost" class="form-control input-sm" id="freight_cost" placeholder="{{ 'labels.freight_cost' | translate }}">
@@ -54,7 +58,7 @@
                 </div>
 
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-if="data_ready">
                 <div class="col-md-4"  >
                     <label for="notes" translate="labels.notes"></label>
                     <textarea  type="text" ng-model="newItem.notes" class="form-control input-sm" id="notes" placeholder="{{ 'labels.notes' | translate }}"></textarea>
@@ -84,18 +88,21 @@
 
 
     </div>
-    <div class="col-md-12" style="margin-top: 10px" >
+    <div class="col-md-12" style="margin-top: 10px" ng-if="data_ready" >
         <div class="panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
             <!-- Start .panel -->
             <div class="panel-heading white-bg">
                 <h4 class="panel-title" translate="help.arrival_items"></h4>
-                <div class="panel-controls panel-controls-right"><button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs"><i class="icomoon-icon-plus"></i><span translate="labels.add"></span></button>
+                <div class="panel-controls panel-controls-right" style="margin-top: 5px">
+                    <span translate="help.scan_item"></span>
+                    <input type="text" id="batch_no" ng-model="current_batch_no" ng-change="prepareItems(current_batch_no)"/>
+                    <span translate="help.not_found" ng-if="!item_found"></span>
                 </div>
             </div>
             <div class="panel-body">
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: auto;">
                     <div class="table-responsive" style="overflow: scroll; width: 100%; height: auto;">
-                        <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+                        <table class="table table-striped table-bordered" dt-options="dtOptions" >
                             <thead>
                             <tr>
                                 <th >#</th>
@@ -137,13 +144,7 @@
                                             <span translate="help.update"></span>
                                         </md-tooltip>
                                     </md-button>
-                                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item)"><i class="fa fa-trash-o"></i>
 
-                                        <md-tooltip>
-                                            <span translate="help.delete"></span>
-                                        </md-tooltip>
-                                    </md-button>
-                                    <span ng-if="deletingItem[item.id]"><i class="fa fa-spin fa-spinner"></i> <span translate="labels.deleting"></span></span>
                                 </td>
                             </tr>
                             </tbody>
@@ -157,10 +158,10 @@
 
     </div>
     <!-- End .row -->
-<div class="col-md-12">
-    <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-    <button ng-click="saveArrival(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0"> Save Package</button>
-</div>
+    <div class="col-md-12" ng-if="data_ready">
+        <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+        <button ng-click="saveArrival(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0" translate="labels.save_package"> </button>
+    </div>
 </div>
 
 

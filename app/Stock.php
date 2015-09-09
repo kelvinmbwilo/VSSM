@@ -18,6 +18,10 @@ class Stock extends Model
         return $this->belongsTo('App\RecipientPackage', 'packaging_id', 'id');
     }
 
+    public function store(){
+        return $this->belongsTo('App\Store', 'store_id', 'id');
+    }
+
     public function vaccine(){
         return $this->belongsTo('App\Vaccine', 'vaccine_id', 'id');
     }

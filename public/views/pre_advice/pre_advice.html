@@ -36,7 +36,7 @@
                 <td>{{ item.source.name }}</td>
                 <td>{{ item.vaccine.name }}</td>
                 <td>{{ item.lot_number }}</td>
-                <td>{{ item.expired_date }}</td>
+                <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
                 <td ng-if="item.status == 'pending'" translate="labels.pending"></td>
                 <td ng-if="item.status == 'received'" translate="labels.received"></td>
                 <td>

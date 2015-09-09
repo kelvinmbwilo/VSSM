@@ -49,6 +49,7 @@
         "dispatched_packaged":"Dispatched Packages",
         "summary":"Package Summary",
         "pre_advice":"Pre-advice Notice",
+        "stock_items":"Stock Items",
         "open_stock":"Stock Opening"
 
     },
@@ -170,10 +171,12 @@
         "voucher_no":"Voucher Number",
         "dispatch_date":"Dispatch Date",
         "request_number":"Request Number",
-        "transport_mode":"Transport Mode"
+        "transport_mode":"Transport Mode",
+        "done":"Done",
+        "save_package":"Save Package"
     },
     "error": {
-        "contact_email": "or contact Freshbooks support at <a href=\"mailto:support@freshbooks.com\">support@freshbooks.com</a>.",
+        "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",
         "occurred": "An error occurred",
         "see_topic": "See <a>this topic</a> for troubleshooting",
         "save_success": "Item Created Successfully!",
@@ -185,6 +188,9 @@
         "store_do_not_match": "**The selected store Does not match the selected vaccine Storage Type",
         "stock_added_successfull":"Items Received successful",
         "stock_added_falure":"Something Went Wrong, Items was Not Received!",
+        "not_found":"Item Not Found!",
+        "no_package":"<i class='fa fa-warning'></i> No package with this number is expected!",
+        "volume_used":"**Volume used is {{ volume }} % and can accommodate up to {{ volume1 }} doses",
         "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience"
     },
     "help": {
@@ -241,7 +247,8 @@
         "dispatch_items":"Dispatch Lines Entered",
         "arrival_items":"Items",
         "add_dispatchline":"Enter new Dispatch Line",
-        "open_item":"Add Opening Line  Item"
+        "open_item":"Add Opening Line  Item",
+        "scan_item":"Scan Item/Batch Number"
     },
     "global": {
         "back": "Back",

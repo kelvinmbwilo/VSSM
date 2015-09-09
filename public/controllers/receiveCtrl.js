@@ -10,6 +10,7 @@ angular.module("vssmApp")
         $scope.newItem.items = [];
         $scope.oneItem = {};
         $scope.hasItems = false;
+        $scope.newItem.main_currency = $scope.main_currency;
         $scope.prepareItems = function(str){
             $scope.barcode ={};
             $scope.barcode.lot_number = str.substring(29);
@@ -90,7 +91,7 @@ angular.module("vssmApp")
             $scope.packaging_information = data;
             $scope.packagingInformation =[];
             angular.forEach($scope.packaging_information,function(value){
-                value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
                 $scope.packagingInformation.push(value);
             });
         });
@@ -105,7 +106,7 @@ angular.module("vssmApp")
             });
             angular.forEach($scope.packaging_information,function(value){
                 if(value.vaccine_id == itemId){
-                    value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                    value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
                     $scope.packagingInformation.push(value);
                 }
             });
@@ -154,7 +155,23 @@ angular.module("vssmApp")
         $scope.showAdd = function(view){
 
             $scope.oneItem = {};
+            $scope.editing = false;
             $scope.dilluentRequired = false;
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/receive/oneItem.html',
+                scope: $scope,
+                controller: 'ReceiveModalInstanceCtrl',
+                size: "lg",
+                "backdrop":"static"
+            });
+        }
+
+        //adding Item to list
+        $scope.showAEdit = function(item){
+
+            $scope.oneItem = item;
+            $scope.editing = true;
             var modalInstance = $modal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/receive/oneItem.html',
@@ -225,6 +242,7 @@ angular.module("vssmApp")
                 $scope.newItem = {};
                 $scope.newItem.items = [];
                 $scope.hasItems = false;
+                $scope.newItem.main_currency = $scope.system_settings.main_currency;
                 $mdToast.show(
                     $mdToast.simple()
                         .content($translate('error.stock_added_successfull'))
@@ -245,10 +263,13 @@ angular.module("vssmApp")
 
         }
 
+        //setting store type
         $scope.setStoreType = function(id){
             angular.forEach($scope.stores,function(value){
                 if(value.id == id){
                     $scope.oneItem.store_type = value.store_type;
+                    $scope.oneItem.used = (value.used_volume/value.net_volume)*100;
+                    $scope.oneItem.used1 = ((value.net_volume - value.used_volume)*1000)/$scope.oneItem.cm_per_dose;
                 }
             });
         }
@@ -257,6 +278,7 @@ angular.module("vssmApp")
         var $translate = $filter('translate');
 
         $scope.ok = function () {
+            $scope.current_batch_no = "";
             $modalInstance.close();
         };
 
@@ -303,6 +325,7 @@ angular.module("vssmApp")
 
         }
         $scope.cancel = function () {
+            $scope.current_batch_no = "";
             $modalInstance.dismiss('cancel');
         };
     });

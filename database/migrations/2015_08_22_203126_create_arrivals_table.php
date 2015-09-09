@@ -24,6 +24,9 @@ class CreateArrivalsTable extends Migration
             $table->string('freight_cost');
             $table->string('receiving_user');
             $table->string('notes');
+            $table->string('main_currency');
+            $table->string('used_currency');
+            $table->string('exchange_rate');
             $table->timestamps();
         });
     }

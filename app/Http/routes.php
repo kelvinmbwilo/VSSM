@@ -297,7 +297,19 @@ Route::post('system_settings',array('uses'=>'UserController@saveSettings'));
  */
 
 //getting pre_shipments
-Route::get('receive',array('uses'=>'UserController@getSettings'));
+Route::get('stock_items',array('uses'=>'VaccineController@stock_items'));
+
+//getting arrivals
+Route::get('arrivals',array('uses'=>'VaccineController@arrivals'));
+
+//getting packages
+Route::get('packages',array('uses'=>'VaccineController@packages'));
 
 //saving new received items
 Route::post('receive',array('uses'=>'VaccineController@receive'));
+
+//saving new openning stock for items
+Route::post('open',array('uses'=>'VaccineController@open'));
+
+//saving new openning stock for items
+Route::post('pre_receive',array('uses'=>'VaccineController@pre_receive'));

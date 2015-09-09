@@ -17,7 +17,7 @@ angular.module("vssmApp")
             $scope.packaging_information = data;
             $scope.packagingInformation =[];
             angular.forEach($scope.packaging_information,function(value){
-                value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
                 $scope.packagingInformation.push(value);
             });
         });
@@ -248,7 +248,7 @@ angular.module("vssmApp")
             $scope.packagingInformation =[];
             angular.forEach($scope.packaging_information,function(value){
                 if(value.vaccine_id == itemId){
-                    value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                    value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
                     $scope.packagingInformation.push(value);
                 }
             });
@@ -277,6 +277,18 @@ angular.module("vssmApp")
         $scope.open3 = function($event) {
             $scope.status.opened3 = true;
         };
+
+        //fetching the shipment after scan
+        $scope.loadPackage = function(package_number){
+            angular.forEach($scope.pre_shipments,function(value){
+                if(value.package_id == package_number){
+                    $scope.newItem.expected_time_of_arrival = value.expected_time_of_arrival;
+                    $scope.newItem.source_id = value.source_id;
+                    $scope.newItem.total_weight = value.total_weight;
+                    $scope.newItem.packed_volume = value.packed_volume;
+                }
+            })
+        }
 
     }).controller('BasicModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
         var $translate = $filter('translate');

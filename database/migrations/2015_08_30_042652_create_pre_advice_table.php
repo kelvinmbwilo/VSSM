@@ -16,8 +16,8 @@ class CreatePreAdviceTable extends Migration
             $table->increments('id');
             $table->integer('source_id');
             $table->string('package_id');
-            $table->string('expected_time_of_arrival');
-            $table->string('total_weight');
+            $table->date('expected_time_of_arrival');
+            $table->float('total_weight');
             $table->integer('item_id');
             $table->integer('packaging_id');
             $table->integer('number_of_doses');
@@ -25,6 +25,7 @@ class CreatePreAdviceTable extends Migration
             $table->date('manufacture_date');
             $table->date('expired_date');
             $table->string('status');
+            $table->float('packed_volume');
             $table->timestamps();
         });
     }

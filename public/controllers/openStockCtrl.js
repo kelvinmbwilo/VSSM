@@ -90,7 +90,7 @@ angular.module("vssmApp")
                     $scope.packaging_information = data;
                     $scope.packagingInformation =[];
                     angular.forEach($scope.packaging_information,function(value){
-                        value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                        value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
                         $scope.packagingInformation.push(value);
                     });
                 });
@@ -105,7 +105,7 @@ angular.module("vssmApp")
                     });
                     angular.forEach($scope.packaging_information,function(value){
                         if(value.vaccine_id == itemId){
-                            value.usename = value.GTIN+" ("+ value.dose_per_vial+" x "+ value.vials_per_box+")"
+                            value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
                             $scope.packagingInformation.push(value);
                         }
                     });
@@ -150,20 +150,36 @@ angular.module("vssmApp")
                     $scope.annual_quota = data;
                 });
 
-                //adding Item to list
-                $scope.showAdd = function(view){
+        //adding Item to list
+        $scope.showAdd = function(view){
 
-                    $scope.oneItem = {};
-                    $scope.dilluentRequired = false;
-                    var modalInstance = $modal.open({
-                        animation: $scope.animationsEnabled,
-                        templateUrl: 'views/open_stock/oneItem.html',
-                        scope: $scope,
-                        controller: 'OpenModalInstanceCtrl',
-                        size: "lg",
-                        "backdrop":"static"
-                    });
-                }
+            $scope.oneItem = {};
+            $scope.editing = false;
+            $scope.dilluentRequired = false;
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/receive/oneItem.html',
+                scope: $scope,
+                controller: 'OpenModalInstanceCtrl',
+                size: "lg",
+                "backdrop":"static"
+            });
+        }
+
+        //adding Item to list
+        $scope.showAEdit = function(item){
+
+            $scope.oneItem = item;
+            $scope.editing = true;
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/receive/oneItem.html',
+                scope: $scope,
+                controller: 'OpenModalInstanceCtrl',
+                size: "lg",
+                "backdrop":"static"
+            });
+        }
 
                 $scope.getTotal = function(value,value1){
                     $scope.oneItem.t_price = value*value1;
@@ -220,7 +236,7 @@ angular.module("vssmApp")
                 $scope.currentSaving = false;
                 $scope.saveArrival = function(item){
                     $scope.currentSaving = true;
-                    $http.post("index.php/receive/", item).success(function (newItem) {
+                    $http.post("index.php/open/", item).success(function (newItem) {
                         $scope.barcode = {};
                         $scope.newItem = {};
                         $scope.newItem.items = [];
@@ -244,17 +260,18 @@ angular.module("vssmApp")
                     })
 
                 }
-
-
+        //setting store type
         $scope.setStoreType = function(id){
             angular.forEach($scope.stores,function(value){
                 if(value.id == id){
                     $scope.oneItem.store_type = value.store_type;
+                    $scope.oneItem.used = (value.used_volume/value.net_volume)*100;
+                    $scope.oneItem.used1 = ((value.net_volume - value.used_volume)*1000)/$scope.oneItem.cm_per_dose;
                 }
             });
         }
 
-            }).controller('OpenModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
+    }).controller('OpenModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
                 var $translate = $filter('translate');
 
                 $scope.ok = function () {

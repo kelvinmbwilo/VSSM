@@ -34,6 +34,9 @@ class CreateArrivalItemsTable extends Migration
             $table->string('unit_price');
             $table->string('total_price');
             $table->string('volume');
+            $table->integer('manufacture_id');
+            $table->date('prduction_date');
+            $table->date('expiry_date');
             $table->timestamps();
         });
     }

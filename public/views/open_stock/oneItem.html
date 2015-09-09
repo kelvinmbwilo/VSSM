@@ -95,6 +95,8 @@
               </span>
                 </p>
             </div>
+            <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != vaccineStore" class="text-warning" translate="error.store_do_not_match"></div>
+            <div class="col-sm-12" ng-if="oneItem.store_id" class="text-warning" translate="error.volume_used" translate-value-volume="{{ oneItem.used | number:2 }}" translate-value-volume1="{{ oneItem.used1 | number:2}}" ></div>
 
         </div>
         <div class="col-md-12"  style="margin-top: 10px">

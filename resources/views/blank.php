@@ -122,10 +122,10 @@ else{
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/group') || isActive('/home') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
-                            <li><a href="./#receive" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="./#receive_pre" ng-class="{ active1: isActive('/group') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
+                            <li><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
                             <li><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
-                            <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.open_stock"></span></a></li>
+<!--                            <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.open_stock"></span></a></li>-->
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
                     </li>
@@ -141,6 +141,7 @@ else{
                         <ul class=sub>
                             <li><a href="./#expected_packages"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
                             <li><a href="./#dispatched_packeges"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
+                            <li><a href="./#stock_items"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -198,8 +199,9 @@ else{
                         </ul>
                     </li>
 <!--                    <li><a href="widgets.html"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a></li>-->
-                    <li><a href="./#pre_advice"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
-                    <li><a href="./#"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">9</span></a></li>
+                    <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
+                    <li><a href="./#pre_advice" ng-class="{ active1: isActive('/pre_advice') }"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
+                    <li><a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">9</span></a></li>
 
                 </ul>
             </div>
@@ -266,6 +268,8 @@ else{
 <script src="<?php echo  asset('controllers/receiveCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/dispatch.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/openStockCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/summaryCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/preadviceReceiveCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/recipient/recipientCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/recipient/recipientLevelCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/users/userCtrl.js')  ?>"></script>

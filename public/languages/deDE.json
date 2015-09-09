@@ -43,17 +43,18 @@
         "sample_report":"Ejemplo de informe",
         "system_settings":"Ajustes del sistema",
         "move_items":"mover elementos",
-        "requests":"Requests",
-        "from_pre_advice":"From Pre-advice",
-        "expected_package":"Expected Packages",
-        "dispatched_package":"Dispatched Packages",
-        "summary":"Package Summary",
-        "pre_advice":"Pre-advice Notice",
-        "open_stock":"Stock Opening"
+        "requests":"solicitudes",
+        "from_pre_advice":"De Pre - consejos",
+        "expected_package":"Paquetes esperados",
+        "dispatched_package":"Paquetes Expedido",
+        "summary":"Resumen del paquete",
+        "pre_advice":"Aviso de Pre - consejos",
+        "stock_items":"artículo en stock",
+        "open_stock":"Stock Apertura"
 
     },
     "error": {
-        "contact_email": "or contact Freshbooks support at <a href=\"mailto:support@freshbooks.com\">support@freshbooks.com</a>.",
+        "contact_email": "or contact SOFTMED support at <a href=\"mailto:support@softmed.com\">support@softmed.com</a>.",
         "occurred": "Ocurrio un error",
         "see_topic": "See <a>this topic</a> for troubleshooting",
         "save_success": "Tema creado con éxito !",
@@ -62,9 +63,11 @@
         "update_falure": "Algo salió mal , El artículo fue no se actualiza !",
         "delete_success": "Elemento eliminado con éxito !",
         "delete_falure": "Algo salió mal , El artículo fue no eliminados !",
-        "store_do_not_match": "La tienda seleccionada no coincide con la vacuna seleccionada",
+        "store_do_not_match": "**La tienda seleccionada no coincide con la vacuna seleccionada",
         "stock_added_successfull":"Los artículos recibidos con éxito",
         "stock_added_falure":"Algo salió mal , Artículos no era recibidos !",
+        "no_package":"<i class='fa fa-warning'></i> No package with this number is expected!",
+        "volume_used":"**El volumen utilizado es {{ volume }} y con capacidad para {{ volume1 }}  dosis",
         "oldBrowserError":"Está utilizando un < strong> obsoleta < / strong > navegador. Por favor, <a href='http://browsehappy.com/'> actualizar su navegador </a> para mejorar tu experiencia"
     },
     "labels":{
@@ -175,11 +178,17 @@
         "t_price":"T. Precio",
         "activity":"Actividad",
         "store":"almacén",
+        "stage1":"Nivel 1",
+        "stage2":"Nivel 2",
+        "stage3":"Nivel 3",
+        "stage4":"Nivel 4",
         "scan_item":"Analiza la caja de Vacunas",
         "start_year":"Inicio del año",
         "language":"Idioma",
         "voucher_no":"Número de Vales",
-        "dispatch_date":"Fecha de envío"
+        "dispatch_date":"Fecha de envío",
+        "done":"Hecho",
+        "save_package":"Save Package"
     },
     "help": {
         "add_another" : "Agrega otro",
@@ -235,7 +244,8 @@
         "dispatch_items":"Líneas de Despacho Entró",
         "arrival_items":"Artículos",
         "add_dispatchline":"Introduzca la nueva Línea de Despacho",
-        "open_item":"Añadir Apertura de partidas"
+        "open_item":"Añadir Apertura de partidas",
+        "scan_item":"artículo Scan / Número de lote"
     },
     "global": {
         "back": "Zurück",

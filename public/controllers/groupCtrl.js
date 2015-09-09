@@ -15,7 +15,7 @@ angular.module("vssmApp")
                 .filter(function(pos) { return $scope.toastPosition[pos]; })
                 .join(' ');
         };
-
+        var $translate = $filter('translate');
         $scope.currentSaving1 = false;
         $scope.saveSettings = function(item){
             $scope.currentSaving = true;
@@ -28,7 +28,6 @@ angular.module("vssmApp")
                         .hideDelay(5000)
                 );
                 $scope.currentSaving = false;
-                $modalInstance.close();
             }).error(function(){
                 $mdToast.show(
                     $mdToast.simple()
@@ -39,4 +38,6 @@ angular.module("vssmApp")
                 $scope.currentSaving1 = false;
             });
         }
+
+
     });

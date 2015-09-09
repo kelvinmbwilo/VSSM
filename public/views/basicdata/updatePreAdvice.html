@@ -7,15 +7,8 @@
         <div class="col-sm-6">
             <!--package_id-->
             <div class="form-group">
-                <label class="required" for="package_id" translate="labels.package_id"></label>
+                <label class="required" for="package_id"  translate="labels.package_id"></label>
                 <input required="" type="text" ng-model="myItem.package_id" class="form-control" id="package_id" placeholder="{{ 'labels.package_id' | translate }}">
-            </div>
-            <!--item_id-->
-            <div class="form-group">
-                <label class="required" for="item_id" translate="labels.product"></label>
-                <select required=""  ng-change="updatePackaging(myItem.item_id)" id="item_id" class="form-control" ng-model="myItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
-                    <option value="" translate="labels.select"></option>
-                </select>
             </div>
             <!--expected_time_of_arrival-->
             <div class="form-group">
@@ -28,10 +21,17 @@
                 </p>
                 <!--<input required=""  type="text" ng-model="myItem.expected_time_of_arrival" class="form-control" id="expected_time_of_arrival" placeholder="{{ 'labels.expected_time_of_arrival' | translate }}">-->
             </div>
-            <!--total_weight-->
+            <!--packed_volume-->
             <div class="form-group">
-                <label class="required" for="total_weight" translate="labels.total_weight"></label>
-                <input required="" type="text" ng-model="myItem.total_weight" class="form-control" id="total_weight" placeholder="{{ 'labels.total_weight' | translate }}">
+                <label class="required" for="total_weight" translate="labels.packed_volume"></label>
+                <input required="" type="text" ng-model="myItem.packed_volume" class="form-control" id="packed_volume" placeholder="{{ 'labels.packed_volume' | translate }}">
+            </div>
+            <!--item_id-->
+            <div class="form-group">
+                <label class="required" for="item_id" translate="labels.product"></label>
+                <select required=""  ng-change="updatePackaging(myItem.item_id)" id="item_id" class="form-control" ng-model="myItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                    <option value="" translate="labels.select"></option>
+                </select>
             </div>
             <!--manufacture_date-->
             <div class="form-group">
@@ -54,6 +54,16 @@
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
+            <!--total_weight-->
+            <div class="form-group">
+                <label class="required" for="total_weight" translate="labels.total_weight"></label>
+                <input required="" type="text" ng-model="myItem.total_weight" class="form-control" id="total_weight" placeholder="{{ 'labels.total_weight' | translate }}">
+            </div>
+            <!--lot_number-->
+            <div class="form-group">
+                <label class="required" for="lot_number" translate="labels.lot_number"></label>
+                <input required="" type="text" ng-model="myItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
+            </div>
             <!--packaging_id-->
             <div class="form-group">
                 <label class="required" for="packaging_id" translate="labels.packaging_id"></label>
@@ -65,11 +75,6 @@
             <div class="form-group">
                 <label class="required" for="number_of_doses" translate="labels.number_of_doses"></label>
                 <input required="" type="text" ng-model="myItem.number_of_doses" class="form-control" id="number_of_doses" placeholder="{{ 'labels.number_of_doses' | translate }}">
-            </div>
-            <!--lot_number-->
-            <div class="form-group">
-                <label class="required" for="lot_number" translate="labels.lot_number"></label>
-                <input required="" type="text" ng-model="myItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
             </div>
             <!--expired_date-->
             <div class="form-group">

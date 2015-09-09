@@ -22,11 +22,17 @@ angular.module("vssmApp")
             dateFormat: 'yyyy-mm-dd'
         };
 
-        //getting the recipients level2
+        //getting the loggedIn User
         $http.get("index.php/loggenInuser").success(function(data){
             $scope.logedInUser = data;
             console.log(data);
             $scope.logedInUserName = data.first_name +" "+ data.last_name;
+        });
+        //getting the system settings
+        $http.get("index.php/system_settings").success(function(data){
+            $scope.system_settings = data[0];
+            $translate.use(data[0].language);
+            $scope.main_currency = data[0].main_currency;
         });
         //setting common Translations
         $translate('error.save_success').then(function (save_success) {
@@ -118,10 +124,7 @@ angular.module("vssmApp")
         $http.get("index.php/recipients/4").success(function(data){
             $scope.data.recipientsLevel4 = data;
         });
-        //getting the recipients level4
-        $http.get("index.php/system_settings").success(function(data){
-            $scope.system_settings = data;
-        });
+
         //get user_recipients
         $http.get("index.php/user/recipients").success(function(data){
             $scope.userRecipients = data;
