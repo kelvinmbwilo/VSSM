@@ -42,7 +42,7 @@
 
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="doses" translate="labels.doses"></label>
-                <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="number" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="u_price" translate="labels.u_price"></label>
@@ -87,9 +87,9 @@
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="prod_date" translate="labels.prod_date"></label>
+                <label for="prod_date" translate="labels.prod_date"></label>
                 <p class="input-group">
-                    <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
+                    <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>

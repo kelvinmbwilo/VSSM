@@ -25,6 +25,8 @@ class CreateRecipientPackagesTable extends Migration
             $table->integer('receiving_user');
             $table->string('receiving_status');
             $table->string('comments');
+            $table->string('year');
+            $table->string('order_number');
             $table->string("status");
             $table->timestamps();
         });

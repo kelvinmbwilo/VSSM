@@ -66,6 +66,7 @@
         "store_do_not_match": "**La tienda seleccionada no coincide con la vacuna seleccionada",
         "stock_added_successfull":"Los artículos recibidos con éxito",
         "stock_added_falure":"Algo salió mal , Artículos no era recibidos !",
+        "max_stock":"You can provide to a maximum of {{ doses }} Doses",
         "no_package":"<i class='fa fa-warning'></i> No package with this number is expected!",
         "volume_used":"**El volumen utilizado es {{ volume }} y con capacidad para {{ volume1 }}  dosis",
         "oldBrowserError":"Está utilizando un < strong> obsoleta < / strong > navegador. Por favor, <a href='http://browsehappy.com/'> actualizar su navegador </a> para mejorar tu experiencia"
@@ -171,7 +172,7 @@
         "Dose_vial":"Dosis / Vial",
         "doses":"Las dosis",
         "vials":"viales",
-        "total_volume":"Volumen total",
+        "total_volume":"Volumen total (Lt)",
         "vvm_stage":"VVM Stage",
         "prod_date":"Fecha de fabricación",
         "u_price":"U. Precio",

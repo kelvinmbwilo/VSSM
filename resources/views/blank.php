@@ -8,7 +8,7 @@ else{
 <!DOCTYPE html><!--[if lt IE 8]>
 <html class="no-js lt-ie8" ng-app="bahariApp" ng-controller="mainCtrl">
 <![endif]--><!--[if gt IE 8]><!-->
-<html class='no-js'>
+<html class='no-js' xmlns="http://www.w3.org/1999/html">
 <!--<![endif]-->
 <html class='no-js' ng-app="vssmApp" ng-controller="mainCtrl">
 <head>
@@ -46,7 +46,9 @@ else{
 <div id=header>
 
     <nav class="navbar navbar-default" role=navigation>
-        <div class=navbar-header><a class=navbar-brand href="./#dashboard">VSSM</a></div>
+        <div class=navbar-header style="margin-top: 4px"><a class=navbar-brand href="./#dashboard">
+                <img class="img-rounded" src="<?php echo asset('img/logo1.jpg') ?>" style="width: 70px; height: 60px">
+        </a></div>
         <div id=navbar-no-collapse class=navbar-no-collapse>
             <ul class="nav navbar-nav">
                 <li>
@@ -54,10 +56,11 @@ else{
                 </li>
 
             </ul>
-            <span class="text-center hidden-sm hidden-xs" style="text-align: center;font-size: 27px;padding-top: 100px;padding-left: 140px" translate="app.title"> </span>
+            <span class="text-center hidden-sm hidden-xs" style="text-align: center;font-size: 29px;margin-top: 120px;margin-left: 19%" translate="app.title"> </span>
+            <span style="text-align: center;font-size: 15px;padding-top: 120px"> {{ logedInUser.recipient.name }}</span>
 
             <ul  class="nav navbar-right" style="margin-top: 4px">
-                <li><img class="img-rounded" src="<?php echo asset('img/unLogo.png') ?>" style="width: 70px; height: 60px"></li>
+                <li><img class="img-rounded" src="<?php echo asset('img/logo.jpg') ?>" style="width: 70px; height: 60px"></li>
             </ul>
 
             <ul class="nav navbar-right usernav">
@@ -119,6 +122,7 @@ else{
             <div class=mainnav>
                 <ul>
                     <li><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
+                    <li><a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">8</span></a></li>
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/group') || isActive('/home') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
@@ -145,6 +149,14 @@ else{
                         </ul>
                     </li>
                     <li>
+                        <a href="blank.html#"><i class="s16 icomoon-icon-equalizer-2"></i><span class=txt translate="menu.adjustment">Adjustment</span></a>
+                        <ul class=sub>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
+                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-stats-up"></i><span class=txt translate="menu.reports"></span></a>
                         <ul class=sub>
                             <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
@@ -153,14 +165,8 @@ else{
                             <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="blank.html#"><i class="s16 icomoon-icon-equalizer-2"></i><span class=txt translate="menu.adjustment">Adjustment</span></a>
-                        <ul class=sub>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
-                        </ul>
-                    </li>
+                    <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
+                    <li><a href="./#pre_advice" ng-class="{ active1: isActive('/pre_advice') }"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-table-2"></i><span class=txt translate="menu.basic_data">Basic Data</span></a>
                         <ul class=sub>
@@ -178,13 +184,6 @@ else{
                         </ul>
                     </li>
                     <li>
-                        <a href="blank.html#"><i class="s16 icomoon-icon-cog-2"></i><span class=txt translate="menu.configuration"></span></a>
-                        <ul class=sub>
-                            <li><a href="./#system_settings"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
-<!--                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Vector maps</span></a></li>-->
-                        </ul>
-                    </li>
-                    <li>
                         <a href="blank.html#" ng-class="{ active: isActive('/recipient') || isActive('/recipient_level') }"><i class="s16 icomoon-icon-location-3"></i><span class=txt translate="menu.recipients"></span></a>
                         <ul class=sub>
                             <li><a href="./#recipient" ng-class="{ active1: isActive('/recipient') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
@@ -198,10 +197,14 @@ else{
                             <li><a href="./#user_roles" ng-class="{ active1: isActive('/user_roles') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.user_roles"></span></a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="blank.html#"><i class="s16 icomoon-icon-cog-2"></i><span class=txt translate="menu.configuration"></span></a>
+                        <ul class=sub>
+                            <li><a href="./#system_settings"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
+                            <!--                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Vector maps</span></a></li>-->
+                        </ul>
+                    </li>
 <!--                    <li><a href="widgets.html"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a></li>-->
-                    <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
-                    <li><a href="./#pre_advice" ng-class="{ active1: isActive('/pre_advice') }"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
-                    <li><a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">9</span></a></li>
 
                 </ul>
             </div>

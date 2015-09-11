@@ -58,6 +58,22 @@ class VaccineController extends Controller
         return RecipientPackage::where('source_id',Auth::user()->recipient_id)->get()->load('recipient','destination','transport','arrival','sendingUser','receivingUser');
     }
 
+    /**
+     * get the last package number
+     *
+     * @return Response
+     */
+    public function getNextPackageNumber()
+    {
+        if(count(RecipientPackage::where('source_id',Auth::user()->recipient_id)->get()) != 0){
+            return RecipientPackage::where('source_id',Auth::user()->recipient_id)->orderBy('order_number','DESC')->first()->order_number;
+
+        }else{
+            return 0;
+
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -155,15 +171,15 @@ class VaccineController extends Controller
         $arrival->recipient_destination_id  = $recipient->id;
         $arrival->source_id                 = $request->input('source_id');
         $arrival->arrival_report_number     = $request->input('arrival_report_no');
-        $arrival->package_volume            = $request->input('packed_volume');
-        $arrival->total_weight              = $request->input('total_weight');
+        $arrival->package_volume            = ($request->has('packed_volume'))?$request->input('packed_volume'):'';
+        $arrival->total_weight              = ($request->has('total_weight'))?$request->input('total_weight'):'';
         $arrival->arrival_date              = $request->input('arrival_date');
-        $arrival->freight_cost              = $request->input('freight_cost');
+        $arrival->freight_cost              = ($request->has('freight_cost'))?$request->input('freight_cost'):'';
         $arrival->receiving_user            = Auth::user()->id;
-        $arrival->notes                     = $request->input('notes');
-        $arrival->main_currency             = $request->input('main_currency');
-        $arrival->used_currency             = $request->input('currency_of_bill');
-        $arrival->exchange_rate             = $request->input('exchange_rate');
+        $arrival->notes                     = ($request->has('notes'))?$request->input('notes'):'';
+        $arrival->main_currency             = ($request->has('main_currency'))?$request->input('main_currency'):'';
+        $arrival->used_currency             = ($request->has('currency_of_bill'))?$request->input('currency_of_bill'):'';
+        $arrival->exchange_rate             = ($request->has('exchange_rate'))?$request->input('exchange_rate'):'';
         $arrival->save();
 
         foreach($request->input('items') as $item){
@@ -174,22 +190,22 @@ class VaccineController extends Controller
             $ArrivalItem->packaging_id              = $item['packaging_id'];
             $ArrivalItem->activity_id               = $item['activity'];
             $ArrivalItem->store_id                  = $item['store_id'];
-            $ArrivalItem->vvm_status                = $item['vvm_stage'];
+            $ArrivalItem->vvm_status                = (isset($item['vvm_stage']))?$item['u_price']:'';
             $ArrivalItem->arrival_id                = $arrival->id;
             $ArrivalItem->package_number            = $request->input('arrival_report_no');
             $ArrivalItem->lot_number                = $item['lot_number'];
             $ArrivalItem->number_received           = $item['doses'];
             $ArrivalItem->receiving_user            = Auth::user()->id;
-            $ArrivalItem->unit_price                = $item['u_price'];
-            $ArrivalItem->total_price               = $item['t_price'];
-            $ArrivalItem->volume                    = $item['total_volume'];
-            $ArrivalItem->manufacture_id            = $item['manufacture_id'];
-            $ArrivalItem->prduction_date            = $item['prod_date'];
-            $ArrivalItem->expiry_date               = $item['expired_date'];
+            $ArrivalItem->unit_price                = (isset($item['u_price']))?$item['u_price']:'';
+            $ArrivalItem->total_price               = (isset($item['t_price']))?$item['t_price']:'';
+            $ArrivalItem->volume                    = (isset($item['total_volume']))?$item['total_volume']:'';
+            $ArrivalItem->manufacture_id            = (isset($item['manufacture_id']))?$item['manufacture_id']:0;
+            $ArrivalItem->prduction_date            = (isset($item['prod_date']))?$item['prod_date']:'';
+            $ArrivalItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
             $ArrivalItem->save();
 
             $store = Store::find($item['store_id']);
-            $store->used_volume = $store->used_volume + ( $item['total_volume'] * 0.001 );
+            $store->used_volume = $store->used_volume + $item['total_volume'] ;
             $store->save();
 
             //adding the item to stock
@@ -201,7 +217,9 @@ class VaccineController extends Controller
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $ArrivalItem->store_id  = $item['store_id'];
+                $stock->store_id  = $item['store_id'];
+                $stock->unit_price      = $item['u_price'];
+                $stock->activity_id     = $item['activity'];
                 $stock->save();
             }else{
                 $stock = new Stock;
@@ -211,7 +229,9 @@ class VaccineController extends Controller
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $ArrivalItem->store_id  = $item['store_id'];
+                $stock->store_id  = $item['store_id'];
+                $stock->unit_price      = $item['u_price'];
+                $stock->activity_id     = $item['activity'];
                 $stock->save();
             }
 
@@ -224,6 +244,8 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
+                $storeStock->unit_price     = $item['u_price'];
+                $storeStock->activity_id    = $item['activity'];
                 $storeStock->save();
             }else{
                 $storeStock = new StoreStock;
@@ -233,6 +255,8 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
+                $storeStock->unit_price     = $item['u_price'];
+                $storeStock->activity_id    = $item['activity'];
                 $storeStock->save();
             }
         }
@@ -254,7 +278,7 @@ class VaccineController extends Controller
 //        $arrival->arrival_report_number     = $request->input('arrival_report_no');
 //        $arrival->package_volume            = $request->input('packed_volume');
 //        $arrival->total_weight              = $request->input('total_weight');
-        $arrival->arrival_date              = $request->input('arrival_date');
+        $arrival->arrival_date              = ($request->hsa('arrival_date'))?$request->input('arrival_date'):date('Y-m-d');
 //        $arrival->freight_cost              = $request->input('freight_cost');
 //        $arrival->receiving_user            = Auth::user()->id;
 //        $arrival->notes                     = $request->input('notes');
@@ -271,22 +295,22 @@ class VaccineController extends Controller
             $ArrivalItem->packaging_id              = $item['packaging_id'];
             $ArrivalItem->activity_id               = $item['activity'];
             $ArrivalItem->store_id                  = $item['store_id'];
-            $ArrivalItem->vvm_status                = $item['vvm_stage'];
+            $ArrivalItem->vvm_status                = (isset($item['vvm_stage']))?$item['u_price']:'';
             $ArrivalItem->arrival_id                = $arrival->id;
 //            $ArrivalItem->package_number            = $request->input('arrival_report_no');
             $ArrivalItem->lot_number                = $item['lot_number'];
             $ArrivalItem->number_received           = $item['doses'];
             $ArrivalItem->receiving_user            = Auth::user()->id;
-            $ArrivalItem->unit_price                = $item['u_price'];
-            $ArrivalItem->total_price               = $item['t_price'];
-            $ArrivalItem->volume                    = $item['total_volume'];
-            $ArrivalItem->manufacture_id            = $item['manufacture_id'];
-            $ArrivalItem->prduction_date            = $item['prod_date'];
-            $ArrivalItem->expiry_date               = $item['expired_date'];
+            $ArrivalItem->unit_price                = (isset($item['u_price']))?$item['u_price']:'';
+            $ArrivalItem->total_price               = (isset($item['t_price']))?$item['t_price']:'';
+            $ArrivalItem->volume                    = (isset($item['total_volume']))?$item['total_volume']:'';
+            $ArrivalItem->manufacture_id            = (isset($item['manufacture_id']))?$item['manufacture_id']:0;
+            $ArrivalItem->prduction_date            = (isset($item['prod_date']))?$item['prod_date']:'';
+            $ArrivalItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
             $ArrivalItem->save();
 
             $store = Store::find($item['store_id']);
-            $store->used_volume = $store->used_volume + ( $item['total_volume'] * 0.001 );
+            $store->used_volume = $store->used_volume + $item['total_volume'] ;
             $store->save();
 
             //adding the item to stock
@@ -298,7 +322,9 @@ class VaccineController extends Controller
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $ArrivalItem->store_id  = $item['store_id'];
+                $stock->store_id        = $item['store_id'];
+                $stock->unit_price      = $item['u_price'];
+                $stock->activity_id     = $item['activity'];
                 $stock->save();
             }else{
                 $stock = new Stock;
@@ -308,7 +334,9 @@ class VaccineController extends Controller
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $ArrivalItem->store_id  = $item['store_id'];
+                $stock->store_id        = $item['store_id'];
+                $stock->unit_price      = $item['u_price'];
+                $stock->activity_id     = $item['activity'];
                 $stock->save();
             }
 
@@ -321,6 +349,8 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
+                $storeStock->unit_price      = $item['u_price'];
+                $storeStock->activity_id     = $item['activity'];
                 $storeStock->save();
             }else{
                 $storeStock = new StoreStock;
@@ -330,6 +360,8 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
+                $storeStock->unit_price      = $item['u_price'];
+                $storeStock->activity_id     = $item['activity'];
                 $storeStock->save();
             }
         }
@@ -349,15 +381,15 @@ class VaccineController extends Controller
         $arrival->recipient_destination_id  = $recipient->id;
         $arrival->source_id                 = $request->input('source_id');
         $arrival->arrival_report_number     = $request->input('arrival_report_no');
-        $arrival->package_volume            = $request->input('packed_volume');
-        $arrival->total_weight              = $request->input('total_weight');
+        $arrival->package_volume            = ($request->has('packed_volume'))?$request->input('packed_volume'):'';
+        $arrival->total_weight              = ($request->has('total_weight'))?$request->input('total_weight'):'';
         $arrival->arrival_date              = $request->input('arrival_date');
-        $arrival->freight_cost              = $request->input('freight_cost');
+        $arrival->freight_cost              = ($request->has('freight_cost'))?$request->input('freight_cost'):'';
         $arrival->receiving_user            = Auth::user()->id;
-        $arrival->notes                     = $request->input('notes');
-        $arrival->main_currency             = $request->input('main_currency');
-        $arrival->used_currency             = $request->input('currency_of_bill');
-        $arrival->exchange_rate             = $request->input('exchange_rate');
+        $arrival->notes                     = ($request->has('notes'))?$request->input('notes'):'';
+        $arrival->main_currency             = ($request->has('main_currency'))?$request->input('main_currency'):'';
+        $arrival->used_currency             = ($request->has('currency_of_bill'))?$request->input('currency_of_bill'):'';
+        $arrival->exchange_rate             = ($request->has('exchange_rate'))?$request->input('exchange_rate'):'';
         $arrival->save();
 
         foreach($request->input('items') as $item){
@@ -368,22 +400,26 @@ class VaccineController extends Controller
             $ArrivalItem->packaging_id              = $item['packaging_id'];
             $ArrivalItem->activity_id               = $item['activity'];
             $ArrivalItem->store_id                  = $item['store_id'];
-            $ArrivalItem->vvm_status                = $item['vvm_stage'];
+            $ArrivalItem->vvm_status                = (isset($item['vvm_stage']))?$item['u_price']:'';
             $ArrivalItem->arrival_id                = $arrival->id;
             $ArrivalItem->package_number            = $request->input('arrival_report_no');
             $ArrivalItem->lot_number                = $item['lot_number'];
-            $ArrivalItem->number_received           = $item['doses'];
+            $ArrivalItem->number_expected           = $item['doses'];
+            $ArrivalItem->number_received           = (isset($item['number_received']))?$item['number_received']:$item['doses'];
+            $ArrivalItem->physical_damage           = $item['physical_damage'];
+            $ArrivalItem->number_as_expected        = $item['number_as_expected'];
+            $ArrivalItem->damaged_amount            = (isset($item['damaged_amount']))?$item['damaged_amount']:0;
             $ArrivalItem->receiving_user            = Auth::user()->id;
-            $ArrivalItem->unit_price                = $item['u_price'];
-            $ArrivalItem->total_price               = $item['t_price'];
-            $ArrivalItem->volume                    = $item['total_volume'];
-            $ArrivalItem->manufacture_id            = $item['manufacture_id'];
-            $ArrivalItem->prduction_date            = $item['prod_date'];
-            $ArrivalItem->expiry_date               = $item['expired_date'];
+            $ArrivalItem->unit_price                = (isset($item['u_price']))?$item['u_price']:'';
+            $ArrivalItem->total_price               = (isset($item['t_price']))?$item['t_price']:'';
+            $ArrivalItem->volume                    = (isset($item['total_volume']))?$item['total_volume']:'';
+            $ArrivalItem->manufacture_id            = (isset($item['manufacture_id']))?$item['manufacture_id']:0;
+            $ArrivalItem->prduction_date            = (isset($item['prod_date']))?$item['prod_date']:'';
+            $ArrivalItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
             $ArrivalItem->save();
 
             $store = Store::find($item['store_id']);
-            $store->used_volume = $store->used_volume + ( $item['total_volume'] * 0.001 );
+            $store->used_volume = $store->used_volume + $item['total_volume'] ;
             $store->save();
 
             //adding the item to stock
@@ -395,7 +431,9 @@ class VaccineController extends Controller
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $ArrivalItem->store_id  = $item['store_id'];
+                $stock->store_id        = $item['store_id'];
+                $stock->unit_price      = $item['u_price'];
+                $stock->activity_id     = $item['activity'];
                 $stock->save();
             }else{
                 $stock = new Stock;
@@ -405,7 +443,9 @@ class VaccineController extends Controller
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $ArrivalItem->store_id  = $item['store_id'];
+                $stock->store_id        = $item['store_id'];
+                $stock->unit_price      = $item['u_price'];
+                $stock->activity_id     = $item['activity'];
                 $stock->save();
             }
 
@@ -418,6 +458,8 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
+                $storeStock->unit_price      = $item['u_price'];
+                $storeStock->activity_id     = $item['activity'];
                 $storeStock->save();
             }else{
                 $storeStock = new StoreStock;
@@ -427,6 +469,8 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
+                $storeStock->unit_price      = $item['u_price'];
+                $storeStock->activity_id     = $item['activity'];
                 $storeStock->save();
             }
 

@@ -57,7 +57,7 @@ angular.module("vssmApp")
             $scope.packaging_information = data;
             $scope.packagingInformation =[];
             angular.forEach($scope.packaging_information,function(value){
-                value.usename =  value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
+                value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
                 $scope.packagingInformation.push(value);
             });
         });
@@ -145,12 +145,14 @@ angular.module("vssmApp")
                                 itemm.boxes = itemm.vials/val.vials_per_box;
                                 itemm.vials_per_box = val.vials_per_box;
                                 itemm.cm_per_dose = val.cm_per_dose;
-                                itemm.total_volume = value.number_of_doses*val.cm_per_dose;
+                                itemm.total_volume = value.number_of_doses*val.cm_per_dose*0.001;
                                 itemm.item_id = val.vaccine.id;
                                 itemm.item = val.vaccine.name;
                                 itemm.vaccineStore = val.vaccine.storage_type;
                                 itemm.manufacture_id = val.manufacture.id;
                                 itemm.manufacture = val.manufacture.name;
+                                itemm.number_as_expected = 'yes';
+                                itemm.physical_damage = 'no';
                             }
                         });
                         $scope.newItem.items.push(itemm);
@@ -233,12 +235,12 @@ angular.module("vssmApp")
             opened2: false,
             opened3: false
         }
-        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-        $scope.format = $scope.formats[0];
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd MMM yyyy', 'shortDate'];
+        $scope.format = $scope.formats[2];
         $scope.open = function($event) {
             $scope.status.opened = true;
         };
-
+        var $translate = $filter('translate');
         //updating an Item
         $scope.currentSaving = false;
         $scope.saveArrival = function(item){
@@ -267,6 +269,22 @@ angular.module("vssmApp")
                 $scope.currentSaving = false;
             })
 
+        }
+        $scope.checksave = false;
+        $scope.cansave = function(){
+            var i =0;
+            angular.forEach($scope.newItem.items,function(value){
+                if(value.hasOwnProperty('u_price') && value.hasOwnProperty('store_id') && value.hasOwnProperty('activity')){
+                    i++;
+                }
+            })
+            if(i == $scope.newItem.items.length){
+                $scope.checksave = true;
+                return true;
+            }else{
+                $scope.checksave = false;
+                return false;
+            }
         }
 
     });

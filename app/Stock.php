@@ -15,7 +15,7 @@ class Stock extends Model
     protected  $guarded = array('id');
 
     public function packaging(){
-        return $this->belongsTo('App\RecipientPackage', 'packaging_id', 'id');
+        return $this->belongsTo('App\PackagingInformation', 'packaging_id', 'id');
     }
 
     public function store(){

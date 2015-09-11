@@ -160,7 +160,7 @@
     <!-- End .row -->
     <div class="col-md-12" ng-if="data_ready">
         <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-        <button ng-click="saveArrival(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0" translate="labels.save_package"> </button>
+        <button ng-click="saveArrival(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0 && cansave()" translate="labels.save_package"> </button>
     </div>
 </div>
 

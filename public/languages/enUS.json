@@ -154,7 +154,7 @@
         "Dose_vial":"Dose/Vial",
         "doses":"Doses",
         "vials":"Vials",
-        "total_volume":"Total Volume",
+        "total_volume":"Total Volume(Lt)",
         "vvm_stage":"VVM Stage",
         "prod_date":"Production Date",
         "u_price":"U. Price",
@@ -173,7 +173,11 @@
         "request_number":"Request Number",
         "transport_mode":"Transport Mode",
         "done":"Done",
-        "save_package":"Save Package"
+        "save_package":"Save Package",
+        "received_amount":"Received Amount",
+        "amount_okay":"Amount Okay",
+        "physical_damage":"Physical Damage",
+        "damaged_amount":"Damaged Amount"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",
@@ -189,6 +193,7 @@
         "stock_added_successfull":"Items Received successful",
         "stock_added_falure":"Something Went Wrong, Items was Not Received!",
         "not_found":"Item Not Found!",
+        "max_stock":"You can provide to a maximum of {{ recipient }} Doses, current stock is {{ doses }} Remaining stock amount after is {{ remain }}",
         "no_package":"<i class='fa fa-warning'></i> No package with this number is expected!",
         "volume_used":"**Volume used is {{ volume }} % and can accommodate up to {{ volume1 }} doses",
         "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience"

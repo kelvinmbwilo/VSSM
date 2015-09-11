@@ -36,7 +36,7 @@
 
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label  class="required" for="doses" translate="labels.doses"></label>
-                <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="number" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="u_price" translate="labels.u_price"></label>
@@ -81,15 +81,40 @@
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="prod_date" translate="labels.prod_date"></label>
+                <label for="prod_date" translate="labels.prod_date"></label>
                 <p class="input-group">
-                    <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
+                    <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
                 </p>
             </div>
 
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label for="vvm_stage" translate="labels.amount_okay"></label>
+                <!--status-->
+                <select id="vvm_stage"  type="text" ng-model="oneItem.number_as_expected" class="form-control" id="exampleInputPassword2" >
+                    <option value="yes" translate="labels.yes"></option>
+                    <option value="no" translate="labels.no"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.number_as_expected == 'no'">
+                <label class="required" for="u_price" translate="labels.received_amount"></label>
+                <input  required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label for="vvm_stage" translate="labels.physical_damage"></label>
+                <!--status-->
+                <select id="vvm_stage"  type="text" ng-model="oneItem.physical_damage" class="form-control" id="exampleInputPassword2" >
+                    <!--<option value="" translate="labels.select"></option>-->
+                    <option value="yes" translate="labels.yes"></option>
+                    <option value="no" translate="labels.no"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.physical_damage == 'yes'">
+                <label class="required" for="u_price" translate="labels.damaged_amount"></label>
+                <input  required="" type="number" ng-model="oneItem.damaged_amount" class="form-control" id="u_price" placeholder="{{ 'labels.damaged_amount' | translate }}">
+            </div>
         </div>
         <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != oneItem.vaccineStore" class="text-danger" translate="error.store_do_not_match"></div>
         <div class="col-sm-12" ng-if="oneItem.store_id" class="text-warning" translate="error.volume_used" translate-value-volume="{{ oneItem.used | number:2 }}" translate-value-volume1="{{ oneItem.used1 | number:2}}" ></div>

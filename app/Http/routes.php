@@ -299,6 +299,9 @@ Route::post('system_settings',array('uses'=>'UserController@saveSettings'));
 //getting pre_shipments
 Route::get('stock_items',array('uses'=>'VaccineController@stock_items'));
 
+//getting last order number
+Route::get('getNextPackageNumber',array('uses'=>'VaccineController@getNextPackageNumber'));
+
 //getting arrivals
 Route::get('arrivals',array('uses'=>'VaccineController@arrivals'));
 

@@ -67,8 +67,8 @@ angular.module("vssmApp")
                     opened2: false,
                     opened3: false
                 }
-                $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-                $scope.format = $scope.formats[0];
+                $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd MMM yyyy', 'shortDate'];
+                $scope.format = $scope.formats[2];
                 $scope.open = function($event) {
                     $scope.status.opened = true;
                 };
@@ -90,7 +90,7 @@ angular.module("vssmApp")
                     $scope.packaging_information = data;
                     $scope.packagingInformation =[];
                     angular.forEach($scope.packaging_information,function(value){
-                        value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
+                        value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
                         $scope.packagingInformation.push(value);
                     });
                 });
@@ -105,7 +105,7 @@ angular.module("vssmApp")
                     });
                     angular.forEach($scope.packaging_information,function(value){
                         if(value.vaccine_id == itemId){
-                            value.usename = value.GTIN+" ("+ value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box)"
+                            value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
                             $scope.packagingInformation.push(value);
                         }
                     });
@@ -279,7 +279,7 @@ angular.module("vssmApp")
                 };
 
                 $scope.saveOneItem = function(item){
-                    item.total_volume = item.cm_per_dose * item.doses;
+                    item.total_volume = item.cm_per_dose * item.doses * 0.001;
                     item.vials = item.doses / item.dose_vial;
                     $scope.newItem.items.push(item);
                     $scope.hasItems = true;

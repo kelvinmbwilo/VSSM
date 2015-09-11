@@ -17,17 +17,11 @@
         <form class="col-md-12" novalidate name="myForm" >
             <!--item_id-->
             <div class="form-group" >
-                <div class="col-md-4"  >
+                <div class="col-md-3"  >
                     <label  for="arrival_report_no" translate="labels.voucher_no"></label>
-                    <input  id="arrival_report_no" type="text" ng-model="newItem.voucher_no" class="form-control input-sm"  placeholder="{{ 'labels.voucher_no' | translate }}">
+                    <input disabled  id="arrival_report_no" type="text" ng-model="newItem.voucher_no" class="form-control input-sm"  placeholder="{{ 'labels.voucher_no' | translate }}">
                 </div>
-                <div class="col-md-4"  >
-                    <label for="source" translate="labels.recipients"></label>
-                    <select  id="source" class="form-control" ng-model="newItem.recipients"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
-                        <option value="" translate="labels.select"></option>
-                    </select>
-                </div>
-                <div class="col-md-4"  >
+                <div class="col-md-3"  >
                     <label class="required" for="arrival_date" translate="labels.dispatch_date"></label>
                     <p class="input-group">
                         <input type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.dispatch_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
@@ -36,25 +30,27 @@
                           </span>
                     </p>
                 </div>
-
-            </div>
-            <div class="form-group">
-                <div class="col-md-4"  >
+                <div class="col-md-3"  >
+                    <label for="source" translate="labels.recipients"></label>
+                    <select  id="source" ng-change="changeRecipient(newItem.recipients)" class="form-control" ng-model="newItem.recipients"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+                <div class="col-md-3"  >
                     <label for="transport_mode" translate="labels.transport_mode"></label>
                     <select id="transport_mode" class="form-control" ng-model="newItem.transport_mode"  ng-options="obj.id as obj.name for obj in transport_mode | filter:{status:'active'}:true">
                         <option value="" translate="labels.select"></option>
                     </select>
                 </div>
-                <div class="col-md-4"  >
-                    <label  for="packed_volume" translate="labels.request_number"></label>
-                    <input  type="text" ng-model="newItem.request_number" class="form-control input-sm" id="packed_volume" placeholder="{{ 'labels.request_number' | translate }}">
-                </div>
+
             </div>
+            <div class="col-sm-12" ng-if="noAnnualQuota">Annual Quota For this recipient has not been set</div>
+
         </form>
 
 
     </div>
-    <div class="col-md-12" style="margin-top: 10px" >
+    <div class="col-md-12" style="margin-top: 10px" ng-if="newItem.recipients && !noAnnualQuota">
         <div class="panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
             <!-- Start .panel -->
             <div class="panel-heading white-bg">
@@ -77,8 +73,6 @@
                                 <th translate="labels.doses"></th>
                                 <th translate="labels.vials"></th>
                                 <th translate="labels.total_volume"></th>
-                                <th translate="labels.vvm_stage"></th>
-                                <th translate="labels.prod_date"></th>
                                 <th translate="labels.u_price"></th>
                                 <th translate="labels.t_price"></th>
                                 <th translate="labels.activity"></th>
@@ -90,17 +84,15 @@
                             <tr ng-repeat="item in newItem.items" ng-hide="deletedItem[item.id]">
                                 <td>{{ $index+1 }}</td>
                                 <td>{{ item.item }}</td>
-                                <td>{{ item.manufacture }}</td>
+                                <td>{{ getManufactureName(item.manufacture_id) }}</td>
                                 <td>{{ item.lot_number }}</td>
                                 <td>{{ item.packaging }}</td>
                                 <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ item.doses }}</td>
                                 <td>{{ item.vials }}</td>
                                 <td>{{ item.total_volume }}</td>
-                                <td>{{ item.vvm_stage }}</td>
-                                <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ item.u_price }}</td>
-                                <td>{{ item.t_price }}</td>
+                                <td>{{ item.u_price * item.doses }}</td>
                                 <td>{{ getActivityName(item.activity) }}</td>
                                 <td>{{ getStoreName(item.store_id) }}</td>
                                 <td>
@@ -130,7 +122,7 @@
     </div>
     <!-- End .row -->
     <div class="col-md-12">
-        <button  ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0"> Save Package</button>
+        <button  ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="!noAnnualQuota && newItem.items.length != 0"> Save Package</button>
     </div>
 </div>
 

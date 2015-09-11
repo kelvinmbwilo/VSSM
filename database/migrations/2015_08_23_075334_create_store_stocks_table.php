@@ -20,6 +20,8 @@ class CreateStoreStocksTable extends Migration
             $table->string('lot_number');
             $table->string('packaging_id');
             $table->date('expiry_date');
+            $table->float('unit_price');
+            $table->integer('activity_id');
             $table->timestamps();
         });
     }
