@@ -131,7 +131,7 @@ angular.module("vssmApp")
         }
         $interval( function(){
             $scope.generateVoucheNumber()
-        }, 3000);
+        }, 12333000);
 
         //adding Item to list
         $scope.showAdd = function(){
