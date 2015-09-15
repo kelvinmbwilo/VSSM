@@ -22,6 +22,10 @@ class RecipientPackage extends Model
         return $this->belongsTo('App\Recipient', 'recipient_id', 'id');
     }
 
+    public function items(){
+        return $this->hasMany('App\RecipientPackageItem', 'package_id', 'id');
+    }
+
     public function transport(){
         return $this->belongsTo('App\TransportMode', 'transport_mode_id', 'id');
     }

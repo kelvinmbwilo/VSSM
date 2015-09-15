@@ -44,7 +44,7 @@
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
                 <td>{{ item.amount }}</td>
                 <td>{{ item.amount/item.packaging.dose_per_vial | number:0 }}</td>
-                <td>{{ (item.amount*item.packaging.cm_per_dose)/0.001  }}</td>
+                <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001  }}</td>
                 <td>{{ item.unit_price }} {{ main_currency }}</td>
                 <td>{{ item.unit_price * item.amount }} {{ main_currency }}</td>
                 <td>{{ getActivityName(item.activity_id) }}</td>

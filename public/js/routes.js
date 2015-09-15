@@ -104,6 +104,10 @@ angular.module("vssmApp")
             templateUrl: 'views/receive/pre_advice.html',
             controller: 'preadviceReceiveCtrl'
         });
+        $routeProvider.when("/receive_other",{
+            templateUrl: 'views/receive/receive_other.html',
+            controller: 'preadviceReceiveCtrl'
+        });
 
         $routeProvider.when("/dispatch",{
             templateUrl: 'views/dispatch/dispatch.html',
@@ -133,6 +137,26 @@ angular.module("vssmApp")
         $routeProvider.when("/expected_packages",{
             templateUrl: 'views/summary/expected_items.html',
             controller: 'summaryCtrl'
+        });
+
+        $routeProvider.when("/arrival_adjustment",{
+            templateUrl: 'views/adjustment/arrival_adjustment.html',
+            controller: 'adjustmentCtrl'
+        });
+
+        $routeProvider.when("/dispatch_adjustment",{
+            templateUrl: 'views/adjustment/dispatch_adjustment.html',
+            controller: 'adjustmentCtrl'
+        });
+
+        $routeProvider.when("/move_items",{
+            templateUrl: 'views/adjustment/move_items.html',
+            controller: 'adjustmentCtrl'
+        });
+
+        $routeProvider.when("/stock_adjustment",{
+            templateUrl: 'views/adjustment/stock_adjustment.html',
+            controller: 'adjustmentCtrl'
         });
 
 

@@ -25,7 +25,6 @@ angular.module("vssmApp")
         //getting the loggedIn User
         $http.get("index.php/loggenInuser").success(function(data){
             $scope.logedInUser = data;
-            console.log(data);
             $scope.logedInUserName = data.first_name +" "+ data.last_name;
         });
         //getting the system settings
@@ -130,6 +129,11 @@ angular.module("vssmApp")
             $scope.userRecipients = data;
         });
 
+        //get user_recipients
+        $http.get("index.php/user/recipientLevel").success(function(data){
+            $scope.userRecipientLevel = data;
+        });
+
         $scope.toastPosition = {
             bottom: true,
             top: false,
@@ -143,7 +147,126 @@ angular.module("vssmApp")
                 .join(' ');
         };
 
-    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast) {
+    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http) {
 
+        //get stores
+        $scope.storeNames= [];
+        $scope.storeValues = [];
+        $scope.usedValues = [];
+        $scope.storeCapacity = [];
+        $scope.chartConfig2 ={};
+        $scope.chartConfig2.series ={};
+        $scope.chartConfig2.series.data = [];
+        $http.get("index.php/stores").success(function(data){
+            $scope.stores = data;
+            var i = 0;
+            angular.forEach(data,function(value){
+                i++;
+                if(i == 1){
+                    $scope.chartConfig2.series.data.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
+                    $scope.chartConfig2.series.data.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
+                }
+                $scope.storeNames.push(value.name);
+                $scope.storeValues.push(parseInt(value.net_volume));
+                $scope.usedValues.push(parseInt(value.used_volume));
+            })
+
+        });
+
+        $scope.setStoreType = function(id){
+
+            $scope.chartConfig2.series.data = [];
+            angular.forEach($scope.stores,function(value){
+                if(value.id == id){
+                    $scope.chartConfig2.series.data.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
+                    $scope.chartConfig2.series.data.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
+
+                }
+            })
+        }
+
+        $scope.vaccineNames= [];
+        $scope.vacciineValues = [];
+
+        $http.get("index.php/vaccineStocks/1").success(function(data){
+            angular.forEach(data,function(value){
+                $scope.vaccineNames.push(value.name);
+                $scope.vacciineValues.push(parseInt(value.amount));
+            })
+
+        });
+
+//This is not a highcharts object. It just looks a little like one!
+        $scope.chartConfig = {
+            options: {
+                chart: {
+                    type: 'column',
+                    zoomType: 'x'
+                }
+            },
+            xAxis: {
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            },
+                categories: $scope.storeNames
+            },
+            series: [{
+                name:'Total Volume',
+                data: $scope.storeValues
+            },{
+                name:'Used Volume',
+                data: $scope.usedValues
+            }],
+            title: {
+                text: 'Hello'
+            },
+//            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
+            loading: false
+        };
+
+        $scope.chartConfig1 = {
+            options: {
+                chart: {
+                    type: 'column',
+                    zoomType: 'x'
+                }
+            },
+            xAxis: {
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            },
+                categories: $scope.vaccineNames
+            },
+            series: [{
+                data: $scope.vacciineValues
+            }],
+            title: {
+                text: 'Hello'
+            },
+//            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
+            loading: false
+        };
+        //serie.push({name: value+" - "+ val , y: parseInt(data) })
+        $scope.chartConfig2 ={
+            options: {
+                chart: {
+                    type: 'pie',
+                    zoomType: 'x'
+                }
+            },
+            title: {
+                text: 'Hello'
+            },
+//            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
+            loading: false
+        };
     });
 

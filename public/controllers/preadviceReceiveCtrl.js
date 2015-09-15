@@ -117,6 +117,11 @@ angular.module("vssmApp")
             $scope.annual_quota = data;
         });
 
+        //get transport_mode
+        $http.get("index.php/expected_packages").success(function(data){
+            $scope.expected_packages = data;
+        });
+
         //fetching the shipment after scan
         $scope.errorMessage = false;
         $scope.loadPackage = function(package_number){
@@ -156,6 +161,62 @@ angular.module("vssmApp")
                             }
                         });
                         $scope.newItem.items.push(itemm);
+                        counter++;
+                    }
+                }
+            });
+            if(counter == 0){
+                $scope.errorMessage = true;
+            }else{
+                $scope.errorMessage = false;
+                $scope.data_ready = true;
+                $("#batch_no").focus();
+            }
+        }
+
+        $scope.loadPackage1 = function(package_number){
+
+            $scope.data_ready = false;
+            var packages = [];
+            var counter = 0;
+            angular.forEach($scope.expected_packages,function(value){
+                console.log(value.voucher_number+"==" +package_number)
+                if(value.receiving_status == 'pending'){
+                    if(value.voucher_number == package_number){
+                        $scope.newItem.arrival_date = new Date();
+                        $scope.newItem.source_id = value.source_id;
+                        $scope.newItem.main_currency = $scope.system_settings.main_currency;
+                        angular.forEach(value.items,function(valu){
+                            var itemm = {};
+                            itemm.lot_number = valu.batch_number;
+                            itemm.expired_date = valu.expiry_date;
+                            itemm.doses = valu.amount;
+                            itemm.u_price = valu.unit_price;
+                            itemm.activity = valu.activity;
+                            itemm.t_price = valu.unit_price * valu.amount;
+                            angular.forEach($scope.packaging_information,function(val){
+                                if(val.id == valu.packaging_id){
+                                    itemm.packaging_id = val.id;
+                                    itemm.packaging = val.usename;
+                                    itemm.dose_vial = val.dose_per_vial;
+                                    itemm.vials = valu.amount/val.dose_per_vial;
+                                    itemm.boxes = itemm.vials/val.vials_per_box;
+                                    itemm.vials_per_box = val.vials_per_box;
+                                    itemm.cm_per_dose = val.cm_per_dose;
+                                    itemm.total_volume = valu.amount*val.cm_per_dose*0.001;
+                                    itemm.item_id = val.vaccine.id;
+                                    itemm.item = val.vaccine.name;
+                                    itemm.vaccineStore = val.vaccine.storage_type;
+                                    itemm.manufacture_id = val.manufacture.id;
+                                    itemm.manufacture = val.manufacture.name;
+                                    itemm.number_as_expected = 'yes';
+                                    itemm.physical_damage = 'no';
+                                }
+                            });
+                            $scope.newItem.items.push(itemm);
+                        });
+
+
                         counter++;
                     }
                 }
@@ -243,8 +304,9 @@ angular.module("vssmApp")
         var $translate = $filter('translate');
         //updating an Item
         $scope.currentSaving = false;
-        $scope.saveArrival = function(item){
+        $scope.saveArrival = function(item,type){
             $scope.currentSaving = true;
+            item.from_type = type;
             $http.post("index.php/pre_receive/", item).success(function (newItem) {
                 $scope.data_ready = false;
                 $scope.item_found = true;

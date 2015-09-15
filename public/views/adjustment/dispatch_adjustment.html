@@ -1,0 +1,55 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.arrival_adjustment"></h3>
+        <div class=resBtnSearch><a href="#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.arrival_adjustment"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+
+        <form class="col-md-12" novalidate name="myForm" >
+            <!--item_id-->
+            <div class="form-group" >
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="required" for="select_arrival" translate="labels.select_dispatch"></label>
+                    <select required="" ng-change="getDispatchItem(newItem.dispatch)"  id="select_arrival" class="form-control" ng-model="newItem.dispatch"  ng-options="obj.id as obj.name for obj in expected_packages">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-md-offset-3"  style="margin-top:10px;" ng-if="newItem.dispatch" >
+                    <label class="required" for="select_item" translate="labels.select_item"></label>
+                    <select required="" id="select_item" class="form-control" ng-model="newItem.item"  ng-options="obj.id as obj.name for obj in dispatchItems">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+                <div  class="col-md-6 col-md-offset-3" style="margin-top: 10px" ng-if="newItem.item && newItem.dispatch" >
+                <label class="required" for="doses" translate="labels.doses"></label>
+                <input required="" style="margin-top: 10px"   type="text" ng-model="newItem.doses" class="form-control input-sm" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+            </div>
+                <div  class="col-md-6 col-md-offset-3"  style="margin-top:10px" ng-if="newItem.item && newItem.dispatch" >
+                    <label class="required" for="adjustment_reason" translate="labels.adjustment_reason"></label>
+                    <select id="adjustment_reason" class="form-control" ng-model="newItem.adjustment_reason"  ng-options="obj.id as obj.name for obj in adjustment_reasons | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <!-- End .row -->
+    <div class="col-md-6 col-md-offset-3" style="margin-top:10px" ng-if="newItem.item && newItem.dispatch">
+        <h4  ng-if="currentSaving2"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
+        <button ng-disabled="myForm.$invalid" ng-if="!currentSaving2" ng-click="saveDispatchAdjust(newItem)" class="btn btn-sm btn-primary"  translate="labels.save_package"> </button>
+        <button  ng-if="!currentSaving2" ng-click="cancel()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
+    </div>
+</div>
+
+

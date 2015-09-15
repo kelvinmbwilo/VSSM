@@ -22,11 +22,19 @@ class RecipientPackageItem extends Model
         return $this->belongsTo('App\Vaccine', 'vaccine_id', 'id');
     }
 
+    public function recipient(){
+        return $this->belongsTo('App\Recipient', 'recipient_id', 'id');
+    }
+
+    public function receiver(){
+        return $this->belongsTo('App\Recipient', 'receiver_id', 'id');
+    }
+
     public function packaging(){
         return $this->belongsTo('App\PackagingInformation', 'packaging_id', 'id');
     }
 
-    public function activity(){
+    public function activities(){
         return $this->belongsTo('App\Activity', 'activity', 'id');
     }
 

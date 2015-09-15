@@ -1,0 +1,99 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.move_items"></h3>
+        <div class=resBtnSearch><a href="#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.move_items"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+
+        <form class="col-md-12" novalidate name="myForm" >
+            <!--item_id-->
+            <div class="form-group" >
+
+                <div class="col-md-5 thumbnail" style="height: 400px;overflow: scroll" >
+                    <label for="source" translate="labels.from_store"></label>
+                    <select  id="source" class="form-control" ng-model="newItem.from_store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+
+                    <label for="source" translate="labels.select_option"></label>
+                    <select required="" type="text" ng-model="myItem.status" class="form-control" id="exampleInputPassword2" >
+                        <option value="one" translate="labels.move_one_item"></option>
+                        <option value="all" translate="labels.move_all_items"></option>
+                    </select>
+
+                    <label ng-if="myItem.status == 'one'" for="source" translate="labels.move_one_item"></label>
+                    <select  ng-if="myItem.status == 'one'"  id="source" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+
+                    <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+                        <thead>
+                        <tr>
+                            <th >#</th>
+                            <th translate="labels.product"></th>
+                            <th translate="labels.doses"></th>
+                            <th translate="labels.lot_number"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in stock_itemsA">
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ item.vaccine.name }}</td>
+                            <td>{{ item.amount }}</td>
+                            <td>{{ item.lot_number }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-5 thumbnail  col-md-offset-1" style="height: 400px;overflow: scroll" >
+                    <label for="source" translate="labels.to_store"></label>
+                    <select  id="source" class="form-control" ng-model="newItem.to_store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                    <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+                        <thead>
+                        <tr>
+                            <th >#</th>
+                            <th translate="labels.product"></th>
+                            <th translate="labels.doses"></th>
+                            <th translate="labels.lot_number"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in stock_itemsB">
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ item.vaccine.name }}</td>
+                            <td>{{ item.amount }}</td>
+                            <td>{{ item.lot_number }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+    <div class="col-md-12" style="margin-top: 10px" >
+
+    </div>
+    <!-- End .row -->
+    <div class="col-md-12">
+        <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+        <button ng-click="saveArrival(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0" translate="labels.save_package"> </button>
+    </div>
+</div>
+
+

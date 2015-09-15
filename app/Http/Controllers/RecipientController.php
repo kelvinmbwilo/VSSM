@@ -32,6 +32,16 @@ class RecipientController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function userRecipientLevel()
+    {
+        return Recipient::find(Auth::user()->recipient_id)->level;
+    }
+
+    /**
      *Get the root of adminUnits
      *
      * @return Response

@@ -26,9 +26,6 @@ class Arrival extends Model
         return $this->belongsTo('App\Source', 'source_id', 'id');
     }
 
-    public function arrival(){
-        return $this->belongsTo('App\Arrival', 'arrival_id', 'id');
-    }
 
     public function user(){
         return $this->belongsTo('App\User', 'receiving_user', 'id');

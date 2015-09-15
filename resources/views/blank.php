@@ -6,6 +6,7 @@ if(Auth::guest()){
 else{
 ?>
 <!DOCTYPE html><!--[if lt IE 8]>
+<meta name="csrf-token" content="<?php echo csrf_token() ?>" />
 <html class="no-js lt-ie8" ng-app="bahariApp" ng-controller="mainCtrl">
 <![endif]--><!--[if gt IE 8]><!-->
 <html class='no-js' xmlns="http://www.w3.org/1999/html">
@@ -26,6 +27,7 @@ else{
     <!-- Import google fonts - Heading first/ text second -->
 <!--    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel=stylesheet type=text/css>-->
 <!--    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel=stylesheet type=text/css>-->
+    <link href="<?php echo  asset('css/kendo.common-material.min.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('bower_components/angular-material/angular-material.min.css')  ?>" rel="stylesheet">
     <!-- Css files -->
     <link rel=stylesheet href="<?php echo  asset('css/abn_tree.css') ?>">
@@ -124,11 +126,11 @@ else{
                     <li><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
                     <li><a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">8</span></a></li>
                     <li>
-                        <a href="blank.html#"  ng-class="{ active: isActive('/group') || isActive('/home') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
+                        <a href="blank.html#"  ng-class="{ active: isActive('/receive') || isActive('/receive_pre') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
-                            <li><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
-                            <li><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
+                            <li ng-if="userRecipientLevel == 1"><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="userRecipientLevel != 1"><a href="./#receive_other" ng-class="{ active1: isActive('/receive_other') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="userRecipientLevel == 1"><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
 <!--                            <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.open_stock"></span></a></li>-->
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
@@ -137,7 +139,7 @@ else{
                         <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.dispatch"></span></a>
                         <ul class=sub>
                             <li><a href="./#dispatch"  ng-class="{ active1: isActive('/dispatch') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
-                            <li><a href="./#requests" ng-class="{ active1: isActive('/requests') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>
+<!--                            <li><a href="./#requests" ng-class="{ active1: isActive('/requests') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>-->
                         </ul>
                     </li>
                     <li>
@@ -151,9 +153,10 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-equalizer-2"></i><span class=txt translate="menu.adjustment">Adjustment</span></a>
                         <ul class=sub>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
+                            <li><a href="./#arrival_adjustment" ng-class="{ active1: isActive('/arrival_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
+                            <li><a href="./#dispatch_adjustment" ng-class="{ active1: isActive('/dispatch_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
+                            <li><a href="./#stock_adjustment" ng-class="{ active1: isActive('/stock_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
+                            <li><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -170,17 +173,17 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-table-2"></i><span class=txt translate="menu.basic_data">Basic Data</span></a>
                         <ul class=sub>
-                            <li><a href="./#vaccine_diluent"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="./#packaging"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.GTIN_lookup"></span></a></li>
-                            <li><a href="./#item_min_max"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.items_max_min"></span></a></li>
-                            <li><a href="./#sources"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sources"></span></a></li>
-                            <li><a href="./#stores"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stores"></span></a></li>
-                            <li><a href="./#transport_modes"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transport_mode"></span></a></li>
-                            <li><a href="./#adjustment_reason"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
-                            <li><a href="./#activities"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
-                            <li><a href="./#manufactures"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
+                            <li><a href="./#vaccine_diluent" ng-class="{ active1: isActive('/vaccine_diluent') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li><a href="./#packaging" ng-class="{ active1: isActive('/packaging') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.GTIN_lookup"></span></a></li>
+                            <li><a href="./#item_min_max" ng-class="{ active1: isActive('/item_min_max') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.items_max_min"></span></a></li>
+                            <li><a href="./#sources" ng-class="{ active1: isActive('/sources') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sources"></span></a></li>
+                            <li><a href="./#stores" ng-class="{ active1: isActive('/stores') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stores"></span></a></li>
+                            <li><a href="./#transport_modes" ng-class="{ active1: isActive('/transport_modes') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transport_mode"></span></a></li>
+                            <li><a href="./#adjustment_reason" ng-class="{ active1: isActive('/adjustment_reason') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
+                            <li><a href="./#activities" ng-class="{ active1: isActive('/activities') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
+                            <li><a href="./#manufactures" ng-class="{ active1: isActive('/manufactures') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
                             <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
-                            <li><a href="./#annual_quota"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
+                            <li><a href="./#annual_quota" ng-class="{ active1: isActive('/annual_quota') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -200,7 +203,7 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-cog-2"></i><span class=txt translate="menu.configuration"></span></a>
                         <ul class=sub>
-                            <li><a href="./#system_settings"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
+                            <li><a href="./#system_settings" ng-class="{ active1: isActive('/system_settings') }" ><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
                             <!--                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Vector maps</span></a></li>-->
                         </ul>
                     </li>
@@ -241,12 +244,31 @@ else{
 <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <script type="text/javascript" src="<?php echo  asset('js/libs/respond.min.js') ?>"></script>
 <![endif]-->
+
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/build/pdf.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/build/pdf.worker.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/web/compatibility.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jquery.base64.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/tableExport.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf/libs/base64.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf/libs/sprintf.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.htmltable.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/html2canvas.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.debug.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.addhtml.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.cell.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.split_text_to_size.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.standard_fonts_metrics.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.autotable.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/datatables/media/js/jquery.dataTables.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular/angular.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-bootstrap/ui-bootstrap.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')  ?>"></script>
 <script src="<?php echo  asset('js/angular-route.js')  ?>"></script>
 <script src="<?php echo  asset('js/angular-resource.js')  ?>"></script>
+<script src="<?php echo asset('bower_components/highcharts-ng/src/highcharts-custom.js') ?>"></script>
+<script src="<?php echo asset('bower_components/highcharts-ng/src/highcharts-ng.js') ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-animate/angular-animate.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-aria/angular-aria.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-material/angular-material.min.js')  ?>"></script>
@@ -260,8 +282,9 @@ else{
 <script src="<?php echo  asset('bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-sanitize/angular-sanitize.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-ui-date/src/date.js')  ?>"></script>
+<script src="<?php echo  asset('js/kendo.all.min.js')  ?>"></script>
 <script>
-    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date']);
+    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','kendo.directives','highcharts-ng']);
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
 
@@ -273,6 +296,7 @@ else{
 <script src="<?php echo  asset('controllers/openStockCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/summaryCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/preadviceReceiveCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/adjustmentCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/recipient/recipientCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/recipient/recipientLevelCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/users/userCtrl.js')  ?>"></script>

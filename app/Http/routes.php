@@ -91,6 +91,9 @@ Route::get('recipients',array('uses'=>'RecipientController@index'));
 //getting recipients
 Route::get('user/recipients',array('uses'=>'RecipientController@userRecipients'));
 
+//getting recipients
+Route::get('user/recipientLevel',array('uses'=>'RecipientController@userRecipientLevel'));
+
 //saving a recipient
 Route::post('recipients',array('uses'=>'RecipientController@store'));
 
@@ -306,7 +309,19 @@ Route::get('getNextPackageNumber',array('uses'=>'VaccineController@getNextPackag
 Route::get('arrivals',array('uses'=>'VaccineController@arrivals'));
 
 //getting packages
-Route::get('packages',array('uses'=>'VaccineController@packages'));
+Route::get('sent_packages',array('uses'=>'VaccineController@packages'));
+
+//getting expected_packages
+Route::get('expected_items',array('uses'=>'VaccineController@expectedPackagesItems'));
+
+//getting storeStock
+Route::get('storeStocks/{id}',array('uses'=>'StoreController@storeStocks'));
+
+//getting vaccine in stock
+Route::get('vaccineStocks/{id}',array('uses'=>'StoreController@vaccineStocks'));
+
+//getting expected_packages
+Route::get('expected_packages',array('uses'=>'VaccineController@expectedPackages'));
 
 //saving new received items
 Route::post('receive',array('uses'=>'VaccineController@receive'));
@@ -314,5 +329,20 @@ Route::post('receive',array('uses'=>'VaccineController@receive'));
 //saving new openning stock for items
 Route::post('open',array('uses'=>'VaccineController@open'));
 
-//saving new openning stock for items
+//saving new pre-advice items
 Route::post('pre_receive',array('uses'=>'VaccineController@pre_receive'));
+
+//saving new dispatch
+Route::post('dispatch',array('uses'=>'VaccineController@dispatchVaccine'));
+
+//saving adjust basic details
+Route::post('arrival_adjust1',array('uses'=>'VaccineController@arrival_adjust1'));
+
+//saving adjust other details
+Route::post('arrival_adjust',array('uses'=>'VaccineController@arrival_adjust'));
+
+//saving  dispatch adjust other details
+Route::post('dispatch_adjust',array('uses'=>'VaccineController@dispatch_adjust'));
+
+//saving  stock adjust
+Route::post('stock_adjust',array('uses'=>'VaccineController@stock_adjust'));

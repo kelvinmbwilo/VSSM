@@ -1,0 +1,57 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.stock_adjustment"></h3>
+        <div class=resBtnSearch><a href="#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.stock_adjustment"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+
+        <form class="col-md-12" novalidate name="myForm" >
+            <!--item_id-->
+            <div class="form-group" >
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label class="required" for="select_arrival" translate="labels.select_stock_item"></label>
+                    <select required="" ng-change="getStockInfo(newItem.stock_id)"  id="select_arrival" class="form-control" ng-model="newItem.stock_id"  ng-options="obj.id as obj.name for obj in stock_items">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-md-offset-3" style="margin-top:10px;" ng-if="newItem.stock_id" >
+                    <p ><label translate="labels.lot_number"></label>: <span>{{ newItem.lot_number }}</span></p>
+                    <p ><label translate="labels.amount_in _store"></label>: <span>{{ maxValue }}</span></p>
+                </div>
+                <div class="col-md-6 col-md-offset-3" ng-if="newItem.stock_id" >
+                    <label translate="labels.enter_change_stock" ></label> <input ng-model="newItem.changeStock" type="checkbox" ng-true-value="'yes'" ng-false-value="'no'">
+                </div>
+                <div  class="col-md-6 col-md-offset-3" style="margin-top: 10px" ng-if="newItem.stock_id" >
+                    <label class="required" for="doses" translate="labels.enter_new_stock" ng-if="newItem.changeStock == 'no'"></label>
+                    <label class="required" for="doses" translate="labels.enter_change_stock" ng-if="newItem.changeStock == 'yes'"></label>
+                    <input required="" style="margin-top: 10px"   type="text" ng-if="newItem.changeStock == 'no'" ng-model="newItem.doses" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_new_stock' | translate }}">
+                    <input required="" style="margin-top: 10px"   type="text" ng-if="newItem.changeStock == 'yes'" ng-model="newItem.change" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_change_stock' | translate }}">
+                </div>
+                <div  class="col-md-6 col-md-offset-3"  style="margin-top:10px" ng-if="newItem.stock_id" >
+                    <label class="required" for="adjustment_reason" translate="labels.adjustment_reason"></label>
+                    <select required="" id="adjustment_reason" class="form-control" ng-model="newItem.adjustment_reason"  ng-options="obj.id as obj.name for obj in adjustment_reasons | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <!-- End .row -->
+    <div class="col-md-6 col-md-offset-3" style="margin-top:10px" ng-if="newItem.stock_id">
+        <h4  ng-if="currentSaving3"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
+        <button ng-disabled="myForm.$invalid" ng-if="!currentSaving3" ng-click="saveStockAdjust(newItem)" class="btn btn-sm btn-primary"  translate="labels.save_package"> </button>
+        <button  ng-if="!currentSaving3" ng-click="cancel1()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
+    </div>
+</div>
+

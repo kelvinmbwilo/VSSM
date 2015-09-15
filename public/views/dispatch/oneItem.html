@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                     <label class="required" for="doses" translate="labels.doses"></label>
-                    <input min="0" max="{{ maxValue }}" required="" ng-change="checkamount()" type="number" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                    <input min="0" required="" ng-change="checkamount()" type="number" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
 
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
@@ -32,12 +32,13 @@
                 </select>            </div>
 
         </div>
-        <!--<div class="col-sm-12" ng-if="oneItem.doses" class="text-warning" translate="error.store_do_not_match"></div>-->
+        <div class="col-sm-12" ng-if="maxexceed" class="text-warning" translate="error.no_stock"></div>
+        <div class="col-sm-12" ng-if="maxValue < oneItem.doses" class="text-warning" translate="error.no_enough_stock"></div>
 
-        <div class="col-sm-12" ng-if="oneItem.doses" class="text-warning" translate="error.max_stock" translate-value-doses="{{ maxValue }} " translate-value-recipient="{{ annual_need }} " translate-value-remain="{{ maxValue - oneItem.doses }}"></div>
+        <div class="col-sm-12" ng-if="oneItem.doses && !maxexceed" class="text-warning" translate="error.max_stock" translate-value-doses="{{ maxValue }} " translate-value-recipient="{{ annual_need }} " translate-value-remain="{{ maxValue - oneItem.doses }}"></div>
 
         <div class="col-md-12"  style="margin-top: 10px">
-            <button ng-if="!editing" type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveOneItem(oneItem)"></button>
+            <button ng-if="!editing && !maxexceed && maxValue > oneItem.doses" type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveOneItem(oneItem)"></button>
             <button ng-if="!editing" class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
             <button ng-if="editing && !myForm.$invalid" class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.done"></button>
             <br>

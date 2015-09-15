@@ -1,0 +1,126 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.arrival_adjustment"></h3>
+        <div class=resBtnSearch><a href="#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.arrival_adjustment"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+
+        <form class="col-md-12" novalidate name="myForm" >
+            <!--item_id-->
+            <div class="form-group" >
+                <div class="col-md-6 col-md-offset-3"  >
+                    <label for="select_arrival" translate="labels.select_arrival"></label>
+                    <select ng-change="getItem(newItem.arrival)"  id="select_arrival" class="form-control" ng-model="newItem.arrival"  ng-options="obj.id as obj.name for obj in arrivals">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" ng-if="newItem.arrival">
+                <div class="col-md-4"  style="margin-top: 10px">
+                    <div>
+                        <label for="source" translate="labels.source"></label>
+                        <select  id="source" class="form-control input-sm" ng-model="firstItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                            <option value="" translate="labels.select"></option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 4px">
+                        <label for="freight_cost" translate="labels.freight_cost"></label>
+                        <input  type="text" ng-model="firstItem.freight_cost" class="form-control input-sm" id="freight_cost" placeholder="{{ 'labels.freight_cost' | translate }}">
+
+                    </div>
+
+                </div>
+                <div class="col-md-6 "  style="margin-top: 10px" >
+                    <label for="notes" translate="labels.notes"></label>
+                    <textarea  rows="4" ng-model="firstItem.notes" class="form-control input-sm" id="notes" placeholder="{{ 'labels.notes' | translate }}"></textarea>
+                </div>
+                <div class="col-md-2" style="margin-top: 35px" >
+                    <h4  ng-if="currentSaving1"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
+                    <button ng-if="!currentSaving1" ng-click="saveAdjust1(firstItem)" class="btn btn-lg btn-info" translate="labels.save_package"></button>
+                </div>
+
+            </div>
+
+            <div class="form-group" ng-if="newItem.arrival">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-2"  style="margin-top:10px;"  >
+                        <label class="required" for="select_item" translate="labels.select_item"></label>
+                        <select ng-change="setItem(newItem.item)" id="select_item" class="form-control" ng-model="newItem.item"  ng-options="obj.id as obj.name for obj in arrivalItems">
+                            <option value="" translate="labels.select"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2"  style="margin-top:10px" ng-if="newItem.item" >
+                        <label class="required" for="adjustment_reason" translate="labels.adjustment_reason"></label>
+                        <select id="adjustment_reason" class="form-control" ng-model="newItem.adjustment_reason"  ng-options="obj.id as obj.name for obj in adjustment_reasons | filter:{status:'active'}:true">
+                            <option value="" translate="labels.select"></option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group" ng-if="newItem.item && newItem.arrival" >
+                <div class="col-md-2" style="margin-top: 35px"  >
+                    <label for="" translate="labels.original_value"></label>
+                </div>
+                <div class="col-md-2" style="margin-top: 10px"  >
+                    <label  for="packed_volume" translate="labels.lot_number"></label>
+                    <input disabled  type="text" ng-model="oldItem.lot_number" class="form-control input-sm" id="packed_volume" placeholder="{{ 'labels.lot_number' | translate }}">
+                    <input style="margin-top: 10px"  type="text" ng-model="newItem.lot_number" class="form-control input-sm" id="packed_volume" placeholder="{{ 'labels.lot_number' | translate }}">
+                </div>
+                <div class="col-md-2" style="margin-top: 10px"  >
+                    <label class="required" for="expired_date" translate="labels.expired_date"></label>
+                    <p class="input-group">
+                        <input disabled type="text" id="expired_date" class="form-control" datepicker-popup="{{format}}" ng-model="oldItem.expired_date" is-open="status.opened3"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p><p class="input-group">
+                        <input type="text" id="expired_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.expired_date" is-open="status.opened3"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+                <div class="col-md-2" style="margin-top: 10px"  >
+                    <label  for="t_price" translate="labels.t_price"></label>
+                    <input disabled  type="text" ng-model="oldItem.t_price" class="form-control input-sm" id="t_price" placeholder="{{ 'labels.t_price' | translate }}">
+                    <input style="margin-top: 10px"   type="text" ng-model="newItem.t_price" class="form-control input-sm" id="t_price" placeholder="{{ 'labels.t_price' | translate }}">
+                </div>
+                <div class="col-md-2" style="margin-top: 10px"  >
+                    <label  for="doses" translate="labels.doses"></label>
+                    <input disabled  type="text" ng-model="oldItem.doses" class="form-control input-sm" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                    <input style="margin-top: 10px"   type="text" ng-model="newItem.doses" class="form-control input-sm" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                </div>
+                <div class="col-md-2"  style="margin-top:10px"  >
+                    <label class="required" for="activity" translate="labels.activity"></label>
+                    <select disabled id="activity" class="form-control input-sm" ng-model="oldItem.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                    <select style="margin-top: 10px" id="activity" class="form-control input-sm" ng-model="newItem.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+    <!-- End .row -->
+    <div class="col-md-10 col-md-offset-2" ng-if="newItem.item && newItem.arrival">
+        <h4  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
+        <button  ng-if="!currentSaving && newItem.adjustment_reason" ng-click="saveAdjust(newItem)" class="btn btn-sm btn-primary"  translate="labels.save_package"> </button>
+        <button  ng-if="!currentSaving" ng-click="cancel()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
+    </div>
+</div>
+
+

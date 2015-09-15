@@ -13,7 +13,58 @@
     </div>
     <!-- End  / heading--><!-- Start .row -->
     <div class="row">
-        <h1>Home File</h1>
+
+        <div class="col-md-6 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+            <!-- Start .panel -->
+            <div class="panel-heading white-bg">
+                <h4 class="panel-title" translate="help.arrival_items"></h4>
+
+            </div>
+            <div class="panel-body">
+                <highchart id="chart1" config="chartConfig"></highchart>
+           </div>
+
+       </div>
+
+        <div class="col-md-6 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+            <!-- Start .panel -->
+            <div class="panel-heading white-bg">
+                <h4 class="panel-title" translate="help.arrival_items"></h4>
+
+            </div>
+            <div class="panel-body">
+                <highchart id="chart1" config="chartConfig1"></highchart>
+           </div>
+
+       </div>
+        <div class="col-md-6 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+            <!-- Start .panel -->
+            <div class="panel-heading white-bg">
+                <h4 class="panel-title" >Store Usage Summary</h4>
+                <div class="panel-controls panel-controls-right">
+                    <select ng-change="setStoreType(oneItem.store_id)" required="" id="store" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="panel-body">
+                <highchart id="chart1" config="chartConfig2"></highchart>
+           </div>
+
+       </div>
+        <div class="col-md-6 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+            <!-- Start .panel -->
+            <div class="panel-heading white-bg">
+                <h4 class="panel-title" translate="help.arrival_items"></h4>
+
+            </div>
+            <div class="panel-body">
+                <highchart id="chart1" config="chartConfig"></highchart>
+           </div>
+
+       </div>
+
     </div>
     <!-- End .row -->
 </div>

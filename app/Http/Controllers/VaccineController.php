@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Adjustment;
 use App\Arrival;
 use App\ArrivalItem;
 use App\PackagingInformation;
 use App\PreShipment;
 use App\Recipient;
 use App\RecipientPackage;
+use App\RecipientPackageItem;
 use App\Stock;
 use App\Store;
 use App\StoreStock;
@@ -46,7 +48,7 @@ class VaccineController extends Controller
      */
     public function arrivals()
     {
-        return Arrival::where('recipient_destination_id',Auth::user()->recipient_id)->get();
+        return Arrival::where('recipient_destination_id',Auth::user()->recipient_id)->get()->load('fromSource','source','arrivalItems');
     }
  /**
      * Display a packages for user.
@@ -55,8 +57,42 @@ class VaccineController extends Controller
      */
     public function packages()
     {
-        return RecipientPackage::where('source_id',Auth::user()->recipient_id)->get()->load('recipient','destination','transport','arrival','sendingUser','receivingUser');
+        return RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','receiver','package');
     }
+
+    /**
+     * Display a expectedPackages  items for user.
+     *
+     * @return Response
+     */
+    public function expectedPackagesItems()
+    {
+//        return RecipientPackage::where('recipient_id',Auth::user()->recipient_id)->get()->load('items');
+        return RecipientPackageItem::where('receiver_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','package');
+    }
+    /**
+     * Display a expectedPackages for user.
+     *
+     * @return Response
+     */
+    public function expectedPackages()
+    {
+        return RecipientPackage::where('recipient_id',Auth::user()->recipient_id)->get()->load('items','destination');
+//        return RecipientPackageItem::where('receiver_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','package');
+    }
+
+    /**
+     * Display a arrivals for user.
+     *
+     * @return Response
+     */
+//    public function arrivals()
+//    {
+//        return Arrival::where('recipient_id',Auth::user()->recipient_id)->get()->load('items');
+////        return RecipientPackageItem::where('receiver_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','package');
+//    }
+
+
 
     /**
      * get the last package number
@@ -65,12 +101,38 @@ class VaccineController extends Controller
      */
     public function getNextPackageNumber()
     {
-        if(count(RecipientPackage::where('source_id',Auth::user()->recipient_id)->get()) != 0){
-            return RecipientPackage::where('source_id',Auth::user()->recipient_id)->orderBy('order_number','DESC')->first()->order_number;
-
+        if(count(RecipientPackage::all()) != 0){
+            return RecipientPackage::orderBy('order_number','DESC')->first()->order_number +1;
         }else{
-            return 0;
+            return 1;
 
+        }
+    }
+
+ /**
+     * get the last package number for adjustments
+     *
+     * @return Response
+     */
+    public function getNextAdjustmentNumber()
+    {
+        if(count(Adjustment::all()) != 0){
+            return Adjustment::orderBy('order_no','DESC')->first()->order_no +1;
+        }else{
+            return 1;
+        }
+    }
+/**
+     * get the last package number for adjustments
+     *
+     * @return Response
+     */
+    public function getNextArrivalNumber()
+    {
+        if(count(Arrival::all()) != 0){
+            return Arrival::orderBy('order_no','DESC')->first()->order_no +1;
+        }else{
+            return 1;
         }
     }
 
@@ -187,6 +249,7 @@ class VaccineController extends Controller
             $ArrivalItem->recipient_source_id       = $recipient->parent_id;
             $ArrivalItem->recipient_destination_id  = $recipient->id;
             $ArrivalItem->vaccine_id                = $item['item_id'];
+            $ArrivalItem->source_id                 = $request->input('source_id');
             $ArrivalItem->packaging_id              = $item['packaging_id'];
             $ArrivalItem->activity_id               = $item['activity'];
             $ArrivalItem->store_id                  = $item['store_id'];
@@ -213,6 +276,7 @@ class VaccineController extends Controller
                 $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
                 $stock->vaccine_id      = $item['item_id'];
                 $stock->recipient_id    = $recipient->id;
+                $stock->source_id       = $request->input('source_id');
                 $stock->amount          = $item['doses']+$stock->amount;
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
@@ -228,6 +292,7 @@ class VaccineController extends Controller
                 $stock->amount          = $item['doses'];
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
+                $stock->source_id       = $request->input('source_id');
                 $stock->expiry_date     = $item['expired_date'];
                 $stock->store_id  = $item['store_id'];
                 $stock->unit_price      = $item['u_price'];
@@ -245,6 +310,7 @@ class VaccineController extends Controller
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
                 $storeStock->unit_price     = $item['u_price'];
+                $storeStock->source_id       = $request->input('source_id');
                 $storeStock->activity_id    = $item['activity'];
                 $storeStock->save();
             }else{
@@ -256,6 +322,7 @@ class VaccineController extends Controller
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
                 $storeStock->unit_price     = $item['u_price'];
+                $storeStock->source_id       = $request->input('source_id');
                 $storeStock->activity_id    = $item['activity'];
                 $storeStock->save();
             }
@@ -278,7 +345,7 @@ class VaccineController extends Controller
 //        $arrival->arrival_report_number     = $request->input('arrival_report_no');
 //        $arrival->package_volume            = $request->input('packed_volume');
 //        $arrival->total_weight              = $request->input('total_weight');
-        $arrival->arrival_date              = ($request->hsa('arrival_date'))?$request->input('arrival_date'):date('Y-m-d');
+        $arrival->arrival_date              = ($request->has('arrival_date'))?$request->input('arrival_date'):date('Y-m-d');
 //        $arrival->freight_cost              = $request->input('freight_cost');
 //        $arrival->receiving_user            = Auth::user()->id;
 //        $arrival->notes                     = $request->input('notes');
@@ -377,6 +444,12 @@ class VaccineController extends Controller
     {
         $recipient = Recipient::find(Auth::user()->recipient_id);
         $arrival = new Arrival;
+        $nextNumber = $this->getNextArrivalNumber();
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $arrival->reference                 = date('Y')."1".$str+"".$nextNumber;
         $arrival->recipient_source_id       = $recipient->parent_id;
         $arrival->recipient_destination_id  = $recipient->id;
         $arrival->source_id                 = $request->input('source_id');
@@ -427,11 +500,12 @@ class VaccineController extends Controller
                 $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
                 $stock->vaccine_id      = $item['item_id'];
                 $stock->recipient_id    = $recipient->id;
+                $stock->source_id       = $request->input('source_id');
                 $stock->amount          = $item['doses']+$stock->amount;
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
                 $stock->expiry_date     = $item['expired_date'];
-                $stock->store_id        = $item['store_id'];
+                $stock->store_id  = $item['store_id'];
                 $stock->unit_price      = $item['u_price'];
                 $stock->activity_id     = $item['activity'];
                 $stock->save();
@@ -442,8 +516,9 @@ class VaccineController extends Controller
                 $stock->amount          = $item['doses'];
                 $stock->lot_number      = $item['lot_number'];
                 $stock->packaging_id    = $item['packaging_id'];
+                $stock->source_id       = $request->input('source_id');
                 $stock->expiry_date     = $item['expired_date'];
-                $stock->store_id        = $item['store_id'];
+                $stock->store_id  = $item['store_id'];
                 $stock->unit_price      = $item['u_price'];
                 $stock->activity_id     = $item['activity'];
                 $stock->save();
@@ -458,8 +533,9 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
-                $storeStock->unit_price      = $item['u_price'];
-                $storeStock->activity_id     = $item['activity'];
+                $storeStock->unit_price     = $item['u_price'];
+                $storeStock->source_id       = $request->input('source_id');
+                $storeStock->activity_id    = $item['activity'];
                 $storeStock->save();
             }else{
                 $storeStock = new StoreStock;
@@ -469,16 +545,215 @@ class VaccineController extends Controller
                 $storeStock->lot_number     = $item['lot_number'];
                 $storeStock->packaging_id   = $item['packaging_id'];
                 $storeStock->expiry_date    = $item['expired_date'];
-                $storeStock->unit_price      = $item['u_price'];
-                $storeStock->activity_id     = $item['activity'];
+                $storeStock->unit_price     = $item['u_price'];
+                $storeStock->source_id       = $request->input('source_id');
+                $storeStock->activity_id    = $item['activity'];
                 $storeStock->save();
             }
 
-            foreach(PreShipment::where('package_id',$request->input('arrival_report_no'))->get() as $pre_shipment){
-               $pre_shipment->status = 'received';
-               $pre_shipment->save();
+            if($request->input('from_type') == 'pre_advice'){
+                foreach(PreShipment::where('package_id',$request->input('arrival_report_no'))->get() as $pre_shipment){
+                    $pre_shipment->status = 'received';
+                    $pre_shipment->save();
+                }
+            }
+        }
+        if($request->input('from_type') == 'other'){
+        foreach(RecipientPackage::where('voucher_number',$request->input('arrival_report_no'))->get() as $pre_shipment){
+            $pre_shipment->receiving_user = Auth::user()->id;
+            $pre_shipment->receiving_status = 'received';
+            $pre_shipment->save();
+        }
+        }
+    }
+
+    /**
+     * Function to dispatch Items
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function dispatchVaccine(Request $request){
+        $recipient = Recipient::find(Auth::user()->recipient_id);
+        $dispatch = new RecipientPackage;
+        $nextNumber = $this->getNextPackageNumber();
+
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $dispatch->voucher_number            = date('Y')."2".$str+"".$nextNumber;
+        $dispatch->source_id                 = $recipient->id;
+        $dispatch->recipient_id              = $request->input('recipients');
+        $dispatch->date_sent                 = $request->input('dispatch_date');
+        $dispatch->transport_mode_id         = $request->input('transport_mode');
+        $dispatch->sending_user              = Auth::user()->id;
+        $dispatch->receiving_status          = 'pending';
+        $dispatch->year                      = date('Y');
+        $dispatch->order_number              = $nextNumber;
+        $dispatch->save();
+
+        foreach($request->input('items') as $item){
+            $dispatchItem = new RecipientPackageItem;
+            $dispatchItem->vaccine_id                = $item['item_id'];
+            $dispatchItem->recipient_id              = $recipient->id;
+            $dispatchItem->receiver_id               = $request->input('recipients');
+            $dispatchItem->source_id                 = $item['source_id'];
+            $dispatchItem->packaging_id              = $item['packaging_id'];
+            $dispatchItem->activity                  = $item['activity_id'];
+            $dispatchItem->store_id                  = $item['store_id'];
+            $dispatchItem->package_id                = $dispatch->id;
+            $dispatchItem->batch_number              = $item['lot_number'];
+            $dispatchItem->amount                    = $item['doses'];
+            $dispatchItem->unit_price                = (isset($item['u_price']))?$item['u_price']:'';
+            $dispatchItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
+            $dispatchItem->save();
+
+            $store = Store::find($item['store_id']);
+            $store->used_volume = $store->used_volume - $item['total_volume'] ;
+            $store->save();
+
+            //adding the item to stock
+            if(count(Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->get()) != 0){
+                $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
+                $stock->amount          = $stock->amount - $item['doses'];
+                $stock->save();
+            }else{
+
+            }
+
+            //adding the item to store
+            if(count(StoreStock::where('store_id',$item['store_id'])->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->get()) != 0){
+                $storeStock = StoreStock::where('store_id',$item['store_id'])->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
+                $storeStock->amount         = $storeStock->amount - $item['doses'];
+                $storeStock->save();
+            }else{
+
             }
         }
     }
 
+    /**
+     * Dealing with item adjustment basic info
+     * @param Request $request
+     * @return Response
+     */
+
+    public function arrival_adjust1(Request $request){
+        $arrival = Arrival::find($request->input('arrival_id'));
+        $arrival->source_id = ($request->has('source_id'))?$request->input('source_id'):$arrival->source_id;
+        $arrival->freight_cost = ($request->has('freight_cost'))?$request->input('freight_cost'):$arrival->freight_cost;
+        $arrival->notes = ($request->has('notes'))?$request->input('notes'):$arrival->notes;
+        $arrival->save();
+    }
+    /**
+     * Dealing with item adjustment item info
+     * @param Request $request
+     * @return Response
+     */
+
+    public function arrival_adjust(Request $request){
+        $arrivalItem = ArrivalItem::find($request->input('id'));
+        $recipient = Recipient::find(Auth::user()->recipient_id);
+        $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$arrivalItem->vaccine_id)->where('lot_number',$arrivalItem->lot_number)->first();
+        $storeStock = StoreStock::where('store_id',$stock->store_id)->where('vaccine_id',$arrivalItem->vaccine_id)->where('lot_number',$arrivalItem->lot_number)->first();
+
+        $difference = ($request->has('doses'))?$request->input('doses')-$arrivalItem->number_received:0;
+        $volume = $difference* PackagingInformation::find($arrivalItem->packaging_id)->cm_per_dose * 0.01;
+        $arrivalItem->lot_number = ($request->has('lot_number'))?$request->input('lot_number'):$arrivalItem->lot_number;
+        $arrivalItem->expiry_date = ($request->has('expired_date'))?$request->input('expired_date'):$arrivalItem->expiry_date;
+        $arrivalItem->total_price = ($request->has('t_price'))?$request->input('t_price'):$arrivalItem->total_price;
+        $arrivalItem->number_received = ($request->has('doses'))?$request->input('doses'):$arrivalItem->number_received;
+        $arrivalItem->activity_id = ($request->has('activity'))?$request->input('activity'):$arrivalItem->activity_id;
+        $arrivalItem->save();
+        $u_price = 0;
+        if($request->has('t_price')){
+            $u_price = $request->input('t_price')/$request->input('doses');
+        }
+        $arrivalItem->unit_price = ($u_price == 0)?$stock->unit_price:$u_price;
+        $arrivalItem->save();
+
+        $stock->amount = $difference + $stock->amount;
+        $stock->lot_number = $arrivalItem->lot_number;
+        $stock->expiry_date = $arrivalItem->expiry_date;
+        $stock->unit_price = ($u_price == 0)?$stock->unit_price:$arrivalItem->$u_price;
+        $stock->save();
+
+        $storeStock->amount = $difference + $storeStock->amount;
+        $storeStock->lot_number = $arrivalItem->lot_number;
+        $storeStock->expiry_date = $arrivalItem->expiry_date;
+        $storeStock->unit_price = ($u_price == 0)?$stock->unit_price:$arrivalItem->$u_price;
+        $storeStock->save();
+
+        $adjustment = new Adjustment;
+        $nextNumber = $this->getNextAdjustmentNumber();
+
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $adjustment->reference         = date('Y')."3".$str+"".$nextNumber;
+        $adjustment->adjustment_reason = $request->input('adjustment_reason');
+        $adjustment->adjustment_type   = 'arrival';
+        $adjustment->resource_id       = $arrivalItem->id;
+        $adjustment->save();
+
+        $store = Store::find($arrivalItem->store_id);
+        $store->used_volume = $store->used_volume + $volume ;
+        $store->save();
+    }
+
+    public function dispatch_adjust(Request $request){
+        $package = RecipientPackageItem::find($request->input('item'));
+        $difference = $package->amount - $request->input('doses');
+        $recipient = Recipient::find(Auth::user()->recipient_id);
+        $package->amount = $package->amount + $difference;
+        $package->save();
+        $adjustment = new Adjustment;
+        $nextNumber = $this->getNextAdjustmentNumber();
+
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $adjustment->reference         = date('Y')."3".$str+"".$nextNumber;
+        $adjustment->adjustment_reason = $request->input('adjustment_reason');
+        $adjustment->adjustment_type   = 'dispatch';
+        $adjustment->resource_id       = $package->id;
+        $adjustment->save();
+
+        $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$package->vaccine_id)->where('lot_number',$package->batch_number)->first();
+        $storeStock = StoreStock::where('store_id',$stock->store_id)->where('vaccine_id',$package->vaccine_id)->where('lot_number',$package->batch_number)->first();
+
+        if($stock){
+            $stock->amount = $difference + $stock->amount;
+            $stock->save();
+        }
+        if($storeStock){
+            $storeStock->amount = $difference + $storeStock->amount;
+            $storeStock->save();
+        }
+    }
+
+    public function stock_adjust(Request $request){
+        $stock = Stock::find($request->input('stock_id'));
+        $storeStock = StoreStock::where('store_id',$stock->store_id)->where('vaccine_id',$request->input('item_id'))->where('lot_number',$request->input('lot_number'))->first();
+        $stock->amount = $request->has('doses')?$request->input('doses'):$stock->amount - $request->input('change');
+        $storeStock->amount = $request->has('doses')?$request->input('doses'):$storeStock->amount - $request->input('change');
+        $stock->save();
+        $storeStock->save();
+
+        $adjustment = new Adjustment;
+        $nextNumber = $this->getNextAdjustmentNumber();
+
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $adjustment->reference         = date('Y')."3".$str+"".$nextNumber;
+        $adjustment->adjustment_reason = $request->input('adjustment_reason');
+        $adjustment->adjustment_type   = 'stock';
+        $adjustment->resource_id       = $stock->id;
+        $adjustment->save();
+    }
 }
