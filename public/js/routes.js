@@ -139,6 +139,11 @@ angular.module("vssmApp")
             controller: 'summaryCtrl'
         });
 
+        $routeProvider.when("/arrivals_summary",{
+            templateUrl: 'views/summary/arrivals_summary.html',
+            controller: 'summaryCtrl'
+        });
+
         $routeProvider.when("/arrival_adjustment",{
             templateUrl: 'views/adjustment/arrival_adjustment.html',
             controller: 'adjustmentCtrl'

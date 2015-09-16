@@ -308,8 +308,14 @@ Route::get('getNextPackageNumber',array('uses'=>'VaccineController@getNextPackag
 //getting arrivals
 Route::get('arrivals',array('uses'=>'VaccineController@arrivals'));
 
+//getting arrivals
+Route::get('arrivalItems',array('uses'=>'VaccineController@arrivals1'));
+
 //getting packages
 Route::get('sent_packages',array('uses'=>'VaccineController@packages'));
+
+//getting packages
+Route::get('sent_packages1',array('uses'=>'VaccineController@packages1'));
 
 //getting expected_packages
 Route::get('expected_items',array('uses'=>'VaccineController@expectedPackagesItems'));
@@ -322,6 +328,9 @@ Route::get('vaccineStocks/{id}',array('uses'=>'StoreController@vaccineStocks'));
 
 //getting expected_packages
 Route::get('expected_packages',array('uses'=>'VaccineController@expectedPackages'));
+
+//getting expected_packages
+Route::get('store/stock/{id}',array('uses'=>'StoreController@storeStockItems'));
 
 //saving new received items
 Route::post('receive',array('uses'=>'VaccineController@receive'));
@@ -346,3 +355,6 @@ Route::post('dispatch_adjust',array('uses'=>'VaccineController@dispatch_adjust')
 
 //saving  stock adjust
 Route::post('stock_adjust',array('uses'=>'VaccineController@stock_adjust'));
+
+//saving  stock adjust
+Route::post('move_item',array('uses'=>'VaccineController@stock_adjust'));

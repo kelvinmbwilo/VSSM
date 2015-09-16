@@ -153,34 +153,36 @@ angular.module("vssmApp")
         $scope.storeNames= [];
         $scope.storeValues = [];
         $scope.usedValues = [];
+        $scope.freeValues = [];
+        $scope.storeTable = [];
         $scope.storeCapacity = [];
-        $scope.chartConfig2 ={};
-        $scope.chartConfig2.series ={};
-        $scope.chartConfig2.series.data = [];
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
             var i = 0;
             angular.forEach(data,function(value){
                 i++;
                 if(i == 1){
-                    $scope.chartConfig2.series.data.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
-                    $scope.chartConfig2.series.data.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
+                    $scope.data.storeName = value.name;
+                    $scope.storeCapacity.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
+                $scope.storeTable.push({name: value.name,volume:value.net_volume,used_volume:value.used_volume,free:parseInt(value.net_volume) - parseInt(value.used_volume)});
                 $scope.storeNames.push(value.name);
                 $scope.storeValues.push(parseInt(value.net_volume));
                 $scope.usedValues.push(parseInt(value.used_volume));
+                $scope.freeValues.push(parseInt(value.net_volume) - parseInt(value.used_volume));
             })
 
         });
 
         $scope.setStoreType = function(id){
-
-            $scope.chartConfig2.series.data = [];
+            $scope.storeCapacity.pop();
+            $scope.storeCapacity.pop();
             angular.forEach($scope.stores,function(value){
                 if(value.id == id){
-                    $scope.chartConfig2.series.data.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
-                    $scope.chartConfig2.series.data.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
-
+                    $scope.data.storeName = value.name;
+                    $scope.storeCapacity.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
             })
         }
@@ -220,6 +222,9 @@ angular.module("vssmApp")
             },{
                 name:'Used Volume',
                 data: $scope.usedValues
+            },{
+                name:'Free Volume',
+                data: $scope.freeValues
             }],
             title: {
                 text: 'Hello'
@@ -258,12 +263,14 @@ angular.module("vssmApp")
         $scope.chartConfig2 ={
             options: {
                 chart: {
-                    type: 'pie',
-                    zoomType: 'x'
+                    type: 'pie'
                 }
             },
+            series: [{
+                data: $scope.storeCapacity
+            }],
             title: {
-                text: 'Hello'
+                text: $scope.data.storeName
             },
 //            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
             loading: false

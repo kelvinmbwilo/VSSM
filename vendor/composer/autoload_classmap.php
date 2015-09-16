@@ -29,6 +29,7 @@ return array(
     'CreateStoreStocksTable' => $baseDir . '/database/migrations/2015_08_23_075334_create_store_stocks_table.php',
     'CreateStoresTable' => $baseDir . '/database/migrations/2015_08_22_094914_create_stores_table.php',
     'CreateSystemSettingsTable' => $baseDir . '/database/migrations/2015_08_30_043045_create_system_settings_table.php',
+    'CreateTransactionsTable' => $baseDir . '/database/migrations/2015_09_16_041531_create_transactions_table.php',
     'CreateTransportModesTable' => $baseDir . '/database/migrations/2015_08_22_100059_create_transport_modes_table.php',
     'CreateUserRolesTable' => $baseDir . '/database/migrations/2015_08_25_205655_create_user_roles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',

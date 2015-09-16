@@ -33,4 +33,8 @@ class Store extends Model
     public function outItemMovements(){
         return $this->hasMany('App\ItemMovement', 'from_store', 'id');
     }
+
+    public function stock_items(){
+        return $this->hasMany('App\StoreStock', 'store_id', 'id');
+    }
 }

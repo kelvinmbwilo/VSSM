@@ -77,7 +77,7 @@ angular.module("vssmApp")
         $http.get("index.php/stock_items").success(function(data){
             $scope.stock_items = data;
             angular.forEach($scope.stock_items,function(value){
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+", "+value.expiry_date
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id)
 //                $scope.packagingInformation.push(value);
             });
         });
@@ -242,6 +242,16 @@ angular.module("vssmApp")
         $scope.getTransportName = function(id){
             var name = "";
             angular.forEach($scope.transport_mode,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        $scope.getSourceName = function(id){
+            var name = "";
+            angular.forEach($scope.sources,function(value){
                 if(value.id == id){
                     name = value.name;
                 }

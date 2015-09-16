@@ -50,6 +50,11 @@ class VaccineController extends Controller
     {
         return Arrival::where('recipient_destination_id',Auth::user()->recipient_id)->get()->load('fromSource','source','arrivalItems');
     }
+
+    public function arrivals1()
+    {
+        return ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->get()->load('vaccine','packaging','arrival');
+    }
  /**
      * Display a packages for user.
      *
@@ -459,6 +464,7 @@ class VaccineController extends Controller
         $arrival->arrival_date              = $request->input('arrival_date');
         $arrival->freight_cost              = ($request->has('freight_cost'))?$request->input('freight_cost'):'';
         $arrival->receiving_user            = Auth::user()->id;
+        $arrival->order_no                  = $nextNumber;
         $arrival->notes                     = ($request->has('notes'))?$request->input('notes'):'';
         $arrival->main_currency             = ($request->has('main_currency'))?$request->input('main_currency'):'';
         $arrival->used_currency             = ($request->has('currency_of_bill'))?$request->input('currency_of_bill'):'';
@@ -696,6 +702,7 @@ class VaccineController extends Controller
         $adjustment->adjustment_reason = $request->input('adjustment_reason');
         $adjustment->adjustment_type   = 'arrival';
         $adjustment->resource_id       = $arrivalItem->id;
+        $adjustment->order_no           = $nextNumber;
         $adjustment->save();
 
         $store = Store::find($arrivalItem->store_id);

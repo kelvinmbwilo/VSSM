@@ -87,7 +87,7 @@ else{
                             <ul>
                                 <li><a href="blank.html#"><i class="s16 icomoon-icon-user-plus" translate="menu.edit_profile"></i></a></li>
                                 <li><a href="blank.html#"><i class="s16 icomoon-icon-lock" translate="menu.reset_password"></i></a></li>
-                                <li><a href="<?php echo url('logout') ?>"><i class="s16 fa fa-sign-out" translate="menu.logout"></i></a></li>
+                                <li><a href="./index.php/logout"><i class="s16 fa fa-sign-out" translate="menu.logout"></i></a></li>
                                 <li class="seperator"></li>
                                 <li>
                                     <button class="btn-info pull-left" ng-click="changeLanguage('enUS')"><img style="height: 16px;width: 16px" src="<?php echo asset('img/en.png') ?>"> En</button>
@@ -148,6 +148,7 @@ else{
                             <li><a href="./#expected_packages"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
                             <li><a href="./#dispatched_packeges"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
                             <li><a href="./#stock_items"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
+                            <li><a href="./#arrivals_summary"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrivals"></span></a></li>
                         </ul>
                     </li>
                     <li>

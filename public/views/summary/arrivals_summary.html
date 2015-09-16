@@ -2,13 +2,13 @@
     <!--Content wrapper-->
     <div class=heading>
         <!--  .heading-->
-        <h3 translate="menu.expected_packages"></h3>
+        <h3 translate="menu.arrivals"></h3>
         <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
 
         <ul class=breadcrumb>
             <li translate="labels.you_are_here"></li>
             <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
-            <li class=active translate="menu.expected_packages"></li>
+            <li class=active translate="menu.arrivals"></li>
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
@@ -21,9 +21,9 @@
             <thead>
             <tr>
                 <th >#</th>
+                <th translate="labels.reference_no"></th>
                 <th translate="labels.voucher_no"></th>
-                <th translate="labels.from"></th>
-                <th translate="labels.transport_mode"></th>
+                <th translate="labels.source"></th>
                 <th translate="labels.product"></th>
                 <th translate="labels.manufacture"></th>
                 <th translate="labels.lot_number"></th>
@@ -38,21 +38,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="item in expected_packages">
+            <tr ng-repeat="item in arrivalItems">
                 <td>{{ $index+1 }}</td>
-                <td>{{ item.package.voucher_number }}</td>
-                <td>{{ item.recipient.name }}</td>
-                <td>{{ getTransportName(item.package.transport_mode_id) }}</td>
+                <td>{{ item.arrival.reference }}</td>
+                <td>{{ item.arrival.arrival_report_number }}</td>
+                <td>{{ item.source_id }}</td>
                 <td>{{ item.vaccine.name }}</td>
                 <td>{{ getManufactureName(item.packaging.manufacture_id ) }}</td>
-                <td>{{ item.batch_number }}</td>
+                <td>{{ item.lot_number }}</td>
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
-                <td>{{ item.amount }}</td>
-                <td>{{ item.amount/item.packaging.dose_per_vial | number:0 }}</td>
-                <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
-                <td>{{ item.unit_price * item.amount | number:2 }} {{ main_currency }}</td>
-                <td>{{ getActivityName(item.activity) }}</td>
-                <td>{{ item.package.receiving_status }}</td>
+                <td>{{ item.number_received }}</td>
+                <td>{{ item.number_received / item.packaging.dose_per_vial | number:0 }}</td>
+                <td>{{ (item.number_received*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
+                <td>{{ item.unit_price * item.number_received | number:2 }} {{ main_currency }}</td>
+                <td>{{ getActivityName(item.activity_id) }}</td>
+                <td>{{ item.packaging.commercial_name }}</td>
                 <td>
                     <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="downloadData()"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>

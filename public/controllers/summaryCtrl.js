@@ -28,6 +28,11 @@ angular.module("vssmApp")
             $scope.manufactures = data;
         });
 
+
+        $http.get("index.php/vaccineStocks/1").success(function(data){
+            $scope.vaccineStock = data;
+
+        });
         //get Activities
         $http.get("index.php/activities").success(function(data){
             $scope.activities = data;
@@ -37,9 +42,20 @@ angular.module("vssmApp")
         $http.get("index.php/transport_mode").success(function(data){
             $scope.transport_mode = data;
         });
+
         //get transport_mode
         $http.get("index.php/expected_items").success(function(data){
             $scope.expected_packages = data;
+        });
+
+        //get sources
+        $http.get("index.php/sources").success(function(data){
+            $scope.sources = data;
+        });
+
+        //get transport_mode
+        $http.get("index.php/arrivalItems").success(function(data){
+            $scope.arrivalItems = data;
         });
 
 
@@ -51,6 +67,11 @@ angular.module("vssmApp")
                 $scope.packagingInformation.push(value);
             });
         });
+
+        $scope.seeStock = 'details';
+        $scope.setSeeStock = function(value){
+            $scope.seeStock = value;
+        }
 
         $scope.getActivityName = function(id){
             var name = "";
@@ -91,6 +112,15 @@ angular.module("vssmApp")
         $scope.getTransportName = function(id){
             var name = "";
             angular.forEach($scope.transport_mode,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getSourceName = function(id){
+            var name = "";
+            angular.forEach($scope.sources,function(value){
                 if(value.id == id){
                     name = value.name;
                 }

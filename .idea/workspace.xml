@@ -2,456 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78ms-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/78ms-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/83pv-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/90ms-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/90ms-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/90msp-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/90msp-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/90pv-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/90pv-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Add-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Add-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Add-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Add-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-0.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-1.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-3.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-4.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-5.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-6.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-CNS1-UCS2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-0.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-1.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-3.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-4.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-5.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-GB1-UCS2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-0.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-1.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-3.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-4.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-5.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-6.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Japan1-UCS2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Korea1-0.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Korea1-1.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Korea1-2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Adobe-Korea1-UCS2.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/B5pc-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/B5pc-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/CNS-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/CNS-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/CNS1-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/CNS1-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/CNS2-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/CNS2-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/ETHK-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/ETHK-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/ETen-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/ETen-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/ETenms-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/ETenms-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Ext-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Ext-RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Ext-RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Ext-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GB-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GB-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GB-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GB-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBK-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBK-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBK2K-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBK2K-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBKp-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBKp-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBT-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBT-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBT-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBT-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBTpc-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBTpc-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBpc-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/GBpc-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKdla-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKdla-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKdlb-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKdlb-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKgccs-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKgccs-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKm314-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKm314-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKm471-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKm471-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKscs-B5-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/HKscs-B5-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Hankaku.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Hiragana.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSC-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSC-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSC-Johab-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSC-Johab-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSCms-UHC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSCms-UHC-HW-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSCms-UHC-HW-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSCms-UHC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSCpc-EUC-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/KSCpc-EUC-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Katakana.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/NWP-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/NWP-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/RKSJ-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/RKSJ-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/Roman.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UCS2-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UCS2-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UTF16-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UTF16-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UTF8-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniCNS-UTF8-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UCS2-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UCS2-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UTF16-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UTF16-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UTF8-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniGB-UTF8-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UCS2-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UCS2-HW-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UCS2-HW-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UCS2-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UTF16-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UTF16-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UTF8-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS-UTF8-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS2004-UTF16-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS2004-UTF16-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS2004-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS2004-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS2004-UTF8-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJIS2004-UTF8-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISPro-UCS2-HW-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISPro-UCS2-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISPro-UTF8-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISX0213-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISX0213-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISX02132004-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniJISX02132004-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UCS2-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UCS2-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UTF16-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UTF16-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UTF32-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UTF32-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UTF8-H.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/UniKS-UTF8-V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/V.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/WP-Symbol.bcmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/compressed.tracemonkey-pldi-09.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-next-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-next-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-next.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-next@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-previous-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-previous-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-previous.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/findbarButton-previous@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/grab.cur" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/grabbing.cur" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/loading-icon.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/loading-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/loading-small@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-documentProperties.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-documentProperties@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-firstPage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-firstPage@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-handTool.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-handTool@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-lastPage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-lastPage@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-rotateCcw.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-rotateCcw@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-rotateCw.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/secondaryToolbarButton-rotateCw@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/shadow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/texture.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-bookmark.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-bookmark@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-download.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-download@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-menuArrows.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-menuArrows@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-openFile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-openFile@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageDown-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageDown-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageDown.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageDown@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageUp-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageUp-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageUp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-pageUp@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-presentationMode.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-presentationMode@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-print.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-print@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-search@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-secondaryToolbarToggle-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-secondaryToolbarToggle-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-secondaryToolbarToggle.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-secondaryToolbarToggle@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-sidebarToggle-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-sidebarToggle-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-sidebarToggle.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-sidebarToggle@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewAttachments.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewAttachments@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewOutline-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewOutline-rtl@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewOutline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewOutline@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewThumbnail.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-viewThumbnail@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-zoomIn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-zoomIn@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-zoomOut.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/toolbarButton-zoomOut@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/bn-IN/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/hi-IN/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/hy-AM/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/kk/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/kn/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/mai/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/or/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/pa-IN/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sr/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ta/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/test/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/cmaps/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-check.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-comment.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-help.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-insert.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-key.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-newparagraph.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-noicon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-note.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/images/annotation-paragraph.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/example/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/barcodeGenerator/barcode.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/barcodeGenerator/barcodeGenerator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf/libs/base64.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/compatibility.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/debugger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/example/example.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/src/highcharts-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/test/spec/highcharts-ng-utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/dist/highcharts-ng.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/src/highcharts-ng.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/test/spec/highcharts-ng.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/dist/highcharts-ng.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/src/highcharts.src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/html2canvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jquery.base64.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.PLUGINTEMPLATE.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.debug.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.addhtml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.addimage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.annotations.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.autoprint.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.autotable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.cell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.context2d.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.from_html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.htmltable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.javascript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.outline.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.png_support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.sillysvgrenderer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.split_text_to_size.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.standard_fonts_metrics.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf.plugin.total_pages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/l10n.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/locale.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/highcharts-ng/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/build/pdf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/build/pdf.worker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/png.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/receive/receive_other.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/jspdf/libs/sprintf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/tableExport.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/viewer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/viewer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/viewer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ach/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/af/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ak/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/an/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ar/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/as/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ast/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/az/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/be/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/bg/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/bn-BD/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/br/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/bs/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ca/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/cs/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/csb/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/cy/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/da/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/de/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/el/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/en-GB/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/en-US/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/en-ZA/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/eo/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/es-AR/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/es-CL/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/es-ES/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/es-MX/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/et/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/eu/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/fa/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ff/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/fi/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/fr/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/fy-NL/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ga-IE/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/gd/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/gl/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/gu-IN/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/he/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/hr/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/hu/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/id/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/is/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/it/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ja/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ka/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/km/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ko/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ku/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/lg/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/lij/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/lt/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/lv/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/mk/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ml/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/mn/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/mr/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ms/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/my/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/nb-NO/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/nl/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/nn-NO/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/nso/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/oc/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/pl/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/pt-BR/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/pt-PT/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/rm/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ro/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ru/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/rw/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sah/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/si/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sk/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sl/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/son/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sq/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sv-SE/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/sw/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ta-LK/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/te/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/th/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/tl/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/tn/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/tr/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/uk/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/ur/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/vi/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/wo/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/xh/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/zh-CN/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/zh-TW/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/web/locale/zu/viewer.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/jspdf/zlib.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Arrival.php" afterPath="$PROJECT_DIR$/app/Arrival.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/RecipientController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecipientController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/RecipientPackage.php" afterPath="$PROJECT_DIR$/app/RecipientPackage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/RecipientPackageItem.php" afterPath="$PROJECT_DIR$/app/RecipientPackageItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Store.php" afterPath="$PROJECT_DIR$/app/Store.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blank.php" afterPath="$PROJECT_DIR$/resources/views/blank.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/deDE.json" afterPath="$PROJECT_DIR$/public/languages/deDE.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/dispatch/dispatch.html" afterPath="$PROJECT_DIR$/public/views/dispatch/dispatch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/dispatch.js" afterPath="$PROJECT_DIR$/public/controllers/dispatch.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" afterPath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/expected_items.html" afterPath="$PROJECT_DIR$/public/views/summary/expected_items.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/home.html" afterPath="$PROJECT_DIR$/public/views/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/homeCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/dispatch/oneItem.html" afterPath="$PROJECT_DIR$/public/views/dispatch/oneItem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/one_preAdvice.html" afterPath="$PROJECT_DIR$/public/views/receive/one_preAdvice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/move_items.html" afterPath="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/open_stock/open_stock.html" afterPath="$PROJECT_DIR$/public/views/open_stock/open_stock.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/pre_advice.html" afterPath="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/preadviceReceiveCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/preadviceReceiveCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/receive.html" afterPath="$PROJECT_DIR$/public/views/receive/receive.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/routes.js" afterPath="$PROJECT_DIR$/public/js/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/stock_items.html" afterPath="$PROJECT_DIR$/public/views/summary/stock_items.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/summaryCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/systemSettings.html" afterPath="$PROJECT_DIR$/public/views/systemSettings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VSSM.iws" />
@@ -475,70 +50,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="blank.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
+      <file leaf-file-name="dispatch.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/dispatch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="59" selection-start="189" selection-end="189" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="5724">
+            <state line="259" column="9" selection-start="8853" selection-end="9121" vertical-scroll-proportion="0.0" vertical-offset="4201" max-vertical-offset="6066">
               <folding>
-                <element signature="e#2580#2603#0" expanded="true" />
-                <element signature="e#2731#2764#0" expanded="true" />
-                <element signature="e#3148#3225#0" expanded="true" />
-                <element signature="e#3275#3336#0" expanded="true" />
-                <element signature="e#3421#3444#0" expanded="true" />
-                <element signature="e#3533#3566#0" expanded="true" />
-                <element signature="e#5290#5315#0" expanded="true" />
-                <element signature="e#5976#6008#0" expanded="true" />
-                <element signature="e#6174#6206#0" expanded="true" />
-                <element signature="e#6831#6872#0" expanded="true" />
-                <element signature="e#18256#18281#0" expanded="true" />
-                <element signature="e#18433#18458#0" expanded="true" />
+                <element signature="e#10460#41916#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeCtrl.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
+      <file leaf-file-name="enUS.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="39" selection-start="6026" selection-end="6026" vertical-scroll-proportion="0.33203125" vertical-offset="2656" max-vertical-offset="5004">
+            <state line="138" column="60" selection-start="5098" selection-end="5122" vertical-scroll-proportion="-2.7017543" vertical-offset="2330" max-vertical-offset="6336">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="summaryCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
+      <file leaf-file-name="deDE.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="37" selection-start="219" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
+            <state line="163" column="13" selection-start="7180" selection-end="7180" vertical-scroll-proportion="-3.6491227" vertical-offset="2726" max-vertical-offset="6228">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrival_adjustment.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="20" selection-start="1939" selection-end="2268" vertical-scroll-proportion="-16.666666" vertical-offset="162" max-vertical-offset="2376">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adjustmentCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="210" column="40" selection-start="8902" selection-end="8919" vertical-scroll-proportion="-10.9" vertical-offset="3147" max-vertical-offset="6138">
               <folding>
-                <element signature="e#3510#35379#0" expanded="false" />
+                <element signature="e#0#40#0" expanded="false" />
+                <element signature="e#5476#6062#0" expanded="false" />
+                <element signature="e#8526#8577#0" expanded="false" />
+                <element signature="e#12141#13033#0" expanded="false" />
+                <element signature="e#13120#14574#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/home.html">
+      <file leaf-file-name="dispatch_adjustment.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="51" selection-start="1939" selection-end="1951" vertical-scroll-proportion="-17.962963" vertical-offset="307" max-vertical-offset="1368">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oneItem.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/receive/oneItem.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="25" selection-start="5283" selection-end="5588" vertical-scroll-proportion="-11.296296" vertical-offset="1045" max-vertical-offset="2124">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receive.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/receive/receive.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="35" selection-start="5983" selection-end="6208" vertical-scroll-proportion="-8.666667" vertical-offset="1404" max-vertical-offset="3096">
+            <state line="21" column="207" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.43724698" vertical-offset="162" max-vertical-offset="1098">
               <folding />
             </state>
           </provider>
@@ -547,25 +115,21 @@
       <file leaf-file-name="VaccineController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="347" column="60" selection-start="13795" selection-end="13795" vertical-scroll-proportion="-4.5438595" vertical-offset="4061" max-vertical-offset="10710">
+            <state line="64" column="152" selection-start="1587" selection-end="1594" vertical-scroll-proportion="-6.0" vertical-offset="702" max-vertical-offset="10638">
               <folding>
-                <element signature="e#40#59#0" expanded="true" />
-                <element signature="e#6128#12975#0" expanded="false" />
-                <element signature="e#12981#13129#0" expanded="false" />
-                <element signature="e#27669#27778#0" expanded="false" />
-                <element signature="e#27783#31064#0" expanded="false" />
+                <element signature="e#6309#13156#0" expanded="false" />
+                <element signature="e#13162#13310#0" expanded="false" />
+                <element signature="e#28023#31304#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adjustmentCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
+      <file leaf-file-name="Arrival.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Arrival.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="8" selection-start="2718" selection-end="2838" vertical-scroll-proportion="-5.1666665" vertical-offset="1051" max-vertical-offset="5670">
-              <folding>
-                <element signature="e#0#40#0" expanded="false" />
-              </folding>
+            <state line="33" column="32" selection-start="730" selection-end="742" vertical-scroll-proportion="-15.185185" vertical-offset="184" max-vertical-offset="774">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -573,21 +137,17 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="320" column="76" selection-start="9353" selection-end="9353" vertical-scroll-proportion="-9.296296" vertical-offset="5347" max-vertical-offset="6210">
-              <folding>
-                <element signature="e#7#392#0" expanded="false" />
-              </folding>
+            <state line="317" column="21" selection-start="9168" selection-end="9168" vertical-scroll-proportion="-3.6491227" vertical-offset="5336" max-vertical-offset="6426">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoreController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StoreController.php">
+      <file leaf-file-name="summaryCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="129" selection-start="2685" selection-end="2685" vertical-scroll-proportion="4.037037" vertical-offset="2143" max-vertical-offset="2628">
-              <folding>
-                <element signature="e#40#54#0" expanded="true" />
-              </folding>
+            <state line="44" column="0" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="577" max-vertical-offset="4608">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -605,10 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/views/open_stock/oneItem.html" />
-        <option value="$PROJECT_DIR$/app/PreShipment.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_08_30_042652_create_pre_advice_table.php" />
-        <option value="$PROJECT_DIR$/public/controllers/groupCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PreShipmentController.php" />
         <option value="$PROJECT_DIR$/public/views/basicdata/addPreAdvice.html" />
@@ -625,37 +181,41 @@
         <option value="$PROJECT_DIR$/public/views/systemSettings.html" />
         <option value="$PROJECT_DIR$/public/views/receive/one_preAdvice.html" />
         <option value="$PROJECT_DIR$/public/views/dispatch/oneItem.html" />
-        <option value="$PROJECT_DIR$/public/views/receive/receive.html" />
-        <option value="$PROJECT_DIR$/public/views/summary/stock_items.html" />
         <option value="$PROJECT_DIR$/public/bower_components/angular-barcode-generator/barcodeGenerator/barcode.css" />
         <option value="$PROJECT_DIR$/app/RecipientPackageItem.php" />
         <option value="$PROJECT_DIR$/public/views/dispatch/dispatch.html" />
-        <option value="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
-        <option value="$PROJECT_DIR$/public/controllers/dispatch.js" />
         <option value="$PROJECT_DIR$/app/RecipientPackage.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RecipientController.php" />
-        <option value="$PROJECT_DIR$/public/views/summary/expected_items.html" />
-        <option value="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/receive/receive_other.html" />
-        <option value="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
         <option value="$PROJECT_DIR$/public/controllers/preadviceReceiveCtrl.js" />
         <option value="$PROJECT_DIR$/app/Arrival.php" />
         <option value="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" />
-        <option value="$PROJECT_DIR$/public/js/routes.js" />
-        <option value="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
         <option value="$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html" />
-        <option value="$PROJECT_DIR$/public/languages/deDE.json" />
-        <option value="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
-        <option value="$PROJECT_DIR$/public/languages/enUS.json" />
-        <option value="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
-        <option value="$PROJECT_DIR$/resources/views/blank.php" />
+        <option value="$PROJECT_DIR$/app/Transaction.php" />
+        <option value="$PROJECT_DIR$/app/Store.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
+        <option value="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
+        <option value="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
+        <option value="$PROJECT_DIR$/public/views/summary/expected_items.html" />
         <option value="$PROJECT_DIR$/public/views/home.html" />
         <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
+        <option value="$PROJECT_DIR$/resources/views/blank.php" />
+        <option value="$PROJECT_DIR$/public/js/routes.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
+        <option value="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
+        <option value="$PROJECT_DIR$/public/views/open_stock/open_stock.html" />
+        <option value="$PROJECT_DIR$/public/views/receive/receive.html" />
+        <option value="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
+        <option value="$PROJECT_DIR$/public/views/summary/stock_items.html" />
+        <option value="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
+        <option value="$PROJECT_DIR$/public/languages/enUS.json" />
+        <option value="$PROJECT_DIR$/public/languages/deDE.json" />
+        <option value="$PROJECT_DIR$/public/controllers/dispatch.js" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
       </list>
     </option>
   </component>
@@ -792,7 +352,113 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="summary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="receive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pre_advice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="open_stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adjustment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="languages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -900,6 +566,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -963,9 +630,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25641027" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2448718" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18200134" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1699127" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21222296" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1023,64 +690,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/controllers/groupCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1478" selection-end="1478" vertical-scroll-proportion="1.0" vertical-offset="108" max-vertical-offset="864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/PackagingInformation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="26" selection-start="70" selection-end="90" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="57" selection-start="341" selection-end="341" vertical-scroll-proportion="-8.666667" vertical-offset="72" max-vertical-offset="702">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/openStockCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="281" column="77" selection-start="12570" selection-end="12570" vertical-scroll-proportion="-6.5" vertical-offset="4863" max-vertical-offset="6174">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_23_075334_create_store_stocks_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="43" selection-start="687" selection-end="687" vertical-scroll-proportion="0.716094" vertical-offset="0" max-vertical-offset="774" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_22_203222_create_stock_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="43" selection-start="593" selection-end="678" vertical-scroll-proportion="0.6851211" vertical-offset="0" max-vertical-offset="774" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_22_094914_create_stores_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="33" selection-start="697" selection-end="697" vertical-scroll-proportion="0.5294118" vertical-offset="108" max-vertical-offset="774" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_23_073759_create_recipient_packages_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="45" selection-start="676" selection-end="676" vertical-scroll-proportion="-10.0" vertical-offset="108" max-vertical-offset="882" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Recipient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="17.0" vertical-offset="459" max-vertical-offset="1170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="37" selection-start="370" selection-end="370" vertical-scroll-proportion="-0.39059675" vertical-offset="486" max-vertical-offset="1800" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/systemSettings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="132" selection-start="3278" selection-end="3278" vertical-scroll-proportion="-0.6315789" vertical-offset="864" max-vertical-offset="1368">
@@ -1162,37 +771,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/dispatched_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="107" selection-start="0" selection-end="3371" vertical-scroll-proportion="-37.333332" vertical-offset="0" max-vertical-offset="1386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/expected_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="42" selection-start="1277" selection-end="1281" vertical-scroll-proportion="4.0" vertical-offset="540" max-vertical-offset="1386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/receive/pre_advice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="57" selection-start="10619" selection-end="10629" vertical-scroll-proportion="-27.481482" vertical-offset="2174" max-vertical-offset="3114">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/receive/receive_other.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="162" column="53" selection-start="10626" selection-end="10626" vertical-scroll-proportion="0.63202727" vertical-offset="2545" max-vertical-offset="3132">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Arrival.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="32" selection-start="730" selection-end="742" vertical-scroll-proportion="-19.185184" vertical-offset="76" max-vertical-offset="774">
           <folding />
         </state>
       </provider>
@@ -1211,30 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="55" selection-start="0" selection-end="8864" vertical-scroll-proportion="-17.37037" vertical-offset="773" max-vertical-offset="2376">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#1;n#div#1;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#1;n#div#3;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#1;n#div#4;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#5;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#select#1;n#div#5;n#div#3;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/RecipientPackage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="31" selection-start="402" selection-end="413" vertical-scroll-proportion="-7.3333335" vertical-offset="162" max-vertical-offset="900">
@@ -1249,45 +806,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/dispatch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="9" selection-start="6154" selection-end="7371" vertical-scroll-proportion="0.0" vertical-offset="3240" max-vertical-offset="5886">
-          <folding>
-            <element signature="e#10124#41580#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="68" selection-start="3252" selection-end="3252" vertical-scroll-proportion="-19.11111" vertical-offset="366" max-vertical-offset="1098">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateSources.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="21" selection-start="1092" selection-end="1374" vertical-scroll-proportion="0.5181818" vertical-offset="0" max-vertical-offset="666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="41" selection-start="9806" selection-end="9806" vertical-scroll-proportion="-14.666667" vertical-offset="3654" max-vertical-offset="6102">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/stock_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="16" selection-start="1015" selection-end="2807" vertical-scroll-proportion="-23.11111" vertical-offset="330" max-vertical-offset="1188">
           <folding />
         </state>
       </provider>
@@ -1298,13 +819,6 @@
           <folding>
             <element signature="e#4662#7302#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="37" selection-start="7850" selection-end="7850" vertical-scroll-proportion="-13.333333" vertical-offset="3348" max-vertical-offset="6246">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1322,101 +836,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/adjustment/move_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="59" selection-start="2712" selection-end="2712" vertical-scroll-proportion="-1.7777778" vertical-offset="798" max-vertical-offset="1890">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/bower_components/highcharts-ng/src/highcharts-ng.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6444">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="31" selection-start="4933" selection-end="4933" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="37" selection-start="219" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
-          <folding>
-            <element signature="e#3510#35379#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="320" column="76" selection-start="9353" selection-end="9353" vertical-scroll-proportion="-9.296296" vertical-offset="5347" max-vertical-offset="6210">
-          <folding>
-            <element signature="e#7#392#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="8" selection-start="2718" selection-end="2838" vertical-scroll-proportion="-5.1666665" vertical-offset="1051" max-vertical-offset="5670">
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="347" column="60" selection-start="13795" selection-end="13795" vertical-scroll-proportion="-4.5438595" vertical-offset="4061" max-vertical-offset="10710">
-          <folding>
-            <element signature="e#40#59#0" expanded="true" />
-            <element signature="e#6128#12975#0" expanded="false" />
-            <element signature="e#12981#13129#0" expanded="false" />
-            <element signature="e#27669#27778#0" expanded="false" />
-            <element signature="e#27783#31064#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="59" selection-start="189" selection-end="189" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="5724">
-          <folding>
-            <element signature="e#2580#2603#0" expanded="true" />
-            <element signature="e#2731#2764#0" expanded="true" />
-            <element signature="e#3148#3225#0" expanded="true" />
-            <element signature="e#3275#3336#0" expanded="true" />
-            <element signature="e#3421#3444#0" expanded="true" />
-            <element signature="e#3533#3566#0" expanded="true" />
-            <element signature="e#5290#5315#0" expanded="true" />
-            <element signature="e#5976#6008#0" expanded="true" />
-            <element signature="e#6174#6206#0" expanded="true" />
-            <element signature="e#6831#6872#0" expanded="true" />
-            <element signature="e#18256#18281#0" expanded="true" />
-            <element signature="e#18433#18458#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="129" selection-start="2685" selection-end="2685" vertical-scroll-proportion="4.037037" vertical-offset="2143" max-vertical-offset="2628">
-          <folding>
-            <element signature="e#40#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/receive/receive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="35" selection-start="5983" selection-end="6208" vertical-scroll-proportion="-8.666667" vertical-offset="1404" max-vertical-offset="3096">
           <folding />
         </state>
       </provider>
@@ -1428,16 +850,235 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/StoreStock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="5" selection-start="101" selection-end="587" vertical-scroll-proportion="-15.444445" vertical-offset="69" max-vertical-offset="648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="5" selection-start="579" selection-end="690" vertical-scroll-proportion="-15.333333" vertical-offset="126" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Transaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="589" selection-end="589" vertical-scroll-proportion="-18.11111" vertical-offset="15" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Store.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="31" selection-start="848" selection-end="859" vertical-scroll-proportion="-14.777778" vertical-offset="249" max-vertical-offset="828">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="35" selection-start="3535" selection-end="3535" vertical-scroll-proportion="-12.296296" vertical-offset="2296" max-vertical-offset="2844">
+          <folding>
+            <element signature="e#40#54#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ItemMovement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="9.888889" vertical-offset="267" max-vertical-offset="774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/move_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="34" selection-start="5715" selection-end="5723" vertical-scroll-proportion="-12.962963" vertical-offset="1432" max-vertical-offset="1980">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/dispatched_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="80" selection-start="2749" selection-end="2749" vertical-scroll-proportion="-9.962963" vertical-offset="649" max-vertical-offset="1386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="51" selection-start="1939" selection-end="1951" vertical-scroll-proportion="-17.962963" vertical-offset="307" max-vertical-offset="1368">
+        <state line="60" column="29" selection-start="2833" selection-end="2833" vertical-scroll-proportion="-8.0" vertical-offset="864" max-vertical-offset="1620">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="39" selection-start="6026" selection-end="6026" vertical-scroll-proportion="0.33203125" vertical-offset="2656" max-vertical-offset="5004">
+        <state line="265" column="31" selection-start="9902" selection-end="9902" vertical-scroll-proportion="0.0" vertical-offset="3853" max-vertical-offset="5130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="60" selection-start="10629" selection-end="10645" vertical-scroll-proportion="-10.0" vertical-offset="2430" max-vertical-offset="5742">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="56" selection-start="4596" selection-end="4612" vertical-scroll-proportion="0.0" vertical-offset="2346" max-vertical-offset="3240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/expected_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="63" selection-start="0" selection-end="3403" vertical-scroll-proportion="-20.666666" vertical-offset="378" max-vertical-offset="1386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ArrivalItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="27" selection-start="965" selection-end="972" vertical-scroll-proportion="-16.666666" vertical-offset="270" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/open_stock/open_stock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="62" selection-start="5594" selection-end="5594" vertical-scroll-proportion="0.65245205" vertical-offset="1296" max-vertical-offset="2358">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/pre_advice/pre_advice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.87449396" vertical-offset="432" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/recipient/recipient.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1512">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/receive/receive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="60" selection-start="8401" selection-end="8401" vertical-scroll-proportion="0.43724698" vertical-offset="2052" max-vertical-offset="3096">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/receive/pre_advice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="50" selection-start="8812" selection-end="8812" vertical-scroll-proportion="0.3360324" vertical-offset="2228" max-vertical-offset="3114">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="37" selection-start="2909" selection-end="2909" vertical-scroll-proportion="-12.0" vertical-offset="648" max-vertical-offset="1386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/stock_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="38" selection-start="3468" selection-end="3468" vertical-scroll-proportion="-9.555555" vertical-offset="750" max-vertical-offset="1674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="60" selection-start="5098" selection-end="5122" vertical-scroll-proportion="-2.7017543" vertical-offset="2330" max-vertical-offset="6336">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="13" selection-start="7180" selection-end="7180" vertical-scroll-proportion="-3.6491227" vertical-offset="2726" max-vertical-offset="6228">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Arrival.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="32" selection-start="730" selection-end="742" vertical-scroll-proportion="-15.185185" vertical-offset="184" max-vertical-offset="774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/dispatch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="259" column="9" selection-start="8853" selection-end="9121" vertical-scroll-proportion="0.0" vertical-offset="4201" max-vertical-offset="6066">
+          <folding>
+            <element signature="e#10460#41916#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="0" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="4608">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="317" column="21" selection-start="9168" selection-end="9168" vertical-scroll-proportion="-3.6491227" vertical-offset="5336" max-vertical-offset="6426">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="152" selection-start="1587" selection-end="1594" vertical-scroll-proportion="-6.0" vertical-offset="702" max-vertical-offset="10638">
+          <folding>
+            <element signature="e#6309#13156#0" expanded="false" />
+            <element signature="e#13162#13310#0" expanded="false" />
+            <element signature="e#28023#31304#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="40" selection-start="8902" selection-end="8919" vertical-scroll-proportion="-10.9" vertical-offset="3147" max-vertical-offset="6138">
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <element signature="e#5476#6062#0" expanded="false" />
+            <element signature="e#8526#8577#0" expanded="false" />
+            <element signature="e#12141#13033#0" expanded="false" />
+            <element signature="e#13120#14574#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="20" selection-start="1939" selection-end="2268" vertical-scroll-proportion="-16.666666" vertical-offset="162" max-vertical-offset="2376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="207" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.43724698" vertical-offset="162" max-vertical-offset="1098">
           <folding />
         </state>
       </provider>

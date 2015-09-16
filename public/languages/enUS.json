@@ -15,6 +15,7 @@
         "warnings":"Warnings",
         "dashboard":"Dashboard",
         "arrival":"Arrival",
+        "arrivals":"Arrivals Summary",
         "dispatch":"Dispatch",
         "reports":"Reports",
         "adjustment":"Adjustment",
@@ -135,7 +136,7 @@
         "date":"Date",
         "package_id":"Package Number",
         "source":"Source",
-        "expected_time_of_arrival":"Expected Time of Arrival",
+        "expected_time_of_arrival":"Expected Date of Arrival",
         "total_weight":"Total Weight",
         "packaging_id":"Packaging",
         "number_of_doses":"Amount( doses )",
@@ -205,7 +206,9 @@
         "move_all_items":"Move all Items",
         "select_option":"Choose option",
         "to_store":"Destination Store",
-        "from_store":"Origin Store"
+        "from_store":"Origin Store",
+        "reference_no":"Reference Number",
+        "used_volume":"Used Volume"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",
@@ -288,7 +291,9 @@
         "arrival_items":"Items",
         "add_dispatchline":"Enter new Dispatch Line",
         "open_item":"Add Opening Line  Item",
-        "scan_item":"Scan Item/Batch Number"
+        "scan_item":"Scan Item/Batch Number",
+        "print":"Download File",
+        "storage_use":"Storage Use"
     },
     "global": {
         "back": "Back",

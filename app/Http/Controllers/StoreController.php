@@ -135,6 +135,18 @@ class StoreController extends Controller
         return json_encode($array);
     }
 
+    /**
+     * get storage volume of specific store.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function storeStockItems($id)
+    {
+        $store = Store::find($id);
+        return $store->stock_items;
+    }
+
 
 
 }

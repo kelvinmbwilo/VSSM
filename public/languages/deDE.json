@@ -15,6 +15,7 @@
         "warnings":"Advertencias",
         "dashboard":"Tablero",
         "arrival":"llegada",
+        "arrivals":"llegadas Resumen",
         "dispatch":"Despacho",
         "reports":"Informes",
         "adjustment":"Ajuste",
@@ -157,7 +158,7 @@
         "date":"Fecha",
         "package_id":"Número de paquetes",
         "source":"Fuente",
-        "expected_time_of_arrival":"Hora prevista de llegada",
+        "expected_time_of_arrival":"Fecha prevista de llegada",
         "total_weight":"Peso total",
         "packaging_id":"Embalaje",
         "number_of_doses":"Importe ( dosis )",
@@ -223,7 +224,12 @@
         "enter_new_stock":"Enter new stock level",
         "enter_change_stock":"Enter change of stock",
         "move_one_item":"Select an item to Move",
-        "move_all_items":"Move all Items"
+        "move_all_items":"Move all Items",
+        "select_option":"Choose option",
+        "to_store":"Destination Store",
+        "from_store":"Origin Store",
+        "used_volume":"Used Volume",
+        "reference_no":"Reference Number"
     },
     "help": {
         "add_another" : "Agrega otro",
@@ -280,7 +286,8 @@
         "arrival_items":"Artículos",
         "add_dispatchline":"Introduzca la nueva Línea de Despacho",
         "open_item":"Añadir Apertura de partidas",
-        "scan_item":"artículo Scan / Número de lote"
+        "scan_item":"artículo Scan / Número de lote",
+        "print":"Download File"
     },
     "global": {
         "back": "Zurück",

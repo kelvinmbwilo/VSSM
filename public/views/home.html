@@ -14,14 +14,28 @@
     <!-- End  / heading--><!-- Start .row -->
     <div class="row">
 
-        <div class="col-md-6 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+        <div class="col-md-12 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
             <!-- Start .panel -->
             <div class="panel-heading white-bg">
-                <h4 class="panel-title" translate="help.arrival_items"></h4>
+                <h4 class="panel-title" translate="help.storage_use"></h4>
 
             </div>
             <div class="panel-body">
                 <highchart id="chart1" config="chartConfig"></highchart>
+                <table class="table table-responsive">
+                    <tr>
+                        <th translate="labels.name"></th>
+                        <th>Total Volume</th>
+                        <th>Used Volume</th>
+                        <th>Free Volume</th>
+                    </tr>
+                    <tr ng-repeat="stores in storeTable">
+                        <td>{{ stores.name }}</td>
+                        <td>{{ stores.volume }}</td>
+                        <td>{{ stores.used_volume }}</td>
+                        <td>{{ stores.free }}</td>
+                    </tr>
+                </table>
            </div>
 
        </div>

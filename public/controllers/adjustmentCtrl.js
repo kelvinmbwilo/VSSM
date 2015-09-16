@@ -10,7 +10,7 @@ angular.module("vssmApp")
         $http.get("index.php/arrivals").success(function(data){
             $scope.arrivals = [];
             angular.forEach(data,function(value){
-                var name = (value.from_source)?"name"+value.from_source.name+' #':' ';
+                var name = (value.from_source)?"from"+value.from_source.name+' #':' ';
                 value.name = name+value.arrival_report_number+' , '+value.arrival_date
                 $scope.arrivals.push(value);
             });
@@ -71,6 +71,68 @@ angular.module("vssmApp")
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
         });
+        $scope.storeB = [];
+        $scope.getStoreItems = function(id){
+            $scope.storeB = [];
+            $scope.selectedStore1 =null;
+            $scope.selectedStoreItems1 =null;
+            angular.forEach($scope.stores,function(value1){
+                if(value1.id == id){
+                    $scope.newItem.status = 'one'
+                    $scope.selectedStore = value1;
+                }else{
+                    $scope.storeB.push(value1)
+                }
+            });
+            $http.get("index.php/store/stock/"+id).success(function(data){
+                angular.forEach(data,function(value){
+                    angular.forEach($scope.packaging_information,function(val){
+                        if(val.id == value.packaging_id){
+                            value.packaging = val;
+                        }
+                    });
+                    value.name = value.packaging.vaccine.name+" "+value.lot_number+ ", "+value.amount+"doses";
+                });
+                $scope.selectedStoreItems =  data;
+            });
+        }
+        $scope.validVolume = true;
+        $scope.changeVolume = function(val){
+            var vol = val * $scope.cm_per_dose* 0.001
+            if(($scope.selectedStore1.net_volume - $scope.selectedStore1.used_volume) > vol){
+                $scope.validVolume = true;
+            }else{
+                $scope.validVolume = false;
+            }
+        }
+
+        $scope.storeMovedItem = function(id){
+            angular.forEach($scope.selectedStoreItems,function(value){
+                if(value.id == id){
+                    $scope.maximum = value.amount;
+                    $scope.cm_per_dose = value.packaging.cm_per_dose;
+                }
+            });
+        }
+
+        $scope.getStoreItems1 = function(id){
+            angular.forEach($scope.stores,function(value1){
+                if(value1.id == id){
+                    $scope.selectedStore1 = value1;
+                }
+            });
+            $http.get("index.php/store/stock/"+id).success(function(data){
+                angular.forEach(data,function(value){
+                    angular.forEach($scope.packaging_information,function(val){
+                        if(val.id == value.packaging_id){
+                            value.packaging = val;
+                        }
+                    });
+                    value.name = value.packaging.vaccine.name+" "+value.lot_number+ ", "+value.amount+"doses";
+                });
+                $scope.selectedStoreItems1 =  data;
+            });
+        }
 
         //preshipments specifics
         $scope.updatePackaging = function(itemId){
@@ -92,7 +154,7 @@ angular.module("vssmApp")
         $http.get("index.php/stock_items").success(function(data){
             $scope.stock_items = data;
             angular.forEach($scope.stock_items,function(value){
-                value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+$translate('labels.doses')+", "+value.expiry_date
+                value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
 //                $scope.packagingInformation.push(value);
             });
         });
@@ -126,6 +188,15 @@ angular.module("vssmApp")
         //get adjustment_reasons
         $http.get("index.php/adjustment_reasons").success(function(data){
             $scope.adjustment_reasons = data;
+        });
+
+        //get adjustment_reasons
+        $http.get("index.php/sent_packages").success(function(data){
+            $scope.expect_packages = [];
+            angular.forEach(data,function(value){
+                value.name = value.voucher_number +" to: "+value.destination.name+' '+value.date_sent;
+                $scope.expect_packages.push(value);
+            });
         });
 
         $http.get("index.php/annual_quota").success(function(data){
@@ -210,7 +281,7 @@ angular.module("vssmApp")
                 $http.get("index.php/arrivals").success(function(data){
                     $scope.arrivals = [];
                     angular.forEach(data,function(value){
-                        value.name = "from: "+value.from_source.name+' #'+value.arrival_report_number+' , '+value.arrival_date
+                        value.name = "rom: "+value.from_source.name+' #'+value.arrival_report_number+' , '+value.arrival_date
                         $scope.arrivals.push(value);
                     });
                 });
@@ -305,6 +376,30 @@ angular.module("vssmApp")
                         .hideDelay(5000)
                 );
                 $scope.currentSaving1 = false;
+            })
+
+        }
+
+        $scope.currentSaving4 = false;
+        $scope.moveItem = function(item){
+            $scope.currentSaving1 = true;
+            $http.post("index.php/move_item", item).success(function (newItem) {
+               $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_adjusted_successfull'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving4 = false;
+
+            }).error(function(){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_adjusted_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving4 = false;
             })
 
         }

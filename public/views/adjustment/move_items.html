@@ -20,22 +20,25 @@
 
                 <div class="col-md-5 thumbnail" style="height: 400px;overflow: scroll" >
                     <label for="source" translate="labels.from_store"></label>
-                    <select  id="source" class="form-control" ng-model="newItem.from_store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                    <select  id="source" ng-change="getStoreItems(newItem.from_store)" class="form-control" ng-model="newItem.from_store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
                         <option value="" translate="labels.select"></option>
                     </select>
 
-                    <label for="source" translate="labels.select_option"></label>
-                    <select required="" type="text" ng-model="myItem.status" class="form-control" id="exampleInputPassword2" >
+                    <label ng-if="newItem.from_store" for="source" translate="labels.select_option"></label>
+                    <select ng-if="newItem.from_store" required="" type="text" ng-model="newItem.status" class="form-control" id="exampleInputPassword2" >
                         <option value="one" translate="labels.move_one_item"></option>
                         <option value="all" translate="labels.move_all_items"></option>
                     </select>
 
-                    <label ng-if="myItem.status == 'one'" for="source" translate="labels.move_one_item"></label>
-                    <select  ng-if="myItem.status == 'one'"  id="source" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                    <label class="required" ng-if="newItem.status == 'one'" for="source" translate="labels.move_one_item"></label>
+                    <select required="" ng-change="storeMovedItem(newItem.item_id)" ng-if="newItem.status == 'one'"  id="source" class="form-control" ng-model="newItem.item_id"  ng-options="obj.id as obj.name for obj in selectedStoreItems">
                         <option value="" translate="labels.select"></option>
                     </select>
 
-                    <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+                    <label class="required" ng-if="newItem.status == 'one' && newItem.item_id" for="freight_cost" translate="labels.doses"></label>
+                    <input ng-change="changeVolume(newItem.doses)" required="" ng-if="newItem.status == 'one' && newItem.item_id" type="number" min="0" max="{{ maximum }}" ng-model="newItem.doses" class="form-control input-sm" id="freight_cost" placeholder="{{ 'labels.doses' | translate }}">
+
+                    <table ng-if="newItem.from_store" datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
                         <thead>
                         <tr>
                             <th >#</th>
@@ -45,9 +48,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="item in stock_itemsA">
+                        <tr ng-repeat="item in selectedStoreItems">
                             <td>{{ $index+1 }}</td>
-                            <td>{{ item.vaccine.name }}</td>
+                            <td>{{ item.packaging.vaccine.name }}</td>
                             <td>{{ item.amount }}</td>
                             <td>{{ item.lot_number }}</td>
                         </tr>
@@ -56,10 +59,12 @@
 
                 </div>
                 <div class="col-md-5 thumbnail  col-md-offset-1" style="height: 400px;overflow: scroll" >
-                    <label for="source" translate="labels.to_store"></label>
-                    <select  id="source" class="form-control" ng-model="newItem.to_store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                    <label class="required" for="source" translate="labels.to_store"></label>
+                    <select required="" id="source" ng-change="getStoreItems1(newItem.to_store)" class="form-control" ng-model="newItem.to_store"  ng-options="obj.id as obj.name for obj in storeB | filter:{status:'active'}:true">
                         <option value="" translate="labels.select"></option>
                     </select>
+                    <b translate="labels.total_volume"></b> <span>{{ selectedStore1.net_volume }}</span> <br>
+                    <b translate="labels.used_volume"></b> <span>{{ selectedStore1.used_volume }}</span>
                     <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
                         <thead>
                         <tr>
@@ -70,9 +75,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="item in stock_itemsB">
+                        <tr ng-repeat="item in selectedStoreItems1">
                             <td>{{ $index+1 }}</td>
-                            <td>{{ item.vaccine.name }}</td>
+                            <td>{{ item.packaging.vaccine.name }}</td>
                             <td>{{ item.amount }}</td>
                             <td>{{ item.lot_number }}</td>
                         </tr>
@@ -90,9 +95,9 @@
 
     </div>
     <!-- End .row -->
-    <div class="col-md-12">
-        <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-        <button ng-click="saveArrival(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0" translate="labels.save_package"> </button>
+    <div class="col-md-12" ng-if="validVolume">
+        <h3  ng-if="currentSaving4"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+        <button ng-click="moveItem(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.from_store" translate="labels.save_package"> </button>
     </div>
 </div>
 

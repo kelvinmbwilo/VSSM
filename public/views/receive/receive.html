@@ -124,11 +124,11 @@
                                 <td>{{ item.packaging }}</td>
                                 <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ item.doses }}</td>
-                                <td>{{ item.vials }}</td>
-                                <td>{{ item.total_volume }}</td>
+                                <td>{{ item.vials | number:0 }}</td>
+                                <td>{{ item.total_volume  | number:4 }}</td>
                                 <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
-                                <td>{{ item.u_price }}</td>
-                                <td>{{ item.t_price }}</td>
+                                <td>{{ item.u_price | number:2 }}</td>
+                                <td>{{ item.t_price | number:2 }}</td>
                                 <td>{{ getActivityName(item.activity) }}</td>
                                 <td>{{ getStoreName(item.store_id) }}</td>
                                 <td>
