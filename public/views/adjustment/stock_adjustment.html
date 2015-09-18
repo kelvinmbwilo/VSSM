@@ -33,8 +33,8 @@
                 <div  class="col-md-6 col-md-offset-3" style="margin-top: 10px" ng-if="newItem.stock_id" >
                     <label class="required" for="doses" translate="labels.enter_new_stock" ng-if="newItem.changeStock == 'no'"></label>
                     <label class="required" for="doses" translate="labels.enter_change_stock" ng-if="newItem.changeStock == 'yes'"></label>
-                    <input required="" style="margin-top: 10px"   type="text" ng-if="newItem.changeStock == 'no'" ng-model="newItem.doses" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_new_stock' | translate }}">
-                    <input required="" style="margin-top: 10px"   type="text" ng-if="newItem.changeStock == 'yes'" ng-model="newItem.change" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_change_stock' | translate }}">
+                    <input required="" style="margin-top: 10px"   type="number" ng-if="newItem.changeStock == 'no'" ng-model="newItem.doses" max="{{ maxValue }}" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_new_stock' | translate }}">
+                    <input required="" style="margin-top: 10px"   type="number" ng-if="newItem.changeStock == 'yes'" ng-model="newItem.change" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_change_stock' | translate }}">
                 </div>
                 <div  class="col-md-6 col-md-offset-3"  style="margin-top:10px" ng-if="newItem.stock_id" >
                     <label class="required" for="adjustment_reason" translate="labels.adjustment_reason"></label>

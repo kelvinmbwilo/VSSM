@@ -16,7 +16,7 @@ class StoreStock extends Model
 
 
     public function packaging(){
-        return $this->belongsTo('App\RecipientPackage', 'packaging_id', 'id');
+        return $this->belongsTo('App\PackagingInformation', 'packaging_id', 'id');
     }
 
     public function vaccine(){

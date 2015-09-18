@@ -16,6 +16,10 @@ angular.module("vssmApp")
             });
         });
 
+        $scope.getMovedVolume =function(item){
+
+        }
+
         //get Activities
         $http.get("index.php/activities").success(function(data){
             $scope.activities = data;
@@ -70,6 +74,12 @@ angular.module("vssmApp")
         //get stores
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
+            angular.forEach($scope.stores,function(value){
+                //var freeVol = ((value.net_volume - value.used_volume)/value.net_volume)*100;
+                var freeVol = value.net_volume - value.used_volume;
+                value.useName = value.name+", Volume: "+value.net_volume+" Used: "+value.used_volume+" Free: "+ freeVol;
+            });
+
         });
         $scope.storeB = [];
         $scope.getStoreItems = function(id){
@@ -91,7 +101,7 @@ angular.module("vssmApp")
                             value.packaging = val;
                         }
                     });
-                    value.name = value.packaging.vaccine.name+" "+value.lot_number+ ", "+value.amount+"doses";
+                    value.name = value.packaging.vaccine.name+" "+value.lot_number+", "+value.expiry_date+ ", "+value.amount+"doses";
                 });
                 $scope.selectedStoreItems =  data;
             });
@@ -190,8 +200,8 @@ angular.module("vssmApp")
             $scope.adjustment_reasons = data;
         });
 
-        //get adjustment_reasons
-        $http.get("index.php/sent_packages").success(function(data){
+        //get sent_packages
+        $http.get("index.php/dispatched_packages").success(function(data){
             $scope.expect_packages = [];
             angular.forEach(data,function(value){
                 value.name = value.voucher_number +" to: "+value.destination.name+' '+value.date_sent;
@@ -201,15 +211,6 @@ angular.module("vssmApp")
 
         $http.get("index.php/annual_quota").success(function(data){
             $scope.annual_quota = data;
-        });
-
-        //get transport_mode
-        $http.get("index.php/expected_packages").success(function(data){
-            $scope.expected_packages = [];
-            angular.forEach(data,function(value){
-                value.name = value.voucher_number +" to: "+value.destination.name+' '+value.date_sent;
-                $scope.expected_packages.push(value);
-            });
         });
 
         //fetching the shipment after scan

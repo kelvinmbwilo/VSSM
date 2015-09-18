@@ -85,6 +85,16 @@ class VaccineController extends Controller
         return RecipientPackage::where('recipient_id',Auth::user()->recipient_id)->get()->load('items','destination');
 //        return RecipientPackageItem::where('receiver_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','package');
     }
+    /**
+     * Display a expectedPackages for user.
+     *
+     * @return Response
+     */
+    public function dispatchedPackages()
+    {
+        return RecipientPackage::where('source_id',Auth::user()->recipient_id)->get()->load('items','destination');
+//        return RecipientPackageItem::where('receiver_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','package');
+    }
 
     /**
      * Display a arrivals for user.
@@ -571,6 +581,8 @@ class VaccineController extends Controller
             $pre_shipment->save();
         }
         }
+
+        return $arrival;
     }
 
     /**
@@ -637,6 +649,7 @@ class VaccineController extends Controller
 
             }
         }
+        return $dispatch->voucher_number;
     }
 
     /**

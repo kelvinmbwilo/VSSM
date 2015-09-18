@@ -16,6 +16,7 @@
     <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
     <div class="row">
         <button ng-if="seeStock == 'details'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('products')">Products</button>
+        <button class="btn btn-info btn-sm pull-right" ng-click="downloadStockData()"><i class="fa fa-print"></i> </button>
         <button ng-if="seeStock == 'products'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('details')">Product Details</button>
         <div ng-if="seeStock == 'details'">
             <table  datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
@@ -77,6 +78,18 @@
                 </tr>
                 </tbody>
             </table>
+
+            <div class="col-md-12 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title" translate="labels.items"></h4>
+
+                </div>
+                <div class="panel-body">
+                    <highchart id="chart1" config="chartConfig1"></highchart>
+                </div>
+
+            </div>
 
         </div>
 

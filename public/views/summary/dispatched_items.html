@@ -2,13 +2,13 @@
     <!--Content wrapper-->
     <div class=heading>
         <!--  .heading-->
-        <h3 translate="menu.dispatched_packeges"></h3>
+        <h3 translate="menu.dispatched_packaged"></h3>
         <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
 
         <ul class=breadcrumb>
             <li translate="labels.you_are_here"></li>
             <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
-            <li class=active translate="menu.dispatched_packeges"></li>
+            <li class=active translate="menu.dispatched_packaged"></li>
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
@@ -16,7 +16,25 @@
     <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
 
     <div class="row">
+        <h3 class="text-center">Summary</h3>
+        <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+            <thead>
+            <tr>
+                <th >#</th>
+                <th translate="labels.product"></th>
+                <th translate="labels.doses"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in disaptchedItems">
+                <td>{{ $index+1 }}</td>
+                <td>{{ getVaccineName(item.vaccine_id) }}</td>
+                <td>{{ item.total }}</td>
+            </tr>
+            </tbody>
+        </table>
 
+        <h3 class="text-center">Detailed Items</h3>
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
             <thead>
             <tr>
@@ -54,7 +72,7 @@
                 <td>{{ getActivityName(item.activity) }}</td>
                 <td>{{ item.package.receiving_status }}</td>
                 <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="downloadData()"><i class="fa fa-file-pdf-o"></i>
+                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="downloadData(item.package.voucher_number)"><i class="fa fa-file-pdf-o"></i>
                     <md-tooltip>
                         <span translate="help.print"></span>
                     </md-tooltip>

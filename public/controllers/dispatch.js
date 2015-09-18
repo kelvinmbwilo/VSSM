@@ -273,9 +273,9 @@ angular.module("vssmApp")
         $scope.currentSaving = false;
         $scope.dispatch = function(item){
             $scope.currentSaving = true;
-            $http.post("index.php/dispatch/", item).success(function (newItem) {
+            $http.post("index.php/dispatch/", item).success(function (d) {
                 $scope.showSummary = true;
-//                $scope.downloadData();
+                $scope.newItem.voucher_no = d;
                 $mdToast.show(
                     $mdToast.simple()
                         .content($translate('error.stock_dispatched_successfull'))

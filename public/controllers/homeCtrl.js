@@ -156,6 +156,45 @@ angular.module("vssmApp")
         $scope.freeValues = [];
         $scope.storeTable = [];
         $scope.storeCapacity = [];
+        //get vaccines
+        $http.get("index.php/vaccines").success(function(data){
+            $scope.vaccines = data;
+        });
+        //get items_min_max
+        $http.get("index.php/items_min_max").success(function(data){
+            $scope.items_min_max = data;
+        });
+
+        //get sources
+        $http.get("index.php/sources").success(function(data){
+            $scope.sources = data;
+        });
+
+        //get adjustment_reasons
+        $http.get("index.php/adjustment_reasons").success(function(data){
+            $scope.adjustment_reasons = data;
+        });
+
+        //get manufactures
+        $http.get("index.php/manufactures").success(function(data){
+            $scope.manufactures = data;
+        });
+
+        $http.get("index.php/annual_quota").success(function(data){
+            $scope.annual_quota = data;
+        });
+        $scope.noAnnualQuota = false;
+
+        //get Activities
+        $http.get("index.php/activities").success(function(data){
+            $scope.activities = data;
+        });
+
+        //get transport_mode
+        $http.get("index.php/transport_mode").success(function(data){
+            $scope.transport_mode = data;
+        });
+
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
             var i = 0;
@@ -180,6 +219,16 @@ angular.module("vssmApp")
             $scope.storeCapacity.pop();
             angular.forEach($scope.stores,function(value){
                 if(value.id == id){
+                    var log = ""+id+"";
+                    $scope.detailedItems = $scope.storeItemsDetails[log];
+                    while ($scope.vaccineNames.length) { $scope.vaccineNames.pop(); }
+                    while ($scope.vacciineValues.length) { $scope.vacciineValues.pop(); }
+                    $scope.chartConfig1.title.text = value.name+" Items";
+                    angular.forEach($scope.storeItems[log],function(val){
+                        $scope.vaccineNames.push($scope.getVaccineName(val.vaccine_id))
+                        $scope.vacciineValues.push(parseInt(val.total))
+                    });
+
                     $scope.data.storeName = value.name;
                     $scope.storeCapacity.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
                     $scope.storeCapacity.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
@@ -189,12 +238,93 @@ angular.module("vssmApp")
 
         $scope.vaccineNames= [];
         $scope.vacciineValues = [];
-
+        $scope.storeTitle = "Items in all stores";
         $http.get("index.php/vaccineStocks/1").success(function(data){
             angular.forEach(data,function(value){
                 $scope.vaccineNames.push(value.name);
                 $scope.vacciineValues.push(parseInt(value.amount));
             })
+
+        });
+
+        $scope.getVaccineName = function(id){
+            var name = "";
+            angular.forEach($scope.vaccines,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        $scope.getManufactureName = function(id){
+            var name = "";
+            angular.forEach($scope.manufactures,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        $scope.getActivityName = function(id){
+            var name = "";
+            angular.forEach($scope.activities,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        $scope.getSourceName = function(id){
+            var name = "";
+            angular.forEach($scope.sources,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        //get transport_mode
+        $http.get("index.php/disaptchedItemsMonth").success(function(data){
+            $scope.disaptchedItemsMonth = data;
+        });
+
+        $http.get("index.php/vaccineStocks/1").success(function(data){
+           $scope.stockss = data;
+        });
+
+        $scope.updateRemain = function(id){
+            var total_cons = 0;
+            var i = 0;
+            angular.forEach($scope.disaptchedItemsMonth,function(value){
+                i++;
+                if(value.vaccine_id == id){
+                    total_cons += parseInt(value.total);
+                }
+            });
+            $scope.curLevel = 0;
+            angular.forEach($scope.stockss,function(value){
+                if(value.id == id){
+                    $scope.curLevel = parseInt(value.amount);
+                }
+            });
+            $scope.avg = (total_cons == 0)?0:total_cons/i
+            $scope.total_cons = total_cons;
+        }
+
+
+
+        $http.get("index.php/storeItems").success(function(data){
+            $scope.storeItems = data;
+        });
+
+
+
+        $http.get("index.php/storeItemsDetails").success(function(data){
+            $scope.storeItemsDetails = data;
 
         });
 
@@ -254,7 +384,7 @@ angular.module("vssmApp")
                 data: $scope.vacciineValues
             }],
             title: {
-                text: 'Hello'
+                text: $scope.storeTitle
             },
 //            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
             loading: false

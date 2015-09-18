@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ArrivalItem;
+use App\RecipientPackageItem;
 use App\Stock;
 use App\Store;
+use App\StoreStock;
 use App\Vaccine;
 use Illuminate\Http\Request;
 
@@ -130,12 +133,93 @@ class StoreController extends Controller
             ->get();
         $array = array();
         foreach($item as $stock){
-            $array[] = array('name'=>Vaccine::find($stock->vaccine_id)->name,'amount'=>$stock->total);
+            $array[] = array('id'=>$stock->vaccine_id,'name'=>Vaccine::find($stock->vaccine_id)->name,'amount'=>$stock->total);
         };
         return json_encode($array);
     }
 
     /**
+     * get storeItems.
+     *
+     * @return Response
+     */
+    public function storeItems()
+    {
+        $store = Store::where('recipient_id',Auth::user()->recipient_id)->get();
+        $arr = array();
+        foreach($store as $stock){
+            $arr[$stock->id] = StoreStock::where('store_id',$stock->id)->select('vaccine_id', DB::raw('sum(amount) as total'))
+                ->groupBy('vaccine_id')
+                ->get();
+        }
+        return json_encode($arr);
+    }
+
+    /**
+     * get disaptchedItems.
+     *
+     * @return Response
+     */
+    public function disaptchedItems()
+    {
+            $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(amount) as total'))
+                ->groupBy('vaccine_id')
+                ->get();
+//        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(amount) as total'),DB::raw('month(created_at) as month'))
+//                ->groupBy('month')
+//                ->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get disaptchedItemsMonth.
+     *
+     * @return Response
+     */
+    public function disaptchedItemsMonth()
+    {
+
+        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(amount) as total'),DB::raw('month(created_at) as month'))
+                ->groupBy('month')
+                ->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get received_items.
+     *
+     * @return Response
+     */
+    public function receivItems()
+    {
+            $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(number_received) as total'))
+                ->groupBy('vaccine_id')
+                ->get();
+//        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(amount) as total'),DB::raw('month(created_at) as month'))
+//                ->groupBy('month')
+//                ->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get storeItemsDetails.
+     *
+     * @return Response
+     */
+    public function storeItemsDetails()
+    {
+        $store = Store::where('recipient_id',Auth::user()->recipient_id)->get();
+        $arr = array();
+        foreach($store as $stock){
+            $arr[$stock->id] = StoreStock::where('store_id',$stock->id)->get()->load('packaging');
+        }
+        return json_encode($arr);
+    }
+
+/**
      * get storage volume of specific store.
      *
      * @param  int  $id

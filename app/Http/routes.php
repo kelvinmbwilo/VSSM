@@ -329,8 +329,26 @@ Route::get('vaccineStocks/{id}',array('uses'=>'StoreController@vaccineStocks'));
 //getting expected_packages
 Route::get('expected_packages',array('uses'=>'VaccineController@expectedPackages'));
 
+//getting dispatched_packages
+Route::get('dispatched_packages',array('uses'=>'VaccineController@dispatchedPackages'));
+
 //getting expected_packages
 Route::get('store/stock/{id}',array('uses'=>'StoreController@storeStockItems'));
+
+//getting all stores Items
+Route::get('storeItems',array('uses'=>'StoreController@storeItems'));
+
+//getting all stores Items in Details
+Route::get('storeItemsDetails',array('uses'=>'StoreController@storeItemsDetails'));
+
+//getting all dispatchedItems per vaccine
+Route::get('disaptchedItems',array('uses'=>'StoreController@disaptchedItems'));
+
+//getting all dispatchedItems per vaccine
+Route::get('disaptchedItemsMonth',array('uses'=>'StoreController@disaptchedItemsMonth'));
+
+//getting all receivItems per vaccine
+Route::get('receivItems',array('uses'=>'StoreController@receivItems'));
 
 //saving new received items
 Route::post('receive',array('uses'=>'VaccineController@receive'));
