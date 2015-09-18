@@ -230,7 +230,7 @@ angular.module("vssmApp")
                     });
 
                     $scope.data.storeName = value.name;
-                    $scope.storeCapacity.push({name: value.name+" - Used Volume" , y: parseInt(value.net_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - Used Volume" , y: parseInt(value.used_volume) })
                     $scope.storeCapacity.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
             })
