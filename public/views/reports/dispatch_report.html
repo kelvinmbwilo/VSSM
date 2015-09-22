@@ -1,0 +1,176 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.monthly_dispatch"></h3>
+        <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.monthly_dispatch"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+        <div class="col-sm-3">
+            Show
+            <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
+                <option value="doses" >Doses</option>
+                <option value="cost" >Cost</option>
+            </select>
+        </div>
+
+        <div class="col-sm-3">
+            Period Type
+            <select ng-model="data.reportPeriod" ng-click="selectPeriod()"  class="form-control">
+                <option value="Years" >Years</option>
+                <option value="Month" >Month</option>
+                <option value="Date range" >Date Range</option>
+            </select>
+        </div>
+
+        <div class="col-sm-3"  ng-if="showMonthRange">
+            Year
+            <select ng-model="data.selectedMonthYear" class="form-control" ng-change="prepareSeries()">
+                <option value="2015" >2015</option>
+                <option value="2014" >2014</option>
+            </select>
+        </div>
+
+        <div class="col-xs-3"  ng-if="showMonthRange">
+            Month
+            <div
+                    multi-select
+                    input-model="data.months"
+                    button-label="name"
+                    item-label="name"
+                    tick-property="ticked"
+                    output-model="data.selectedMonth"
+                    max-labels="0"
+                    max-height ="150px"
+                    on-item-click = "prepareSeries()"
+                    helper-elements="filter"
+                    >
+            </div>
+        </div>
+        <div class="col-xs-3" ng-if="showYearRange">
+            Years
+            <div
+                    multi-select
+                    input-model="data.years"
+                    button-label="name"
+                    item-label="name"
+                    tick-property="ticked"
+                    output-model="data.selectedYear"
+                    max-labels="0"
+                    max-height ="150px"
+                    on-item-click = "prepareSeries()"
+                    helper-elements="filter"
+                    >
+            </div>
+        </div>
+        <div class="col-xs-3" ng-show="showDayRange">
+            From
+            <input class="form-control" ui-date="dateOptions1" ng-model="data.startDate" ng-blur="prepareSeries()">
+        </div>
+        <div class="col-xs-3" ng-show="showDayRange">
+            To
+            <input class="form-control" ui-date="dateOptions2" ng-model="data.endDate" ng-blur="prepareSeries()">
+        </div>
+    </div>
+    <div class="row">
+        <label>Show Filters <input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
+    </div>
+    <div class="row">
+        <div class="col-md-3" ng-if="data.showFilter">
+            <label for="source" translate="labels.recipients"></label>
+            <select  id="source" ng-change="changeMainCat()" class="form-control" ng-model="data.recipient"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <div class="col-md-3"  ng-if="data.showFilter">
+            <label for="transport_mode" translate="labels.source"></label>
+            <select id="transport_mode" ng-change="changeMainCat()" class="form-control" ng-model="data.sources"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <div class="col-md-3"  ng-if="data.showFilter">
+            <label for="activity" translate="labels.activity"></label>
+            <select id="activity" ng-change="changeMainCat()" class="form-control" ng-model="data.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <div class="col-md-3"  ng-if="data.showFilter">
+            <label for="store" translate="labels.store"></label>
+            <select id="store" ng-change="changeMainCat()" class="form-control" ng-model="data.store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-10" style="margin-top: 10px">
+        <md-button ng-click="changeChart('list')" class="md-hue-3 md-raised"><i class="fa fa-th-list" style="height: 20px;width: 20px"></i> List</md-button>
+        <md-button ng-click="changeChart('table')" class="md-hue-3 md-raised"><img src="img/table.png" style="height: 20px;width: 20px"> Table</md-button>
+        <md-button ng-click="changeChart('column')" class="md-hue-3 md-raised"><img src="img/bar.png" style="height: 20px;width: 20px"> Bar </md-button>
+        <md-button ng-click="changeChart('spline')" class="md-hue-3 md-raised"><img src="img/line.png" style="height: 20px;width: 20px"> Line </md-button>
+        <md-button ng-click="changeChart('bar')" class="md-hue-3 md-raised"><img src="img/column.png" style="height: 20px;width: 20px"> Column </md-button>
+        <md-button ng-click="changeChart('nyingine')" class="md-hue-3 md-raised"><img src="img/combined.jpg" style="height: 20px;width: 20px"> Combined Chart</md-button>
+        <md-button ng-click="changeChart('area')" class="md-hue-3 md-raised"><img src="img/table.png" style="height: 20px;width: 20px"> Area </md-button>
+        <md-button ng-click="changeChart('pie')" class="md-hue-3 md-raised"><img src="img/pie.png" style="height: 20px;width: 20px"> Pie </md-button>
+    </div>
+    <highchart style="height: 500px;" id="chart1" config="chartConfig" class="col-sm-12" ng-if="!displayTable && !displayList && showReport"></highchart>
+    <div  ng-if="displayTable && showReport" class="col-sm-12" >
+        <h3 class="text-center">{{ chartConfig.title.text }}</h3>
+        <table  datatable dt-options="dtOptions" class="table table-condensed table-bordered table-responsive" >
+            <thead>
+            <tr>
+                <th>{{ data.category }}</th>
+                <th ng-repeat="cats in table.headers">{{ cats }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="column in table.colums">
+                <td>{{ column.name }}</td>
+                <td ng-repeat="nsf in column.values">{{ nsf.value }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div  ng-if="displayList && showReport" class="col-sm-12" >
+        <h3 class="text-center">{{ chartConfig.title.text }}</h3>
+        <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+            <thead>
+            <tr>
+                <th >#</th>
+                <th translate="labels.product"></th>
+                <th translate="labels.recipients"></th>
+                <th translate="labels.source"></th>
+                <th translate="labels.lot_number"></th>
+                <th translate="labels.expired_date"></th>
+                <th translate="labels.doses"></th>
+                <th translate="labels.t_price"></th>
+                <th translate="labels.activity"></th>
+                <th translate="labels.store"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in itemsList">
+                <td>{{ $index+1 }}</td>
+                <td>{{ getVaccineName(item.vaccine_id) }}</td>
+                <td>{{ getRecipientName(item.receiver_id) }}</td>
+                <td>{{ getSourceName(item.source_id) }}</td>
+                <td>{{ item.batch_number }}</td>
+                <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
+                <td>{{ item.amount | number:0 }}</td>
+                <td>{{ item.unit_price * item.amount | number:2 }} {{ main_currency }}</td>
+                <td>{{ getActivityName(item.activity) }}</td>
+                <td>{{ getStoreName(item.store_id) }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- End .row -->
+</div>

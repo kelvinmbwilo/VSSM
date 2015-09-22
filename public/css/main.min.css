@@ -97,4 +97,6 @@ body.login-page .login-panel:after {
 }
 body.login-page .login-panel:before {
     display: none;
-}
+}.md-button.md-hue-3.md-raised {
+    color:black;
+ }

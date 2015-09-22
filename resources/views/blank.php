@@ -28,7 +28,9 @@ else{
 <!--    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel=stylesheet type=text/css>-->
 <!--    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel=stylesheet type=text/css>-->
     <link href="<?php echo  asset('css/kendo.common-material.min.css')  ?>" rel="stylesheet">
+    <link href="<?php echo  asset('css/angular-multi-select.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('bower_components/angular-material/angular-material.min.css')  ?>" rel="stylesheet">
+    <link href="<?php echo  asset('bower_components/TableTools-master/css/dataTables.tableTools.css')  ?>" rel="stylesheet">
     <!-- Css files -->
     <link rel=stylesheet href="<?php echo  asset('css/abn_tree.css') ?>">
     <link rel=stylesheet href="<?php echo  asset('css/main.min.css') ?>">
@@ -124,7 +126,15 @@ else{
             <div class=mainnav>
                 <ul>
                     <li><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
-                    <li><a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class="notification red">8</span></a></li>
+                    <li></li>
+                    <li>
+                        <a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span></a>
+                        <ul class=sub>
+                            <li><a href="./#close_to_expiry"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span></a></li>
+                            <li><a href="./#below_minimum"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span></a></li>
+                            <li><a href="./#above_maximum"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span></a></li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/receive') || isActive('/receive_pre') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
@@ -163,9 +173,9 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-stats-up"></i><span class=txt translate="menu.reports"></span></a>
                         <ul class=sub>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
+                            <li><a href="./#dispatch_report"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
+                            <li><a href="./#monthly_arrivals"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
+                            <li><a href="./#expired_items"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span></a></li>
                             <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
                         </ul>
                     </li>
@@ -238,7 +248,7 @@ else{
 <!-- Important javascript libs(put in all pages) -->
 
 <script src="<?php echo  asset('js/libs/jquery-2.1.1.min.js') ?>"></script>
-<script src="<?php echo  asset('js/libs/jquery-ui-1.10.4.min.js') ?>"></script>
+<script src="<?php echo  asset('jqueryui/js/jquery-ui-1.10.4.custom.js') ?>"></script>
 <script src="<?php echo  asset('js/libs/jquery-migrate-1.2.1.min.js') ?>"></script>
 <!--[if lt IE 9]>
 <script type="text/javascript" src="<?php echo  asset('js/libs/excanvas.min.js') ?>"></script>
@@ -274,6 +284,8 @@ else{
 <script src="<?php echo  asset('bower_components/angular-aria/angular-aria.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-material/angular-material.min.js')  ?>"></script>
 <script src="<?php echo  asset('js/abn_tree_directive.js')  ?>"></script>
+<script src="<?php echo  asset('js/angular-multi-select.js')  ?>"></script>
+<script src="<?php echo  asset('bower_components/TableTools-master/js/dataTables.tableTools.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-datatables/dist/angular-datatables.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.min.js')  ?>"></script>
@@ -285,7 +297,7 @@ else{
 <script src="<?php echo  asset('bower_components/angular-ui-date/src/date.js')  ?>"></script>
 <script src="<?php echo  asset('js/kendo.all.min.js')  ?>"></script>
 <script>
-    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','kendo.directives','highcharts-ng']);
+    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','kendo.directives','highcharts-ng','multi-select']);
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
 
@@ -303,6 +315,9 @@ else{
 <script src="<?php echo  asset('controllers/users/userCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/users/userRolesCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/basicdata/basicDataCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/arrivalReportCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/dispatchReportCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/reportCtrl.js')  ?>"></script>
 <!--<script src="--><?php //echo  asset('bootstrap/js/bootstrap.min.js')  ?><!--"></script>-->
 <script src="<?php echo  asset('js/ie10-viewport-bug-workaround.js')  ?>"></script>
 <script src="<?php echo  asset('js/pages/blank.js') ?>"></script>

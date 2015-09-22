@@ -52,7 +52,13 @@
         "summary":"Resumen del paquete",
         "pre_advice":"Aviso de Pre - consejos",
         "stock_items":"artículo en stock",
-        "open_stock":"Stock Apertura"
+        "open_stock":"Stock Apertura",
+        "monthly_dispatch":"despachos",
+        "monthly_arrivals":"Llegadas",
+        "close_to_expiry":"Artículos próximas a expirar ",
+        "below_minimum":"Artículos por debajo del mínimo",
+        "above_maximum":"Artículos por arriba del máximo",
+        "expired_items":"Los productos caducados"
 
     },
     "error": {

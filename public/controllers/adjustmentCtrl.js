@@ -50,7 +50,7 @@ angular.module("vssmApp")
 
         $scope.getDispatchItem = function(id){
             console.log(id);
-            angular.forEach($scope.expected_packages,function(v){
+            angular.forEach($scope.expect_packages,function(v){
                if(v.id == id){
                    $scope.dispatchItems = [];
                    angular.forEach(v.items,function(value){

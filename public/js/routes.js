@@ -164,6 +164,40 @@ angular.module("vssmApp")
             controller: 'adjustmentCtrl'
         });
 
+        $routeProvider.when("/dispatch_report",{
+            templateUrl: 'views/reports/dispatch_report.html',
+            controller: 'dispatchReportCtrl'
+        });
+
+        $routeProvider.when("/monthly_arrivals",{
+            templateUrl: 'views/reports/monthly_arrivals.html',
+            controller: 'arrivalReportCtrl'
+        });
+
+
+        $routeProvider.when("/expired_items",{
+            templateUrl: 'views/reports/expired_items.html',
+            controller: 'reportCtrl'
+        });
+
+
+        $routeProvider.when("/close_to_expiry",{
+            templateUrl: 'views/reports/close_to_expiry.html',
+            controller: 'reportCtrl'
+        });
+
+
+        $routeProvider.when("/below_minimum",{
+            templateUrl: 'views/reports/below_minimum.html',
+            controller: 'reportCtrl'
+        });
+
+
+        $routeProvider.when("/above_maximum",{
+            templateUrl: 'views/reports/above_maximum.html',
+            controller: 'reportCtrl'
+        });
+
 
 
         $routeProvider.otherwise({

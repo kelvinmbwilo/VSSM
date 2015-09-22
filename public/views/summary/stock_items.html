@@ -47,7 +47,7 @@
                     <td>{{ item.lot_number }}</td>
                     <td>{{ item.packaging.dose_per_vial }}</td>
                     <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
-                    <td>{{ item.amount }}</td>
+                    <td>{{ item.amount | number:0  }}</td>
                     <td>{{ item.amount/item.packaging.dose_per_vial | number:0 }}</td>
                     <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
                     <td>{{ item.unit_price | number:2 }} {{ main_currency }}</td>
@@ -74,7 +74,7 @@
                 <tr ng-repeat="item in vaccineStock">
                     <td>{{ $index+1 }}</td>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.amount }}</td>
+                    <td>{{ item.amount | number:0  }}</td>
                 </tr>
                 </tbody>
             </table>

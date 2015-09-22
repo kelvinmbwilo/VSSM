@@ -52,7 +52,13 @@
         "summary":"Package Summary",
         "pre_advice":"Pre-advice Notice",
         "stock_items":"Stock Items",
-        "open_stock":"Stock Opening"
+        "open_stock":"Stock Opening",
+        "monthly_dispatch":"Dispatches",
+        "monthly_arrivals":"Arrivals",
+        "close_to_expiry":"Items Close To Expiry ",
+        "below_minimum":"Items Below Minimum ",
+        "above_maximum":"Items Above Maximum ",
+        "expired_items":"Expired Items"
 
     },
     "labels":{
@@ -216,7 +222,9 @@
         "current_stock":"Current Stock",
         "routine_consuption":"Routine Consumption",
         "monthly_avarage":"Monthly Average",
-        "enough_for":"Enough For"
+        "enough_for":"Enough For",
+        "cancel_dispatch":"Cancel Dispatch",
+        "cancel_arrival":"Cancel Arrival"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

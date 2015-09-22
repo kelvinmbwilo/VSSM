@@ -146,6 +146,17 @@ angular.module("vssmApp")
                 .filter(function(pos) { return $scope.toastPosition[pos]; })
                 .join(' ');
         };
+        $scope.dtOptions = DTOptionsBuilder.newOptions()
+            // Add Table tools compatibility
+            .withTableTools('./bower_components/TableTools-master/swf/copy_csv_xls_pdf.swf')
+            .withTableToolsButtons([
+                'copy',
+                'print', {
+                    'sExtends': 'collection',
+                    'sButtonText': 'Save',
+                    'aButtons': ['csv', 'xls', 'pdf']
+                }
+            ]);
 
     }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http) {
 
@@ -336,6 +347,12 @@ angular.module("vssmApp")
                     zoomType: 'x'
                 }
             },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Volume(Ltr)'
+                }
+            },
             xAxis: {
             labels: {
                 rotation: -45,
@@ -370,6 +387,12 @@ angular.module("vssmApp")
                     zoomType: 'x'
                 }
             },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Doses'
+                }
+            },
             xAxis: {
             labels: {
                 rotation: -45,
@@ -396,7 +419,14 @@ angular.module("vssmApp")
                     type: 'pie'
                 }
             },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Doses'
+                }
+            },
             series: [{
+                name: "Volume(Ltr)",
                 data: $scope.storeCapacity
             }],
             title: {

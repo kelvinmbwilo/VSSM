@@ -179,10 +179,47 @@ class StoreController extends Controller
      */
     public function disaptchedItemsMonth()
     {
-
         $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(amount) as total'),DB::raw('month(created_at) as month'))
                 ->groupBy('month')
                 ->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get arrivalItemsMonth.
+     *
+     * @return Response
+     */
+    public function arrivalItemsMonth()
+    {
+        $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->select('vaccine_id', DB::raw('sum(number_received) as total'),DB::raw('month(created_at) as month'),DB::raw('year(created_at) as year'))
+                ->groupBy('month','vaccine_id','year')
+                ->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get arrivalItems.
+     *
+     * @return Response
+     */
+    public function arrivalItems()
+    {
+        $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get dispatchedItems.
+     *
+     * @return Response
+     */
+    public function disItems()
+    {
+        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->get();
         return $dispatch;
 
     }

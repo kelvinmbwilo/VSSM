@@ -347,6 +347,15 @@ Route::get('disaptchedItems',array('uses'=>'StoreController@disaptchedItems'));
 //getting all dispatchedItems per vaccine
 Route::get('disaptchedItemsMonth',array('uses'=>'StoreController@disaptchedItemsMonth'));
 
+//getting all arival Items per vaccine
+Route::get('arrivalItemsMonth',array('uses'=>'StoreController@arrivalItemsMonth'));
+
+//getting all arival Items
+Route::get('arrivalItems',array('uses'=>'StoreController@arrivalItems'));
+
+//getting all dispatched Items
+Route::get('disItems',array('uses'=>'StoreController@disItems'));
+
 //getting all receivItems per vaccine
 Route::get('receivItems',array('uses'=>'StoreController@receivItems'));
 

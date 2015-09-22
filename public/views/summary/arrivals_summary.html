@@ -67,7 +67,7 @@
                 <td>{{ getManufactureName(item.packaging.manufacture_id ) }}</td>
                 <td>{{ item.lot_number }}</td>
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
-                <td>{{ item.number_received }}</td>
+                <td>{{ item.number_received | number:0  }}</td>
                 <td>{{ item.number_received / item.packaging.dose_per_vial | number:0 }}</td>
                 <td>{{ (item.number_received*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
                 <td>{{ item.unit_price * item.number_received | number:2 }} {{ main_currency }}</td>
