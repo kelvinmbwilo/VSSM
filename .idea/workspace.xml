@@ -2,39 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/above_maximum.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/below_minimum.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/close_to_expiry.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/expired_items.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" afterPath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blank.php" afterPath="$PROJECT_DIR$/resources/views/blank.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bower_components/angular-ui-date/src/date.js" afterPath="$PROJECT_DIR$/public/bower_components/angular-ui-date/src/date.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/deDE.json" afterPath="$PROJECT_DIR$/public/languages/deDE.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/dispatch/dispatch.html" afterPath="$PROJECT_DIR$/public/views/dispatch/dispatch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" afterPath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/expected_items.html" afterPath="$PROJECT_DIR$/public/views/summary/expected_items.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/home.html" afterPath="$PROJECT_DIR$/public/views/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/homeCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.min.css" afterPath="$PROJECT_DIR$/public/css/main.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/move_items.html" afterPath="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/open_stock/open_stock.html" afterPath="$PROJECT_DIR$/public/views/open_stock/open_stock.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/pre_advice.html" afterPath="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/receive.html" afterPath="$PROJECT_DIR$/public/views/receive/receive.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/receive_other.html" afterPath="$PROJECT_DIR$/public/views/receive/receive_other.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/routes.js" afterPath="$PROJECT_DIR$/public/js/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/stock_items.html" afterPath="$PROJECT_DIR$/public/views/summary/stock_items.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/dispatch_report.html" afterPath="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" afterPath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,15 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="arrivals_summary.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="55" selection-start="3167" selection-end="3167" vertical-scroll-proportion="-12.0" vertical-offset="918" max-vertical-offset="1656">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="arrival_adjustment.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,11 +47,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dispatchReportCtrl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dispatchReportCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="452" column="20" selection-start="22245" selection-end="22245" vertical-scroll-proportion="0.39325842" vertical-offset="7856" max-vertical-offset="9594">
+            <state line="447" column="36" selection-start="21746" selection-end="21746" vertical-scroll-proportion="-8.9" vertical-offset="7779" max-vertical-offset="9594">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blank.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="89" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.6766355" vertical-offset="232" max-vertical-offset="6030">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrivalReportCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="459" column="142" selection-start="19088" selection-end="19094" vertical-scroll-proportion="0.0" vertical-offset="7551" max-vertical-offset="8784">
+              <folding>
+                <element signature="e#9238#10039#0" expanded="false" />
+                <element signature="e#10246#10835#0" expanded="false" />
+                <element signature="e#10889#10955#0" expanded="false" />
+                <element signature="e#10994#11063#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +82,7 @@
       <file leaf-file-name="dispatch_report.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/reports/dispatch_report.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="61" selection-start="650" selection-end="650" vertical-scroll-proportion="53.333332" vertical-offset="1620" max-vertical-offset="3276">
+            <state line="123" column="65" selection-start="6766" selection-end="6835" vertical-scroll-proportion="-2.6666667" vertical-offset="2142" max-vertical-offset="3294">
               <folding>
                 <element signature="n#style#0;n#div#4;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#md-button#0;n#div#4;n#div#0;n#!!top" expanded="true" />
@@ -113,19 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dispatched_items.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/summary/dispatched_items.html">
+      <file leaf-file-name="monthly_arrivals.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="46" selection-start="3266" selection-end="3266" vertical-scroll-proportion="-12.666667" vertical-offset="864" max-vertical-offset="1710">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="expected_items.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/summary/expected_items.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="46" selection-start="2557" selection-end="2557" vertical-scroll-proportion="-10.666667" vertical-offset="594" max-vertical-offset="1386">
+            <state line="118" column="72" selection-start="6535" selection-end="6535" vertical-scroll-proportion="-5.3703704" vertical-offset="1979" max-vertical-offset="3240">
               <folding />
             </state>
           </provider>
@@ -199,12 +176,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
         <option value="$PROJECT_DIR$/public/languages/deDE.json" />
         <option value="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
         <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
         <option value="$PROJECT_DIR$/public/js/routes.js" />
-        <option value="$PROJECT_DIR$/resources/views/blank.php" />
         <option value="$PROJECT_DIR$/public/views/reports/below_minimum.html" />
         <option value="$PROJECT_DIR$/public/views/reports/close_to_expiry.html" />
         <option value="$PROJECT_DIR$/public/views/reports/above_maximum.html" />
@@ -223,7 +196,11 @@
         <option value="$PROJECT_DIR$/public/views/summary/expected_items.html" />
         <option value="$PROJECT_DIR$/public/views/summary/stock_items.html" />
         <option value="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
+        <option value="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
+        <option value="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
+        <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" />
+        <option value="$PROJECT_DIR$/resources/views/blank.php" />
       </list>
     </option>
   </component>
@@ -551,7 +528,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="jqueryui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,225 +546,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TableTools-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TableTools-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TableTools-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TableTools-master" />
+              <option name="myItemId" value="jqueryui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-datatables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-datatables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular-datatables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
+              <option name="myItemId" value="cupertino" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -926,7 +693,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2974359" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1923077" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.03156481" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1168,18 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="452" column="0" selection-start="18381" selection-end="18381" vertical-scroll-proportion="-6.9666667" vertical-offset="7333" max-vertical-offset="8586">
-          <folding>
-            <element signature="e#9238#10039#0" expanded="false" />
-            <element signature="e#10246#10835#0" expanded="false" />
-            <element signature="e#10889#10955#0" expanded="false" />
-            <element signature="e#10994#11063#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="107" selection-start="438" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="8010">
@@ -1194,36 +949,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="319" column="53" selection-start="26657" selection-end="26657" vertical-scroll-proportion="-122.07407" vertical-offset="2446" max-vertical-offset="6012">
-          <folding>
-            <element signature="e#2794#2817#0" expanded="true" />
-            <element signature="e#2945#2978#0" expanded="true" />
-            <element signature="e#3362#3439#0" expanded="true" />
-            <element signature="e#3489#3550#0" expanded="true" />
-            <element signature="e#3635#3658#0" expanded="true" />
-            <element signature="e#3747#3780#0" expanded="true" />
-            <element signature="e#5504#5529#0" expanded="true" />
-            <element signature="e#6181#6213#0" expanded="true" />
-            <element signature="e#6379#6411#0" expanded="true" />
-            <element signature="e#7036#7077#0" expanded="true" />
-            <element signature="e#19295#19320#0" expanded="true" />
-            <element signature="e#19472#19497#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/reports/below_minimum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="51" selection-start="2192" selection-end="2192" vertical-scroll-proportion="-14.666667" vertical-offset="324" max-vertical-offset="1314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="43" selection-start="7864" selection-end="7864" vertical-scroll-proportion="-15.37037" vertical-offset="2249" max-vertical-offset="3204">
           <folding />
         </state>
       </provider>
@@ -1372,7 +1100,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/reports/dispatch_report.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="61" selection-start="650" selection-end="650" vertical-scroll-proportion="53.333332" vertical-offset="1620" max-vertical-offset="3276">
+        <state line="123" column="65" selection-start="6766" selection-end="6835" vertical-scroll-proportion="-2.6666667" vertical-offset="2142" max-vertical-offset="3294">
           <folding>
             <element signature="n#style#0;n#div#4;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#md-button#0;n#div#4;n#div#0;n#!!top" expanded="true" />
@@ -1388,9 +1116,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="72" selection-start="6535" selection-end="6535" vertical-scroll-proportion="-5.3703704" vertical-offset="1979" max-vertical-offset="3240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="459" column="142" selection-start="19088" selection-end="19094" vertical-scroll-proportion="0.0" vertical-offset="7551" max-vertical-offset="8784">
+          <folding>
+            <element signature="e#9238#10039#0" expanded="false" />
+            <element signature="e#10246#10835#0" expanded="false" />
+            <element signature="e#10889#10955#0" expanded="false" />
+            <element signature="e#10994#11063#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="452" column="20" selection-start="22245" selection-end="22245" vertical-scroll-proportion="0.39325842" vertical-offset="7856" max-vertical-offset="9594">
+        <state line="447" column="36" selection-start="21746" selection-end="21746" vertical-scroll-proportion="-8.9" vertical-offset="7779" max-vertical-offset="9594">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="89" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.6766355" vertical-offset="232" max-vertical-offset="6030">
           <folding />
         </state>
       </provider>

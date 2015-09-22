@@ -31,6 +31,7 @@ else{
     <link href="<?php echo  asset('css/angular-multi-select.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('bower_components/angular-material/angular-material.min.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('bower_components/TableTools-master/css/dataTables.tableTools.css')  ?>" rel="stylesheet">
+    <link href="<?php echo  asset('jqueryui/css/cupertino/jquery-ui-1.10.4.custom.min.css')  ?>" rel="stylesheet">
     <!-- Css files -->
     <link rel=stylesheet href="<?php echo  asset('css/abn_tree.css') ?>">
     <link rel=stylesheet href="<?php echo  asset('css/main.min.css') ?>">
