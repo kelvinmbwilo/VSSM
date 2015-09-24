@@ -58,7 +58,8 @@
         "close_to_expiry":"Items Close To Expiry ",
         "below_minimum":"Items Below Minimum ",
         "above_maximum":"Items Above Maximum ",
-        "expired_items":"Expired Items"
+        "expired_items":"Expired Items",
+        "canceled_invoices":"Canceled Invoices"
 
     },
     "labels":{
@@ -225,7 +226,8 @@
         "monthly_avarage":"Monthly Average",
         "enough_for":"Enough For",
         "cancel_dispatch":"Cancel Dispatch",
-        "cancel_arrival":"Cancel Arrival"
+        "cancel_arrival":"Cancel Arrival",
+        "Notifications":"Notifications"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

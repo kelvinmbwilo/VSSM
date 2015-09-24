@@ -44,9 +44,8 @@ angular.module("vssmApp")
             });
 
         }
-
-        $scope.getDispatchItem = function(id){
-            console.log(id);
+        $scope.canCancel = false;
+            $scope.getDispatchItem = function(id){
             angular.forEach($scope.expect_packages,function(v){
                if(v.id == id){
                    $scope.dispatchItems = [];
@@ -58,7 +57,12 @@ angular.module("vssmApp")
                        });
                        value.name = value.packaging.vaccine.name+" "+value.batch_number+ ", "+value.amount+"doses";
                        $scope.dispatchItems.push(value);
+
                    });
+                   if(v.receiving_status == 'pending'){
+                       $scope.canCancel = true;
+                   }
+
                }
             });
         }
@@ -91,12 +95,15 @@ angular.module("vssmApp")
         }
         $scope.validVolume = true;
         $scope.changeVolume = function(val){
-            var vol = val * $scope.cm_per_dose* 0.001
-            if(($scope.selectedStore1.net_volume - $scope.selectedStore1.used_volume) > vol){
-                $scope.validVolume = true;
-            }else{
-                $scope.validVolume = false;
+            var vol = val * $scope.cm_per_dose* 0.001;
+            if($scope.selectedStore1){
+                if(($scope.selectedStore1.net_volume - $scope.selectedStore1.used_volume) > vol){
+                    $scope.validVolume = true;
+                }else{
+                    $scope.validVolume = false;
+                }
             }
+
         }
 
         $scope.storeMovedItem = function(id){
@@ -360,6 +367,32 @@ angular.module("vssmApp")
         $scope.moveItem = function(item){
             $scope.currentSaving1 = true;
             $http.post("index.php/move_item", item).success(function (newItem) {
+                $scope.newItem = {};
+               $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_adjusted_successfull'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving4 = false;
+
+            }).error(function(){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_adjusted_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving4 = false;
+            })
+
+        }
+
+        $scope.currentSaving4 = false;
+        $scope.cancelDispatch = function(item){
+            $scope.currentSaving1 = true;
+            $http.post("index.php/cancelDispatch/"+item).success(function (newItem) {
+                $scope.newItem = {};
                $mdToast.show(
                     $mdToast.simple()
                         .content($translate('error.stock_adjusted_successfull'))

@@ -186,6 +186,11 @@ angular.module("vssmApp")
             controller: 'reportCtrl'
         });
 
+        $routeProvider.when("/canceled_invoices",{
+            templateUrl: 'views/reports/canceled_invoices.html',
+            controller: 'reportCtrl'
+        });
+
 
         $routeProvider.when("/below_minimum",{
             templateUrl: 'views/reports/below_minimum.html',

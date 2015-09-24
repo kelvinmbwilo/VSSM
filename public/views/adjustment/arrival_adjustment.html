@@ -119,7 +119,6 @@
     <div class="col-md-10 col-md-offset-2" ng-if="newItem.item && newItem.arrival">
         <h4  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
         <button  ng-if="!currentSaving && newItem.adjustment_reason" ng-click="saveAdjust(newItem)" class="btn btn-sm btn-primary"  translate="labels.save_package"> </button>
-        <button  ng-click="cancelArrival(newItem)" class="btn btn-sm btn-danger"  translate="labels.cancel_arrival"> </button>
         <button  ng-if="!currentSaving" ng-click="cancel()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
     </div>
 </div>

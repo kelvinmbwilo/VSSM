@@ -41,6 +41,38 @@ class VaccineController extends Controller
     {
         return Stock::where('recipient_id',Auth::user()->recipient_id)->get();
     }
+
+    /**
+     * Display a stockItems for user.
+     *
+     * @return Response
+     */
+    public function expired_stock_items()
+    {
+        $date = date('Y-m-d');
+        return Stock::where('recipient_id',Auth::user()->recipient_id)->where('expiry_date','<=',$date)->get();
+    }
+
+    /**
+     * Display a stockItems for user.
+     *
+     * @return Response
+     */
+    public function near_expired_stock_items()
+    {
+        $stock = Stock::where('recipient_id',Auth::user()->recipient_id)->get();
+        $arr = array();
+        foreach($stock as $st){
+            $days = $st->vaccine->days_before_expiry;
+            $date = strtotime("+".$days." day");
+            $date1 = date('Y-m-d', $date);
+            if($st->expiry_date <= $date1 ){
+                $arr[] = $st;
+            }
+
+        }
+        return json_encode($arr);
+    }
  /**
      * Display a arrivals for user.
      *
@@ -686,6 +718,9 @@ class VaccineController extends Controller
                 $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
                 $stock->amount          = $stock->amount - $item['doses'];
                 $stock->save();
+                if($stock->amount == 0){
+                    $stock->delete();
+                }
             }else{
 
             }
@@ -695,6 +730,9 @@ class VaccineController extends Controller
                 $storeStock = StoreStock::where('store_id',$item['store_id'])->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
                 $storeStock->amount         = $storeStock->amount - $item['doses'];
                 $storeStock->save();
+                if($storeStock->amount == 0){
+                    $storeStock->delete();
+                }
             }else{
 
             }
@@ -812,6 +850,12 @@ class VaccineController extends Controller
         $storeStock->amount = $request->has('doses')?$request->input('doses'):$storeStock->amount - $request->input('change');
         $stock->save();
         $storeStock->save();
+        if($stock->amount == 0){
+            $stock->delete();
+        }
+        if($storeStock->amount == 0){
+            $storeStock->delete();
+        }
 
         $adjustment = new Adjustment;
         $nextNumber = $this->getNextAdjustmentNumber();
@@ -825,5 +869,42 @@ class VaccineController extends Controller
         $adjustment->adjustment_type   = 'stock';
         $adjustment->resource_id       = $stock->id;
         $adjustment->save();
+    }
+
+    public function move_item(Request $request){
+        $storeStock = StoreStock::find($request->input('item_id'));
+        $storeStock->amount = $request->has('doses')?$storeStock->amount - $request->input('doses'):$storeStock->amount;
+        $storeStock->save();
+        if($storeStock->amount == 0){
+            $storeStock->delete();
+        }
+        if(count(StoreStock::where('store_id',$request->input('to_store'))->where('vaccine_id',$storeStock->vaccine_id)->where('lot_number',$storeStock->lot_number)->get()) != 0){
+            $storeStock1 = StoreStock::where('store_id',$request->input('to_store'))->where('vaccine_id',$storeStock->vaccine_id)->where('lot_number',$storeStock->lot_number)->get();
+            $storeStock1->amount = $request->has('doses')?$storeStock1->amount + $request->input('doses'):$storeStock1->amount;
+            $storeStock1->save();
+        }else{
+            $storeStock1 = new StoreStock;
+            $storeStock1->vaccine_id     = $storeStock->vaccine_id;
+            $storeStock1->store_id       = $request->input('to_store');
+            $storeStock1->amount         = $request->input('doses');
+            $storeStock1->lot_number     = $storeStock->lot_number;
+            $storeStock1->packaging_id   = $storeStock->packaging_id;
+            $storeStock1->expiry_date    = $storeStock->expiry_date;
+            $storeStock1->unit_price     = $storeStock->unit_price ;
+            $storeStock1->source_id       = $storeStock->source_id;
+            $storeStock1->activity_id    = $storeStock->activity_id;
+            $storeStock1->save();
+        }
+
+
+    }
+
+    public function cancelDispatch($id){
+        $dispatch = RecipientPackage::find($id);
+        foreach($dispatch->items as $dis){
+            $stock = Stock::where('recipient_id',Auth::user()->recipient_id)->where('vaccine_id',$dis->vaccine_id)->where('lot_number',$dis->batch_number)->get();
+            $storeStock1 = StoreStock::where('store_id',$dis->store_id)->where('vaccine_id',$dis->vaccine_id)->where('lot_number',$dis->batch_number)->get();
+
+        }
     }
 }

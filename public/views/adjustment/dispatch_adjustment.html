@@ -48,7 +48,7 @@
     <div class="col-md-6 col-md-offset-3" style="margin-top:10px" ng-if="newItem.item && newItem.dispatch">
         <h4  ng-if="currentSaving2"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
         <button ng-disabled="myForm.$invalid" ng-if="!currentSaving2" ng-click="saveDispatchAdjust(newItem)" class="btn btn-sm btn-primary"  translate="labels.save_package"> </button>
-        <button  ng-click="cancelArrival(newItem)" class="btn btn-sm btn-danger"  translate="labels.cancel_dispatch"> </button>
+        <button ng-if="canCancel"  ng-click="cancelDispatch(newItem.dispatch)" class="btn btn-sm btn-danger"  translate="labels.cancel_dispatch"> </button>
         <button  ng-if="!currentSaving2" ng-click="cancel()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
     </div>
 </div>

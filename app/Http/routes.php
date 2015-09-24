@@ -302,8 +302,14 @@ Route::post('system_settings',array('uses'=>'UserController@saveSettings'));
  * system_settings
  */
 
-//getting pre_shipments
+//getting stock_items
 Route::get('stock_items',array('uses'=>'VaccineController@stock_items'));
+
+//getting expired_stock_items
+Route::get('expired_stock_items',array('uses'=>'VaccineController@expired_stock_items'));
+
+//getting near_expired_stock_items
+Route::get('near_expired_stock_items',array('uses'=>'VaccineController@near_expired_stock_items'));
 
 //getting last order number
 Route::get('getNextPackageNumber',array('uses'=>'VaccineController@getNextPackageNumber'));
@@ -387,4 +393,7 @@ Route::post('dispatch_adjust',array('uses'=>'VaccineController@dispatch_adjust')
 Route::post('stock_adjust',array('uses'=>'VaccineController@stock_adjust'));
 
 //saving  stock adjust
-Route::post('move_item',array('uses'=>'VaccineController@stock_adjust'));
+Route::post('move_item',array('uses'=>'VaccineController@move_item'));
+
+//saving  stock adjust
+Route::post('cancelDispatch/{id}',array('uses'=>'VaccineController@cancelDispatch'));

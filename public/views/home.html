@@ -146,11 +146,23 @@
                 </tr>
             </table>
 
+        </div>
+
+    </div>
+
+        <div class="col-md-12 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+        <!-- Start .panel -->
+        <div class="panel-heading white-bg">
+            <h4 class="panel-title">Warnings</h4>
+
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
 
 
+                <li class="list-group-item" ng-repeat="item in notification_object"><a href="./#{{ item.url }}"><span class=icon><i class="s16 icomoon-icon-calendar"></i></span> <span class=event>{{ item.name }} : {{ item.descr }}</span></a></li>
 
-
-             {{ curLevel / avg | number:2 }} Month
+            </ul>
         </div>
 
     </div>

@@ -69,15 +69,12 @@ else{
 
             <ul class="nav navbar-right usernav">
                 <li class=dropdown>
-                    <a href="#" class=dropdown-toggle data-toggle=dropdown><i class="s16 icomoon-icon-warning text-warning"></i><span class=txt translate="menu.warnings">Warnings <b class=caret></b></span><span class=notification>8</span></a>
+                    <a href="#" class=dropdown-toggle data-toggle=dropdown><i class="s16 icomoon-icon-warning text-warning"></i><span class=txt translate="menu.warnings">Warnings <b class=caret></b></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
                     <ul class="dropdown-menu right">
                         <li class=menu>
                             <ul class=notif>
-                                <li class=header><strong>Notifications</strong> (3) items</li>
-                                <li><a href="blank.html#"><span class=icon><i class="s16 icomoon-icon-user-plus"></i></span> <span class=event>1 User is registred</span></a></li>
-                                <li><a href="blank.html#"><span class=icon><i class="s16 icomoon-icon-bubble-3"></i></span> <span class=event>Jony add 1 comment</span></a></li>
-                                <li><a href="blank.html#"><span class=icon><i class="s16 icomoon-icon-new"></i></span> <span class=event>admin Julia added post with a long description</span></a></li>
-                                <li class=view-all><a href="blank.html#">View all notifications <i class="s16 fa fa-angle-double-right"></i></a></li>
+                                <li class=header><strong translate="labels.Notifications"></strong ng-cloak> ({{ number_of_notification }}) items</li>
+                                <li ng-repeat="item in notification_object"><a href="./#{{ item.url }}"><span class=icon><i class="s16 icomoon-icon-calendar"></i></span> <span class=event>{{ item.name }} : {{ item.descr }}</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -128,11 +125,11 @@ else{
                     <li><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
                     <li></li>
                     <li>
-                        <a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span></a>
+                        <a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
                         <ul class=sub>
-                            <li><a href="./#close_to_expiry"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span></a></li>
-                            <li><a href="./#below_minimum"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span></a></li>
-                            <li><a href="./#above_maximum"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span></a></li>
+                            <li><a href="./#close_to_expiry" ng-class="{ active1: isActive('/close_to_expiry') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span>  </a></li>
+                            <li><a href="./#below_minimum" ng-class="{ active1: isActive('/below_minimum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span> </a></li>
+                            <li><a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span> </a></li>
                         </ul>
                     </li>
                     <li>
@@ -175,8 +172,8 @@ else{
                         <ul class=sub>
                             <li><a href="./#dispatch_report"  ng-class="{ active1: isActive('/dispatch_report') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
                             <li><a href="./#monthly_arrivals"  ng-class="{ active1: isActive('/monthly_arrivals') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
-                            <li><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
+                            <li><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span> <span class="badge badge-info">{{ number_expired_items }}</span></a></li>
+                            <li><a href="./#canceled_invoices"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.canceled_invoices"></span></a></li>
                         </ul>
                     </li>
                     <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
