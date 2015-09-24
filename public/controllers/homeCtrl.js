@@ -333,6 +333,8 @@ angular.module("vssmApp")
 
         });
 
+        $scope.vaccineNames = [];
+        $scope.vacciineValues = [];
         $scope.setStoreType = function(id){
             $scope.storeCapacity.pop();
             $scope.storeCapacity.pop();

@@ -19,7 +19,7 @@
             <div class="form-group" >
                 <div class="col-md-6 col-md-offset-3"  >
                     <label class="required" for="select_arrival" translate="labels.select_stock_item"></label>
-                    <select required="" ng-change="getStockInfo(newItem.stock_id)"  id="select_arrival" class="form-control" ng-model="newItem.stock_id"  ng-options="obj.id as obj.name for obj in stock_items">
+                    <select required="" ng-change="getStockInfo(newItem.stock_id)"  id="select_arrival" class="form-control" ng-model="newItem.stock_id"  ng-options="obj.id as obj.name for obj in stock_items | orderBy:'expiry_date'">
                         <option value="" translate="labels.select"></option>
                     </select>
                 </div>
@@ -34,7 +34,7 @@
                     <label class="required" for="doses" translate="labels.enter_new_stock" ng-if="newItem.changeStock == 'no'"></label>
                     <label class="required" for="doses" translate="labels.enter_change_stock" ng-if="newItem.changeStock == 'yes'"></label>
                     <input required="" style="margin-top: 10px"   type="number" ng-if="newItem.changeStock == 'no'" ng-model="newItem.doses" max="{{ maxValue }}" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_new_stock' | translate }}">
-                    <input required="" style="margin-top: 10px"   type="number" ng-if="newItem.changeStock == 'yes'" ng-model="newItem.change" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_change_stock' | translate }}">
+                    <input required="" style="margin-top: 10px" max="{{ maxValue }}" min="0" type="number" ng-if="newItem.changeStock == 'yes'" ng-model="newItem.change" class="form-control input-sm" id="doses" placeholder="{{ 'labels.enter_change_stock' | translate }}">
                 </div>
                 <div  class="col-md-6 col-md-offset-3"  style="margin-top:10px" ng-if="newItem.stock_id" >
                     <label class="required" for="adjustment_reason" translate="labels.adjustment_reason"></label>

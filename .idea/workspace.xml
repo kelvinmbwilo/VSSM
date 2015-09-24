@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" afterPath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/close_to_expiry.html" afterPath="$PROJECT_DIR$/public/views/reports/close_to_expiry.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/dispatch/dispatch.html" afterPath="$PROJECT_DIR$/public/views/dispatch/dispatch.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/dispatch_report.html" afterPath="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" afterPath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/expected_items.html" afterPath="$PROJECT_DIR$/public/views/summary/expected_items.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/expired_items.html" afterPath="$PROJECT_DIR$/public/views/reports/expired_items.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/home.html" afterPath="$PROJECT_DIR$/public/views/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/homeCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.min.css" afterPath="$PROJECT_DIR$/public/css/main.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" afterPath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/move_items.html" afterPath="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/open_stock/open_stock.html" afterPath="$PROJECT_DIR$/public/views/open_stock/open_stock.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/pre_advice.html" afterPath="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/receive.html" afterPath="$PROJECT_DIR$/public/views/receive/receive.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/receive_other.html" afterPath="$PROJECT_DIR$/public/views/receive/receive_other.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/stock_items.html" afterPath="$PROJECT_DIR$/public/views/summary/stock_items.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/summaryCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,69 +48,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="dispatch_report.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/reports/dispatch_report.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="320" column="82" selection-start="9340" selection-end="9361" vertical-scroll-proportion="-4.0701756" vertical-offset="5366" max-vertical-offset="6966">
+            <state line="127" column="0" selection-start="6799" selection-end="6799" vertical-scroll-proportion="0.39661017" vertical-offset="2052" max-vertical-offset="3420">
               <folding>
-                <element signature="e#7#392#0" expanded="false" />
+                <element signature="n#style#0;n#i#0;n#md-button#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#md-button#7;n#div#4;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoreController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StoreController.php">
+      <file leaf-file-name="dispatchReportCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="23" selection-start="5002" selection-end="5014" vertical-scroll-proportion="1.0526316" vertical-offset="3282" max-vertical-offset="4842">
+            <state line="21" column="0" selection-start="1055" selection-end="1055" vertical-scroll-proportion="-5.5" vertical-offset="213" max-vertical-offset="8316">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VaccineController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
+      <file leaf-file-name="arrivalReportCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="29" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-7.4736843" vertical-offset="528" max-vertical-offset="14742">
+            <state line="314" column="34" selection-start="13301" selection-end="13301" vertical-scroll-proportion="0.0" vertical-offset="7074" max-vertical-offset="8406">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blank.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
+      <file leaf-file-name="main.min.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/main.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="249" column="32" selection-start="20462" selection-end="20462" vertical-scroll-proportion="-7.5555553" vertical-offset="4278" max-vertical-offset="6192">
+            <state line="104" column="28" selection-start="582458" selection-end="582458" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="1998">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adjustmentCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="0" selection-start="8068" selection-end="8068" vertical-scroll-proportion="0.0" vertical-offset="5526" max-vertical-offset="6948">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="homeCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="180" column="15" selection-start="7084" selection-end="7084" vertical-scroll-proportion="0.0" vertical-offset="3078" max-vertical-offset="9018">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dispatched_items.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/summary/dispatched_items.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="10" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.63414633" vertical-offset="108" max-vertical-offset="1962">
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -95,7 +90,7 @@
       <file leaf-file-name="expected_items.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/summary/expected_items.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="25" selection-start="11" selection-end="25" vertical-scroll-proportion="10.0" vertical-offset="270" max-vertical-offset="1206">
+            <state line="50" column="86" selection-start="2763" selection-end="2763" vertical-scroll-proportion="-33.333332" vertical-offset="0" max-vertical-offset="1206">
               <folding />
             </state>
           </provider>
@@ -104,22 +99,48 @@
       <file leaf-file-name="stock_items.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/summary/stock_items.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="10" selection-start="1670" selection-end="1670" vertical-scroll-proportion="-10.0" vertical-offset="108" max-vertical-offset="1206">
+            <state line="24" column="74" selection-start="1812" selection-end="1812" vertical-scroll-proportion="-4.0740743" vertical-offset="322" max-vertical-offset="1980">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="tag#div#0;tag#div#2;tag#div#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arrivals_summary.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
+      <file leaf-file-name="monthly_arrivals.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="1292" selection-end="1292" vertical-scroll-proportion="-8.481482" vertical-offset="95" max-vertical-offset="1872">
+            <state line="82" column="28" selection-start="3420" selection-end="3420" vertical-scroll-proportion="-20.666666" vertical-offset="918" max-vertical-offset="3348">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="summaryCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="406" column="34" selection-start="69632" selection-end="69646" vertical-scroll-proportion="0.0" vertical-offset="3919" max-vertical-offset="4536">
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#163#33842#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homeCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="32" selection-start="1677" selection-end="1690" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="9054">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="move_items.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/adjustment/move_items.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="26" selection-start="6455" selection-end="6455" vertical-scroll-proportion="-13.185185" vertical-offset="1498" max-vertical-offset="2088">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,17 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" />
-        <option value="$PROJECT_DIR$/public/.htaccess" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/ItemMinMax.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/manufactures.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/packaging.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/sources.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/stores.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/transport.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/vaccine.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/activities.html" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" />
         <option value="$PROJECT_DIR$/public/views/basicdata/adjustmentReasons.html" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivitiesController.php" />
@@ -161,10 +171,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
         <option value="$PROJECT_DIR$/public/views/basicdata/updateStores.html" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TransportModeController.php" />
-        <option value="$PROJECT_DIR$/public/languages/enUS.json" />
         <option value="$PROJECT_DIR$/public/languages/deDE.json" />
-        <option value="$PROJECT_DIR$/public/views/open_stock/open_stock.html" />
-        <option value="$PROJECT_DIR$/public/views/receive/receive.html" />
         <option value="$PROJECT_DIR$/public/controllers/openStockCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/receiveCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/pre_advice/pre_advice.html" />
@@ -172,22 +179,36 @@
         <option value="$PROJECT_DIR$/public/views/basicdata/updatePreAdvice.html" />
         <option value="$PROJECT_DIR$/public/cache.appcache" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PreShipmentController.php" />
-        <option value="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
         <option value="$PROJECT_DIR$/public/controllers/preadviceReceiveCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/receive/receive_other.html" />
         <option value="$PROJECT_DIR$/public/controllers/dispatch.js" />
-        <option value="$PROJECT_DIR$/public/views/dispatch/dispatch.html" />
-        <option value="$PROJECT_DIR$/public/views/summary/expected_items.html" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/public/js/routes.js" />
-        <option value="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/summary/stock_items.html" />
-        <option value="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
-        <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
         <option value="$PROJECT_DIR$/resources/views/blank.php" />
+        <option value="$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html" />
+        <option value="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
+        <option value="$PROJECT_DIR$/public/views/home.html" />
+        <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/summary/expected_items.html" />
+        <option value="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
         <option value="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
+        <option value="$PROJECT_DIR$/public/views/open_stock/open_stock.html" />
+        <option value="$PROJECT_DIR$/public/views/dispatch/dispatch.html" />
+        <option value="$PROJECT_DIR$/public/views/receive/pre_advice.html" />
+        <option value="$PROJECT_DIR$/public/views/receive/receive.html" />
+        <option value="$PROJECT_DIR$/public/views/receive/receive_other.html" />
+        <option value="$PROJECT_DIR$/public/views/reports/close_to_expiry.html" />
+        <option value="$PROJECT_DIR$/public/views/reports/expired_items.html" />
+        <option value="$PROJECT_DIR$/public/languages/enUS.json" />
+        <option value="$PROJECT_DIR$/public/views/summary/stock_items.html" />
+        <option value="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
+        <option value="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
+        <option value="$PROJECT_DIR$/public/css/main.min.css" />
+        <option value="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
+        <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
+        <option value="$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
       </list>
     </option>
   </component>
@@ -343,7 +364,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reports" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -361,7 +386,135 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="receive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pre_advice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="open_stock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dispatch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adjustment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="languages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -562,11 +715,11 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4051282" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08974359" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15916723" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18938886" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22028206" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21558093" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -621,7 +774,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/controllers/summaryCtrl.js</url>
-          <line>187</line>
+          <line>191</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -629,64 +782,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/updatePackaging.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="51" selection-start="1630" selection-end="1630" vertical-scroll-proportion="-2.6666667" vertical-offset="378" max-vertical-offset="1206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/packaging.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-0.6666667" vertical-offset="288" max-vertical-offset="1350">
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/sources.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-0.6666667" vertical-offset="288" max-vertical-offset="1170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PackagingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="22" selection-start="2696" selection-end="2745" vertical-scroll-proportion="-10.222222" vertical-offset="1452" max-vertical-offset="1908">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SourceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="22" selection-start="1763" selection-end="1812" vertical-scroll-proportion="-9.777778" vertical-offset="1320" max-vertical-offset="1764">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/stores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="57" selection-start="1978" selection-end="1988" vertical-scroll-proportion="-6.6666665" vertical-offset="504" max-vertical-offset="1314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateStores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="80" selection-start="1854" selection-end="1854" vertical-scroll-proportion="-5.3333335" vertical-offset="324" max-vertical-offset="954">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/addStores.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="80" selection-start="1625" selection-end="1855" vertical-scroll-proportion="-5.3333335" vertical-offset="324" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/addTransport.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
@@ -729,40 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/dispatch/oneItem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="97" selection-start="2089" selection-end="2097" vertical-scroll-proportion="-9.333333" vertical-offset="270" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="126" selection-start="9985" selection-end="10113" vertical-scroll-proportion="-4.5263157" vertical-offset="4188" max-vertical-offset="6660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="38" selection-start="3435" selection-end="3435" vertical-scroll-proportion="-6.6666665" vertical-offset="1188" max-vertical-offset="6426">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/open_stock/open_stock.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="64" selection-start="9086" selection-end="9086" vertical-scroll-proportion="-3.148148" vertical-offset="1211" max-vertical-offset="2124">
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="tag#div#0;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#3;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#4;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,15 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/pre_advice/pre_advice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="1010" selection-end="1010" vertical-scroll-proportion="-0.6666667" vertical-offset="270" max-vertical-offset="1278">
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/cache.appcache">
       <provider selected="true" editor-type-id="text-editor">
         <state line="106" column="32" selection-start="3734" selection-end="3734" vertical-scroll-proportion="0.0" vertical-offset="1441" max-vertical-offset="2016">
@@ -837,83 +893,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/receive/receive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="43" selection-start="10859" selection-end="10880" vertical-scroll-proportion="-7.814815" vertical-offset="2669" max-vertical-offset="3150">
-          <folding>
-            <element signature="tag#div#4;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/receive/pre_advice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="10" selection-start="10876" selection-end="13504" vertical-scroll-proportion="-11.148149" vertical-offset="203" max-vertical-offset="684">
-          <folding>
-            <element signature="tag#ul#0;tag#div#0;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="tag#div#1;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="tag#div#3;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#3;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#4;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/receive/receive_other.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="10" selection-start="13540" selection-end="13540" vertical-scroll-proportion="-24.481482" vertical-offset="3299" max-vertical-offset="4158">
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#3;n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#4;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/receiveCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="251" column="10" selection-start="9677" selection-end="10487" vertical-scroll-proportion="-12.333333" vertical-offset="4148" max-vertical-offset="5850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/dispatch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="45" selection-start="5398" selection-end="5398" vertical-scroll-proportion="-2.1333334" vertical-offset="2294" max-vertical-offset="6588">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/dispatch/dispatch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="171" selection-start="6687" selection-end="6687" vertical-scroll-proportion="-16.0" vertical-offset="1350" max-vertical-offset="2448">
-          <folding>
-            <element signature="tag#div#4;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.0" vertical-offset="30" max-vertical-offset="9378">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.0" vertical-offset="30" max-vertical-offset="9594">
           <folding />
         </state>
       </provider>
@@ -942,46 +924,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="207" selection-start="1230" selection-end="1241" vertical-scroll-proportion="-8.0" vertical-offset="162" max-vertical-offset="1134">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="138" column="37" selection-start="4493" selection-end="4493" vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="3852">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="11" selection-start="33714" selection-end="33714" vertical-scroll-proportion="-6.3333335" vertical-offset="1268" max-vertical-offset="3690">
-          <folding>
-            <element signature="e#1469#32523#0" expanded="false" />
-            <element signature="e#35550#67622#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/stock_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="1670" selection-end="1670" vertical-scroll-proportion="-10.0" vertical-offset="108" max-vertical-offset="1206">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#2;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="1292" selection-end="1292" vertical-scroll-proportion="-8.481482" vertical-offset="95" max-vertical-offset="1872">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1008,27 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/expected_items.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="25" selection-start="11" selection-end="25" vertical-scroll-proportion="10.0" vertical-offset="270" max-vertical-offset="1206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="15" selection-start="7084" selection-end="7084" vertical-scroll-proportion="0.0" vertical-offset="3078" max-vertical-offset="9018">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="0" selection-start="8068" selection-end="8068" vertical-scroll-proportion="0.0" vertical-offset="5526" max-vertical-offset="6948">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="249" column="32" selection-start="20462" selection-end="20462" vertical-scroll-proportion="-7.5555553" vertical-offset="4278" max-vertical-offset="6192">
@@ -1036,11 +961,208 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/dispatch/oneItem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="227" selection-start="1291" selection-end="1314" vertical-scroll-proportion="-4.0" vertical-offset="216" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/stock_adjustment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="91" selection-start="2762" selection-end="2762" vertical-scroll-proportion="-8.0" vertical-offset="432" max-vertical-offset="1134">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/dispatch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="11" selection-start="422" selection-end="1080" vertical-scroll-proportion="-7.6666665" vertical-offset="112" max-vertical-offset="6588">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="321" column="19" selection-start="13572" selection-end="13572" vertical-scroll-proportion="0.0" vertical-offset="5472" max-vertical-offset="6984">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="64" selection-start="646" selection-end="646" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="1116">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="48" selection-start="5226" selection-end="5246" vertical-scroll-proportion="-15.444445" vertical-offset="1491" max-vertical-offset="2988">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/open_stock/open_stock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="56" selection-start="5765" selection-end="5765" vertical-scroll-proportion="-8.666667" vertical-offset="1188" max-vertical-offset="3222">
+          <folding>
+            <element signature="tag#div#0;tag#div#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/dispatch/dispatch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="44" selection-start="10887" selection-end="10887" vertical-scroll-proportion="-2.1851852" vertical-offset="3019" max-vertical-offset="3672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/pre_advice/pre_advice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="8" selection-start="1010" selection-end="1010" vertical-scroll-proportion="13.888889" vertical-offset="663" max-vertical-offset="1278">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/receive/pre_advice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="56" selection-start="9186" selection-end="9186" vertical-scroll-proportion="-9.777778" vertical-offset="780" max-vertical-offset="2664">
+          <folding>
+            <element signature="tag#ul#0;tag#div#0;tag#div#0" expanded="false" />
+            <element signature="tag#div#1;tag#div#0" expanded="false" />
+            <element signature="tag#div#3;tag#div#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/receive/receive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="56" selection-start="8870" selection-end="8870" vertical-scroll-proportion="-8.888889" vertical-offset="2100" max-vertical-offset="4122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/receive/receive_other.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="211" column="44" selection-start="13273" selection-end="13273" vertical-scroll-proportion="-14.481482" vertical-offset="3407" max-vertical-offset="4158">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/close_to_expiry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="90" selection-start="2965" selection-end="2965" vertical-scroll-proportion="-12.0" vertical-offset="594" max-vertical-offset="1314">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/expired_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="90" selection-start="2956" selection-end="2956" vertical-scroll-proportion="-14.0" vertical-offset="540" max-vertical-offset="1314">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="95" selection-start="4185" selection-end="4185" vertical-scroll-proportion="-13.333333" vertical-offset="954" max-vertical-offset="1872">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/summary/dispatched_items.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="10" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.63414633" vertical-offset="108" max-vertical-offset="1962">
+        <state line="73" column="85" selection-start="3932" selection-end="3932" vertical-scroll-proportion="-14.666667" vertical-offset="918" max-vertical-offset="1962">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="314" column="30" selection-start="13275" selection-end="13296" vertical-scroll-proportion="-6.2222223" vertical-offset="5484" max-vertical-offset="6678">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/stock_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="74" selection-start="1812" selection-end="1812" vertical-scroll-proportion="-4.0740743" vertical-offset="322" max-vertical-offset="1980">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="32" selection-start="1677" selection-end="1690" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="9054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/move_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="26" selection-start="6455" selection-end="6455" vertical-scroll-proportion="-13.185185" vertical-offset="1498" max-vertical-offset="2088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/expected_items.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="86" selection-start="2763" selection-end="2763" vertical-scroll-proportion="-33.333332" vertical-offset="0" max-vertical-offset="1206">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="28" selection-start="3420" selection-end="3420" vertical-scroll-proportion="-20.666666" vertical-offset="918" max-vertical-offset="3348">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="28" selection-start="582458" selection-end="582458" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="1998">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/summaryCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="406" column="34" selection-start="69632" selection-end="69646" vertical-scroll-proportion="0.0" vertical-offset="3919" max-vertical-offset="4536">
+          <folding>
+            <element signature="e#163#33842#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="314" column="34" selection-start="13301" selection-end="13301" vertical-scroll-proportion="0.0" vertical-offset="7074" max-vertical-offset="8406">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="1055" selection-end="1055" vertical-scroll-proportion="-5.5" vertical-offset="213" max-vertical-offset="8316">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/dispatch_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="0" selection-start="6799" selection-end="6799" vertical-scroll-proportion="0.39661017" vertical-offset="2052" max-vertical-offset="3420">
+          <folding>
+            <element signature="n#style#0;n#i#0;n#md-button#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#md-button#7;n#div#4;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

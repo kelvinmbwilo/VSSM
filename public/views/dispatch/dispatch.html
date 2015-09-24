@@ -87,8 +87,8 @@
                                 <td>{{ item.doses | number:0 }}</td>
                                 <td>{{ item.vials | number:0 }}</td>
                                 <td>{{ item.total_volume | number:2 }}</td>
-                                <td>{{ item.u_price | number : 2 }}</td>
-                                <td>{{ item.u_price * item.doses | number:2 }}</td>
+                                <td>{{ main_currency }} {{ item.u_price | number : 2 }}</td>
+                                <td>{{ main_currency }} {{ item.u_price * item.doses | number:2 }}</td>
                                 <td>{{ getActivityName(item.activity) }}</td>
                                 <td>{{ getStoreName(item.store_id) }}</td>
                                 <td>
@@ -169,7 +169,7 @@
                     <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
                     <td>{{ item.doses }}</td>
                     <td>{{ item.vials }}</td>
-                    <td>{{ item.u_price * item.doses }}</td>
+                    <td>{{ main_currency }} {{ item.u_price * item.doses }}</td>
                 </tr>
                 </tbody>
             </table>

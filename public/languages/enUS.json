@@ -311,7 +311,8 @@
         "open_item":"Add Opening Line  Item",
         "scan_item":"Scan Item/Batch Number",
         "print":"Download File",
-        "storage_use":"Storage Use"
+        "storage_use":"Storage Use",
+        "current_stock_summary":"Current Stock Summary"
     },
     "global": {
         "back": "Back",

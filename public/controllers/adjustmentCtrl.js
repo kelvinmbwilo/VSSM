@@ -310,11 +310,13 @@ angular.module("vssmApp")
                 $scope.newItem.stock_id = null
                 $scope.newItem={};
                 $scope.newItem.changeStock = 'no';
-                //get stock_items
                 $http.get("index.php/stock_items").success(function(data){
                     $scope.stock_items = data;
                     angular.forEach($scope.stock_items,function(value){
-                        value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+$translate('labels.doses')+", "+value.expiry_date
+                        value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                        value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                        value.store = $scope.assignValue($scope.stores,value.store_id);
+                        value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
 //                $scope.packagingInformation.push(value);
                     });
                 });

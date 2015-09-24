@@ -104,8 +104,8 @@
                         <td>{{ item.amount  | number:0 }}</td>
                         <td>{{ item.amount / item.packaging.dose_per_vial | number:0 }}</td>
                         <td>{{ item.amount * item.packaging.cm_per_dose * 0.001  | number:4 }}</td>
-                        <td>{{ item.unit_price | number:2 }}</td>
-                        <td>{{ item.amount * item.unit_price | number:2 }}</td>
+                        <td>{{ main_currency }} {{ item.unit_price | number:2 }}</td>
+                        <td>{{ main_currency }} {{ item.amount * item.unit_price | number:2 }}</td>
                         <td>{{ getActivityName(item.activity_id) }}</td>
                         <td>{{ getSourceName(item.source_id) }}</td>
                     </tr>
@@ -127,13 +127,30 @@
             <select required="" ng-change="updateRemain(oneItem.item_id)" class="form-control" ng-model="oneItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
                 <option value="" translate="labels.select"></option>
             </select>
+            <table class="col-sm-8">
+                <tr>
+                    <td><label class="required" translate="labels.current_stock"></label> </td>
+                    <td>{{ curLevel | number:0 }} Doses<br></td>
+                </tr>
+                <tr>
+                    <td><label class="required" translate="labels.routine_consuption"></label></td>
+                    <td>{{ total_cons | number:0 }} Doses<br></td>
+                </tr>
+                <tr>
+                    <td><label class="required" translate="labels.monthly_avarage"></label></td>
+                    <td>{{ avg | number:2 }} Doses<br></td>
+                </tr>
+                <tr>
+                    <td><label class="required" translate="labels.enough_for"></label></td>
+                    <td>{{ curLevel / avg | number:2 }} Month</td>
+                </tr>
+            </table>
 
-            <label class="required" for="total_population" translate="labels.current_stock"></label> {{ curLevel }} <br>
-            <label class="required" for="total_population" translate="labels.routine_consuption"></label>{{ total_cons }} <br>
 
-            <label class="required" for="total_population" translate="labels.monthly_avarage"></label> {{ avg | number:2 }}<br>
 
-            <label class="required" for="total_population" translate="labels.enough_for"></label> {{ curLevel / avg | number:2 }} Month
+
+
+             {{ curLevel / avg | number:2 }} Month
         </div>
 
     </div>

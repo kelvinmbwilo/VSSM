@@ -13,15 +13,22 @@
     </div>
     <!-- End  / heading--><!-- Start .row -->
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             Show
             <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
                 <option value="doses" >Doses</option>
                 <option value="cost" >Cost</option>
             </select>
         </div>
+        <div class="col-sm-2">
+            Date Option
+            <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
+                <option value="user_date" >user entry date</option>
+                <option value="system_date" >system entry date</option>
+            </select>
+        </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             Period Type
             <select ng-model="data.reportPeriod" ng-click="selectPeriod()"  class="form-control">
                 <option value="Years" >Years</option>
@@ -38,7 +45,7 @@
             </select>
         </div>
 
-        <div class="col-xs-3"  ng-if="showMonthRange">
+        <div class="col-xs-2"  ng-if="showMonthRange">
             Month
             <div
                     multi-select
@@ -54,7 +61,7 @@
                     >
             </div>
         </div>
-        <div class="col-xs-3" ng-if="showYearRange">
+        <div class="col-xs-2" ng-if="showYearRange">
             Years
             <div
                     multi-select
@@ -166,7 +173,7 @@
                 <td>{{ item.batch_number }}</td>
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
                 <td>{{ item.amount | number:0 }}</td>
-                <td>{{ item.unit_price * item.amount | number:2 }} {{ main_currency }}</td>
+                <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2 }}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
                 <td>{{ getStoreName(item.store_id) }}</td>
             </tr>

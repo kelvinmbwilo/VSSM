@@ -56,15 +56,16 @@ angular.module("vssmApp")
             angular.forEach($scope.stock_items,function(data){
                     total_price+= data.unit_price * data.amount;
                     datas.push(
-                        {'sn':i,
+                        {
                             'item':data.vaccine.name,
                             'batch_number':data.lot_number,
                             'manufacture':$scope.getManufactureName(data.packaging.manufacture_id),
-                            'expire_date':data.expiry_date,'doses':data.amount,
-                            'vials':data.amount/data.packaging.dose_per_vial,
-                            't_price':data.unit_price * data.amount,
-                            'total_volume':data.unit_price * data.amount,
-                            'u_price':data.unit_price,
+                            'expire_date':data.expiry_date,
+                            'doses':$filter('number')(data.amount, 0),
+                            'vials':$filter('number')(data.amount/data.packaging.dose_per_vial, 0),
+                            't_price':$scope.main_currency +" "+ $filter('number')(data.unit_price * data.amount, 2),
+                            'total_volume':$filter('number')(data.packaging.cm_per_dose * data.amount * 0.001, 4),
+                            'u_price':$scope.main_currency +" "+ data.unit_price,
                             'activity':$scope.getActivityName(data.activity_id),
                             'source':$scope.getSourceName(data.source_id),
                             'commercial_name':data.packaging.commercial_name,
@@ -75,7 +76,6 @@ angular.module("vssmApp")
                     i++;
             });
             var columns = [
-                {title: "S/N", key: "sn"},
                 {title: $translate('labels.product'), key: "item"},
                 {title: $translate('labels.lot_number'), key: "batch_number"},
                 {title: $translate('labels.manufacture'), key: "manufacture"},
@@ -108,6 +108,7 @@ angular.module("vssmApp")
                     doc.setFontSize('17');
                     doc.text(220, 38, $translate('app.title'));
                     doc.text(155, 55, $translate('app.voucher_title'));
+                    doc.text(220, 85, $translate('help.current_stock_summary'));
 //                    var barcode = "http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data="+$scope.newItem.voucher_no+"&dpi=72&imagetype=png&rotation=90&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm"
                     doc.setFontStyle('bold');
                     doc.addImage(imgData1, 'PNG', 40, 15, 70, 70);
@@ -120,14 +121,14 @@ angular.module("vssmApp")
                     doc.setFillColor(52, 73, 94); // Asphalt
                     doc.setTextColor(255, 255, 255);
                     doc.setFontStyle('bold');
-                    doc.setFontSize('8');
+                    doc.setFontSize('7');
                     doc.rect(x, y, width, height, 'F');
                     y += settings.lineHeight / 2 + doc.internal.getLineHeight() / 2 - 2.5;
                     doc.text('' + value, x + settings.padding, y);
                 },
                 renderCell: function (x, y, width, height, key, value, row, settings) {
 //                    doc.setFillColor(row % 2 === 0 ? 215 : 255);
-                    doc.setFontSize('8');
+                    doc.setFontSize('7');
                     doc.rect(x, y, width, height, 'S');
                     y += settings.lineHeight / 2 + doc.internal.getLineHeight() / 2 - 2.5;
                     doc.text('' + value, x + settings.padding, y);
@@ -156,12 +157,15 @@ angular.module("vssmApp")
                 min: 0,
                 title: {
                     text: 'Doses'
+                },labels:{
+                    style:{ "color": "#000000", "fontWeight": "bold" }
                 }
             },
             xAxis: {
                 labels: {
                     rotation: -45,
                     style: {
+                        "color": "#000000", "fontWeight": "bold",
                         fontSize: '13px',
                         fontFamily: 'Verdana, sans-serif'
                     }
@@ -216,12 +220,15 @@ angular.module("vssmApp")
                 min: 0,
                 title: {
                     text: 'Doses'
+                },labels:{
+                    style:{ "color": "#000000", "fontWeight": "bold" }
                 }
             },
             xAxis: {
                 labels: {
                     rotation: -45,
                     style: {
+                        "color": "#000000", "fontWeight": "bold",
                         fontSize: '13px',
                         fontFamily: 'Verdana, sans-serif'
                     }
@@ -391,12 +398,15 @@ angular.module("vssmApp")
                 min: 0,
                 title: {
                     text: 'Doses'
+                },labels:{
+                    style:{ "color": "#000000", "fontWeight": "bold" }
                 }
             },
             xAxis: {
                 labels: {
                     rotation: -45,
                     style: {
+                        "color": "#000000", "fontWeight": "bold",
                         fontSize: '13px',
                         fontFamily: 'Verdana, sans-serif'
                     }

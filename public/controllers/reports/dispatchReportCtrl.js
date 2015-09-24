@@ -18,6 +18,7 @@
                 $scope.data.sources = "";
                 $scope.data.activity = "";
                 $scope.data.store = "";
+                $scope.data.main_date = "system_date";
 
                 //preparing start date and end date
                 var date = new Date();
@@ -74,20 +75,6 @@
                 $http.get("index.php/vaccines").success(function(data){
                     $scope.vaccines    = data;
                     $scope.subCategory = data;
-                });
-
-                $http.get("index.php/activities").success(function(data){
-                    $scope.activities = data;
-                });
-
-                //get sources
-                $http.get("index.php/sources").success(function(data){
-                    $scope.sources = data;
-                });
-
-                //get stores
-                $http.get("index.php/stores").success(function(data){
-                    $scope.stores = data;
                 });
 
                 $scope.changeMainCat = function(){
@@ -318,12 +305,18 @@
                         text: 'Combination chart'
                     },
                     xAxis: {
-                        categories: []
+                        categories: [],
+                        labels:{
+                            rotation: -45,
+                            style:{ "color": "#000000", "fontWeight": "bold" }
+                        }
                     },
                     yAxis: {
                         min: 0,
                         title: {
                             text: 'Doses'
+                        },labels:{
+                            style:{ "color": "#000000", "fontWeight": "bold" }
                         }
                     },
                     labels: {
@@ -411,9 +404,16 @@
                     }
                     var result = [];
                     angular.forEach(series,function(val){
-                        if(val.created_at >= start && val.created_at <= end ){
-                            result.push(val);
+                        if($scope.data.main_date == "system_date"){
+                            if(val.created_at >= start && val.created_at <= end ){
+                                result.push(val);
+                            }
+                        }else if($scope.data.main_date == "user_date"){
+                            if(val.date_sent >= start && val.date_sent <= end ){
+                                result.push(val);
+                            }
                         }
+
                     });
                     return result;
                 }
@@ -422,7 +422,7 @@
                     return $scope.reduceSeries($scope.reduceSeries($scope.reduceSeries($scope.reduceSeries(series,
                         'receiver_id',
                         $scope.data.recipient),
-                        'activity_id',
+                        'activity',
                         $scope.data.activity),
                         'store_id',
                         $scope.data.store),
@@ -451,77 +451,6 @@
                     $scope.title += (!$scope.data.store || $scope.data.store == '')?'':" Store: "+$scope.getStoreName($scope.data.store)+" | ";
                     $scope.title += (!$scope.data.sources || $scope.data.sources == '')?'':" Source: "+$scope.getSourceName($scope.data.sources)+" | ";
                     $scope.chartConfig.subtitle={text :$scope.title};
-                }
-
-                var vm = this;
-                $scope.dtOptions = DTOptionsBuilder.newOptions()
-                    // Add Table tools compatibility
-                    .withTableTools('./bower_components/TableTools-master/swf/copy_csv_xls_pdf.swf')
-                    .withTableToolsButtons([
-                        'copy',
-                        'print', {
-                            'sExtends': 'collection',
-                            'sButtonText': 'Save',
-                            'aButtons': ['csv', 'xls', 'pdf']
-                        }
-                    ]);
-                $scope.getActivityName = function(id){
-                    var name = "";
-                    angular.forEach($scope.activities,function(value){
-                        if(value.id == id){
-                            name = value.name;
-                        }
-                    });
-                    return name;
-                }
-                $scope.getStoreName = function(id){
-                    var name = "";
-                    angular.forEach($scope.stores,function(value){
-                        if(value.id == id){
-                            name = value.name;
-                        }
-                    });
-                    return name;
-                }
-
-
-                $scope.getSourceName = function(id){
-                    var name = "";
-                    angular.forEach($scope.sources,function(value){
-                        if(value.id == id){
-                            name = value.name;
-                        }
-                    });
-                    return name;
-                }
-
-                $scope.getVaccineName = function(id){
-                    var name = "";
-                    angular.forEach($scope.vaccines,function(value){
-                        if(value.id == id){
-                            name = value.name;
-                        }
-                    });
-                    return name;
-                }
-
-                $scope.getManufactureName = function(id){
-                    var name = "";
-                    angular.forEach($scope.manufactures,function(value){
-                        if(value.id == id){
-                            name = value.name;
-                        }
-                    });
-                    return name;
-                }
-         $scope.getRecipientName = function(id){
-                    var name = "";
-                    angular.forEach($scope.userRecipients,function(value){
-                        if(value.id == id){
-                            name = value.name;
-                        }
-                    });
-                    return name;
                 }
 
 

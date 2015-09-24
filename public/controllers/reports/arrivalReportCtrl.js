@@ -21,6 +21,7 @@ angular.module("vssmApp")
         $scope.data.sources = "";
         $scope.data.activity = "";
         $scope.data.store = "";
+        $scope.data.main_date = "system_date";
 
         //preparing start date and end date
         var date = new Date();
@@ -67,10 +68,6 @@ angular.module("vssmApp")
                 $scope.dateOptions1.maxDate = selectedDate;
             }
         };
-        //getting screening types
-        $http.get('index.php/arrivalItemsMonth').success(function(data){
-            $scope.data.arrivals = data;
-        });
 
         //getting screening types
         $http.get('index.php/arrivalItems').success(function(data){
@@ -81,20 +78,6 @@ angular.module("vssmApp")
         $http.get("index.php/vaccines").success(function(data){
             $scope.vaccines    = data;
             $scope.subCategory = data;
-        });
-
-        $http.get("index.php/activities").success(function(data){
-            $scope.activities = data;
-        });
-
-        //get sources
-        $http.get("index.php/sources").success(function(data){
-            $scope.sources = data;
-        });
-
-        //get stores
-        $http.get("index.php/stores").success(function(data){
-            $scope.stores = data;
         });
 
         $scope.changeMainCat = function(){
@@ -327,13 +310,20 @@ angular.module("vssmApp")
                 text: 'Combination chart'
             },
             xAxis: {
-                categories: []
+                categories: [],
+                labels:{
+                    rotation: -45,
+                    style:{ "color": "#000000", "fontWeight": "bold" }
+                }
             },
             yAxis: {
                 min: 0,
                 title: {
                     text: 'Doses'
+                },labels:{
+                    style:{ "color": "#000000", "fontWeight": "bold" }
                 }
+
             },
             labels: {
                 items: [{
@@ -419,8 +409,14 @@ angular.module("vssmApp")
             }
             var result = [];
             angular.forEach(series,function(val){
-                if(val.created_at >= start && val.created_at <= end ){
-                    result.push(val);
+                if($scope.data.main_date == "system_date"){
+                    if(val.created_at >= start && val.created_at <= end ){
+                        result.push(val);
+                    }
+                }else if($scope.data.main_date == "user_date"){
+                    if(val.arrival_date >= start && val.arrival_date <= end ){
+                        result.push(val);
+                    }
                 }
             });
             return result;
@@ -461,56 +457,6 @@ angular.module("vssmApp")
             $scope.chartConfig.subtitle={text :$scope.title};
         }
 
-
-        $scope.getActivityName = function(id){
-            var name = "";
-            angular.forEach($scope.activities,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getStoreName = function(id){
-            var name = "";
-            angular.forEach($scope.stores,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-
-
-        $scope.getSourceName = function(id){
-            var name = "";
-            angular.forEach($scope.sources,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-
-        $scope.getVaccineName = function(id){
-            var name = "";
-            angular.forEach($scope.vaccines,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-
-        $scope.getManufactureName = function(id){
-            var name = "";
-            angular.forEach($scope.manufactures,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
 
 
     });
