@@ -5,8 +5,8 @@
 <div class="modal-body">
     <div class="col-md-10 col-md-offset-1" style="margin-bottom: 15px">
         <button class="btn btn-group col-md-4 {{ active11 }}" ng-click="changeFormula(1)">Manual</button>
-        <button class="btn btn-group col-md-4 {{ active12 }}" ng-click="changeFormula(2)">Option One</button>
-        <button class="btn btn-group col-md-4 {{ active13 }}" ng-click="changeFormula(3)">Option two</button>
+        <button disabled class="btn btn-group col-md-4 {{ active12 }}" ng-click="changeFormula(2)">Option One</button>
+        <button disabled class="btn btn-group col-md-4 {{ active13 }}" ng-click="changeFormula(3)">Option two</button>
     </div>
 
     <form class="col-md-12" novalidate name="myForm" ng-if="useFormular1">
@@ -28,7 +28,7 @@
             <input required="" type="text" ng-model="myItem.max_value" class="form-control" id="max_value" placeholder="{{ 'labels.max_value' | translate }}">
         </div>
 
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(myItem,'items_min_max',items_min_max)"></button>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="update(myItem,'items_min_max',items_min_max)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

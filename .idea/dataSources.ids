@@ -2654,6 +2654,7 @@
       <column name="prduction_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="expiry_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="source_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="arrival_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="arrivals" schema="" catalog="vssm" type="TABLE">
@@ -2783,6 +2784,7 @@
       <column name="year" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="parent_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="recipient_levels" schema="" catalog="vssm" type="TABLE">
@@ -2830,6 +2832,7 @@
       <column name="expiry_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="recipient_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="receiver_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="date_sent" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="recipients_packages" schema="" catalog="vssm" type="TABLE">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AnnualQuotaController extends Controller
 {
@@ -17,7 +18,7 @@ class AnnualQuotaController extends Controller
      */
     public function index()
     {
-        return RecipientAnnualQuota::with('recipient','vaccine')->get();
+        return RecipientAnnualQuota::where('parent_id',Auth::user()->recipient_id)->with('recipient','vaccine')->get();
     }
 
 
@@ -48,8 +49,9 @@ class AnnualQuotaController extends Controller
         $item->recipient_id   = $request->input("recipient_id");
         $item->item_id    = $request->input("item_id");
         $item->expected_annual_need  = $request->input("expected_annual_need");
+        $item->parent_id  = Auth::user()->recipient_id;
         $item->save();
-        return $item->load('recipient','vaccine')->get();
+        return $item->load('recipient','vaccine');
     }
 
     /**
@@ -78,6 +80,7 @@ class AnnualQuotaController extends Controller
         $item->recipient_id   = $request->input("recipient_id");
         $item->item_id    = $request->input("item_id");
         $item->expected_annual_need  = $request->input("expected_annual_need");
+        $item->parent_id  = Auth::user()->recipient_id;
         $item->save();
         return $item->load('recipient','vaccine')->get();
     }

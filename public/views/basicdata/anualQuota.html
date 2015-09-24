@@ -12,10 +12,12 @@
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
-
+<div class="row">
     <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addAnnualQuota')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     <button style="margin: 5px" class="pull-right btn btn-info" ng-click="switchFormats(false)" ng-if="dataFormat"><i class="s16 icomoon-icon-table"></i><span translate="labels.show_report"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     <button style="margin: 5px" class="pull-right btn btn-info" ng-click="switchFormats(true)" ng-if="!dataFormat"><i class="s16 icomoon-icon-pen"></i><span translate="labels.show_data"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+
+</div>
 
     <div class="row" ng-if="dataFormat">
 

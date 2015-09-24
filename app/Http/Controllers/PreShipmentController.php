@@ -20,6 +20,16 @@ class PreShipmentController extends Controller
         return PreShipment::where('status','!=','deleted')->with('vaccine','packaging','source')->get();
     }
 
+    /**
+     * Display a listing of the pending_shipments.
+     *
+     * @return Response
+     */
+    public function pending_shipments()
+    {
+        return PreShipment::where('status','pending')->with('vaccine','packaging','source')->get();
+    }
+
 
     /**
      * Show the pre shipment with specific status.
@@ -57,13 +67,13 @@ class PreShipmentController extends Controller
         $item->source_id                = $request->input("source_id");
         $item->package_id               = $request->input("package_id");
         $item->expected_time_of_arrival = $request->input("expected_time_of_arrival");
-        $item->total_weight             = $request->input("total_weight");
-        $item->packed_volume            = $request->input("packed_volume");
+        $item->total_weight             = $request->has("total_weight")?$request->input("total_weight"):'';
+        $item->packed_volume            = $request->has("packed_volume")?$request->input("packed_volume"):'';
         $item->item_id                  = $request->input("item_id");
         $item->packaging_id             = $request->input("packaging_id");
         $item->number_of_doses          = $request->input("number_of_doses");
         $item->lot_number               = $request->input("lot_number");
-        $item->manufacture_date         = $request->input("manufacture_date");
+        $item->manufacture_date         = $request->has("manufacture_date")?$request->input("manufacture_date"):'';
         $item->expired_date             = $request->input("expired_date");
 
         $item->save();

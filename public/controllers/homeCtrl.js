@@ -21,6 +21,22 @@ angular.module("vssmApp")
             changeMonth: true,
             dateFormat: 'yyyy-mm-dd'
         };
+        $scope.status = {
+            opened: false,
+            opened2: false,
+            opened3: false
+        }
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd MMM yyyy', 'shortDate'];
+        $scope.format = $scope.formats[2];
+        $scope.open = function($event) {
+            $scope.status.opened = true;
+        };
+        $scope.open3 = function($event) {
+            $scope.status.opened3 = true;
+        };
+        $scope.open2 = function($event) {
+            $scope.status.opened2 = true;
+        };
 
         //getting the loggedIn User
         $http.get("index.php/loggenInuser").success(function(data){
@@ -33,13 +49,7 @@ angular.module("vssmApp")
             $translate.use(data[0].language);
             $scope.main_currency = data[0].main_currency;
         });
-        //setting common Translations
-        $translate('error.save_success').then(function (save_success) {
-            $scope.saveSuccess = save_success;
-        });
-        $translate('error.save_falure').then(function (save_falue) {
-            $scope.saveError = save_falue;
-        });
+
         //Datatables Language Options
         $scope.dataTableEn = {
             "sEmptyTable":     "No data available in table",
@@ -106,7 +116,16 @@ angular.module("vssmApp")
         };
 
         $scope.dtOptions = DTOptionsBuilder.newOptions()
-            .withBootstrap().withLanguage($scope.langToUse);
+            .withBootstrap().withLanguage($scope.langToUse)
+            .withTableTools('./bower_components/TableTools-master/swf/copy_csv_xls_pdf.swf')
+            .withTableToolsButtons([
+                'copy',
+                'print', {
+                    'sExtends': 'collection',
+                    'sButtonText': 'Save',
+                    'aButtons': ['csv', 'xls', 'pdf']
+                }
+            ]);
 
 
         //getting the recipients level2
@@ -134,43 +153,14 @@ angular.module("vssmApp")
             $scope.userRecipientLevel = data;
         });
 
-        $scope.toastPosition = {
-            bottom: true,
-            top: false,
-            left: false,
-            right: true
-        };
-
-        $scope.getToastPosition = function() {
-            return Object.keys($scope.toastPosition)
-                .filter(function(pos) { return $scope.toastPosition[pos]; })
-                .join(' ');
-        };
-        $scope.dtOptions = DTOptionsBuilder.newOptions()
-            // Add Table tools compatibility
-            .withTableTools('./bower_components/TableTools-master/swf/copy_csv_xls_pdf.swf')
-            .withTableToolsButtons([
-                'copy',
-                'print', {
-                    'sExtends': 'collection',
-                    'sButtonText': 'Save',
-                    'aButtons': ['csv', 'xls', 'pdf']
-                }
-            ]);
-
-    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http) {
-
-        //get stores
-        $scope.storeNames= [];
-        $scope.storeValues = [];
-        $scope.usedValues = [];
-        $scope.freeValues = [];
-        $scope.storeTable = [];
-        $scope.storeCapacity = [];
+        ////////////////////////////////////////////////////////////////////
+        //////////////////Initializing Default Basic Datas/////////////////
+        ///////////////////////////////////////////////////////////////////
         //get vaccines
         $http.get("index.php/vaccines").success(function(data){
             $scope.vaccines = data;
         });
+
         //get items_min_max
         $http.get("index.php/items_min_max").success(function(data){
             $scope.items_min_max = data;
@@ -179,6 +169,11 @@ angular.module("vssmApp")
         //get sources
         $http.get("index.php/sources").success(function(data){
             $scope.sources = data;
+        });
+
+        //get stores
+        $http.get("index.php/stores").success(function(data){
+            $scope.stores = data;
         });
 
         //get adjustment_reasons
@@ -194,7 +189,6 @@ angular.module("vssmApp")
         $http.get("index.php/annual_quota").success(function(data){
             $scope.annual_quota = data;
         });
-        $scope.noAnnualQuota = false;
 
         //get Activities
         $http.get("index.php/activities").success(function(data){
@@ -205,6 +199,115 @@ angular.module("vssmApp")
         $http.get("index.php/transport_mode").success(function(data){
             $scope.transport_mode = data;
         });
+
+        //get packaging_information
+        $http.get("index.php/packaging_information").success(function(data){
+            $scope.packaging_information = [];
+            $scope.packagingInformation =[];
+            angular.forEach(data,function(value){
+                value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
+                $scope.packagingInformation.push(value);
+                $scope.packaging_information.push(value);
+            });
+        });
+
+        $scope.assignValue = function(series,id){
+            var item = null;
+            angular.forEach(series,function(value){
+                if(value.id == id){
+                    item = value;
+                }
+            });
+            return item;
+        }
+
+        $scope.getActivityName = function(id){
+            var name = "";
+            angular.forEach($scope.activities,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getStoreName = function(id){
+            var name = "";
+            angular.forEach($scope.stores,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getManufactureName = function(id){
+            var name = "";
+            angular.forEach($scope.manufactures,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getRecipientName = function(id){
+            var name = "";
+            angular.forEach($scope.userRecipients,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getTransportName = function(id){
+            var name = "";
+            angular.forEach($scope.transport_mode,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        $scope.getSourceName = function(id){
+            var name = "";
+            angular.forEach($scope.sources,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getVaccineName = function(id){
+            var name = "";
+            angular.forEach($scope.vaccines,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+
+        $scope.toastPosition = {
+            bottom: true,
+            top: false,
+            left: false,
+            right: true
+        };
+
+        $scope.getToastPosition = function() {
+            return Object.keys($scope.toastPosition)
+                .filter(function(pos) { return $scope.toastPosition[pos]; })
+                .join(' ');
+        };
+
+    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http) {
+
+        //get stores
+        $scope.storeNames= [];
+        $scope.storeValues = [];
+        $scope.usedValues = [];
+        $scope.freeValues = [];
+        $scope.storeTable = [];
+        $scope.storeCapacity = [];
 
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
@@ -245,57 +348,6 @@ angular.module("vssmApp")
                     $scope.storeCapacity.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
             })
-        }
-
-        $scope.vaccineNames= [];
-        $scope.vacciineValues = [];
-        $scope.storeTitle = "Items in all stores";
-        $http.get("index.php/vaccineStocks/1").success(function(data){
-            angular.forEach(data,function(value){
-                $scope.vaccineNames.push(value.name);
-                $scope.vacciineValues.push(parseInt(value.amount));
-            })
-
-        });
-
-        $scope.getVaccineName = function(id){
-            var name = "";
-            angular.forEach($scope.vaccines,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-
-        $scope.getManufactureName = function(id){
-            var name = "";
-            angular.forEach($scope.manufactures,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-
-        $scope.getActivityName = function(id){
-            var name = "";
-            angular.forEach($scope.activities,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-
-        $scope.getSourceName = function(id){
-            var name = "";
-            angular.forEach($scope.sources,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
         }
 
         //get transport_mode

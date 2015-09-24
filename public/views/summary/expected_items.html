@@ -33,8 +33,6 @@
                 <th translate="labels.total_volume"></th>
                 <th translate="labels.t_price"></th>
                 <th translate="labels.activity"></th>
-                <th translate="labels.status"></th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -52,14 +50,6 @@
                 <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
                 <td>{{ item.unit_price * item.amount | number:2 }} {{ main_currency }}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
-                <td>{{ item.package.receiving_status }}</td>
-                <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="downloadData()"><i class="fa fa-pencil-square"></i>
-                        <md-tooltip>
-                            <span translate="help.update"></span>
-                        </md-tooltip>
-                    </md-button>
-                </td>
             </tr>
             </tbody>
         </table>

@@ -17,7 +17,7 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        return Activity::all();
+        return Activity::where('status',"!=",'deleted')->get();
     }
 
 
@@ -88,7 +88,8 @@ class ActivitiesController extends Controller
     public function destroy($id)
     {
         $item = Activity::find($id);
-        $item->delete();
+        $item->status = 'deleted';
+        $item->save();
     }
 
 }

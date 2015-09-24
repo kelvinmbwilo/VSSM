@@ -17,7 +17,7 @@ class TransportModeController extends Controller
      */
     public function index()
     {
-        return TransportMode::all();
+        return TransportMode::where('status','!=','deleted')->get();
     }
 
 
@@ -89,7 +89,8 @@ class TransportModeController extends Controller
     public function destroy($id)
     {
         $item = TransportMode::find($id);
-        $item->delete();
+        $item->status = "deleted";
+        $item->save();
     }
 
 }

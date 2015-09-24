@@ -273,6 +273,9 @@ Route::post('annual_quota/{id}',array('uses'=>'AnnualQuotaController@update'));
 //getting pre_shipments
 Route::get('pre_shipments',array('uses'=>'PreShipmentController@index'));
 
+//getting pending pre_shipments
+Route::get('pending_shipments',array('uses'=>'PreShipmentController@pending_shipments'));
+
 //getting pre_shipments of certain package_id
 Route::get('pre_shipments/{package_id}',array('uses'=>'PreShipmentController@getWithPackId'));
 
@@ -328,6 +331,9 @@ Route::get('vaccineStocks/{id}',array('uses'=>'StoreController@vaccineStocks'));
 
 //getting expected_packages
 Route::get('expected_packages',array('uses'=>'VaccineController@expectedPackages'));
+
+//getting pending_expected_packages
+Route::get('pending_expected_packages',array('uses'=>'VaccineController@pendingExpectedPackages'));
 
 //getting dispatched_packages
 Route::get('dispatched_packages',array('uses'=>'VaccineController@dispatchedPackages'));

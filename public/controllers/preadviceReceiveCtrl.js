@@ -17,6 +17,7 @@ angular.module("vssmApp")
         $scope.data_ready = false;
         $scope.item_found = true;
         $scope.newItem.main_currency = $scope.main_currency;
+        $scope.showSummary = false;
         $scope.prepareItems = function(str){
             $scope.item_found = false;
             var batch_no = "";
@@ -45,21 +46,8 @@ angular.module("vssmApp")
 
         //loading basic data
         //get pre-shipments
-        $http.get("index.php/pre_shipments").success(function(data){
+        $http.get("index.php/pending_shipments").success(function(data){
             $scope.pre_shipments = data;
-        });
-        //get Activities
-        $http.get("index.php/activities").success(function(data){
-            $scope.activities = data;
-        });
-        //get packaging_information
-        $http.get("index.php/packaging_information").success(function(data){
-            $scope.packaging_information = data;
-            $scope.packagingInformation =[];
-            angular.forEach($scope.packaging_information,function(value){
-                value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
-                $scope.packagingInformation.push(value);
-            });
         });
 
         //preshipments specifics
@@ -78,47 +66,8 @@ angular.module("vssmApp")
             });
         }
 
-        //get vaccines
-        $http.get("index.php/vaccines").success(function(data){
-            $scope.vaccines = data;
-        });
-
-        //get items_min_max
-        $http.get("index.php/items_min_max").success(function(data){
-            $scope.items_min_max = data;
-        });
-
-        //get sources
-        $http.get("index.php/sources").success(function(data){
-            $scope.sources = data;
-        });
-
-        //get stores
-        $http.get("index.php/stores").success(function(data){
-            $scope.stores = data;
-        });
-
         //get transport_mode
-        $http.get("index.php/transport_mode").success(function(data){
-            $scope.transport_mode = data;
-        });
-
-        //get adjustment_reasons
-        $http.get("index.php/adjustment_reasons").success(function(data){
-            $scope.adjustment_reasons = data;
-        });
-
-        //get manufactures
-        $http.get("index.php/manufactures").success(function(data){
-            $scope.manufactures = data;
-        });
-
-        $http.get("index.php/annual_quota").success(function(data){
-            $scope.annual_quota = data;
-        });
-
-        //get transport_mode
-        $http.get("index.php/expected_packages").success(function(data){
+        $http.get("index.php/pending_expected_packages").success(function(data){
             $scope.expected_packages = data;
         });
 
@@ -230,24 +179,6 @@ angular.module("vssmApp")
             }
         }
 
-        $scope.getActivityName = function(id){
-            var name = "";
-            angular.forEach($scope.activities,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getStoreName = function(id){
-            var name = "";
-            angular.forEach($scope.stores,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
 
         $scope.getTotal = function(value,value1){
             $scope.oneItem.t_price = value*value1;
@@ -259,7 +190,6 @@ angular.module("vssmApp")
         $scope.getUnit = function(value,value1){
             $scope.oneItem.u_price = value/value1;
         }
-
 
         //setting store type
         $scope.setStoreType = function(id){
@@ -307,12 +237,9 @@ angular.module("vssmApp")
         $scope.saveArrival = function(item,type){
             $scope.currentSaving = true;
             item.from_type = type;
-            $http.post("index.php/pre_receive/", item).success(function (newItem) {
-                $scope.data_ready = false;
-                $scope.item_found = true;
-                $scope.newItem = {};
-                $scope.newItem.items = [];
-                $scope.oneItem = {};
+            $http.post("index.php/pre_receive/", item).success(function (d) {
+                $scope.showSummary = true;
+                $scope.newItem.reference = d;
                 $mdToast.show(
                     $mdToast.simple()
                         .content($translate('error.stock_added_successfull'))
@@ -332,6 +259,17 @@ angular.module("vssmApp")
             })
 
         }
+
+        $scope.cancelDispatch = function(){
+            $scope.data_ready = false;
+            $scope.item_found = true;
+            $scope.newItem = {};
+            $scope.newItem.items = [];
+            $scope.oneItem = {};
+            $scope.showSummary = false;
+            $scope.newItem.arrival_date = new Date();
+        }
+
         $scope.checksave = false;
         $scope.cansave = function(){
             var i =0;

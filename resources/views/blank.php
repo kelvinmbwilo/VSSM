@@ -9,9 +9,9 @@ else{
 <meta name="csrf-token" content="<?php echo csrf_token() ?>" />
 <html class="no-js lt-ie8" ng-app="bahariApp" ng-controller="mainCtrl">
 <![endif]--><!--[if gt IE 8]><!-->
-<html class='no-js' xmlns="http://www.w3.org/1999/html">
+<html ng-app="vssmApp" ng-controller="mainCtrl" class='no-js' xmlns="http://www.w3.org/1999/html" manifest="cache.appcache">
 <!--<![endif]-->
-<html class='no-js' ng-app="vssmApp" ng-controller="mainCtrl">
+<html class='no-js' ng-app="vssmApp" ng-controller="mainCtrl" manifest="cache.appcache">
 <head>
     <meta charset=utf-8>
     <title translate="app.tittle"></title>
@@ -37,7 +37,6 @@ else{
     <link rel=stylesheet href="<?php echo  asset('css/main.min.css') ?>">
     <link rel=stylesheet href="<?php echo  asset('bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css') ?>">
 
-    <!--    <link rel=stylesheet href="--><?php //echo  asset('css/pace.css') ?><!--">-->
     <!-- Fav and touch icons -->
     <link rel=icon href="<?php echo  asset('favicon.ico') ?>" type=image/png>
     <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
@@ -62,7 +61,7 @@ else{
 
             </ul>
             <span class="text-center hidden-sm hidden-xs" style="text-align: center;font-size: 29px;margin-top: 120px;margin-left: 19%" translate="app.title"> </span>
-            <span style="text-align: center;font-size: 15px;padding-top: 120px"> {{ logedInUser.recipient.name }}</span>
+            <span style="text-align: center;font-size: 15px;padding-top: 120px" ng-cloak> {{ logedInUser.recipient.name }}</span>
 
             <ul  class="nav navbar-right" style="margin-top: 4px">
                 <li><img class="img-rounded" src="<?php echo asset('img/logo.jpg') ?>" style="width: 70px; height: 60px"></li>
@@ -84,7 +83,7 @@ else{
                     </ul>
                 </li>
                 <li class=dropdown>
-                    <a href="blank.html#" class="dropdown-toggle avatar" data-toggle=dropdown><i class="fa fa-user"></i> <span class=txt>{{ logedInUserName }}</span> <b class=caret></b></a>
+                    <a href="blank.html#" class="dropdown-toggle avatar" data-toggle=dropdown><i class="fa fa-user"></i> <span class=txt ng-cloak>{{ logedInUserName }}</span> <b class=caret></b></a>
                     <ul class="dropdown-menu right">
                         <li class=menu style="min-width: 200px;">
                             <ul>
@@ -244,8 +243,17 @@ else{
 </div>
 <!-- End #footer  -->
 </div>
-<!-- / #wrapper --><!-- Back to top -->
-<!-- Javascripts --><!-- Load pace first --><script src="<?php echo  asset('plugins/core/pace/pace.min.js') ?>"></script>
+<script>
+    window.paceOptions = {
+        ajax: false, // disabled
+        document: false, // disabled
+        eventLag: false, // disabled
+        elements: {
+            selectors: ['.contentwrapper']
+        }
+    };
+</script>
+<script src="<?php echo  asset('plugins/core/pace/pace.min.js') ?>"></script>
 <!-- Important javascript libs(put in all pages) -->
 
 <script src="<?php echo  asset('js/libs/jquery-2.1.1.min.js') ?>"></script>

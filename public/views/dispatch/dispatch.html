@@ -77,7 +77,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="item in newItem.items" ng-hide="deletedItem[item.id]">
+                            <tr ng-repeat="item in newItem.items" ng-hide="deletedItem[item.id]"  ng-style="item.hasMatch? { 'background-color':'inherit'} : { 'background-color':'rgba(0,0,0,0.2)'}">
                                 <td>{{ $index+1 }}</td>
                                 <td>{{ item.item }}</td>
                                 <td>{{ getManufactureName(item.manufacture_id) }}</td>
@@ -97,7 +97,7 @@
                                             <span translate="help.update"></span>
                                         </md-tooltip>
                                     </md-button>
-                                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'pre_shipments')"><i class="fa fa-trash-o"></i>
+                                    <md-button  aria-label="btu" ng-if="!deletingDis[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item)"><i class="fa fa-trash-o"></i>
 
                                         <md-tooltip>
                                             <span translate="help.delete"></span>
@@ -117,9 +117,10 @@
 
     </div>
     <!-- End .row -->
+    <h4 ng-if="!checkMate()" translate="error.no_diluent"></h4>
     <div class="col-md-12"  ng-if="!showSummary">
         <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-        <button  ng-disabled="myForm.$invalid" ng-click="dispatch(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0" translate="menu.dispatch"></button>
+        <button  ng-disabled="myForm.$invalid" ng-click="dispatch(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="menu.dispatch"></button>
     </div >
 
     <!--printed voucher-->
@@ -186,6 +187,10 @@
                 <h5 translate="labels.name_signature"></h5>
                 <h5 translate="labels.sign"></h5>
             </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 15px">
+           <button class="btn btn-warning" translate="labels.cancel" ng-click="cancelDispatch()"></button>
+           <button class="btn btn-info" ng-click="downloadData()"><i class="fa fa-print"></i> </button>
         </div>
     </div>
 </div>

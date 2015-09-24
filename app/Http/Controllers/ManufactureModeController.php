@@ -17,7 +17,7 @@ class ManufactureModeController extends Controller
      */
     public function index()
     {
-        return Manufacture::all();
+        return Manufacture::where('status',"!=",'deleted')->get();
     }
 
 
@@ -94,7 +94,8 @@ class ManufactureModeController extends Controller
     public function destroy($id)
     {
         $recipient = Manufacture::find($id);
-        $recipient->delete();
+        $recipient->status = 'deleted';
+        $recipient->save();
     }
 
 }

@@ -24,7 +24,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return Store::where('recipient_id',Auth::user()->recipient_id)->get();
+        return Store::where('recipient_id',Auth::user()->recipient_id)->where('status','!=','deleted')->get();
     }
 
 
@@ -100,7 +100,8 @@ class StoreController extends Controller
     public function destroy($id)
     {
         $item = Store::find($id);
-        $item->delete();
+        $item->status = "deleted";
+        $item->save();
     }
 
     /**

@@ -19,12 +19,12 @@
         <!--dose_per_vial-->
         <div class="form-group">
             <label class="required" for="dose_per_vial" translate="labels.dose_per_vial"></label>
-            <input required="" type="text" ng-model="newItem.dose_per_vial" class="form-control" id="dose_per_vial" placeholder="{{ 'labels.dose_per_vial' | translate }}">
+            <input required="" type="number" min="0" ng-model="newItem.dose_per_vial" class="form-control" id="dose_per_vial" placeholder="{{ 'labels.dose_per_vial' | translate }}">
         </div>
         <!--vials_per_box-->
         <div class="form-group">
             <label class="required" for="vials_per_box" translate="labels.vials_per_box"></label>
-            <input required="" type="text" ng-model="newItem.vials_per_box" class="form-control" id="vials_per_box" placeholder="{{ 'labels.vials_per_box' | translate }}">
+            <input required="" type="number" min="0" ng-model="newItem.vials_per_box" class="form-control" id="vials_per_box" placeholder="{{ 'labels.vials_per_box' | translate }}">
         </div>
         <!--cm_per_dose-->
         <div class="form-group">

@@ -17,7 +17,7 @@ class AdjustmentReasonModeController extends Controller
      */
     public function index()
     {
-        return AdjustmentReason::all();
+        return AdjustmentReason::where('status',"!=",'deleted')->get();
     }
 
 
@@ -44,9 +44,9 @@ class AdjustmentReasonModeController extends Controller
         $item->status               = "active";
         $item->name                 = $request->input("name");
         $item->code                 = $request->input("code");
-        $item->decrease_amount      = $request->input("decrease_amount");
-        $item->increase_amount      = $request->input("increase_amount");
-        $item->consider_wastage     = $request->input("consider_wastage");
+        $item->decrease_amount      = $request->has("decrease_amount")?$request->input("decrease_amount"):'no';
+        $item->increase_amount      = $request->has("increase_amount")?$request->input("increase_amount"):'no';
+        $item->consider_wastage     = $request->has("consider_wastage")?$request->input("consider_wastage"):'no';
         $item->save();
         return $item;
     }
@@ -77,9 +77,9 @@ class AdjustmentReasonModeController extends Controller
         $item->name = $request->input('name');
         $item->code = $request->input('code');
         $item->status = $request->input('status');
-        $item->decrease_amount      = $request->input("decrease_amount");
-        $item->increase_amount      = $request->input("increase_amount");
-        $item->consider_wastage     = $request->input("consider_wastage");
+        $item->decrease_amount      = $request->has("decrease_amount")?$request->input("decrease_amount"):'no';
+        $item->increase_amount      = $request->has("increase_amount")?$request->input("increase_amount"):'no';
+        $item->consider_wastage     = $request->has("consider_wastage")?$request->input("consider_wastage"):'no';
         $item->save();
         return $item;
     }
@@ -94,7 +94,8 @@ class AdjustmentReasonModeController extends Controller
     public function destroy($id)
     {
         $item = AdjustmentReason::find($id);
-        $item->delete();
+        $item->status = 'deleted';
+        $item->save();
     }
 
 }

@@ -17,7 +17,7 @@ class SourceController extends Controller
      */
     public function index()
     {
-        return Source::all();
+        return Source::where('status','!=','deleted')->get();
     }
 
 
@@ -89,7 +89,8 @@ class SourceController extends Controller
     public function destroy($id)
     {
         $item = Source::find($id);
-        $item->delete();
+        $item->status = "deleted";
+        $item->save();
     }
 
 }

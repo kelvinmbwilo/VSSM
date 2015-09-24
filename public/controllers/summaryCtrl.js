@@ -3,29 +3,21 @@
  */
 angular.module("vssmApp")
     .controller("summaryCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
-        //get vaccines
-        $http.get("index.php/vaccines").success(function(data){
-            $scope.vaccines = data;
-        });
 
         //get stock_items
         $http.get("index.php/stock_items").success(function(data){
             $scope.stock_items = data;
+            angular.forEach($scope.stock_items,function(value){
+                value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                value.store = $scope.assignValue($scope.stores,value.store_id);
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+            });
         });
 
         //get sent packages
         $http.get("index.php/sent_packages").success(function(data){
             $scope.sent_packages = data;
-        });
-
-        //get stores
-        $http.get("index.php/stores").success(function(data){
-            $scope.stores = data;
-        });
-
-        //get manufactures
-        $http.get("index.php/manufactures").success(function(data){
-            $scope.manufactures = data;
         });
 
         $scope.vaccineNames = [];
@@ -38,25 +30,6 @@ angular.module("vssmApp")
             })
 
 
-        });
-        //get Activities
-        $http.get("index.php/activities").success(function(data){
-            $scope.activities = data;
-        });
-
-        //get transport_mode
-        $http.get("index.php/transport_mode").success(function(data){
-            $scope.transport_mode = data;
-        });
-
-        //get transport_mode
-        $http.get("index.php/expected_items").success(function(data){
-            $scope.expected_packages = data;
-        });
-
-        //get sources
-        $http.get("index.php/sources").success(function(data){
-            $scope.sources = data;
         });
 
         //get transport_mode
@@ -74,83 +47,9 @@ angular.module("vssmApp")
             $scope.arrivalItems = data;
         });
 
-
-        $http.get("index.php/packaging_information").success(function(data){
-            $scope.packaging_information = data;
-            $scope.packagingInformation =[];
-            angular.forEach($scope.packaging_information,function(value){
-                value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
-                $scope.packagingInformation.push(value);
-            });
-        });
-
         $scope.seeStock = 'details';
         $scope.setSeeStock = function(value){
             $scope.seeStock = value;
-        }
-
-        $scope.getActivityName = function(id){
-            var name = "";
-            angular.forEach($scope.activities,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getStoreName = function(id){
-            var name = "";
-            angular.forEach($scope.stores,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getVaccineName = function(id){
-            var name = "";
-            angular.forEach($scope.vaccines,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getManufactureName = function(id){
-            var name = "";
-            angular.forEach($scope.manufactures,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getRecipientName = function(id){
-            var name = "";
-            angular.forEach($scope.userRecipients,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getTransportName = function(id){
-            var name = "";
-            angular.forEach($scope.transport_mode,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
-        }
-        $scope.getSourceName = function(id){
-            var name = "";
-            angular.forEach($scope.sources,function(value){
-                if(value.id == id){
-                    name = value.name;
-                }
-            });
-            return name;
         }
 
         $scope.getTotalPrice = function(){

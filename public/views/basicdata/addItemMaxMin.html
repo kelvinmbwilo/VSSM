@@ -5,8 +5,8 @@
 <div class="modal-body">
     <div class="col-md-10 col-md-offset-1" style="margin-bottom: 15px">
         <button class="btn btn-group col-md-4 {{ active11 }}" ng-click="changeFormula(1)">Manual</button>
-        <button class="btn btn-group col-md-4 {{ active12 }}" ng-click="changeFormula(2)">Option One</button>
-        <button class="btn btn-group col-md-4 {{ active13 }}" ng-click="changeFormula(3)">Option two</button>
+        <button disabled class="btn btn-group col-md-4 {{ active12 }}" ng-click="changeFormula(2)">Option One</button>
+        <button disabled class="btn btn-group col-md-4 {{ active13 }}" ng-click="changeFormula(3)">Option two</button>
     </div>
 
     <form class="col-md-12" novalidate name="myForm" ng-if="useFormular1">
@@ -20,12 +20,12 @@
         <!--min_value-->
         <div class="form-group">
             <label class="required" for="min_value" translate="labels.min_value"></label>
-            <input required="" type="text" ng-model="newItem.min_value" class="form-control" id="min_value" placeholder="{{ 'labels.min_value' | translate }}">
+            <input required="" type="number" min="0" ng-model="newItem.min_value" class="form-control" id="min_value" placeholder="{{ 'labels.min_value' | translate }}">
         </div>
         <!--max_value-->
         <div class="form-group">
             <label class="required" for="max_value" translate="labels.max_value"></label>
-            <input required="" type="text" ng-model="newItem.max_value" class="form-control" id="max_value" placeholder="{{ 'labels.max_value' | translate }}">
+            <input required="" type="number" min="0" ng-model="newItem.max_value" class="form-control" id="max_value" placeholder="{{ 'labels.max_value' | translate }}">
         </div>
 
         <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'items_min_max',items_min_max)"></button>
