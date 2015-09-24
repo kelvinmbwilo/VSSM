@@ -245,7 +245,8 @@ else{
 </div>
 <script>
     window.paceOptions = {
-//        ajax: false, // disabled
+        restartOnPushState: false,
+        ajax: false, // disabled
         document: false, // disabled
         eventLag: false, // disabled
         elements: {

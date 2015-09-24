@@ -174,6 +174,11 @@ angular.module("vssmApp")
         //get stores
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
+            angular.forEach($scope.stores,function(value){
+                //var freeVol = ((value.net_volume - value.used_volume)/value.net_volume)*100;
+                var freeVol = value.net_volume - value.used_volume;
+                value.useName = value.name+", Volume: "+value.net_volume+" Used: "+value.used_volume+" Free: "+ freeVol;
+            });
         });
 
         //get adjustment_reasons

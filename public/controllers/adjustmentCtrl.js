@@ -20,10 +20,7 @@ angular.module("vssmApp")
 
         }
 
-        //get Activities
-        $http.get("index.php/activities").success(function(data){
-            $scope.activities = data;
-        });
+
         $scope.firstItem = {};
         $scope.getItem = function(id){
             console.log(id);
@@ -64,23 +61,9 @@ angular.module("vssmApp")
                    });
                }
             });
-
         }
-        //get packaging_information
-        $http.get("index.php/packaging_information").success(function(data){
-            $scope.packaging_information = data;
-        });
 
-        //get stores
-        $http.get("index.php/stores").success(function(data){
-            $scope.stores = data;
-            angular.forEach($scope.stores,function(value){
-                //var freeVol = ((value.net_volume - value.used_volume)/value.net_volume)*100;
-                var freeVol = value.net_volume - value.used_volume;
-                value.useName = value.name+", Volume: "+value.net_volume+" Used: "+value.used_volume+" Free: "+ freeVol;
-            });
 
-        });
         $scope.storeB = [];
         $scope.getStoreItems = function(id){
             $scope.storeB = [];
@@ -193,15 +176,6 @@ angular.module("vssmApp")
                 }
             })
         }
-        //get sources
-        $http.get("index.php/sources").success(function(data){
-            $scope.sources = data;
-        });
-
-        //get adjustment_reasons
-        $http.get("index.php/adjustment_reasons").success(function(data){
-            $scope.adjustment_reasons = data;
-        });
 
         //get sent_packages
         $http.get("index.php/dispatched_packages").success(function(data){
@@ -210,10 +184,6 @@ angular.module("vssmApp")
                 value.name = value.voucher_number +" to: "+value.destination.name+' '+value.date_sent;
                 $scope.expect_packages.push(value);
             });
-        });
-
-        $http.get("index.php/annual_quota").success(function(data){
-            $scope.annual_quota = data;
         });
 
         //fetching the shipment after scan
