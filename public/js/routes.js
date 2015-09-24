@@ -95,6 +95,11 @@ angular.module("vssmApp")
             templateUrl: 'views/pre_advice/pre_advice.html',
             controller: 'basicDataCtrl'
         });
+
+        $routeProvider.when("/recipients",{
+            templateUrl: 'views/basicdata/recipient.html',
+            controller: 'basicDataCtrl'
+        });
         $routeProvider.when("/receive",{
             templateUrl: 'views/receive/receive.html',
             controller: 'receiveCtrl'

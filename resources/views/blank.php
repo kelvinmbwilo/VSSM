@@ -190,7 +190,7 @@ else{
                             <li><a href="./#adjustment_reason" ng-class="{ active1: isActive('/adjustment_reason') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
                             <li><a href="./#activities" ng-class="{ active1: isActive('/activities') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
                             <li><a href="./#manufactures" ng-class="{ active1: isActive('/manufactures') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
-                            <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
+                            <li><a href="./#recipients"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
                             <li><a href="./#annual_quota" ng-class="{ active1: isActive('/annual_quota') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
                         </ul>
                     </li>

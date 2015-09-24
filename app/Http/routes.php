@@ -100,6 +100,12 @@ Route::post('recipients',array('uses'=>'RecipientController@store'));
 //updating a recipient
 Route::post('recipients/{id}',array('uses'=>'RecipientController@update'));
 
+//saving a recipient
+Route::post('recipients1',array('uses'=>'RecipientController@store1'));
+
+//updating a recipient
+Route::post('recipients1/{id}',array('uses'=>'RecipientController@update1'));
+
 //delete a recipient
 Route::post('delete/recipients/{id}',array('uses'=>'RecipientController@destroy'));
 

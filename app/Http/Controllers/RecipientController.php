@@ -73,10 +73,33 @@ class RecipientController extends Controller
         $item = new Recipient;
         $item->name                 = $request->input("name");
         $item->code                 = $request->input("code");
+        $item->transport_mode_id    = ($request->has("transport_mode"))?$request->input("transport_mode"):"";
         $item->distance             = ($request->has("distance"))?$request->input("distance"):"";
         $item->notes                = ($request->has("notes"))?$request->input("notes"):"";
         $item->level                = $request->input("level");
         $item->parent_id            = $request->input("parent_id");
+        $item->status               = "active";
+
+        $item->save();
+        return $item;
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store1(Request $request)
+    {
+        $item = new Recipient;
+        $item->name                 = $request->input("name");
+        $item->code                 = $request->input("code");
+        $item->transport_mode_id    = ($request->has("transport_mode"))?$request->input("transport_mode"):"";
+        $item->distance             = ($request->has("distance"))?$request->input("distance"):"";
+        $item->notes                = ($request->has("notes"))?$request->input("notes"):"";
+        $item->level                = Recipient::find(Auth::user()->recipient_id)->level + 1;
+        $item->parent_id            = Auth::user()->recipient_id;
         $item->status               = "active";
 
         $item->save();
@@ -117,6 +140,28 @@ class RecipientController extends Controller
         $item = Recipient::find($id);
         $item->name                 = $request->input("name");
         $item->code                 = $request->input("code");
+        $item->transport_mode_id    = ($request->has("transport_mode"))?$request->input("transport_mode"):"";
+        $item->distance             = ($request->has("distance"))?$request->input("distance"):"";
+        $item->notes                = ($request->has("notes"))?$request->input("notes"):"";
+        $item->status               = $request->input("status");
+
+        $item->save();
+        return $item;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function update1(Request $request, $id)
+    {
+        $item = Recipient::find($id);
+        $item->name                 = $request->input("name");
+        $item->code                 = $request->input("code");
+        $item->transport_mode_id    = ($request->has("transport_mode"))?$request->input("transport_mode"):"";
         $item->distance             = ($request->has("distance"))?$request->input("distance"):"";
         $item->notes                = ($request->has("notes"))?$request->input("notes"):"";
         $item->status               = $request->input("status");
