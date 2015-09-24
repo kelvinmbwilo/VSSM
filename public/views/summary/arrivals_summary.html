@@ -14,8 +14,13 @@
     <!-- End  / heading--><!-- Start .row -->
 
     <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
-
-    <div class="row">
+    <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
+    <div class="row" style="margin-bottom: 10px">
+        <button ng-if="seeStock != 'products'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('products')"><i class="fa fa-table"></i> Products</button>
+        <button ng-if="seeStock != 'details'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('details')"><i class="fa fa-list"></i> Product Details</button>
+        <button ng-if="seeStock != 'graph'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('graph')"><i class="fa fa-bar-chart-o"></i> Graph</button>
+    </div>
+    <div class="row" ng-if="seeStock == 'products'">
 
         <h3 class="text-center">Summary</h3>
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
@@ -35,19 +40,17 @@
             </tbody>
         </table>
 
-
+</div><div class="row" ng-if="seeStock == 'details'">
         <h3 class="text-center">Detailed Items</h3>
 
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
             <thead>
             <tr>
                 <th >#</th>
-                <th translate="labels.reference_no"></th>
-                <th translate="labels.voucher_no"></th>
-                <th translate="labels.source"></th>
                 <th translate="labels.product"></th>
                 <th translate="labels.manufacture"></th>
                 <th translate="labels.lot_number"></th>
+                <th translate="labels.source"></th>
                 <th translate="labels.expired_date"></th>
                 <th translate="labels.doses"></th>
                 <th translate="labels.vials"></th>
@@ -60,12 +63,10 @@
             <tbody>
             <tr ng-repeat="item in arrivalItems">
                 <td>{{ $index+1 }}</td>
-                <td>{{ item.arrival.reference }}</td>
-                <td>{{ item.arrival.arrival_report_number }}</td>
-                <td>{{ item.source_id }}</td>
-                <td>{{ item.vaccine.name }}</td>
+                <td>{{ getVaccineName(item.vaccine_id) }}</td>
                 <td>{{ getManufactureName(item.packaging.manufacture_id ) }}</td>
                 <td>{{ item.lot_number }}</td>
+                <td>{{ getSourceName(item.source_id) }}</td>
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
                 <td>{{ item.number_received | number:0  }}</td>
                 <td>{{ item.number_received / item.packaging.dose_per_vial | number:0 }}</td>
@@ -78,6 +79,17 @@
         </table>
 
 
+
+    </div>
+    <div ng-if="seeStock == 'graph'" class="col-md-12 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+        <!-- Start .panel -->
+        <div class="panel-heading white-bg">
+            <h4 class="panel-title" translate="labels.items"></h4>
+
+        </div>
+        <div class="panel-body">
+            <highchart id="chart1" config="chartConfig1"></highchart>
+        </div>
 
     </div>
     <!-- End .row -->

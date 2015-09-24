@@ -488,4 +488,3 @@ angular.module("vssmApp")
             loading: false
         };
     });
-

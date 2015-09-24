@@ -126,22 +126,22 @@ angular.module("vssmApp")
 
         $routeProvider.when("/stock_items",{
             templateUrl: 'views/summary/stock_items.html',
-            controller: 'summaryCtrl'
+            controller: 'stockCtrl'
         });
 
         $routeProvider.when("/dispatched_packeges",{
             templateUrl: 'views/summary/dispatched_items.html',
-            controller: 'summaryCtrl'
+            controller: 'dispatchedCtrl'
         });
 
         $routeProvider.when("/expected_packages",{
             templateUrl: 'views/summary/expected_items.html',
-            controller: 'summaryCtrl'
+            controller: 'expectedCtrl'
         });
 
         $routeProvider.when("/arrivals_summary",{
             templateUrl: 'views/summary/arrivals_summary.html',
-            controller: 'summaryCtrl'
+            controller: 'arrivalCtrl'
         });
 
         $routeProvider.when("/arrival_adjustment",{

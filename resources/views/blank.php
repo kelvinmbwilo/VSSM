@@ -155,10 +155,10 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-tab"></i><span class=txt translate="menu.summary"></span></a>
                         <ul class=sub>
-                            <li><a href="./#expected_packages"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
-                            <li><a href="./#dispatched_packeges"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
-                            <li><a href="./#stock_items"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
-                            <li><a href="./#arrivals_summary"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrivals"></span></a></li>
+                            <li><a href="./#expected_packages" ng-class="{ active1: isActive('/expected_packages') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
+                            <li><a href="./#dispatched_packeges" ng-class="{ active1: isActive('/dispatched_packeges') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
+                            <li><a href="./#stock_items" ng-class="{ active1: isActive('/stock_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
+                            <li><a href="./#arrivals_summary" ng-class="{ active1: isActive('/arrivals_summary') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrivals"></span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -173,9 +173,9 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-stats-up"></i><span class=txt translate="menu.reports"></span></a>
                         <ul class=sub>
-                            <li><a href="./#dispatch_report"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
-                            <li><a href="./#monthly_arrivals"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
-                            <li><a href="./#expired_items"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span></a></li>
+                            <li><a href="./#dispatch_report"  ng-class="{ active1: isActive('/dispatch_report') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
+                            <li><a href="./#monthly_arrivals"  ng-class="{ active1: isActive('/monthly_arrivals') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
+                            <li><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span></a></li>
                             <li><a href="./#"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sample_report"></span></a></li>
                         </ul>
                     </li>

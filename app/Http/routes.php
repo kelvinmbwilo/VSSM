@@ -317,9 +317,6 @@ Route::get('arrivalItems',array('uses'=>'VaccineController@arrivals1'));
 //getting packages
 Route::get('sent_packages',array('uses'=>'VaccineController@packages'));
 
-//getting packages
-Route::get('sent_packages1',array('uses'=>'VaccineController@packages1'));
-
 //getting expected_packages
 Route::get('expected_items',array('uses'=>'VaccineController@expectedPackagesItems'));
 

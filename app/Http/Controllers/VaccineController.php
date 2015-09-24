@@ -67,7 +67,7 @@ class VaccineController extends Controller
 
     /**
      * Display a expectedPackages  items for user.
-     *
+     * @TODO Limit the result
      * @return Response
      */
     public function expectedPackagesItems()

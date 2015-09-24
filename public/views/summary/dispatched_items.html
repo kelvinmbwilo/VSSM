@@ -14,8 +14,13 @@
     <!-- End  / heading--><!-- Start .row -->
 
     <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
-
-    <div class="row">
+    <div class="row" style="margin-bottom: 10px">
+        <button ng-if="seeStock != 'products'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('products')"><i class="fa fa-table"></i> Products</button>
+        <button ng-if="seeStock != 'details'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('details')"><i class="fa fa-list"></i> Product Details</button>
+        <button ng-if="seeStock != 'graph'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('graph')"><i class="fa fa-bar-chart-o"></i> Graph</button>
+    </div>utton ng-if="seeStock != 'graph'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('graph')">Graph</button>
+    </div>
+    <div class="row" ng-if="seeStock == 'products'">
         <h3 class="text-center">Summary</h3>
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
             <thead>
@@ -33,7 +38,7 @@
             </tr>
             </tbody>
         </table>
-
+</div><div class="row" ng-if="seeStock == 'details'">
         <h3 class="text-center">Detailed Items</h3>
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
             <thead>
@@ -84,6 +89,17 @@
 
     </div>
     <!-- End .row -->
+    <div ng-if="seeStock == 'graph'" class="col-md-12 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+        <!-- Start .panel -->
+        <div class="panel-heading white-bg">
+            <h4 class="panel-title" translate="labels.items"></h4>
+
+        </div>
+        <div class="panel-body">
+            <highchart id="chart1" config="chartConfig1"></highchart>
+        </div>
+
+    </div>
 </div>
 
 
