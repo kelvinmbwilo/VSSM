@@ -524,6 +524,7 @@ angular.module("vssmApp")
                 categories: $scope.vaccineNames
             },
             series: [{
+                name:"Doses",
                 data: $scope.vacciineValues
             }],
             title: {

@@ -766,7 +766,7 @@ class VaccineController extends Controller
         $storeStock = StoreStock::where('store_id',$stock->store_id)->where('vaccine_id',$arrivalItem->vaccine_id)->where('lot_number',$arrivalItem->lot_number)->first();
 
         $difference = ($request->has('doses'))?$request->input('doses')-$arrivalItem->number_received:0;
-        $volume = $difference* PackagingInformation::find($arrivalItem->packaging_id)->cm_per_dose * 0.01;
+        $volume = $difference* PackagingInformation::find($arrivalItem->packaging_id)->cm_per_dose * 0.001;
         $arrivalItem->lot_number = ($request->has('lot_number'))?$request->input('lot_number'):$arrivalItem->lot_number;
         $arrivalItem->expiry_date = ($request->has('expired_date'))?$request->input('expired_date'):$arrivalItem->expiry_date;
         $arrivalItem->total_price = ($request->has('t_price'))?$request->input('t_price'):$arrivalItem->total_price;
@@ -873,6 +873,7 @@ class VaccineController extends Controller
 
     public function move_item(Request $request){
         $storeStock = StoreStock::find($request->input('item_id'));
+        $volume = $request->input('doses') * PackagingInformation::find($storeStock->packaging_id)->cm_per_dose * 0.001;
         $storeStock->amount = $request->has('doses')?$storeStock->amount - $request->input('doses'):$storeStock->amount;
         $storeStock->save();
         if($storeStock->amount == 0){
@@ -895,6 +896,13 @@ class VaccineController extends Controller
             $storeStock1->activity_id    = $storeStock->activity_id;
             $storeStock1->save();
         }
+
+        $store = Store::find($storeStock->store_id);
+        $store1 = Store::find($storeStock1->store_id);
+        $store->used_volume = $store->used_volume - $volume ;
+        $store->save();
+        $store1->used_volume = $store1->used_volume + $volume ;
+        $store1->save();
 
 
     }
