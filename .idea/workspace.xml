@@ -2,157 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/brown_papersq.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/pojoaque.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/school_book.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/screenshot.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/CHANGES.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/README.ru.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/angular-route.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/arta.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/ascetic.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-dune.dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-dune.light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-forest.dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-forest.light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-heath.dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-heath.light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-lakeside.dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-lakeside.light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-seaside.dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/atelier-seaside.light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/breaking-changes.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/brown_paper.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/bug-reporting-contributing.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/configs-options.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/contributing.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-callbacks.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-callbacks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-disabling-enabling.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-disabling-enabling.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-dynamic-update.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-dynamic-update.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-grouping.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-grouping.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-helper-elements.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-horizontal-layout.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-horizontal-layout.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-minimum.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-minimum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-output-properties.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/demo-single-selection-mode.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/controllers/demo-single-selection-mode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/dependency-compatibility.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/docco.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/faq.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/far.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/foundation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/getting-started.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/github.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/googlecode.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/helper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/highlight.pack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/idea.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/index.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/ir_black.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/issues-bug-reporting.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/isteven-multi-select.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/css/isteven-multi-select.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/isteven-multi-select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/isteven-multi-select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/magula.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/main.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/mit-license.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/mono-blue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/monokai.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/monokai_sublime.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/obsidian.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/views/other-cool-stuffs.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/paraiso.dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/paraiso.light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/js/libs/paypal-button.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/pojoaque.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/railscasts.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/rainbow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/school_book.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/css/simple-sidebar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/solarized_dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/solarized_light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/sunburst.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/tomorrow-night-blue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/tomorrow-night-bright.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/tomorrow-night-eighties.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/tomorrow-night.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/tomorrow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/transit_invoice.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/vs.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/xcode.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bower_components/angular-multi-select/doc/highlight/styles/zenburn.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/ItemMinMax.html" afterPath="$PROJECT_DIR$/public/views/basicdata/ItemMinMax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserRolesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserRolesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/activities.html" afterPath="$PROJECT_DIR$/public/views/basicdata/activities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/addPackaging.html" afterPath="$PROJECT_DIR$/public/views/basicdata/addPackaging.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/users/addRoles.html" afterPath="$PROJECT_DIR$/public/views/users/addRoles.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/addStores.html" afterPath="$PROJECT_DIR$/public/views/basicdata/addStores.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/adjustmentReasons.html" afterPath="$PROJECT_DIR$/public/views/basicdata/adjustmentReasons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blank.php" afterPath="$PROJECT_DIR$/resources/views/blank.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/homeCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/manufactures.html" afterPath="$PROJECT_DIR$/public/views/basicdata/manufactures.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" afterPath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/receive/one_preAdvice.html" afterPath="$PROJECT_DIR$/public/views/receive/one_preAdvice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/packaging.html" afterPath="$PROJECT_DIR$/public/views/basicdata/packaging.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/pre_advice/pre_advice.html" afterPath="$PROJECT_DIR$/public/views/pre_advice/pre_advice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/recipient.html" afterPath="$PROJECT_DIR$/public/views/basicdata/recipient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/recipient/recipient.html" afterPath="$PROJECT_DIR$/public/views/recipient/recipient.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/recipient/recipientCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/recipient/recipientCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/recipient/recipientLevelCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/recipient/recipientLevelCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/recipient/recipient_level.html" afterPath="$PROJECT_DIR$/public/views/recipient/recipient_level.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/routes.js" afterPath="$PROJECT_DIR$/public/js/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/sources.html" afterPath="$PROJECT_DIR$/public/views/basicdata/sources.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/stores.html" afterPath="$PROJECT_DIR$/public/views/basicdata/stores.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/summaryCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/systemSettings.html" afterPath="$PROJECT_DIR$/public/views/systemSettings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/transport.html" afterPath="$PROJECT_DIR$/public/views/basicdata/transport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/updatePackaging.html" afterPath="$PROJECT_DIR$/public/views/basicdata/updatePackaging.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/users/updateRoles.html" afterPath="$PROJECT_DIR$/public/views/users/updateRoles.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/updateStores.html" afterPath="$PROJECT_DIR$/public/views/basicdata/updateStores.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/updateVaccine.html" afterPath="$PROJECT_DIR$/public/views/basicdata/updateVaccine.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/users/userCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/users/userCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/users/user_roles.html" afterPath="$PROJECT_DIR$/public/views/users/user_roles.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/users/users.html" afterPath="$PROJECT_DIR$/public/views/users/users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/vaccine.html" afterPath="$PROJECT_DIR$/public/views/basicdata/vaccine.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -205,7 +55,7 @@
       <file leaf-file-name="transit_invoice.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/reports/transit_invoice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="57" selection-start="2393" selection-end="2393" vertical-scroll-proportion="-15.111111" vertical-offset="420" max-vertical-offset="1134">
+            <state line="42" column="38" selection-start="2038" selection-end="2084" vertical-scroll-proportion="-16.444445" vertical-offset="312" max-vertical-offset="1134">
               <folding />
             </state>
           </provider>
@@ -214,16 +64,27 @@
       <file leaf-file-name="monthly_arrivals.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="48" selection-start="7903" selection-end="7903" vertical-scroll-proportion="-4.6666665" vertical-offset="2538" max-vertical-offset="3384">
+            <state line="161" column="39" selection-start="8486" selection-end="8486" vertical-scroll-proportion="-9.333333" vertical-offset="2646" max-vertical-offset="3348">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VaccineController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="users.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/users/users.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.49825785" vertical-offset="145" max-vertical-offset="1350">
+              <folding>
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VaccineController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.690909" vertical-offset="5076" max-vertical-offset="16344">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="188.0" vertical-offset="5076" max-vertical-offset="16344">
               <folding />
             </state>
           </provider>
@@ -245,15 +106,6 @@
         <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
           <provider selected="true" editor-type-id="text-editor">
             <state line="180" column="19" selection-start="6681" selection-end="6691" vertical-scroll-proportion="-3.6842105" vertical-offset="3030" max-vertical-offset="6768">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addPackaging.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/basicdata/addPackaging.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="18" selection-start="2690" selection-end="2690" vertical-scroll-proportion="-13.777778" vertical-offset="420" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
@@ -305,7 +157,6 @@
         <option value="$PROJECT_DIR$/public/views/recipient/recipient.html" />
         <option value="$PROJECT_DIR$/public/views/recipient/recipient_level.html" />
         <option value="$PROJECT_DIR$/public/views/users/user_roles.html" />
-        <option value="$PROJECT_DIR$/public/views/users/users.html" />
         <option value="$PROJECT_DIR$/public/views/systemSettings.html" />
         <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
@@ -332,6 +183,7 @@
         <option value="$PROJECT_DIR$/public/controllers/summaryCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/reports/transit_invoice.html" />
         <option value="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
+        <option value="$PROJECT_DIR$/public/views/users/users.html" />
       </list>
     </option>
   </component>
@@ -725,12 +577,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24871795" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4782051" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24110141" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24110141" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753526" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -918,13 +770,6 @@
     <entry file="file://$PROJECT_DIR$/public/views/recipient/recipient_level.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="58" selection-start="788" selection-end="788" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1152">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/users/users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="25" selection-start="1467" selection-end="1467" vertical-scroll-proportion="-11.296296" vertical-offset="145" max-vertical-offset="1314">
           <folding />
         </state>
       </provider>
@@ -1130,13 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/transit_invoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="57" selection-start="2393" selection-end="2393" vertical-scroll-proportion="-15.111111" vertical-offset="420" max-vertical-offset="1134">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/49f4b60c/777beae2-6257-4248-85e0-e460853ed938/vssm..arrival_items">
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
@@ -1154,17 +992,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="48" selection-start="7903" selection-end="7903" vertical-scroll-proportion="-4.6666665" vertical-offset="2538" max-vertical-offset="3384">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="188.0" vertical-offset="5076" max-vertical-offset="16344">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
+    <entry file="file://$PROJECT_DIR$/public/views/reports/transit_invoice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.690909" vertical-offset="5076" max-vertical-offset="16344">
+        <state line="42" column="38" selection-start="2038" selection-end="2084" vertical-scroll-proportion="-16.444445" vertical-offset="312" max-vertical-offset="1134">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="161" column="39" selection-start="8486" selection-end="8486" vertical-scroll-proportion="-9.333333" vertical-offset="2646" max-vertical-offset="3348">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/users/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.49825785" vertical-offset="145" max-vertical-offset="1350">
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
