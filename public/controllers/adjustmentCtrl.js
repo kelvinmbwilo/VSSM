@@ -44,28 +44,6 @@ angular.module("vssmApp")
             });
 
         }
-        $scope.canCancel = false;
-            $scope.getDispatchItem = function(id){
-            angular.forEach($scope.expect_packages,function(v){
-               if(v.id == id){
-                   $scope.dispatchItems = [];
-                   angular.forEach(v.items,function(value){
-                       angular.forEach($scope.packaging_information,function(val){
-                           if(val.id == value.packaging_id){
-                               value.packaging = val;
-                           }
-                       });
-                       value.name = value.packaging.vaccine.name+" "+value.batch_number+ ", "+value.amount+"doses";
-                       $scope.dispatchItems.push(value);
-
-                   });
-                   if(v.receiving_status == 'pending'){
-                       $scope.canCancel = true;
-                   }
-
-               }
-            });
-        }
 
 
         $scope.storeB = [];
@@ -184,15 +162,6 @@ angular.module("vssmApp")
             })
         }
 
-        //get sent_packages
-        $http.get("index.php/dispatched_packages").success(function(data){
-            $scope.expect_packages = [];
-            angular.forEach(data,function(value){
-                value.name = value.voucher_number +" to: "+value.destination.name+' '+value.date_sent;
-                $scope.expect_packages.push(value);
-            });
-        });
-
         //fetching the shipment after scan
         $scope.errorMessage = false;
         $scope.oldItem = {};
@@ -220,28 +189,6 @@ angular.module("vssmApp")
             $scope.newItem={};
         }
 
-
-
-        $scope.dateOptions = {
-            formatYear: 'yy',
-            startingDay: 1
-        };
-        $scope.status = {
-            opened: false,
-            opened2: false,
-            opened3: false
-        }
-        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd MMM yyyy', 'shortDate'];
-        $scope.format = $scope.formats[2];
-        $scope.open = function($event) {
-            $scope.status.opened = true;
-        };
-        $scope.open3 = function($event) {
-            $scope.status.opened3 = true;
-        };
-        $scope.open2 = function($event) {
-            $scope.status.opened2 = true;
-        };
         var $translate = $filter('translate');
         //updating an Item
         $scope.currentSaving = false;
@@ -278,31 +225,7 @@ angular.module("vssmApp")
 
         }
 
-        $scope.currentSaving2 = false;
-        $scope.saveDispatchAdjust = function(item){
-            $scope.currentSaving2 = true;
-            $http.post("index.php/dispatch_adjust/", item).success(function (newItem) {
-                $mdToast.show(
-                    $mdToast.simple()
-                        .content($translate('error.stock_adjusted_successfull'))
-                        .position($scope.getToastPosition())
-                        .hideDelay(5000)
-                );
-                $scope.currentSaving2 = false;
-                $scope.newItem = null;
-                //get Arrivals
 
-            }).error(function(){
-                $mdToast.show(
-                    $mdToast.simple()
-                        .content($translate('error.stock_adjusted_falure'))
-                        .position($scope.getToastPosition())
-                        .hideDelay(5000)
-                );
-                $scope.currentSaving2 = false;
-            })
-
-        }
         $scope.currentSaving3 = false;
         $scope.saveStockAdjust = function(item){
             $scope.currentSaving2 = true;
@@ -388,12 +311,131 @@ angular.module("vssmApp")
 
         }
 
+
+    })
+    .controller("dispatchAdjustmentCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter){
+        //ntialize variables
+        $scope.newItem = {};
+        $scope.newItem.dispatch_date = new Date();
+        $scope.newItem.items = [];
+        $scope.oneItem = {};
+        $scope.maxexceed = false;
+        //get dispatched_packages
+        $http.get("index.php/dispatched_packages").success(function(data){
+            $scope.expect_packages = [];
+            angular.forEach(data,function(value){
+                value.name = value.voucher_number +" to: "+value.destination.name+' '+value.date_sent;
+                $scope.expect_packages.push(value);
+            });
+        });
+
+        //prepare an adjustment item to udjust
+        $scope.canCancel = false;
+        $scope.getDispatchItem = function(id){
+            angular.forEach($scope.expect_packages,function(v){
+                if(v.id == id){
+                    $scope.newItem.dispatch_date = v.date_sent;
+                    $scope.newItem.recipients = v.recipient_id;
+                    $scope.newItem.transport_mode = v.transport_mode_id;
+                    $scope.newItem.items = [];
+                    angular.forEach(v.items,function(value){
+                        var item = {};
+                        angular.forEach($scope.packaging_information,function(val){
+                            if(val.id == value.packaging_id){
+
+                                item.packaging_id = value.packaging_id;
+                                item.expired_date = value.expiry_date;
+                                item.lot_number = value.batch_number;
+                                item.u_price = value.unit_price;
+                                item.t_price = value.unit_price * value.amount;
+                                item.total_volume = val.cm_per_dose * value.amount * 0.001;
+                                item.vials =  value.amount/val.dose_per_vial;
+                                item.store_id = value.store_id;
+                                item.activity_id = value.activity;
+                                item.dose_vial = val.dose_per_vial;
+                                item.doses = value.amount;
+                                item.vials_per_box = val.vials_per_box;
+                                item.cm_per_dose = val.cm_per_dose;
+                                item.item_id = val.vaccine.id;
+                                item.item_type = val.vaccine.type;
+                                item.diluent_id = val.vaccine.diluent_id;
+                                item.require_diluent = val.vaccine.require_diluent;
+                                item.source_id = value.source_id;
+                                item.item = val.vaccine.name;
+                                item.manufacture_id = val.manufacture_id;
+                            }
+                        });
+                        $scope.newItem.items.push(item);
+                        console.log(item)
+                    });
+                    if(v.receiving_status == 'pending'){
+                        $scope.canCancel = true;
+                    }
+
+                }
+            });
+        }
+
+        $scope.getStockInfo = function(id){
+            angular.forEach($scope.stock_items,function(value){
+                if(value.id == id){
+                    $scope.maxValue = value.amount;
+                    $scope.oneItem.packaging_id = value.packaging_id;
+                    $scope.oneItem.expired_date = value.expiry_date;
+                    $scope.oneItem.lot_number = value.lot_number;
+                    $scope.oneItem.u_price = value.unit_price;
+                    $scope.oneItem.store_id = value.store_id;
+                    $scope.oneItem.activity_id = value.activity_id;
+                    $scope.oneItem.activity = value.activity_id;
+                    $scope.oneItem.packaging = value.packaging.dose_per_vial;
+                    $scope.oneItem.dose_vial = value.packaging.dose_per_vial;
+                    $scope.oneItem.vials_per_box = value.packaging.vials_per_box;
+                    $scope.oneItem.cm_per_dose = value.packaging.cm_per_dose;
+                    $scope.oneItem.item_id = value.vaccine.id;
+                    $scope.oneItem.item_type = value.vaccine.type;
+                    $scope.oneItem.diluent_id = value.vaccine.diluent_id;
+                    $scope.oneItem.require_diluent = value.vaccine.require_diluent;
+                    $scope.oneItem.source_id = value.source_id;
+                    $scope.oneItem.item = value.vaccine.name;
+                    $scope.oneItem.manufacture_id = value.packaging.manufacture_id;
+                }
+            })
+        }
+
+        //updating an Item
+        $scope.currentSaving = false;
+        $scope.adjustdispatch = function(item){
+            $scope.currentSaving = true;
+            $http.post("index.php/adjustdispatch/", item).success(function (d) {
+                $scope.showSummary = true;
+                $scope.newItem.voucher_no = d;
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_dispatched_successfull'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+
+            }).error(function(){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.stock_dispatched_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+            })
+        }
+
+
+        //cancel an adjustment
         $scope.currentSaving4 = false;
         $scope.cancelDispatch = function(item){
             $scope.currentSaving1 = true;
             $http.post("index.php/cancelDispatch/"+item).success(function (newItem) {
                 $scope.newItem = {};
-               $mdToast.show(
+                $mdToast.show(
                     $mdToast.simple()
                         .content($translate('error.stock_adjusted_successfull'))
                         .position($scope.getToastPosition())
@@ -411,6 +453,127 @@ angular.module("vssmApp")
                 $scope.currentSaving4 = false;
             })
 
+        }
+
+        //react to changing recipients
+        $scope.changeRecipient = function(id){
+            $scope.currentAnnual = [];
+            angular.forEach($scope.userRecipients,function(value){
+                if(value.id == id){
+                    $scope.newItem.transport_mode = value.transport_mode_id;
+                }
+            });
+            var i = 0;
+            angular.forEach($scope.annual_quota,function(value){
+                if(value.recipient_id == id){
+                    i++;
+                    $scope.currentAnnual.push(value);
+                }
+            });
+            if(i == 0){
+                $scope.noAnnualQuota = true;
+            }else{
+                $scope.noAnnualQuota = false;
+            }
+        }
+
+
+        //adding Item to list
+        $scope.showAdd = function(){
+
+            $scope.oneItem = {};
+            $scope.editing = false;
+            $scope.dilluentRequired = false;
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/dispatch/oneItem.html',
+                scope: $scope,
+                controller: 'dispatchModalInstanceCtrl',
+                size: "lg",
+                "backdrop":"static"
+            });
+        }
+
+        //adding Item to list
+        $scope.showAEdit = function(item){
+
+            $scope.oneItem = item;
+            $scope.editing = true;
+            var modalInstance = $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/dispatch/oneItem.html',
+                scope: $scope,
+                controller: 'dispatchModalInstanceCtrl',
+                size: "lg",
+                "backdrop":"static"
+            });
+        }
+
+        var $translate = $filter('translate');
+        $scope.showConfirm = function(ev,item) {
+            var confirm = $mdDialog.confirm()
+                .title($translate('labels.confirm_delete'))
+                .content($translate('labels.irreversible_warning'))
+                .ariaLabel('Lucky day')
+                .ok($translate('help.delete'))
+                .cancel($translate('labels.cancel'))
+                .targetEvent(ev);
+            $mdDialog.show(confirm).then(function() {
+                delete $scope.newItem.items[$scope.newItem.items.indexOf(item)];
+                if($scope.newItem.items.length == 0){
+                    $scope.hasItems = false;
+                }else{
+                    $scope.hasItems = true;
+                }
+            }, function() {
+
+            });
+        };
+
+        $scope.cancelDispatch = function(){
+            $scope.newItem = {};
+            $scope.newItem.dispatch_date = new Date();
+            $scope.newItem.items = [];
+            $scope.oneItem = {};
+            $scope.maxexceed = false;
+            $scope.showSummary = false;
+        }
+
+        $scope.checkMate = function(){
+            var match = true;
+            angular.forEach($scope.newItem.items,function(value){
+                if(value.hasMatch == false){
+                    match = false;
+                }
+            });
+            return match;
+        }
+        //check if all vaccines has diliuents
+        $scope.checkVaccineDiluent = function(){
+            var item = {};
+            angular.forEach($scope.newItem.items,function(value){
+
+                value.hasMatch = false;
+                if(value.item_type == 'diluent'){
+                    angular.forEach($scope.newItem.items,function(val){
+                        if(val.diluent_id == value.item_id){
+                            value.hasMatch = true;
+                        }
+                    })
+                }else if(value.item_type == 'vaccine'){
+                    if(value.require_diluent == 'no'){
+                        value.hasMatch = true;
+                    }else{
+                        angular.forEach($scope.newItem.items,function(val){
+                            if(value.diluent_id == val.item_id){
+                                value.hasMatch = true;
+                            }
+                        })
+                    }
+                }
+
+
+            });
         }
 
     });

@@ -38,10 +38,12 @@ angular.module("vssmApp")
             $scope.status.opened2 = true;
         };
 
+        $scope.userRoles = [];
         //getting the loggedIn User
         $http.get("index.php/loggenInuser").success(function(data){
             $scope.logedInUser = data;
             $scope.logedInUserName = data.first_name +" "+ data.last_name;
+            $scope.userRoles = data.roles.roles.split(":");
         });
         //getting the system settings
         $http.get("index.php/system_settings").success(function(data){
@@ -49,6 +51,16 @@ angular.module("vssmApp")
             $translate.use(data[0].language);
             $scope.main_currency = data[0].main_currency;
         });
+
+        $scope.hasRole = function(roleArr,role){
+            var hsit = false;
+            if(roleArr.indexOf(role) == -1){
+                hsit = false
+            }else{
+                hsit = true
+            }
+            return hsit;
+        }
 
         //Datatables Language Options
         $scope.dataTableEn = {

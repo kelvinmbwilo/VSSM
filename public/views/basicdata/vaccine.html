@@ -13,7 +13,7 @@
     </div>
     <!-- End  / heading--><!-- Start .row -->
     <div class="row">
-    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addVaccine')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+    <button ng-if="hasRole(userRoles,'add_vaccine')" style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addVaccine')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     </div>
     <div class="row">
 
@@ -51,12 +51,12 @@
                 <td ng-if="item.status == 'active'" translate="labels.active"></td>
                 <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
                 <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateVaccine')"><i class="fa fa-pencil-square"></i>
+                    <md-button ng-if="hasRole(userRoles,'edit_vaccine')" aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateVaccine')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>
                             <span translate="help.update"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'vaccines')"><i class="fa fa-trash-o"></i>
+                    <md-button ng-if="hasRole(userRoles,'delete_vaccine')" aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'vaccines')"><i class="fa fa-trash-o"></i>
 
                         <md-tooltip>
                             <span translate="help.delete"></span>

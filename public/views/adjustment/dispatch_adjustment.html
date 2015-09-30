@@ -14,7 +14,7 @@
     <!-- End  / heading--><!-- Start .row -->
     <div class="row">
 
-        <form class="col-md-12" novalidate name="myForm" >
+        <form class="col-md-12" novalidate name="" >
             <!--item_id-->
             <div class="form-group" >
                 <div class="col-md-6 col-md-offset-3"  >
@@ -23,33 +23,123 @@
                         <option value="" translate="labels.select"></option>
                     </select>
                 </div>
-                <div class="col-md-6 col-md-offset-3"  style="margin-top:10px;" ng-if="newItem.dispatch" >
-                    <label class="required" for="select_item" translate="labels.select_item"></label>
-                    <select required="" id="select_item" class="form-control" ng-model="newItem.item"  ng-options="obj.id as obj.name for obj in dispatchItems">
-                        <option value="" translate="labels.select"></option>
-                    </select>
-                </div>
-                <div  class="col-md-6 col-md-offset-3" style="margin-top: 10px" ng-if="newItem.item && newItem.dispatch" >
-                <label class="required" for="doses" translate="labels.doses"></label>
-                <input required="" style="margin-top: 10px"   type="text" ng-model="newItem.doses" class="form-control input-sm" id="doses" placeholder="{{ 'labels.doses' | translate }}">
-            </div>
-                <div  class="col-md-6 col-md-offset-3"  style="margin-top:10px" ng-if="newItem.item && newItem.dispatch" >
-                    <label class="required" for="adjustment_reason" translate="labels.adjustment_reason"></label>
-                    <select id="adjustment_reason" class="form-control" ng-model="newItem.adjustment_reason"  ng-options="obj.id as obj.name for obj in adjustment_reasons | filter:{status:'active'}:true">
-                        <option value="" translate="labels.select"></option>
-                    </select>
-                </div>
             </div>
         </form>
 
+        <div class="row"  ng-if="canCancel">
 
-    </div>
-    <!-- End .row -->
-    <div class="col-md-6 col-md-offset-3" style="margin-top:10px" ng-if="newItem.item && newItem.dispatch">
-        <h4  ng-if="currentSaving2"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
-        <button ng-disabled="myForm.$invalid" ng-if="!currentSaving2" ng-click="saveDispatchAdjust(newItem)" class="btn btn-sm btn-primary"  translate="labels.save_package"> </button>
-        <button ng-if="canCancel"  ng-click="cancelDispatch(newItem.dispatch)" class="btn btn-sm btn-danger"  translate="labels.cancel_dispatch"> </button>
-        <button  ng-if="!currentSaving2" ng-click="cancel()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
+            <form class="col-md-12" novalidate name="myForm" >
+                <!--item_id-->
+                <div class="form-group" >
+                    <div class="col-md-4"  >
+                        <label class="required" for="arrival_date" translate="labels.dispatch_date"></label>
+                        <p class="input-group">
+                            <input type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.dispatch_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+                    </div>
+                    <div class="col-md-4"  >
+                        <label for="source" translate="labels.recipients"></label>
+                        <select  id="source" ng-change="changeRecipient(newItem.recipients)" class="form-control" ng-model="newItem.recipients"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
+                            <option value="" translate="labels.select"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-4"  >
+                        <label for="transport_mode" translate="labels.transport_mode"></label>
+                        <select id="transport_mode" class="form-control" ng-model="newItem.transport_mode"  ng-options="obj.id as obj.name for obj in transport_mode | filter:{status:'active'}:true">
+                            <option value="" translate="labels.select"></option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-sm-12" ng-if="noAnnualQuota" translate="error.no_annal_quota"></div>
+
+
+            </form>
+
+
+        </div>
+
+        <div class="col-md-12" style="margin-top: 10px" ng-if="newItem.recipients && canCancel">
+            <div class="panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title" translate="help.dispatch_items"></h4>
+                    <div class="panel-controls panel-controls-right"><button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs" title="{{ 'help.add_dispatchline' | translate}} "><i class="icomoon-icon-plus"></i> <span translate="labels.add"></span></button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: auto;">
+                        <div class="table-responsive" style="overflow: scroll; width: 100%; height: auto;">
+                            <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+                                <thead>
+                                <tr>
+                                    <th >#</th>
+                                    <th  translate="labels.product"></th>
+                                    <th translate="labels.manufacture"></th>
+                                    <th translate="labels.lot_number"></th>
+                                    <th translate="labels.Dose_vial"></th>
+                                    <th translate="labels.expired_date"></th>
+                                    <th translate="labels.doses"></th>
+                                    <th translate="labels.vials"></th>
+                                    <th translate="labels.total_volume"></th>
+                                    <th translate="labels.u_price"></th>
+                                    <th translate="labels.t_price"></th>
+                                    <th translate="labels.activity"></th>
+                                    <th translate="labels.store"></th>
+                                    <th translate="labels.action">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in newItem.items" ng-hide="deletedItem[item.id]"  ng-style="item.hasMatch? { 'background-color':'inherit'} : { 'background-color':'rgba(0,0,0,0.2)'}">
+                                    <td>{{ $index+1 }}</td>
+                                    <td>{{ item.item }}</td>
+                                    <td>{{ getManufactureName(item.manufacture_id) }}</td>
+                                    <td>{{ item.lot_number }}</td>
+                                    <td>{{ item.dose_vial }}</td>
+                                    <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
+                                    <td>{{ item.doses | number:0 }}</td>
+                                    <td>{{ item.vials | number:0 }}</td>
+                                    <td>{{ item.total_volume | number:2 }}</td>
+                                    <td>{{ main_currency }} {{ item.u_price | number : 2 }}</td>
+                                    <td>{{ main_currency }} {{ item.u_price * item.doses | number:2 }}</td>
+                                    <td>{{ getActivityName(item.activity_id) }}</td>
+                                    <td>{{ getStoreName(item.store_id) }}</td>
+                                    <td>
+                                        <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updatePreAdvice')"><i class="fa fa-pencil-square"></i>
+                                            <md-tooltip>
+                                                <span translate="help.update"></span>
+                                            </md-tooltip>
+                                        </md-button>
+                                        <md-button  aria-label="btu" ng-if="!deletingDis[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item)"><i class="fa fa-trash-o"></i>
+
+                                            <md-tooltip>
+                                                <span translate="help.delete"></span>
+                                            </md-tooltip>
+                                        </md-button>
+                                        <span ng-if="deletingItem[item.id]"><i class="fa fa-spin fa-spinner"></i> <span translate="labels.deleting"></span></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="slimScrollBar ui-draggable" style="height: 5px; position: absolute; bottom: 3px; opacity: 0.4; display: none; border-radius: 5px; z-index: 99; width: 1014px; left: 0px; background: rgb(243, 243, 243);"></div>
+                        <div class="slimScrollRail" style="width: 100%; height: 5px; position: absolute; bottom: 3px; display: none; border-radius: 5px; opacity: 0.3; z-index: 90; background: rgb(51, 51, 51);"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End .row -->
+        <h4 ng-if="!checkMate()" translate="error.no_diluent"></h4>
+
+        <div class="col-md-12"  ng-if="!showSummary">
+            <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+            <button  ng-disabled="myForm.$invalid" ng-click="adjustdispatch(newItem)" class="btn btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="labels.adjustdispatch"></button>
+            <button  ng-click="cancelDispatch(newItem)" class="btn btn-danger" ng-if="canCancel" translate="labels.cancel_dispatch"></button>
+        </div >
     </div>
 </div>
 

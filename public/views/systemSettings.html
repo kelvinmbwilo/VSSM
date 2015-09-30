@@ -48,19 +48,19 @@
             <div class="form-group">
                 <div class="col-sm-4">
                     <label class="required" for="exampleInputPassword1" translate="labels.arrival_number"></label>
-                    <input required="" type="text" ng-model="system_settings.arrival_number" class="form-control" id="arrival_number" placeholder="{{ 'labels.arrival_number' | translate }}">
+                    <input type="text" ng-model="system_settings.arrival_number" class="form-control" id="arrival_number" placeholder="{{ 'labels.arrival_number' | translate }}">
                 </div>
                 <div class="col-sm-4">
                     <label class="required" for="dispatch_number" translate="labels.dispatch_number"></label>
-                    <input required="" type="text" ng-model="system_settings.dispatch_number" class="form-control" id="dispatch_number" placeholder="{{ 'labels.dispatch_number' | translate }}">
+                    <input  type="text" ng-model="system_settings.dispatch_number" class="form-control" id="dispatch_number" placeholder="{{ 'labels.dispatch_number' | translate }}">
                 </div>
                 <div class="col-sm-4">
                     <label class="required" for="adjustment_number" translate="labels.adjustment_number"></label>
-                    <input required="" type="text" ng-model="system_settings.adjustment_number" class="form-control" id="adjustment_number" placeholder="{{ 'labels.adjustment_number' | translate }}">
+                    <input  type="text" ng-model="system_settings.adjustment_number" class="form-control" id="adjustment_number" placeholder="{{ 'labels.adjustment_number' | translate }}">
                 </div>
             </div>
 
-            <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveSettings(system_settings)"></button>
+            <button ng-if="hasRole(userRoles,'update_configuration')" type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveSettings(system_settings)"></button>
             <!--<button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>-->
             <br>
             <span  ng-if="currentSaving1"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>

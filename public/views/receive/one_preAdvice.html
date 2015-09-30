@@ -36,7 +36,7 @@
 
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label  class="required" for="doses" translate="labels.doses"></label>
-                <input required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                <input disabled required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="u_price" translate="labels.u_price"></label>
@@ -122,7 +122,7 @@
         <div class="col-md-12"  style="margin-top: 10px">
             <button ng-if="!editing" type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveOneItem(oneItem)"></button>
             <button ng-if="!editing" class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
-            <button ng-if="editing" ng-disabled="myForm.$invalid"  class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.done"></button>
+            <button ng-if="editing"  class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.done"></button>
             <br>
             <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
         </div>

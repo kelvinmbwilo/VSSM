@@ -54,6 +54,7 @@ class StoreController extends Controller
         $item->recipient_id     = Auth::user()->recipient_id;
         $item->net_volume       = $request->input("net_volume");
         $item->store_type       = $request->input("store_type");
+        $item->notes            = $request->has("notes")?$request->input("notes"):"";
         $item->save();
         return $item;
     }
@@ -86,6 +87,7 @@ class StoreController extends Controller
         $item->code             = $request->input("code");
         $item->net_volume       = $request->input("net_volume");
         $item->store_type       = $request->input("store_type");
+        $item->notes            = $request->has("notes")?$request->input("notes"):"";
         $item->save();
         return $item;
     }

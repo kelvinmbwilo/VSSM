@@ -22,48 +22,10 @@ angular.module("vssmApp")
             });
         });
 
-        //get vaccines
-        $http.get("index.php/vaccines").success(function(data){
-            $scope.vaccines = data;
-        });
-
-        //get items_min_max
-        $http.get("index.php/items_min_max").success(function(data){
-            $scope.items_min_max = data;
-        });
-
-        //get sources
-        $http.get("index.php/sources").success(function(data){
-            $scope.sources = data;
-        });
-
-        //get stores
-        $http.get("index.php/stores").success(function(data){
-            $scope.stores = data;
-        });
-
-        //get transport_mode
-        $http.get("index.php/transport_mode").success(function(data){
-            $scope.transport_mode = data;
-        });
-
-        //get adjustment_reasons
-        $http.get("index.php/adjustment_reasons").success(function(data){
-            $scope.adjustment_reasons = data;
-        });
-
-        //get manufactures
-        $http.get("index.php/manufactures").success(function(data){
-            $scope.manufactures = data;
-        });
-
         //switch annual quota formats
          $scope.switchFormats = function(val){
              $scope.dataFormat = val;
         };
-        $http.get("index.php/annual_quota").success(function(data){
-            $scope.annual_quota = data;
-        });
 
         //save recipient annual quota
         $scope.getAnnualQuota = function(itemId,recipientId){
@@ -170,7 +132,7 @@ angular.module("vssmApp")
 
 
         $scope.showAEdit = function(item,view){
-            $scope.myItem = item;
+            $scope.myItem = angular.copy(item);
             $modal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/basicdata/'+view+'.html',
@@ -205,8 +167,6 @@ angular.module("vssmApp")
             $scope.showEditAdd = false;
             $scope.currentKaya = {};
         }
-
-
 
         var $translate = $filter('translate');
         $scope.deletedItem = [];
@@ -354,6 +314,9 @@ angular.module("vssmApp")
 
         }
         $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+        $scope.cancelupdate = function () {
             $modalInstance.dismiss('cancel');
         };
     });

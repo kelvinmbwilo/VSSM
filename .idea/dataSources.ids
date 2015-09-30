@@ -2906,6 +2906,7 @@
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="used_volume" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8" def="MA=="/>
+      <column name="notes" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="system_settings" schema="" catalog="vssm" type="TABLE">

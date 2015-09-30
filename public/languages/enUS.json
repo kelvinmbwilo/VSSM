@@ -39,7 +39,7 @@
         "recipients_levels":"Recipients Levels",
         "annual_quota":"Annual Quota",
         "system_settings":"System Settings",
-        "arrival_adjustment":"Arrival Adjustment",
+        "arrival_adjustment":"Arrival Cancellation",
         "dispatch_adjustment":"Dispatch Adjustment",
         "stock_adjustment":"Stock Adjustment",
         "sample_report":"Sample Report",
@@ -59,7 +59,8 @@
         "below_minimum":"Items Below Minimum ",
         "above_maximum":"Items Above Maximum ",
         "expired_items":"Expired Items",
-        "canceled_invoices":"Canceled Invoices"
+        "canceled_invoices":"Canceled Invoices",
+        "transit_invoice":"In Transit Inventory"
 
     },
     "labels":{
@@ -227,7 +228,9 @@
         "enough_for":"Enough For",
         "cancel_dispatch":"Cancel Dispatch",
         "cancel_arrival":"Cancel Arrival",
-        "Notifications":"Notifications"
+        "Notifications":"Notifications",
+        "adjustdispatch":"Adjust Dispatch"
+
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

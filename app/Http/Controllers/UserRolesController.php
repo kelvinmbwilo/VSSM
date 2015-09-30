@@ -40,6 +40,7 @@ class UserRolesController extends Controller
     {
         $item = new UserRoles;
         $item->name  = $request->input("name");
+        $item->roles  = $request->input("roles");
         $item->save();
         return $item;
     }
@@ -77,6 +78,7 @@ class UserRolesController extends Controller
     {
         $item = UserRoles::find($id);
         $item->name  = $request->input("name");
+        $item->roles  = $request->input("roles");
         $item->save();
         return $item;
     }

@@ -13,7 +13,7 @@
     </div>
     <!-- End  / heading--><!-- Start .row -->
 <div class="row">
-    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addAnnualQuota')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+    <button ng-if="hasRole(userRoles,'add_annualqouta')" style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addAnnualQuota')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     <button style="margin: 5px" class="pull-right btn btn-info" ng-click="switchFormats(false)" ng-if="dataFormat"><i class="s16 icomoon-icon-table"></i><span translate="labels.show_report"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     <button style="margin: 5px" class="pull-right btn btn-info" ng-click="switchFormats(true)" ng-if="!dataFormat"><i class="s16 icomoon-icon-pen"></i><span translate="labels.show_data"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
 
@@ -38,12 +38,12 @@
                 <td>{{ item.vaccine.name }}</td>
                 <td>{{ item.expected_annual_need }}</td>
                 <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateAnnualQuota')"><i class="fa fa-pencil-square"></i>
+                    <md-button ng-if="hasRole(userRoles,'edit_annualqouta')" aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateAnnualQuota')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>
                             <span translate="help.update"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'annual_quota')"><i class="fa fa-trash-o"></i>
+                    <md-button ng-if="hasRole(userRoles,'delete_annualqouta')"  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'annual_quota')"><i class="fa fa-trash-o"></i>
 
                         <md-tooltip>
                             <span translate="help.delete"></span>

@@ -13,7 +13,7 @@
     </div>
     <!-- End  / heading--><!-- Start .row -->
 
-    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd()"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+    <button ng-if="hasRole(userRoles,'add_users')" style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd()"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     <div class="row">
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
             <thead>
@@ -43,13 +43,13 @@
                             <span translate="help.update"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-primary"  ng-click="showLogs(item)"><i class="fa fa-info-circle"></i>
+                    <md-button ng-if="hasRole(userRoles,'update_users')"  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-primary"  ng-click="showLogs(item)"><i class="fa fa-info-circle"></i>
 
                         <md-tooltip>
                             <span translate="help.system_usage"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id)"><i class="fa fa-trash-o"></i>
+                    <md-button ng-if="hasRole(userRoles,'delete_users')"  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id)"><i class="fa fa-trash-o"></i>
 
                         <md-tooltip>
                             <span translate="help.delete"></span>

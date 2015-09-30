@@ -156,7 +156,7 @@ angular.module("vssmApp")
 
         $routeProvider.when("/dispatch_adjustment",{
             templateUrl: 'views/adjustment/dispatch_adjustment.html',
-            controller: 'adjustmentCtrl'
+            controller: 'dispatchAdjustmentCtrl'
         });
 
         $routeProvider.when("/move_items",{
@@ -206,6 +206,11 @@ angular.module("vssmApp")
         $routeProvider.when("/above_maximum",{
             templateUrl: 'views/reports/above_maximum.html',
             controller: 'reportCtrl'
+        });
+
+        $routeProvider.when("/transit_invoice",{
+            templateUrl: 'views/reports/transit_invoice.html',
+            controller: 'dispatchedCtrl'
         });
 
 

@@ -1,0 +1,57 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.transit_invoice"></h3>
+        <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.transit_invoice"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+
+    <h3 class="text-center" translate="menu.transit_invoice"></h3>
+    <table datatable="ng" class="table table-striped table-bordered table-responsive" dt-options="dtOptions" >
+        <thead>
+        <tr>
+            <th >#</th>
+            <th translate="labels.product"></th>
+            <th translate="labels.manufacture"></th>
+            <th translate="labels.lot_number"></th>
+            <th translate="labels.expired_date"></th>
+            <th translate="labels.doses"></th>
+            <th translate="labels.voucher_no"></th>
+            <th translate="labels.recipients"></th>
+            <th translate="labels.vials"></th>
+            <th translate="labels.total_volume"></th>
+            <th translate="labels.t_price"></th>
+            <th translate="labels.activity"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in sent_packages" ng-if="item.package.receiving_status == 'pending'">
+            <td>{{ $index+1 }}</td>
+            <td>{{ item.vaccine.name }}</td>
+            <td>{{ getManufactureName(item.packaging.manufacture_id ) }}</td>
+            <td>{{ item.batch_number }}</td>
+            <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
+            <td>{{ item.amount | number:0  }}</td>
+            <td>{{ item.package.voucher_number }}</td>
+            <td>{{ item.receiver.name }}</td>
+            <td>{{ item.amount/item.packaging.dose_per_vial | number:0 }}</td>
+            <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4  }}</td>
+            <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2}}</td>
+            <td>{{ getActivityName(item.activity) }}</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+    <!-- End .row -->
+  </div>
+
+

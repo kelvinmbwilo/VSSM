@@ -27,6 +27,11 @@
                 <option value="dry_store" translate="labels.dry_store"></option>
             </select>
         </div>
+        <!--net volume-->
+        <div class="form-group">
+            <label for="notes" translate="labels.notes"></label>
+            <textarea  ng-model="myItem.notes" class="form-control" id="notes" placeholder="{{ 'labels.notes' | translate }}"></textarea>
+        </div>
         <div class="form-group">
             <label class="required" for="exampleInputPassword2" translate="labels.status"></label>
             <select required="" type="text" ng-model="myItem.status" class="form-control" id="exampleInputPassword2" >

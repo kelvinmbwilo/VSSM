@@ -27,6 +27,11 @@
                 <option value="dry_store" translate="labels.dry_store"></option>
             </select>
         </div>
+        <!--net volume-->
+        <div class="form-group">
+            <label for="notes" translate="labels.notes"></label>
+            <textarea  ng-model="newItem.notes" class="form-control" id="notes" placeholder="{{ 'labels.notes' | translate }}"></textarea>
+        </div>
 
 
         <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'stores',stores)"></button>

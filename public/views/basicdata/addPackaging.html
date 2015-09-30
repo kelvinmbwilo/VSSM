@@ -41,8 +41,8 @@
         </div>
         <!--commercial_name-->
         <div class="form-group">
-            <label class="required" for="commercial_name" translate="labels.commercial_name"></label>
-            <input required="" type="text" ng-model="newItem.commercial_name" class="form-control" id="commercial_name" placeholder="{{ 'labels.commercial_name' | translate }}">
+            <label for="commercial_name" translate="labels.commercial_name"></label>
+            <input type="text" ng-model="newItem.commercial_name" class="form-control" id="commercial_name" placeholder="{{ 'labels.commercial_name' | translate }}">
         </div>
         <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'packaging_information',packaging_information)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>

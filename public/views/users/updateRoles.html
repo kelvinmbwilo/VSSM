@@ -3,12 +3,26 @@
     <h4 class="modal-title" translate="labels.update_user_roles"></h4>
 </div>
 <div class="modal-body">
-    <form class="col-md-8 col-md-offset-2" novalidate name="myForm">
+    <form class="col-md-12" novalidate name="myForm">
         <div class="form-group">
             <label class="required" for="exampleInputPassword1" translate="labels.name"></label>
             <input required="" type="text" ng-model="myItem.name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.name' | translate }}">
         </div>
-
+        <div style="height: 400px">
+            <div
+                    isteven-multi-select
+                    input-model="updatingBrowers"
+                    output-model="outputupdateBrowsers"
+                    button-label="icon name"
+                    item-label="icon name maker"
+                    tick-property="ticked"
+                    max-labels = '0'
+                    max-height ="250px"
+                    group-property="msGroup"
+                    orientation="horizontal"
+                    >
+            </div>
+        </div>
         <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="update(myItem)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
         <br>

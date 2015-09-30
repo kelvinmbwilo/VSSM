@@ -16,7 +16,7 @@ angular.module("vssmApp")
             });
         }
         $scope.showAEdit = function(item){
-            $scope.myItem = item;
+            $scope.myItem = angular.copy(item);
             $modal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/recipient/updateRecipientLevel.html',

@@ -194,6 +194,7 @@ angular.module("vssmApp")
         $scope.vacciineValues = [];
         $http.get("index.php/disaptchedItems").success(function(data){
             $scope.disaptchedItems = data;
+
             angular.forEach(data,function(value){
                 $scope.vaccineNames.push($scope.getVaccineName(value.vaccine_id));
                 $scope.vacciineValues.push(parseInt(value.total));

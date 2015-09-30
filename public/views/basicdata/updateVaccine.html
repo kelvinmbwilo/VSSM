@@ -47,7 +47,7 @@
         </div>
 
         <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="update(myItem,'vaccines',vaccines)"></button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
+        <button class="btn btn-warning" type="button" ng-click="cancelupdate()" translate="labels.cancel"></button>
         <br>
         <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
     </form>

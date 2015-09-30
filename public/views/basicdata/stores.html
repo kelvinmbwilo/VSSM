@@ -13,7 +13,7 @@
     </div>
     <!-- End  / heading--><!-- Start .row -->
     <div class="row">
-    <button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addStores')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
+    <button ng-if="hasRole(userRoles,'add_stores')" style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addStores')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>
     </div>
     <div class="row">
 
@@ -25,6 +25,7 @@
                 <th width="15%" translate="labels.name"></th>
                 <th width="15%" translate="labels.net_volume"></th>
                 <th width="15%" translate="labels.store_type"></th>
+                <th width="15%" translate="labels.notes"></th>
                 <th width="15%" translate="labels.status">Status</th>
                 <th width="10%" translate="labels.action">Action</th>
             </tr>
@@ -39,16 +40,17 @@
                 <td ng-if="item.store_type == 'above_zero'" translate="labels.above_zero"></td>
                 <td ng-if="item.store_type == 'below_zero'" translate="labels.below_zero"></td>
                 <td ng-if="item.store_type == 'dry_store'" translate="labels.dry_store"></td>
+                <td>{{ item.notes }}</td>
                 <!--status-->
                 <td ng-if="item.status == 'active'" translate="labels.active"></td>
                 <td ng-if="item.status == 'inactive'" translate="labels.inactive"></td>
                 <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateStores')"><i class="fa fa-pencil-square"></i>
+                    <md-button  ng-if="hasRole(userRoles,'edit_stores')" aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateStores')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>
                             <span translate="help.update"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'stores')"><i class="fa fa-trash-o"></i>
+                    <md-button ng-if="hasRole(userRoles,'delete_stores')" aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'stores')"><i class="fa fa-trash-o"></i>
 
                         <md-tooltip>
                             <span translate="help.delete"></span>

@@ -30,6 +30,7 @@ else{
     <link href="<?php echo  asset('css/kendo.common-material.min.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('css/angular-multi-select.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('bower_components/angular-material/angular-material.min.css')  ?>" rel="stylesheet">
+    <link href="<?php echo  asset('bower_components/angular-multi-select/doc/css/isteven-multi-select.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('bower_components/TableTools-master/css/dataTables.tableTools.css')  ?>" rel="stylesheet">
     <link href="<?php echo  asset('jqueryui/css/cupertino/jquery-ui-1.10.4.custom.min.css')  ?>" rel="stylesheet">
     <!-- Css files -->
@@ -122,22 +123,21 @@ else{
             <!-- End .sidenav-widget -->
             <div class=mainnav>
                 <ul>
-                    <li><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
-                    <li></li>
+                    <li ng-if="hasRole(userRoles,'see_dashboard')"><a href="./#home" class="dashboard11"><i class="s16 icomoon-icon-screen-2"></i><span class=txt translate="menu.dashboard"></span></a></li>
                     <li>
                         <a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
                         <ul class=sub>
-                            <li><a href="./#close_to_expiry" ng-class="{ active1: isActive('/close_to_expiry') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span>  </a></li>
-                            <li><a href="./#below_minimum" ng-class="{ active1: isActive('/below_minimum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span> </a></li>
-                            <li><a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span> </a></li>
+                            <li ng-if="hasRole(userRoles,'see_closetoexpiry')"><a href="./#close_to_expiry" ng-class="{ active1: isActive('/close_to_expiry') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span>  </a></li>
+                            <li ng-if="hasRole(userRoles,'see_belowminimum')"><a href="./#below_minimum" ng-class="{ active1: isActive('/below_minimum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span> </a></li>
+                            <li ng-if="hasRole(userRoles,'see_aboveminimum')"><a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span> </a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/receive') || isActive('/receive_pre') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
-                            <li ng-if="userRecipientLevel == 1"><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li ng-if="userRecipientLevel != 1"><a href="./#receive_other" ng-class="{ active1: isActive('/receive_other') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li ng-if="userRecipientLevel == 1"><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_vaccinediluent')" ng-if="userRecipientLevel == 1"><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_vaccinediluent')" ng-if="userRecipientLevel != 1"><a href="./#receive_other" ng-class="{ active1: isActive('/receive_other') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_preadvice')" ng-if="userRecipientLevel == 1"><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
 <!--                            <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.open_stock"></span></a></li>-->
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
@@ -145,73 +145,74 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.dispatch"></span></a>
                         <ul class=sub>
-                            <li><a href="./#dispatch"  ng-class="{ active1: isActive('/dispatch') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_dispach')" ><a href="./#dispatch"  ng-class="{ active1: isActive('/dispatch') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
 <!--                            <li><a href="./#requests" ng-class="{ active1: isActive('/requests') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>-->
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-tab"></i><span class=txt translate="menu.summary"></span></a>
                         <ul class=sub>
-                            <li><a href="./#expected_packages" ng-class="{ active1: isActive('/expected_packages') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
-                            <li><a href="./#dispatched_packeges" ng-class="{ active1: isActive('/dispatched_packeges') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
-                            <li><a href="./#stock_items" ng-class="{ active1: isActive('/stock_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
-                            <li><a href="./#arrivals_summary" ng-class="{ active1: isActive('/arrivals_summary') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrivals"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_expectedpackages')"><a href="./#expected_packages" ng-class="{ active1: isActive('/expected_packages') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expected_packages"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_dispatchedpackage')" ><a href="./#dispatched_packeges" ng-class="{ active1: isActive('/dispatched_packeges') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatched_packaged"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_stockitems')" ><a href="./#stock_items" ng-class="{ active1: isActive('/stock_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_arrivalsummary')" ><a href="./#arrivals_summary" ng-class="{ active1: isActive('/arrivals_summary') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrivals"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-equalizer-2"></i><span class=txt translate="menu.adjustment">Adjustment</span></a>
                         <ul class=sub>
-                            <li><a href="./#arrival_adjustment" ng-class="{ active1: isActive('/arrival_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
-                            <li><a href="./#dispatch_adjustment" ng-class="{ active1: isActive('/dispatch_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
-                            <li><a href="./#stock_adjustment" ng-class="{ active1: isActive('/stock_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
-                            <li><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_arivalcancellation')" ><a href="./#arrival_adjustment" ng-class="{ active1: isActive('/arrival_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_dispatchadjustment')" ><a href="./#dispatch_adjustment" ng-class="{ active1: isActive('/dispatch_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_stockadjustment')" ><a href="./#stock_adjustment" ng-class="{ active1: isActive('/stock_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_moveitems')" ><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-stats-up"></i><span class=txt translate="menu.reports"></span></a>
                         <ul class=sub>
-                            <li><a href="./#dispatch_report"  ng-class="{ active1: isActive('/dispatch_report') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
-                            <li><a href="./#monthly_arrivals"  ng-class="{ active1: isActive('/monthly_arrivals') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
-                            <li><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span> <span class="badge badge-info">{{ number_expired_items }}</span></a></li>
-                            <li><a href="./#canceled_invoices"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.canceled_invoices"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_dispatchreprt')" ><a href="./#dispatch_report"  ng-class="{ active1: isActive('/dispatch_report') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_arrivalreport')" ><a href="./#monthly_arrivals"  ng-class="{ active1: isActive('/monthly_arrivals') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_expireditems')" ><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span> <span class="badge badge-info">{{ number_expired_items }}</span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_canceledinvoice')" ><a href="./#canceled_invoices"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.canceled_invoices"></span></a></li>
+                            <li><a href="./#transit_invoice"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transit_invoice"></span></a></li>
                         </ul>
                     </li>
-                    <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
-                    <li><a href="./#pre_advice" ng-class="{ active1: isActive('/pre_advice') }"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
+                    <li ng-if="hasRole(userRoles,'see_stockopening')" ><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
+                    <li ng-if="hasRole(userRoles,'see_preadvicenotice')" ><a href="./#pre_advice" ng-class="{ active1: isActive('/pre_advice') }"><i class="s16 icomoon-icon-alarm"></i><span class=txt translate="menu.pre_advice"></span></a></li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-table-2"></i><span class=txt translate="menu.basic_data">Basic Data</span></a>
                         <ul class=sub>
-                            <li><a href="./#vaccine_diluent" ng-class="{ active1: isActive('/vaccine_diluent') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li><a href="./#packaging" ng-class="{ active1: isActive('/packaging') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.GTIN_lookup"></span></a></li>
-                            <li><a href="./#item_min_max" ng-class="{ active1: isActive('/item_min_max') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.items_max_min"></span></a></li>
-                            <li><a href="./#sources" ng-class="{ active1: isActive('/sources') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sources"></span></a></li>
-                            <li><a href="./#stores" ng-class="{ active1: isActive('/stores') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stores"></span></a></li>
-                            <li><a href="./#transport_modes" ng-class="{ active1: isActive('/transport_modes') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transport_mode"></span></a></li>
-                            <li><a href="./#adjustment_reason" ng-class="{ active1: isActive('/adjustment_reason') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
-                            <li><a href="./#activities" ng-class="{ active1: isActive('/activities') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
-                            <li><a href="./#manufactures" ng-class="{ active1: isActive('/manufactures') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
-                            <li><a href="./#recipients"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
-                            <li><a href="./#annual_quota" ng-class="{ active1: isActive('/annual_quota') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_vaccine')" ><a href="./#vaccine_diluent" ng-class="{ active1: isActive('/vaccine_diluent') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_packaging')" ><a href="./#packaging" ng-class="{ active1: isActive('/packaging') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.GTIN_lookup"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_itemsmaxmin')" ><a href="./#item_min_max" ng-class="{ active1: isActive('/item_min_max') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.items_max_min"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_sources')" ><a href="./#sources" ng-class="{ active1: isActive('/sources') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.sources"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_stores')" ><a href="./#stores" ng-class="{ active1: isActive('/stores') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stores"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_transportmode')" ><a href="./#transport_modes" ng-class="{ active1: isActive('/transport_modes') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transport_mode"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_adjustmentreason')" ><a href="./#adjustment_reason" ng-class="{ active1: isActive('/adjustment_reason') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustment_reasons"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_activities')" ><a href="./#activities" ng-class="{ active1: isActive('/activities') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.activities"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_manufactures')" ><a href="./#manufactures" ng-class="{ active1: isActive('/manufactures') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.manufactures"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_basicrecipients')" ><a href="./#recipients"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_annualqouta')" ><a href="./#annual_quota" ng-class="{ active1: isActive('/annual_quota') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.annual_quota"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#" ng-class="{ active: isActive('/recipient') || isActive('/recipient_level') }"><i class="s16 icomoon-icon-location-3"></i><span class=txt translate="menu.recipients"></span></a>
                         <ul class=sub>
-                            <li><a href="./#recipient" ng-class="{ active1: isActive('/recipient') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
-                            <li><a href="./#recipient_level" ng-class="{ active1: isActive('/recipient_level') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients_levels"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_recipients')" ><a href="./#recipient" ng-class="{ active1: isActive('/recipient') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_recipientslevels')" ><a href="./#recipient_level" ng-class="{ active1: isActive('/recipient_level') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.recipients_levels"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#" ng-class="{ active: isActive('/users') || isActive('/user_roles') }"><i class="s16 icomoon-icon-users-2"></i><span class=txt translate="menu.user_management"></span></a>
                         <ul class=sub>
-                            <li><a href="./#users" ng-class="{ active1: isActive('/users') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.users"></span></a></li>
-                            <li><a href="./#user_roles" ng-class="{ active1: isActive('/user_roles') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.user_roles"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_users')" ><a href="./#users" ng-class="{ active1: isActive('/users') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.users"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_userroles')" ><a href="./#user_roles" ng-class="{ active1: isActive('/user_roles') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.user_roles"></span></a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li ng-if="hasRole(userRoles,'see_configuration')" >
                         <a href="blank.html#"><i class="s16 icomoon-icon-cog-2"></i><span class=txt translate="menu.configuration"></span></a>
                         <ul class=sub>
-                            <li><a href="./#system_settings" ng-class="{ active1: isActive('/system_settings') }" ><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_configuration')" ><a href="./#system_settings" ng-class="{ active1: isActive('/system_settings') }" ><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.system_settings"></span></a></li>
                             <!--                            <li><a href="maps-vector.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Vector maps</span></a></li>-->
                         </ul>
                     </li>
@@ -303,8 +304,9 @@ else{
 <script src="<?php echo  asset('bower_components/angular-sanitize/angular-sanitize.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-ui-date/src/date.js')  ?>"></script>
 <script src="<?php echo  asset('js/kendo.all.min.js')  ?>"></script>
+<script src="<?php echo  asset('bower_components/angular-multi-select/doc/js/libs/isteven-multi-select.js')  ?>"></script>
 <script>
-    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','kendo.directives','highcharts-ng','multi-select']);
+    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','kendo.directives','highcharts-ng','isteven-multi-select','multi-select']);
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
 
