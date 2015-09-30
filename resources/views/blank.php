@@ -135,9 +135,9 @@ else{
                     <li>
                         <a href="blank.html#"  ng-class="{ active: isActive('/receive') || isActive('/receive_pre') }"><i class="s16 icomoon-icon-cart-add"></i><span class=txt translate="menu.arrival"></span></a>
                         <ul class=sub>
-                            <li ng-if="hasRole(userRoles,'see_vaccinediluent')" ng-if="userRecipientLevel == 1"><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_vaccinediluent')" ng-if="userRecipientLevel != 1"><a href="./#receive_other" ng-class="{ active1: isActive('/receive_other') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_preadvice')" ng-if="userRecipientLevel == 1"><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
+                            <li ng-if="userRecipientLevel == 1 && hasRole(userRoles,'see_vaccinediluent')"><a href="./#receive" ng-class="{ active1: isActive('/receive') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="userRecipientLevel != 1 && hasRole(userRoles,'see_vaccinediluent')"><a href="./#receive_other" ng-class="{ active1: isActive('/receive_other') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.vaccine_diluent"></span></a></li>
+                            <li ng-if="userRecipientLevel == 1 && hasRole(userRoles,'see_preadvice')"><a href="./#receive_pre" ng-class="{ active1: isActive('/receive_pre') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.from_pre_advice"></span></a></li>
 <!--                            <li><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.open_stock"></span></a></li>-->
 <!--                             <li><a href="charts-other.html"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt>Other charts</span></a></li>-->
                         </ul>
