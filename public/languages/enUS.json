@@ -22,6 +22,7 @@
         "basic_data":"Basic Data",
         "configuration":"Configuration",
         "recipients":"Recipients",
+        "recipients_tree":"Recipients Tree",
         "recipient_levels":"Recipient Levels",
         "user_management":"User Management",
         "users":"Users",

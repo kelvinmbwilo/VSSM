@@ -9,7 +9,6 @@ angular.module("vssmApp")
             $scope.userroles = data;
         });
 
-
         var roles = [
             {name: 'Dashboard', msGroup: true},
             {  name: "See Dashboard", role: "see_dashboard", ticked: false },
@@ -43,6 +42,7 @@ angular.module("vssmApp")
             {  name: "See Arrival Report", role: "see_arrivalreport", ticked: false },
             {  name: "See Expired Items", role: "see_expireditems", ticked: false },
             {  name: "See Canceled Invoice", role: "see_canceledinvoice", ticked: false },
+            {  name: "See In transit Inventory", role: "see_intransityinvertory", ticked: false },
             {  name: "", role: "", ticked: false },
             {   msGroup: false },
             {name: 'Stock Opening', msGroup: true},
@@ -59,6 +59,10 @@ angular.module("vssmApp")
             {  name: "Add", role: "add_recipients", ticked: false },
             {  name: "Update", role: "update_recipients", ticked: false },
             {  name: "Delete", role: "delete_recipients", ticked: false },
+            {  name: "See", role: "see_recipientslevels", ticked: false },
+            {  name: "Add", role: "add_recipientslevels", ticked: false },
+            {  name: "Update", role: "update_recipientslevels", ticked: false },
+            {  name: "Delete", role: "delete_recipientslevels", ticked: false },
             {   msGroup: false },
             {name: 'User Management', msGroup: true},
             {  name: "See Users", role: "see_users", ticked: false },
@@ -176,6 +180,7 @@ angular.module("vssmApp")
             {  name: "See Arrival Report", role: "see_arrivalreport", ticked: false },
             {  name: "See Expired Items", role: "see_expireditems", ticked: false },
             {  name: "See Canceled Invoice", role: "see_canceledinvoice", ticked: false },
+            {  name: "See In transit Inventory", role: "see_intransityinvertory", ticked: false },
             {  name: "", role: "", ticked: false },
             {   msGroup: false },
             {name: 'Stock Opening', msGroup: true},
