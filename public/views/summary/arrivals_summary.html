@@ -47,6 +47,7 @@
             <thead>
             <tr>
                 <th >#</th>
+                <th translate="labels.voucher_no"></th>
                 <th translate="labels.product"></th>
                 <th translate="labels.manufacture"></th>
                 <th translate="labels.lot_number"></th>
@@ -63,6 +64,7 @@
             <tbody>
             <tr ng-repeat="item in arrivalItems">
                 <td>{{ $index+1 }}</td>
+                <td>{{ item.voucher_number }}</td>
                 <td>{{ getVaccineName(item.vaccine_id) }}</td>
                 <td>{{ getManufactureName(item.packaging.manufacture_id ) }}</td>
                 <td>{{ item.lot_number }}</td>
