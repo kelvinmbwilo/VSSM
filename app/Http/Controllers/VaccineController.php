@@ -332,6 +332,7 @@ class VaccineController extends Controller
             $ArrivalItem->prduction_date            = (isset($item['prod_date']))?$item['prod_date']:'';
             $ArrivalItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
             $ArrivalItem->arrival_date              = $request->input('arrival_date');
+            $ArrivalItem->voucher_number            = $arrival->reference;
 
             $ArrivalItem->save();
 
@@ -414,7 +415,7 @@ class VaccineController extends Controller
         for($sj = 6; $sj > strlen($nextNumber);$sj--){
             $str.="0";
         }
-        $arrival->reference                 = date('Y')."1".$str+"".$nextNumber;
+        $arrival->reference                 = date('Y')."4".$str+"".$nextNumber;
         $arrival->order_no                  = $nextNumber;
         $arrival->recipient_source_id       = $recipient->parent_id;
         $arrival->recipient_destination_id  = $recipient->id;
@@ -452,6 +453,7 @@ class VaccineController extends Controller
             $ArrivalItem->manufacture_id            = (isset($item['manufacture_id']))?$item['manufacture_id']:0;
             $ArrivalItem->prduction_date            = (isset($item['prod_date']))?$item['prod_date']:'';
             $ArrivalItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
+            $ArrivalItem->voucher_number            = $arrival->reference;
             $ArrivalItem->save();
 
             $store = Store::find($item['store_id']);
@@ -585,6 +587,7 @@ class VaccineController extends Controller
             $ArrivalItem->manufacture_id            = (isset($item['manufacture_id']))?$item['manufacture_id']:0;
             $ArrivalItem->prduction_date            = (isset($item['prod_date']))?$item['prod_date']:'';
             $ArrivalItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
+            $ArrivalItem->voucher_number            = $arrival->reference;
             $ArrivalItem->arrival_date              = $request->input('arrival_date');
             $ArrivalItem->save();
 
@@ -707,6 +710,7 @@ class VaccineController extends Controller
             $dispatchItem->date_sent                 = $request->input('dispatch_date');
             $dispatchItem->unit_price                = (isset($item['u_price']))?$item['u_price']:'';
             $dispatchItem->expiry_date               = (isset($item['expired_date']))?$item['expired_date']:'';
+            $dispatchItem->voucher_number            = $dispatch->voucher_number;
             $dispatchItem->save();
 
             $store = Store::find($item['store_id']);

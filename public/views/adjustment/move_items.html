@@ -36,7 +36,8 @@
                     </select>
 
                     <label class="required" ng-if="newItem.status == 'one' && newItem.item_id" for="freight_cost" translate="labels.doses"></label>
-                    <input ng-change="changeVolume(newItem.doses)" required="" ng-if="newItem.status == 'one' && newItem.item_id" type="number" min="0" max="{{ maximum }}" ng-model="newItem.doses" class="form-control input-sm" id="freight_cost" placeholder="{{ 'labels.doses' | translate }}">
+                    <input ng-change="changeVolume(newItem.doses)" required="" ng-if="newItem.status == 'one' && newItem.item_id" type="number" min="0" ng-model="newItem.doses" class="form-control input-sm" id="freight_cost" placeholder="{{ 'labels.doses' | translate }}">
+                    <span class="help-text" ng-if="newItem.doses > maximum">Amount exceeds what you have in store</span>
                     <h4 ng-if="newItem.from_store" class="text-center">{{ selectedStore.name }} <span translate="labels.items"></span></h4>
                     <table ng-if="newItem.from_store" datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
                         <thead>
@@ -103,7 +104,7 @@
     <!-- End .row -->
     <div class="col-md-12">
         <h3  ng-if="currentSaving4"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-        <button ng-click="moveItem(newItem)" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.from_store" translate="labels.save_package"> </button>
+        <button ng-click="moveItem(newItem)"  ng-show="newItem.doses < maximum" ng-disabled="myForm.$invalid" class="btn btn-lg btn-primary" ng-if="newItem.from_store" translate="labels.save_package"> </button>
     </div>
 </div>
 

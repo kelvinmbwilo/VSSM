@@ -2655,6 +2655,7 @@
       <column name="expiry_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="source_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="arrival_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="voucher_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="arrivals" schema="" catalog="vssm" type="TABLE">
@@ -2833,6 +2834,7 @@
       <column name="recipient_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="receiver_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="date_sent" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="voucher_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="recipients_packages" schema="" catalog="vssm" type="TABLE">

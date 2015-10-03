@@ -162,6 +162,7 @@
                 <th translate="labels.t_price"></th>
                 <th translate="labels.activity"></th>
                 <th translate="labels.store"></th>
+                <th translate="labels.voucher_no"></th>
             </tr>
             </thead>
             <tbody>
@@ -176,6 +177,7 @@
                 <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2 }}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
                 <td>{{ getStoreName(item.store_id) }}</td>
+                <td>{{ item.voucher_number }}</td>
             </tr>
             </tbody>
         </table>
