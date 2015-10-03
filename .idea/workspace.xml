@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/addItemMaxMin.html" afterPath="$PROJECT_DIR$/public/views/basicdata/addItemMaxMin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/updateItemMaxMin.html" afterPath="$PROJECT_DIR$/public/views/basicdata/updateItemMaxMin.html" />
-    </list>
+    <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="" />
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
