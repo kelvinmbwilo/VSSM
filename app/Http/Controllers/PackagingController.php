@@ -47,7 +47,7 @@ class PackagingController extends Controller
         $item->vials_per_box      = $request->input("vials_per_box");
         $item->cm_per_dose        = $request->input("cm_per_dose");
         $item->manufacture_id     = $request->input("manufacture_id");
-        $item->commercial_name    = $request->input("commercial_name");
+        $item->commercial_name    = $request->has("commercial_name")?$request->input("commercial_name"):"";
         $item->status               = "active";
         $item->save();
         return $item->load('vaccine','manufacture');
@@ -81,7 +81,7 @@ class PackagingController extends Controller
         $item->vials_per_box     = $request->input("vials_per_box");
         $item->cm_per_dose     = $request->input("cm_per_dose");
         $item->manufacture_id     = $request->input("manufacture_id");
-        $item->commercial_name    = $request->input("commercial_name");
+        $item->commercial_name    = $request->has("commercial_name")?$request->input("commercial_name"):"";
         $item->status               = $request->input('status');
         $item->save();
         return $item->load('vaccine','manufacture');
