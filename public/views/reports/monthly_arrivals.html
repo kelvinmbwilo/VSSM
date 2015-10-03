@@ -126,12 +126,14 @@
             <table  datatable dt-options="dtOptions" class="table table-condensed table-bordered table-responsive" >
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>{{ data.category }}</th>
                     <th ng-repeat="cats in table.headers">{{ cats }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr data-ng-repeat="column in table.colums">
+                    <td>{{ $index+1 }}</td>
                     <td>{{ column.name }}</td>
                     <td ng-repeat="nsf in column.values">{{ nsf.value }}</td>
                 </tr>
