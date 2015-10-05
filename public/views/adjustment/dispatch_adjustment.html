@@ -12,7 +12,7 @@
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
-    <div class="row">
+    <div ng-if="!showSummary" class="row">
 
         <form class="col-md-12" novalidate name="" >
             <!--item_id-->
@@ -138,8 +138,78 @@
         <div class="col-md-12"  ng-if="!showSummary">
             <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
             <button  ng-disabled="myForm.$invalid" ng-click="adjustdispatch(newItem)" class="btn btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="labels.adjustdispatch"></button>
-            <button  ng-click="cancelDispatch(newItem)" class="btn btn-danger" ng-if="canCancel" translate="labels.cancel_dispatch"></button>
+            <button  ng-click="sendCancelDispatch($event,newItem)" class="btn btn-danger" ng-if="canCancel" translate="labels.cancel_dispatch"></button>
         </div >
+    </div>
+    <!--printed voucher-->
+    <div class="row" ng-if="showSummary">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="col-sm-2">
+                <img src="img/logo1.jpg" style="height: 100px;width: 100px">
+            </div>
+            <div class="col-sm-8">
+                <h3 class="text-center" translate="app.title"></h3>
+                <h4 class="text-center" translate="app.voucher_title"></h4>
+                <hr>
+            </div>
+            <div class="col-sm-2">
+                <img src="img/logo.jpg" style="height: 100px;width: 100px">
+            </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 text-center">
+            <span kendo-barcode k-type="'code128'" ng-model="newItem.voucher_no" style="width: 250px; margin: 0 auto;"></span>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 10px;margin-bottom: 20px">
+            <div class="col-sm-4"><h4 translate="labels.entered_by" translate-value-name="{{ logedInUserName }}"> </h4></div>
+            <div class="col-sm-4"><h4 translate="labels.issued_to" translate-value-name="{{ getRecipientName(newItem.recipients) }}"></h4></div>
+            <div class="col-sm-4"><h4 translate="labels.transport_mode1" translate-value-name="{{ getTransportName(newItem.transport_mode) }}"></h4></div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <table class="table table-striped table-bordered" >
+                <thead>
+                <tr style="background-color: greenyellow">
+                    <th >Sr</th>
+                    <th translate="labels.product"></th>
+                    <th translate="labels.manufacture"></th>
+                    <th translate="labels.lot_number"></th>
+                    <th translate="labels.expired_date"></th>
+                    <th translate="labels.doses"></th>
+                    <th translate="labels.vials"></th>
+                    <th translate="labels.t_price"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in newItem.items" ng-hide="deletedItem[item.id]">
+                    <td>{{ $index+1 }}</td>
+                    <td>{{ item.item }}</td>
+                    <td>{{ getManufactureName(item.manufacture_id) }}</td>
+                    <td>{{ item.lot_number }}</td>
+                    <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
+                    <td>{{ item.doses }}</td>
+                    <td>{{ item.vials }}</td>
+                    <td>{{ main_currency }} {{ item.u_price * item.doses }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <h4 translate="labels.total_price" translate-value-price="{{ getTotalPrice() }}" translate-value-currency="{{ main_currency }}"></h4>
+            <div class="col-sm-4">
+                <h5 translate="labels.issued"></h5>
+                <h5 translate="labels.name_signature"></h5>
+                <h5 translate="labels.sign"></h5>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h5 translate="labels.receiver"></h5>
+                <h5 translate="labels.name_signature"></h5>
+                <h5 translate="labels.sign"></h5>
+            </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1" style="margin-top: 15px">
+            <button class="btn btn-warning" translate="labels.cancel" ng-click="cancelDispatch()"></button>
+            <button class="btn btn-info" ng-click="downloadData()"><i class="fa fa-print"></i> </button>
+        </div>
     </div>
 </div>
 

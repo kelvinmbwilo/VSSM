@@ -2616,11 +2616,20 @@
     </table>
     <table name="adjustments" schema="" catalog="vssm" type="TABLE">
       <column name="id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="vaccine_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="packaging_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="lot_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="expiry_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="store_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="activity_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="source_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="recipient_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="notes" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="created_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="adjustment_reason" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="adjustment_type" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
-      <column name="resource_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="resource_id" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="order_no" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="year" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="reference" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
@@ -2656,6 +2665,7 @@
       <column name="source_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="arrival_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="voucher_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="arrivals" schema="" catalog="vssm" type="TABLE">
@@ -2677,6 +2687,7 @@
       <column name="exchange_rate" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="reference" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
       <column name="order_no" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="item_movements" schema="" catalog="vssm" type="TABLE">
@@ -2835,6 +2846,7 @@
       <column name="receiver_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="date_sent" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="voucher_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="recipients_packages" schema="" catalog="vssm" type="TABLE">

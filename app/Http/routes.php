@@ -323,8 +323,8 @@ Route::get('getNextPackageNumber',array('uses'=>'VaccineController@getNextPackag
 //getting arrivals
 Route::get('arrivals',array('uses'=>'VaccineController@arrivals'));
 
-//getting arrivals
-Route::get('arrivalItems',array('uses'=>'VaccineController@arrivals1'));
+//getting arrivalsforcancel
+Route::get('arrivalsforcancel',array('uses'=>'VaccineController@arrivalsforcancel'));
 
 //getting packages
 Route::get('sent_packages',array('uses'=>'VaccineController@packages'));
@@ -347,6 +347,9 @@ Route::get('pending_expected_packages',array('uses'=>'VaccineController@pendingE
 //getting dispatched_packages
 Route::get('dispatched_packages',array('uses'=>'VaccineController@dispatchedPackages'));
 
+//getting dispatched_packages
+Route::get('packagesToCancel',array('uses'=>'VaccineController@packagesToCancel'));
+
 //getting expected_packages
 Route::get('store/stock/{id}',array('uses'=>'StoreController@storeStockItems'));
 
@@ -368,6 +371,12 @@ Route::get('arrivalItemsMonth',array('uses'=>'StoreController@arrivalItemsMonth'
 //getting all arival Items
 Route::get('arrivalItems',array('uses'=>'StoreController@arrivalItems'));
 
+//getting all arival Items
+Route::get('canceledarrivalItems',array('uses'=>'StoreController@canceledarrivalItems'));
+
+//getting all arival Items
+Route::get('canceledDisItems',array('uses'=>'StoreController@canceledDisItems'));
+
 //getting all dispatched Items
 Route::get('disItems',array('uses'=>'StoreController@disItems'));
 
@@ -385,9 +394,6 @@ Route::post('pre_receive',array('uses'=>'VaccineController@pre_receive'));
 
 //saving new dispatch
 Route::post('dispatch',array('uses'=>'VaccineController@dispatchVaccine'));
-
-//saving adjust basic details
-Route::post('arrival_adjust1',array('uses'=>'VaccineController@arrival_adjust1'));
 
 //saving adjust other details
 Route::post('arrival_adjust',array('uses'=>'VaccineController@arrival_adjust'));

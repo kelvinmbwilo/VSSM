@@ -12,12 +12,155 @@
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+        <div class="form-group" >
+            <div class="col-md-6 col-md-offset-3"  >
+                <label class="required" for="select_arrival" translate="labels.select_arrival"></label>
+                <select required="" ng-change="getArrivalItem(newItem.arrival)"  id="select_arrival" class="form-control" ng-model="newItem.arrival"  ng-options="obj.id as obj.name for obj in arrivals">
+                    <option value="" translate="labels.select"></option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row" ng-if="canCancel">
+      <h3 class="text-center" ng-if="canCancel">Cancel Arrival of Reference Number {{ newItem.reference }}</h3>
+
+        <form class="col-md-12" novalidate name="myForm" >
+            <!--item_id-->
+            <div class="form-group" >
+
+                <div class="col-md-4"  >
+                    <label for="source" translate="labels.source"></label>
+                    <select disabled  id="source" class="form-control" ng-model="newItem.source_id"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                        <option value="" translate="labels.select"></option>
+                    </select>
+                </div>
+                <div class="col-md-4"  >
+                    <label  for="arrival_report_no" translate="labels.arrival_report_no"></label>
+                    <input disabled  id="arrival_report_no" type="text" ng-model="newItem.arrival_report_no" class="form-control input-sm"  placeholder="{{ 'labels.arrival_report_no' | translate }}">
+                </div>
+                <div class="col-md-4"  >
+                    <label class="required" for="arrival_date" translate="labels.arrival_date"></label>
+                    <p class="input-group">
+                        <input disabled type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.arrival_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                    </p>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"  >
+                    <label for="freight_cost" translate="labels.freight_cost"></label>
+                    <input disabled  type="text" ng-model="newItem.freight_cost" class="form-control input-sm" id="freight_cost" placeholder="{{ 'labels.freight_cost' | translate }}">
+                </div>
+                <div class="col-md-4"  >
+                    <label  for="packed_volume" translate="labels.packed_volume"></label>
+                    <input disabled  type="text" ng-model="newItem.packed_volume" class="form-control input-sm" id="packed_volume" placeholder="{{ 'labels.packed_volume' | translate }}">
+                </div>
+                <div class="col-md-4"  >
+                    <label  for="total_weight" translate="labels.total_weight"></label>
+                    <input disabled  type="text" ng-model="newItem.total_weight" class="form-control input-sm" id="total_weight" placeholder="{{ 'labels.total_weight' | translate }}">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-4"  >
+                    <label for="notes" translate="labels.notes"></label>
+                    <textarea disabled  type="text" ng-model="newItem.notes" class="form-control input-sm" id="notes" placeholder="{{ 'labels.notes' | translate }}"></textarea>
+                </div>
+                <div class="col-md-4" style="margin-top: 5px" >
+                    <div class="col-sm-6">
+                        <label  for="main_currency" translate="labels.main_currency"></label>
+                        <label style="margin-top: 10px"  for="currency_of_bill" translate="labels.currency_of_bill"></label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input disabled  type="text" ng-model="newItem.main_currency" class="form-control input-sm" id="main_currency" placeholder="{{ 'labels.main_currency' | translate }}">
+                        <input disabled style="margin-top: 5px"  type="text" ng-model="newItem.currency_of_bill" class="form-control input-sm" id="currency_of_bill" placeholder="{{ 'labels.currency_of_bill' | translate }}">
+                    </div>
+                    <!--<label class="required" for="annual_need_safety1" translate="labels.main_currency"></label>-->
+                    <!--<input required="" type="text" ng-model="newItem.annual_need_safety" class="form-control input-sm" id="annual_need_safety1" placeholder="{{ 'labels.annual_need_safety' | translate }}">-->
+                    <!--<br><label class="required" for="lead_time1" translate="labels.currency_of_bill"></label>-->
+                    <!--<input required="" type="text" ng-model="newItem.lead_time" class="form-control input-sm" id="lead_time1" placeholder="{{ 'labels.lead_time' | translate }}">-->
+                </div>
+                <div class="col-md-4"  >
+                    <label for="exchange_rate" translate="labels.exchange_rate"></label>
+                    <input disabled type="text" ng-model="newItem.exchange_rate" class="form-control input-sm" id="exchange_rate" placeholder="{{ 'labels.exchange_rate' | translate }}">
+                </div>
+
+            </div>
+
+        </form>
+
+
+    </div>
+    <div class="col-md-12" ng-if="canCancel" style="margin-top: 10px" >
+        <div class="panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+            <!-- Start .panel -->
+            <div class="panel-heading white-bg">
+                <h4 class="panel-title" translate="help.arrival_items"></h4>
+                <!--<div class="panel-controls panel-controls-right"><button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs"><i class="icomoon-icon-plus"></i><span translate="labels.add"></span></button>-->
+                <!--</div>-->
+            </div>
+            <div class="panel-body">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: auto;">
+                    <div class="table-responsive" style="overflow: scroll; width: 100%; height: auto;">
+                        <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+                            <thead>
+                            <tr>
+                                <th >#</th>
+                                <th translate="labels.product"></th>
+                                <th translate="labels.manufacture"></th>
+                                <th translate="labels.lot_number"></th>
+                                <th translate="labels.Dose_vial"></th>
+                                <th translate="labels.expired_date"></th>
+                                <th translate="labels.doses"></th>
+                                <th translate="labels.vials"></th>
+                                <th translate="labels.total_volume"></th>
+                                <th translate="labels.u_price"></th>
+                                <th translate="labels.t_price"></th>
+                                <th translate="labels.activity"></th>
+                                <th translate="labels.store"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in newItem.items" ng-style="item.hasMatch? { 'background-color':'inherit'} : { 'background-color':'rgba(0,0,0,0.2)'}">
+                                <td>{{ $index+1 }}</td>
+                                <td>{{ item.item }}</td>
+                                <td>{{ getManufactureName(item.manufacture_id) }}</td>
+                                <td>{{ item.lot_number }}</td>
+                                <td>{{ item.dose_vial }}</td>
+                                <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
+                                <td>{{ item.doses | number:0  }}</td>
+                                <td>{{ item.vials | number:0 }}</td>
+                                <td>{{ item.total_volume  | number:4 }}</td>
+                                <td>{{ main_currency }} {{ item.u_price | number:2 }}</td>
+                                <td>{{ main_currency }} {{ item.t_price | number:2 }}</td>
+                                <td>{{ getActivityName(item.activity_id) }}</td>
+                                <td>{{ getStoreName(item.store_id) }}</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="slimScrollBar ui-draggable" style="height: 5px; position: absolute; bottom: 3px; opacity: 0.4; display: none; border-radius: 5px; z-index: 99; width: 1014px; left: 0px; background: rgb(243, 243, 243);"></div>
+                    <div class="slimScrollRail" style="width: 100%; height: 5px; position: absolute; bottom: 3px; display: none; border-radius: 5px; opacity: 0.3; z-index: 90; background: rgb(51, 51, 51);"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
     <!-- End .row -->
-    <div class="col-md-10 col-md-offset-2" ng-if="newItem.item && newItem.arrival">
+    <div class="col-md-12 " ng-if="canCancel">
         <h4  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h4>
-        <button  ng-if="!currentSaving" ng-click="cancelarrival(newItem)" class="btn btn-sm btn-danger"  translate="labels.save_package"> </button>
-        <button  ng-if="!currentSaving" ng-click="cancel()"  class="btn btn-sm btn-warning" translate="labels.cancel"> </button>
+        <button  ng-if="!currentSaving" ng-click="cancelarrival($event,newItem)" class="btn  btn-danger"  translate="labels.cancel_arrival"> </button>
+        <button  ng-if="!currentSaving" ng-click="cancel2()"  class="btn btn-warning" translate="labels.cancel"> </button>
     </div>
 </div>
 

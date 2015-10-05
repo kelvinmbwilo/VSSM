@@ -216,6 +216,17 @@ class StoreController extends Controller
     }
 
     /**
+     * get canceledarrivalItems.
+     *
+     * @return Response
+     */
+    public function canceledarrivalItems()
+    {
+        $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->where('status','canceled')->get();
+        return $dispatch;
+    }
+
+    /**
      * get dispatchedItems.
      *
      * @return Response
@@ -223,6 +234,18 @@ class StoreController extends Controller
     public function disItems()
     {
         $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->get();
+        return $dispatch;
+
+    }
+
+    /**
+     * get dispatchedItems.
+     *
+     * @return Response
+     */
+    public function canceledDisItems()
+    {
+        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->where('status','canceled')->get();
         return $dispatch;
 
     }

@@ -151,7 +151,7 @@ angular.module("vssmApp")
 
         $routeProvider.when("/arrival_adjustment",{
             templateUrl: 'views/adjustment/arrival_adjustment.html',
-            controller: 'adjustmentCtrl'
+            controller: 'arrivalAdjustmentCtrl'
         });
 
         $routeProvider.when("/dispatch_adjustment",{
@@ -193,7 +193,7 @@ angular.module("vssmApp")
 
         $routeProvider.when("/canceled_invoices",{
             templateUrl: 'views/reports/canceled_invoices.html',
-            controller: 'reportCtrl'
+            controller: 'cancelInvoiceCtrl'
         });
 
 

@@ -69,7 +69,7 @@ angular.module("vssmApp")
             }
         };
 
-        //getting screening types
+        //getting arrivals items
         $http.get('index.php/arrivalItems').success(function(data){
             $scope.data.arrivalItems = data;
         });

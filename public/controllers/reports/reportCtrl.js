@@ -64,4 +64,14 @@ angular.module("vssmApp")
                 value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
             });
         });
+    }).controller("cancelInvoiceCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
+        //getting arrivals items
+        $http.get('index.php/canceledarrivalItems').success(function(data){
+            $scope.canceled_arrival_invoices = data;
+        });
+
+        //getting arrivals items
+        $http.get('index.php/canceledDisItems').success(function(data){
+            $scope.canceled_dispatch_invoices = data;
+        });
     });
