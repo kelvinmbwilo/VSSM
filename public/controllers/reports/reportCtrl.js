@@ -74,4 +74,9 @@ angular.module("vssmApp")
         $http.get('index.php/canceledDisItems').success(function(data){
             $scope.canceled_dispatch_invoices = data;
         });
+
+        //getting arrivals items
+        $http.get('index.php/adjustedItems').success(function(data){
+//            $scope.canceled_dispatch_invoices = data;
+        });
     });
