@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,19 +29,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="enUS.json" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="enUS.json" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="295" column="40" selection-start="12665" selection-end="12665" vertical-scroll-proportion="-6.9259257" vertical-offset="5123" max-vertical-offset="6804">
+            <state line="234" column="21" selection-start="9094" selection-end="9094" vertical-scroll-proportion="0.31009614" vertical-offset="4083" max-vertical-offset="6822">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reportCtrl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="reportCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/controllers/reports/reportCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="11" selection-start="4865" selection-end="4865" vertical-scroll-proportion="1.4146341" vertical-offset="918" max-vertical-offset="1566">
+            <state line="80" column="11" selection-start="4865" selection-end="4865" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="1566">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addAnnualQuota.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="14" selection-start="1725" selection-end="2025" vertical-scroll-proportion="-11.333333" vertical-offset="216" max-vertical-offset="810">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updateAnnualQuota.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="59" selection-start="1792" selection-end="1792" vertical-scroll-proportion="-12.0" vertical-offset="162" max-vertical-offset="792">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="anualQuota.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/basicdata/anualQuota.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="32" selection-start="2527" selection-end="2527" vertical-scroll-proportion="-16.666666" vertical-offset="270" max-vertical-offset="1692">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnnualQuotaController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="47" selection-start="2277" selection-end="2277" vertical-scroll-proportion="-8.0" vertical-offset="1188" max-vertical-offset="1872">
               <folding />
             </state>
           </provider>
@@ -66,10 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/views/basicdata/activities.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/adjustmentReasons.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/ItemMinMax.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/manufactures.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/packaging.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/sources.html" />
@@ -115,8 +150,12 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/public/views/reports/canceled_invoices.html" />
         <option value="$PROJECT_DIR$/public/languages/deDE.json" />
-        <option value="$PROJECT_DIR$/public/languages/enUS.json" />
         <option value="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" />
+        <option value="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" />
+        <option value="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" />
+        <option value="$PROJECT_DIR$/public/languages/enUS.json" />
       </list>
     </option>
   </component>
@@ -254,29 +293,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="summary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
+              <option name="myItemId" value="basicdata" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -488,12 +505,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47179487" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30641025" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44382802" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4432505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23774345" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -558,26 +575,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/views/pre_advice/pre_advice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="61" selection-start="800" selection-end="800" vertical-scroll-proportion="-6.0" vertical-offset="108" max-vertical-offset="1278" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/recipient/recipient_level.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="58" selection-start="788" selection-end="788" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1152" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/systemSettings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="26" selection-start="3172" selection-end="3172" vertical-scroll-proportion="-8.037037" vertical-offset="683" max-vertical-offset="1368" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/users/user_roles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="51" selection-start="786" selection-end="786" vertical-scroll-proportion="-8.0" vertical-offset="54" max-vertical-offset="1044" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/users/updateRoles.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="26" selection-start="305" selection-end="305" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="702" />
@@ -894,16 +891,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/reportCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="40" selection-start="12665" selection-end="12665" vertical-scroll-proportion="-6.9259257" vertical-offset="5123" max-vertical-offset="6804">
+        <state line="80" column="11" selection-start="4865" selection-end="4865" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="1566">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/reportCtrl.js">
+    <entry file="file://$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="11" selection-start="4865" selection-end="4865" vertical-scroll-proportion="1.4146341" vertical-offset="918" max-vertical-offset="1566">
+        <state line="29" column="14" selection-start="1725" selection-end="2025" vertical-scroll-proportion="-11.333333" vertical-offset="216" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/basicdata/anualQuota.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="32" selection-start="2527" selection-end="2527" vertical-scroll-proportion="-16.666666" vertical-offset="270" max-vertical-offset="1692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="47" selection-start="2277" selection-end="2277" vertical-scroll-proportion="-8.0" vertical-offset="1188" max-vertical-offset="1872">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="59" selection-start="1792" selection-end="1792" vertical-scroll-proportion="-12.0" vertical-offset="162" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="21" selection-start="9094" selection-end="9094" vertical-scroll-proportion="0.31009614" vertical-offset="4083" max-vertical-offset="6822">
           <folding />
         </state>
       </provider>

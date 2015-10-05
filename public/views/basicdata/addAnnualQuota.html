@@ -23,6 +23,11 @@
             <label class="required" for="expected_annual_need" translate="labels.expected_annual_need"></label>
             <input required="" type="text" ng-model="newItem.expected_annual_need" class="form-control" id="expected_annual_need" placeholder="{{ 'labels.expected_annual_need' | translate }}">
         </div>
+        <!--expected_annual_need-->
+        <div class="form-group">
+            <label class="required" for="year" translate="labels.year"></label>
+            <input required="" type="text" ng-model="newItem.year" class="form-control" id="year" placeholder="{{ 'labels.year' | translate }}">
+        </div>
 
         <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="save(newItem,'annual_quota',annual_quota)"></button>
         <button class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>

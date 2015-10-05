@@ -28,6 +28,7 @@
                 <th width="15%" translate="labels.recipients"></th>
                 <th width="15%" translate="labels.product"></th>
                 <th width="15%" translate="labels.expected_annual_need"></th>
+                <th width="15%" translate="labels.year"></th>
                 <th width="10%" translate="labels.action">Action</th>
             </tr>
             </thead>
@@ -37,6 +38,7 @@
                 <td>{{ item.recipient.name }}</td>
                 <td>{{ item.vaccine.name }}</td>
                 <td>{{ item.expected_annual_need }}</td>
+                <td>{{ item.year }}</td>
                 <td>
                     <md-button ng-if="hasRole(userRoles,'edit_annualqouta')" aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updateAnnualQuota')"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>

@@ -231,7 +231,8 @@
         "cancel_arrival":"Cancel Arrival",
         "Notifications":"Notifications",
         "adjustdispatch":"Adjust Dispatch",
-        "confirm_cancelTransaction":"Are you sure you want to cancel this transaction"
+        "confirm_cancelTransaction":"Are you sure you want to cancel this transaction",
+        "year":"Year"
 
     },
     "error": {

@@ -49,6 +49,7 @@ class AnnualQuotaController extends Controller
         $item->recipient_id   = $request->input("recipient_id");
         $item->item_id    = $request->input("item_id");
         $item->expected_annual_need  = $request->input("expected_annual_need");
+        $item->year  = $request->input("year");
         $item->parent_id  = Auth::user()->recipient_id;
         $item->save();
         return $item->load('recipient','vaccine');
@@ -80,6 +81,7 @@ class AnnualQuotaController extends Controller
         $item->recipient_id   = $request->input("recipient_id");
         $item->item_id    = $request->input("item_id");
         $item->expected_annual_need  = $request->input("expected_annual_need");
+        $item->year  = $request->input("year");
         $item->parent_id  = Auth::user()->recipient_id;
         $item->save();
         return $item->load('recipient','vaccine')->get();
