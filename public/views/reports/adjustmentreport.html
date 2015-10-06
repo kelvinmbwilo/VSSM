@@ -28,6 +28,7 @@
             <th translate="labels.adjusted_volume"></th>
             <th translate="labels.store"></th>
             <th translate="labels.activity"></th>
+            <th translate="labels.date"></th>
         </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
             <td>{{ item.adjusted_volume | number:2  }}</td>
             <td>{{ getStoreName(item.store_id)  }}</td>
             <td>{{ getActivityName(item.activity_id) }}</td>
+            <td>{{ item.created_at | date:'yyyy-MMM-dd' }}</td>
 
         </tr>
         </tbody>
