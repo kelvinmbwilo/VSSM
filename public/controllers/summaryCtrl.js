@@ -186,7 +186,12 @@ angular.module("vssmApp")
     .controller("expectedCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter){
         //get sent packages
         $http.get("index.php/expected_items").success(function(data){
-            $scope.expected_packages = data;
+            $scope.expected_packages = [];
+            angular.forEach(data,function(value){
+                if(data.package.receiving_status == "pending"){
+                    $scope.expected_packages.push(value);
+                }
+            });
         });
     })
     .controller("dispatchedCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
