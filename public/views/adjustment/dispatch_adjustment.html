@@ -34,7 +34,7 @@
                     <div class="col-md-4"  >
                         <label class="required" for="arrival_date" translate="labels.dispatch_date"></label>
                         <p class="input-group">
-                            <input type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.dispatch_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
+                            <input disabled type="text" id="arrival_date" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.dispatch_date" is-open="status.opened" min-date="minDate" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.arrival_date' | translate }}" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>
@@ -42,13 +42,13 @@
                     </div>
                     <div class="col-md-4"  >
                         <label for="source" translate="labels.recipients"></label>
-                        <select  id="source" ng-change="changeRecipient(newItem.recipients)" class="form-control" ng-model="newItem.recipients"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
+                        <select disabled id="source" ng-change="changeRecipient(newItem.recipients)" class="form-control" ng-model="newItem.recipients"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
                             <option value="" translate="labels.select"></option>
                         </select>
                     </div>
                     <div class="col-md-4"  >
                         <label for="transport_mode" translate="labels.transport_mode"></label>
-                        <select id="transport_mode" class="form-control" ng-model="newItem.transport_mode"  ng-options="obj.id as obj.name for obj in transport_mode | filter:{status:'active'}:true">
+                        <select disabled id="transport_mode" class="form-control" ng-model="newItem.transport_mode"  ng-options="obj.id as obj.name for obj in transport_mode | filter:{status:'active'}:true">
                             <option value="" translate="labels.select"></option>
                         </select>
                     </div>
@@ -67,8 +67,7 @@
                 <!-- Start .panel -->
                 <div class="panel-heading white-bg">
                     <h4 class="panel-title" translate="help.dispatch_items"></h4>
-                    <div class="panel-controls panel-controls-right"><button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs" title="{{ 'help.add_dispatchline' | translate}} "><i class="icomoon-icon-plus"></i> <span translate="labels.add"></span></button>
-                    </div>
+
                 </div>
                 <div class="panel-body">
                     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: auto;">
@@ -89,7 +88,6 @@
                                     <th translate="labels.t_price"></th>
                                     <th translate="labels.activity"></th>
                                     <th translate="labels.store"></th>
-                                    <th translate="labels.action">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -107,20 +105,7 @@
                                     <td>{{ main_currency }} {{ item.u_price * item.doses | number:2 }}</td>
                                     <td>{{ getActivityName(item.activity_id) }}</td>
                                     <td>{{ getStoreName(item.store_id) }}</td>
-                                    <td>
-                                        <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updatePreAdvice')"><i class="fa fa-pencil-square"></i>
-                                            <md-tooltip>
-                                                <span translate="help.update"></span>
-                                            </md-tooltip>
-                                        </md-button>
-                                        <md-button  aria-label="btu" ng-if="!deletingDis[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item)"><i class="fa fa-trash-o"></i>
 
-                                            <md-tooltip>
-                                                <span translate="help.delete"></span>
-                                            </md-tooltip>
-                                        </md-button>
-                                        <span ng-if="deletingItem[item.id]"><i class="fa fa-spin fa-spinner"></i> <span translate="labels.deleting"></span></span>
-                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -137,7 +122,7 @@
 
         <div class="col-md-12"  ng-if="!showSummary">
             <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-            <button  ng-disabled="myForm.$invalid" ng-click="adjustdispatch(newItem)" class="btn btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="labels.adjustdispatch"></button>
+            <!--<button  ng-disabled="myForm.$invalid" ng-click="adjustdispatch(newItem)" class="btn btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="labels.adjustdispatch"></button>-->
             <button  ng-click="sendCancelDispatch($event,newItem)" class="btn btn-danger" ng-if="canCancel" translate="labels.cancel_dispatch"></button>
         </div >
     </div>

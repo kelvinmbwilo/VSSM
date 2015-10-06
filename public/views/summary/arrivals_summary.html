@@ -58,6 +58,7 @@
                 <th translate="labels.total_volume"></th>
                 <th translate="labels.t_price"></th>
                 <th translate="labels.activity"></th>
+                <th translate="labels.dispatch_reference"></th>
                 <th translate="labels.status"></th>
             </tr>
             </thead>
@@ -75,6 +76,7 @@
                 <td>{{ (item.number_received*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
                 <td>{{ main_currency }} {{ item.unit_price * item.number_received | number:2 }}</td>
                 <td>{{ getActivityName(item.activity_id) }}</td>
+                <td>{{ item.package_number }}</td>
                 <td>{{ item.packaging.commercial_name }}</td>
             </tr>
             </tbody>

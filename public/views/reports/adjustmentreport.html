@@ -1,0 +1,55 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.adjustmentreport"></h3>
+        <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.adjustmentreport"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+
+    <h3 class="text-center" translate="menu.adjustmentreport"></h3>
+    <table datatable="ng" class="table table-striped table-bordered table-responsive" dt-options="dtOptions" >
+        <thead>
+        <tr>
+            <th >#</th>
+            <th translate="labels.voucher_no"></th>
+            <th translate="labels.product"></th>
+            <th translate="labels.adjustment_reason"></th>
+            <th translate="labels.lot_number"></th>
+            <th translate="labels.expired_date"></th>
+            <th translate="labels.previous_amount"></th>
+            <th translate="labels.current_amount"></th>
+            <th translate="labels.adjusted_volume"></th>
+            <th translate="labels.store"></th>
+            <th translate="labels.activity"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in adjustedItems">
+            <td>{{ $index+1 }}</td>
+            <td>{{ item.reference }}</td>
+            <td>{{ getVaccineName(item.vaccine_id) }}</td>
+            <td>{{ getAdjustmentName(item.adjustment_reason) }}</td>
+            <td>{{ item.lot_number }}</td>
+            <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
+            <td>{{ item.previous_amount | number:0  }}</td>
+            <td>{{ item.current_amount | number:0  }}</td>
+            <td>{{ item.adjusted_volume | number:2  }}</td>
+            <td>{{ getStoreName(item.store_id)  }}</td>
+            <td>{{ getActivityName(item.activity_id) }}</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- End .row -->
+</div>
+
+

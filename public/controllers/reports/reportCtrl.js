@@ -65,18 +65,29 @@ angular.module("vssmApp")
             });
         });
     }).controller("cancelInvoiceCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
-        //getting arrivals items
+        //getting canceled_arrival_invoices
         $http.get('index.php/canceledarrivalItems').success(function(data){
             $scope.canceled_arrival_invoices = data;
         });
 
-        //getting arrivals items
+        //getting canceled_dispatch_invoices
         $http.get('index.php/canceledDisItems').success(function(data){
             $scope.canceled_dispatch_invoices = data;
         });
 
-        //getting arrivals items
+        //getting adjustedItems
         $http.get('index.php/adjustedItems').success(function(data){
-//            $scope.canceled_dispatch_invoices = data;
+            $scope.adjustedItems = data;
+            angular.forEach($scope.stock_items,function(value){
+                value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                value.store = $scope.assignValue($scope.stores,value.store_id);
+            });
+
+        });
+
+        //getting movedItems
+        $http.get('index.php/movedItems').success(function(data){
+            $scope.movedItems = data;
         });
     });

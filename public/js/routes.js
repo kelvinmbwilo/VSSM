@@ -208,6 +208,17 @@ angular.module("vssmApp")
             controller: 'reportCtrl'
         });
 
+        $routeProvider.when("/adjustmentreport",{
+            templateUrl: 'views/reports/adjustmentreport.html',
+            controller: 'cancelInvoiceCtrl'
+        });
+
+
+        $routeProvider.when("/itemmovedreport",{
+            templateUrl: 'views/reports/itemmovedreport.html',
+            controller: 'cancelInvoiceCtrl'
+        });
+
         $routeProvider.when("/transit_invoice",{
             templateUrl: 'views/reports/transit_invoice.html',
             controller: 'dispatchedCtrl'

@@ -8,9 +8,17 @@ angular.module("vssmApp")
         $scope.newItem = {};
         $scope.currentSaving = false;
         $scope.dataFormat = true;
-        //get Activities
-        $http.get("index.php/activities").success(function(data){
-            $scope.activities = data;
+
+        //prepare years dropdown
+        var startyear = new Date().getFullYear();
+        $scope.rangetouse = [];
+        for(var i=-3;i<16;i++) {
+            $scope.rangetouse.push(startyear + i);
+        }
+        $scope.selectyear = startyear;
+        //get All Annual Quotars
+        $http.get("index.php/annual_quota").success(function(data){
+            $scope.annual_quota1 = data;
         });
         //get packaging_information
         $http.get("index.php/packaging_information").success(function(data){
@@ -28,23 +36,16 @@ angular.module("vssmApp")
         };
 
         //save recipient annual quota
-        $scope.getAnnualQuota = function(itemId,recipientId){
+        $scope.getAnnualQuota = function(itemId,recipientId,year){
             var name = "";
-            angular.forEach($scope.annual_quota,function(value){
-                if(value.recipient_id == recipientId && value.item_id == itemId){
+            angular.forEach($scope.annual_quota1,function(value){
+                if(value.recipient_id == recipientId && value.item_id == itemId && value.year == year){
                     name = value.expected_annual_need;
                 }
             });
             return name;
         }
-        //save recipient annual quota
-        $scope.pullAnnualQuota = function(recipientId,itemId){
-            angular.forEach($scope.annual_quota,function(value){
-                if(value.recipient_id == recipientId && value.item_id == itemId){
-                    $scope.newItem.expected_annual_need = value.expected_annual_need;
-                }
-            });
-        }
+
 
         //change formulas to use with min max
         $scope.active11 = "btn-info";

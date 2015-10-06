@@ -2,11 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/adjustmentreport.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/reports/itemmovedreport.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" afterPath="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/blank.php" afterPath="$PROJECT_DIR$/resources/views/blank.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/deDE.json" afterPath="$PROJECT_DIR$/public/languages/deDE.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" afterPath="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" afterPath="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/homeCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/routes.js" afterPath="$PROJECT_DIR$/public/js/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +49,25 @@
       <file leaf-file-name="enUS.json" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="234" column="21" selection-start="9094" selection-end="9094" vertical-scroll-proportion="0.31009614" vertical-offset="4083" max-vertical-offset="6822">
+            <state line="239" column="48" selection-start="9321" selection-end="9321" vertical-scroll-proportion="0.61715484" vertical-offset="4007" max-vertical-offset="6930">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dispatch_adjustment.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="12" selection-start="7960" selection-end="7960" vertical-scroll-proportion="-5.296296" vertical-offset="2107" max-vertical-offset="3726">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrivals_summary.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="56" selection-start="3405" selection-end="3423" vertical-scroll-proportion="-6.0" vertical-offset="918" max-vertical-offset="1944">
               <folding />
             </state>
           </provider>
@@ -41,52 +76,72 @@
       <file leaf-file-name="reportCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/controllers/reports/reportCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="11" selection-start="4865" selection-end="4865" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="1566">
+            <state line="66" column="36" selection-start="4225" selection-end="4242" vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="1764">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addAnnualQuota.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html">
+      <file leaf-file-name="itemmovedreport.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/reports/itemmovedreport.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="14" selection-start="1725" selection-end="2025" vertical-scroll-proportion="-11.333333" vertical-offset="216" max-vertical-offset="810">
+            <state line="33" column="50" selection-start="1509" selection-end="1540" vertical-scroll-proportion="-2.3157895" vertical-offset="462" max-vertical-offset="1026">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateAnnualQuota.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html">
+      <file leaf-file-name="routes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="59" selection-start="1792" selection-end="1792" vertical-scroll-proportion="-12.0" vertical-offset="162" max-vertical-offset="792">
+            <state line="212" column="42" selection-start="6836" selection-end="6836" vertical-scroll-proportion="0.0" vertical-offset="3689" max-vertical-offset="4320">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="anualQuota.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/basicdata/anualQuota.html">
+      <file leaf-file-name="adjustmentreport.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/reports/adjustmentreport.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="32" selection-start="2527" selection-end="2527" vertical-scroll-proportion="-16.666666" vertical-offset="270" max-vertical-offset="1692">
+            <state line="42" column="39" selection-start="2046" selection-end="2061" vertical-scroll-proportion="-6.148148" vertical-offset="590" max-vertical-offset="1098">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnnualQuotaController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php">
+      <file leaf-file-name="VaccineController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="47" selection-start="2277" selection-end="2277" vertical-scroll-proportion="-8.0" vertical-offset="1188" max-vertical-offset="1872">
+            <state line="956" column="49" selection-start="45056" selection-end="45056" vertical-scroll-proportion="-7.4444447" vertical-offset="6999" max-vertical-offset="8370">
+              <folding>
+                <element signature="e#40#59#0" expanded="true" />
+                <element signature="e#9411#16758#0" expanded="false" />
+                <element signature="e#16764#16912#0" expanded="false" />
+                <element signature="e#16917#23766#0" expanded="false" />
+                <element signature="e#23917#32830#0" expanded="false" />
+                <element signature="e#32950#36648#0" expanded="false" />
+                <element signature="e#36654#36766#0" expanded="false" />
+                <element signature="e#36772#38293#0" expanded="false" />
+                <element signature="e#38299#42682#0" expanded="false" />
+                <element signature="e#47931#49455#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homeCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="304" column="32" selection-start="10933" selection-end="10950" vertical-scroll-proportion="0.0" vertical-offset="5119" max-vertical-offset="10548">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deDE.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
+      <file leaf-file-name="canceled_invoices.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/reports/canceled_invoices.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="40" selection-start="6755" selection-end="6763" vertical-scroll-proportion="-1.6896552" vertical-offset="2553" max-vertical-offset="6426">
+            <state line="61" column="54" selection-start="3184" selection-end="3196" vertical-scroll-proportion="-2.6666667" vertical-offset="1026" max-vertical-offset="1782">
               <folding />
             </state>
           </provider>
@@ -105,8 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/views/basicdata/manufactures.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/packaging.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/sources.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/transport.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/vaccine.html" />
@@ -114,10 +167,8 @@
         <option value="$PROJECT_DIR$/public/views/recipient/recipient_level.html" />
         <option value="$PROJECT_DIR$/public/views/users/user_roles.html" />
         <option value="$PROJECT_DIR$/public/views/systemSettings.html" />
-        <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/users/updateRoles.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/updateVaccine.html" />
-        <option value="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/users/userCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/recipient/recipientCtrl.js" />
         <option value="$PROJECT_DIR$/public/controllers/recipient/recipientLevelCtrl.js" />
@@ -130,31 +181,35 @@
         <option value="$PROJECT_DIR$/public/views/reports/transit_invoice.html" />
         <option value="$PROJECT_DIR$/public/views/users/users.html" />
         <option value="$PROJECT_DIR$/public/views/recipient/recipient.html" />
-        <option value="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" />
-        <option value="$PROJECT_DIR$/resources/views/blank.php" />
         <option value="$PROJECT_DIR$/public/views/basicdata/recipient.html" />
         <option value="$PROJECT_DIR$/public/views/adjustment/move_items.html" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PackagingController.php" />
         <option value="$PROJECT_DIR$/public/views/basicdata/addItemMaxMin.html" />
         <option value="$PROJECT_DIR$/public/views/basicdata/updateItemMaxMin.html" />
-        <option value="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
         <option value="$PROJECT_DIR$/public/views/reports/dispatch_report.html" />
         <option value="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
         <option value="$PROJECT_DIR$/public/views/adjustment/arrival_adjustment.html" />
-        <option value="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
-        <option value="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
-        <option value="$PROJECT_DIR$/public/js/routes.js" />
         <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/reports/canceled_invoices.html" />
+        <option value="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" />
+        <option value="$PROJECT_DIR$/public/controllers/adjustmentCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
+        <option value="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" />
+        <option value="$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" />
+        <option value="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" />
+        <option value="$PROJECT_DIR$/public/languages/deDE.json" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/public/views/reports/canceled_invoices.html" />
-        <option value="$PROJECT_DIR$/public/languages/deDE.json" />
+        <option value="$PROJECT_DIR$/resources/views/blank.php" />
+        <option value="$PROJECT_DIR$/public/views/reports/itemmovedreport.html" />
         <option value="$PROJECT_DIR$/public/controllers/reports/reportCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html" />
-        <option value="$PROJECT_DIR$/public/views/basicdata/anualQuota.html" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php" />
+        <option value="$PROJECT_DIR$/public/js/routes.js" />
+        <option value="$PROJECT_DIR$/public/controllers/homeCtrl.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
+        <option value="$PROJECT_DIR$/public/views/reports/adjustmentreport.html" />
+        <option value="$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html" />
+        <option value="$PROJECT_DIR$/public/views/summary/arrivals_summary.html" />
         <option value="$PROJECT_DIR$/public/languages/enUS.json" />
       </list>
     </option>
@@ -162,9 +217,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1535" />
-    <option name="height" value="876" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -293,7 +348,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="basicdata" />
+              <option name="myItemId" value="summary" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,7 +424,51 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="reports" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="basicdata" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -504,15 +603,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1535" height="876" extended-state="6" />
+    <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30641025" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.124358974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4432505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22692308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14640698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23774345" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24110141" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -520,11 +620,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -543,9 +642,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21961048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -575,26 +674,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/views/users/updateRoles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="305" selection-end="305" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="702" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/vaccine.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="49" selection-start="798" selection-end="798" vertical-scroll-proportion="1.7037038" vertical-offset="316" max-vertical-offset="1458" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/recipient/recipientCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="46" selection-start="5283" selection-end="5283" vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="5220" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/recipient/recipientLevelCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="46" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="3078" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/stores.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="34" selection-start="2354" selection-end="2354" vertical-scroll-proportion="-14.666667" vertical-offset="360" max-vertical-offset="1350" />
@@ -618,11 +697,6 @@
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateStores.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="18" selection-start="1969" selection-end="1969" vertical-scroll-proportion="-8.666667" vertical-offset="324" max-vertical-offset="1044" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="31" selection-start="10091" selection-end="10107" vertical-scroll-proportion="-7.5666666" vertical-offset="4741" max-vertical-offset="10386" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/addPackaging.html">
@@ -655,11 +729,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/transit_invoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="38" selection-start="2038" selection-end="2084" vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="1134" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/users/users.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1350" />
@@ -670,19 +739,9 @@
         <state line="29" column="73" selection-start="1900" selection-end="1900" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1494" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3654" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/recipient.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="64" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.23795621" vertical-offset="287" max-vertical-offset="1188" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="78" selection-start="21089" selection-end="21109" vertical-scroll-proportion="0.0" vertical-offset="3390" max-vertical-offset="6138" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/adjustment/move_items.html">
@@ -703,11 +762,6 @@
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateItemMaxMin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="8" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2520" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="42" selection-start="3610" selection-end="3610" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1908" />
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/49f4b60c/777beae2-6257-4248-85e0-e460853ed938/vssm..arrivals">
@@ -739,33 +793,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="10" selection-start="6124" selection-end="7489" vertical-scroll-proportion="0.765748" vertical-offset="3265" max-vertical-offset="6102">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/dispatch/dispatch.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="125" column="4" selection-start="8327" selection-end="12000" vertical-scroll-proportion="-11.407408" vertical-offset="1942" max-vertical-offset="2448">
           <folding>
             <element signature="tag#div#4;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="742" selection-end="742" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="1692">
-          <folding>
-            <element signature="tag#div#1;tag#div#0" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#3;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -781,14 +813,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/reports/dispatchReportCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.0" vertical-offset="30" max-vertical-offset="8316">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.0" vertical-offset="30" max-vertical-offset="8316" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="8" selection-start="3125" selection-end="3274" vertical-scroll-proportion="0.0" vertical-offset="7063" max-vertical-offset="8406" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/dispatch_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="184" column="16" selection-start="8004" selection-end="9526" vertical-scroll-proportion="-12.074074" vertical-offset="2986" max-vertical-offset="3492">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="177" column="16" selection-start="7775" selection-end="9306" vertical-scroll-proportion="-15.333333" vertical-offset="2772" max-vertical-offset="3420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="59" selection-start="1792" selection-end="1792" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/adjustmentCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="509" column="47" selection-start="21723" selection-end="21723" vertical-scroll-proportion="2.0397615" vertical-offset="486" max-vertical-offset="2340">
+        <state line="827" column="46" selection-start="61878" selection-end="61878" vertical-scroll-proportion="0.17948718" vertical-offset="5619" max-vertical-offset="6480">
           <folding>
             <element signature="e#170#10523#0" expanded="false" />
             <element signature="e#271#1201#0" expanded="false" />
@@ -810,125 +866,184 @@
             <element signature="e#22501#23160#0" expanded="false" />
             <element signature="e#23227#23680#0" expanded="false" />
             <element signature="e#23753#24162#0" expanded="false" />
-            <element signature="e#24258#24981#0" expanded="false" />
             <element signature="e#25026#25258#0" expanded="false" />
             <element signature="e#25297#25544#0" expanded="false" />
             <element signature="e#25638#26562#0" expanded="false" />
-            <element signature="e#26603#58008#0" expanded="false" />
-            <element signature="e#58124#63301#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="42" selection-start="6330" selection-end="6347" vertical-scroll-proportion="-6.633333" vertical-offset="3311" max-vertical-offset="4122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="77" selection-start="11569" selection-end="11569" vertical-scroll-proportion="-7.4035087" vertical-offset="6202" max-vertical-offset="7344">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="29" selection-start="2996" selection-end="3005" vertical-scroll-proportion="-2.7719297" vertical-offset="1876" max-vertical-offset="13302">
-          <folding>
-            <element signature="e#40#59#0" expanded="true" />
-            <element signature="e#32928#36626#0" expanded="false" />
-            <element signature="e#36750#38271#0" expanded="false" />
-            <element signature="e#38277#42660#0" expanded="false" />
-            <element signature="e#42666#45025#0" expanded="false" />
-            <element signature="e#45031#47038#0" expanded="false" />
-            <element signature="e#47044#48568#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="36" selection-start="6509" selection-end="6525" vertical-scroll-proportion="-3.9298246" vertical-offset="3988" max-vertical-offset="5292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="8" selection-start="3125" selection-end="3274" vertical-scroll-proportion="0.0" vertical-offset="7063" max-vertical-offset="8406">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/dispatch_report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="16" selection-start="8004" selection-end="9526" vertical-scroll-proportion="-12.074074" vertical-offset="2986" max-vertical-offset="3492">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="16" selection-start="7775" selection-end="9306" vertical-scroll-proportion="-15.333333" vertical-offset="2772" max-vertical-offset="3420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/canceled_invoices.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="731" selection-end="731" vertical-scroll-proportion="-6.4814816" vertical-offset="77" max-vertical-offset="1782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="40" selection-start="6755" selection-end="6763" vertical-scroll-proportion="-1.6896552" vertical-offset="2553" max-vertical-offset="6426">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/reportCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="11" selection-start="4865" selection-end="4865" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="1566">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="14" selection-start="1725" selection-end="2025" vertical-scroll-proportion="-11.333333" vertical-offset="216" max-vertical-offset="810">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/basicdata/anualQuota.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="32" selection-start="2527" selection-end="2527" vertical-scroll-proportion="-16.666666" vertical-offset="270" max-vertical-offset="1692">
+        <state line="77" column="37" selection-start="4398" selection-end="4412" vertical-scroll-proportion="-4.4210525" vertical-offset="1134" max-vertical-offset="1692">
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/basicdata/addAnnualQuota.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="19" selection-start="930" selection-end="930" vertical-scroll-proportion="-2.2105262" vertical-offset="162" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/basicdata/basicDataCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1762" selection-end="1762" vertical-scroll-proportion="-6.6" vertical-offset="648" max-vertical-offset="6120">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AnnualQuotaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="47" selection-start="2277" selection-end="2277" vertical-scroll-proportion="-8.0" vertical-offset="1188" max-vertical-offset="1872">
+        <state line="54" column="138" selection-start="1447" selection-end="1447" vertical-scroll-proportion="-6.6666665" vertical-offset="702" max-vertical-offset="2052">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/basicdata/updateAnnualQuota.html">
+    <entry file="file://$PROJECT_DIR$/app/ItemMovement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="59" selection-start="1792" selection-end="1792" vertical-scroll-proportion="-12.0" vertical-offset="162" max-vertical-offset="792">
+        <state line="6" column="18" selection-start="70" selection-end="82" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="290" column="10" selection-start="18271" selection-end="18271" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="3654">
+          <folding>
+            <element signature="e#375#9311#0" expanded="false" />
+            <element signature="e#9334#18270#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="25" selection-start="2604" selection-end="2620" vertical-scroll-proportion="-8.0" vertical-offset="918" max-vertical-offset="6498">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="380" column="22" selection-start="11614" selection-end="11624" vertical-scroll-proportion="-2.9649122" vertical-offset="6509" max-vertical-offset="7506">
+          <folding>
+            <element signature="e#7#392#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="313" column="30" selection-start="8303" selection-end="8313" vertical-scroll-proportion="-11.37037" vertical-offset="5327" max-vertical-offset="5886">
+          <folding>
+            <element signature="e#40#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/transit_invoice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="38" selection-start="0" selection-end="2480" vertical-scroll-proportion="-24.0" vertical-offset="108" max-vertical-offset="1134">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178" column="157" selection-start="15966" selection-end="15966" vertical-scroll-proportion="-9.111111" vertical-offset="2958" max-vertical-offset="6174">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/above_maximum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="10.0" vertical-offset="270" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/canceled_invoices.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="54" selection-start="3184" selection-end="3196" vertical-scroll-proportion="-2.6666667" vertical-offset="1026" max-vertical-offset="1782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/reportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="36" selection-start="4225" selection-end="4242" vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="1764">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="42" selection-start="6836" selection-end="6836" vertical-scroll-proportion="0.0" vertical-offset="3689" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/itemmovedreport.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="50" selection-start="1509" selection-end="1540" vertical-scroll-proportion="-2.3157895" vertical-offset="462" max-vertical-offset="1026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="304" column="32" selection-start="10933" selection-end="10950" vertical-scroll-proportion="0.0" vertical-offset="5119" max-vertical-offset="10548">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="956" column="49" selection-start="45056" selection-end="45056" vertical-scroll-proportion="-7.4444447" vertical-offset="6999" max-vertical-offset="8370">
+          <folding>
+            <element signature="e#40#59#0" expanded="true" />
+            <element signature="e#9411#16758#0" expanded="false" />
+            <element signature="e#16764#16912#0" expanded="false" />
+            <element signature="e#16917#23766#0" expanded="false" />
+            <element signature="e#23917#32830#0" expanded="false" />
+            <element signature="e#32950#36648#0" expanded="false" />
+            <element signature="e#36654#36766#0" expanded="false" />
+            <element signature="e#36772#38293#0" expanded="false" />
+            <element signature="e#38299#42682#0" expanded="false" />
+            <element signature="e#47931#49455#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/adjustmentreport.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="39" selection-start="2046" selection-end="2061" vertical-scroll-proportion="-6.148148" vertical-offset="590" max-vertical-offset="1098">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/adjustment/dispatch_adjustment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="12" selection-start="7960" selection-end="7960" vertical-scroll-proportion="-5.296296" vertical-offset="2107" max-vertical-offset="3726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/summary/arrivals_summary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="56" selection-start="3405" selection-end="3423" vertical-scroll-proportion="-6.0" vertical-offset="918" max-vertical-offset="1944">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/languages/enUS.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="21" selection-start="9094" selection-end="9094" vertical-scroll-proportion="0.31009614" vertical-offset="4083" max-vertical-offset="6822">
+        <state line="239" column="48" selection-start="9321" selection-end="9321" vertical-scroll-proportion="0.61715484" vertical-offset="4007" max-vertical-offset="6930">
           <folding />
         </state>
       </provider>

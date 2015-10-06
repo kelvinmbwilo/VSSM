@@ -825,6 +825,7 @@ angular.module("vssmApp")
             $scope.newItem={};
         }
 
+        var $translate = $filter('translate');
         $scope.cancelarrival = function(ev,item) {
             var confirm = $mdDialog.confirm()
                 .title($translate('labels.confirm_cancelTransaction'))

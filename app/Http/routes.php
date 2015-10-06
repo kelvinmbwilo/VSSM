@@ -263,6 +263,9 @@ Route::post('manufactures/{id}',array('uses'=>'ManufactureModeController@update'
 //getting annual_quota
 Route::get('annual_quota',array('uses'=>'AnnualQuotaController@index'));
 
+//getting annual_quota for this year
+Route::get('annual_quota1',array('uses'=>'AnnualQuotaController@thisyearAnualQuota'));
+
 //saving new annual_quota
 Route::post('annual_quota',array('uses'=>'AnnualQuotaController@store'));
 
@@ -371,7 +374,13 @@ Route::get('arrivalItemsMonth',array('uses'=>'StoreController@arrivalItemsMonth'
 //getting all arival Items
 Route::get('arrivalItems',array('uses'=>'StoreController@arrivalItems'));
 
-//getting all arival Items
+//getting all adjustedItems
+Route::get('adjustedItems',array('uses'=>'StoreController@adjustedItems'));
+
+//getting all movedItems
+Route::get('movedItems',array('uses'=>'StoreController@movedItems'));
+
+//getting all canceledarrivalItems
 Route::get('canceledarrivalItems',array('uses'=>'StoreController@canceledarrivalItems'));
 
 //getting all arival Items

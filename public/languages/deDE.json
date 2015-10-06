@@ -58,7 +58,11 @@
         "close_to_expiry":"Artículos próximas a expirar ",
         "below_minimum":"Artículos por debajo del mínimo",
         "above_maximum":"Artículos por arriba del máximo",
-        "expired_items":"Los productos caducados"
+        "expired_items":"Los productos caducados",
+        "canceled_invoices":"Canceled Invoices",
+        "transit_invoice":"In Transit Inventory",
+        "adjustmentreport":"Adjustments",
+        "itemmovedreport":"Product Movements"
 
     },
     "error": {

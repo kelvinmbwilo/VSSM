@@ -203,7 +203,7 @@ angular.module("vssmApp")
             $scope.manufactures = data;
         });
 
-        $http.get("index.php/annual_quota").success(function(data){
+        $http.get("index.php/annual_quota1").success(function(data){
             $scope.annual_quota = data;
         });
 
@@ -296,6 +296,15 @@ angular.module("vssmApp")
         $scope.getVaccineName = function(id){
             var name = "";
             angular.forEach($scope.vaccines,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getAdjustmentName = function(id){
+            var name = "";
+            angular.forEach($scope.adjustment_reasons,function(value){
                 if(value.id == id){
                     name = value.name;
                 }

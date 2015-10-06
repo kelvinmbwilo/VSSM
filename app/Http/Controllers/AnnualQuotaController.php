@@ -21,6 +21,16 @@ class AnnualQuotaController extends Controller
         return RecipientAnnualQuota::where('parent_id',Auth::user()->recipient_id)->with('recipient','vaccine')->get();
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function thisyearAnualQuota()
+    {
+        return RecipientAnnualQuota::where('parent_id',Auth::user()->recipient_id)->where('year',date('Y'))->with('recipient','vaccine')->get();
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -41,8 +51,8 @@ class AnnualQuotaController extends Controller
      */
     public function store(Request $request)
     {
-        if(count(RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->get()) != 0){
-          $item = RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->first();
+        if(count(RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->where('year',$request->input("year"))->get()) != 0){
+          $item = RecipientAnnualQuota::where('recipient_id',$request->input("recipient_id"))->where('item_id',$request->input("item_id"))->where('year',$request->input("year"))->first();
         }else{
             $item = new RecipientAnnualQuota;
         }

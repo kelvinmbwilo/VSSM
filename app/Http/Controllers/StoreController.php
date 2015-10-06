@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Adjustment;
 use App\ArrivalItem;
+use App\ItemMovement;
 use App\RecipientPackageItem;
 use App\Stock;
 use App\Store;
@@ -292,6 +294,26 @@ class StoreController extends Controller
     {
         $store = Store::find($id);
         return $store->stock_items;
+    }
+
+/**
+     * get adjustedItems.
+     *
+     * @return Response
+     */
+    public function adjustedItems()
+    {
+        return Adjustment::where('recipient_id',Auth::user()->recipient_id)->get();
+    }
+
+/**
+     * get movedItems.
+     *
+     * @return Response
+     */
+    public function movedItems()
+    {
+        return ItemMovement::where('recipient_id',Auth::user()->recipient_id)->get();
     }
 
 

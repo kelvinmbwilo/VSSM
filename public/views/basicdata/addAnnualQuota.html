@@ -7,14 +7,14 @@
         <!--recipient_id-->
         <div class="form-group">
             <label class="required" for="recipient_id" translate="labels.recipients"></label>
-            <select ng-change="pullAnnualQuota(newItem.recipient_id,newItem.item_id)" required="" id="recipient_id" class="form-control" ng-model="newItem.recipient_id"  ng-options="obj.id as obj.name for obj in userRecipients">
+            <select required="" id="recipient_id" class="form-control" ng-model="newItem.recipient_id"  ng-options="obj.id as obj.name for obj in userRecipients">
                 <option value="" translate="labels.select"></option>
             </select>
         </div>
         <!--item_id-->
         <div class="form-group">
             <label class="required" for="item_id" translate="labels.product"></label>
-            <select ng-change="pullAnnualQuota(newItem.recipient_id,newItem.item_id)" required="" id="item_id" class="form-control" ng-model="newItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+            <select required="" id="item_id" class="form-control" ng-model="newItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
                 <option value="" translate="labels.select"></option>
             </select>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Adjustment;
 use App\Arrival;
 use App\ArrivalItem;
+use App\ItemMovement;
 use App\PackagingInformation;
 use App\PreShipment;
 use App\Recipient;
@@ -907,6 +908,7 @@ class VaccineController extends Controller
 
     public function stock_adjust(Request $request){
         $stock = Stock::find($request->input('stock_id'));
+        $amount = $stock->amount;
         $storeStock = StoreStock::where('store_id',$stock->store_id)->where('vaccine_id',$request->input('item_id'))->where('lot_number',$request->input('lot_number'))->first();
         $stock->amount = $request->has('doses')?$request->input('doses'):$stock->amount - $request->input('change');
         $storeStock->amount = $request->has('doses')?$request->input('doses'):$storeStock->amount - $request->input('change');
@@ -952,6 +954,9 @@ class VaccineController extends Controller
         $adjustment->source_id         = $stock->source_id;
         $adjustment->activity_id       = $stock->activity_id;
         $adjustment->recipient_id      = $stock->recipient_id;
+        $adjustment->previous_amount   = $amount;
+        $adjustment->current_amount    = $stock->amount;
+        $adjustment->adjusted_volume    = $volume;
         $adjustment->save();
 
         return $adjustment->reference;
@@ -960,6 +965,8 @@ class VaccineController extends Controller
     public function move_item(Request $request){
         $storeStock = StoreStock::find($request->input('item_id'));
         $volume = $request->input('doses') * PackagingInformation::find($storeStock->packaging_id)->cm_per_dose * 0.001;
+        $recipient = Recipient::find(Auth::user()->recipient_id);
+
         $storeStock->amount = $request->has('doses')?$storeStock->amount - $request->input('doses'):$storeStock->amount;
         $storeStock->save();
         if($storeStock->amount == 0){
@@ -982,6 +989,19 @@ class VaccineController extends Controller
             $storeStock1->activity_id    = $storeStock->activity_id;
             $storeStock1->save();
         }
+
+        $movement = new ItemMovement;
+        $movement->from_store = $storeStock->store_id;
+        $movement->to_store = $storeStock1->store_id;
+        $movement->store_item_id = $storeStock->id;
+        $movement->user_id = Auth::user()->id;
+        $movement->amount = $request->input('doses');
+        $movement->recipient_id = Auth::user()->recipient_id;
+        $movement->vaccine_id = $storeStock->vaccine_id;
+        $movement->lot_number = $storeStock->lot_number;
+        $movement->expiry_date = $storeStock->expiry_date;
+        $movement->moved_volume = $volume;
+        $movement->save();
 
         $store = Store::find($storeStock->store_id);
         $store1 = Store::find($storeStock1->store_id);

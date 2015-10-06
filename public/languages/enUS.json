@@ -61,7 +61,9 @@
         "above_maximum":"Items Above Maximum ",
         "expired_items":"Expired Items",
         "canceled_invoices":"Canceled Invoices",
-        "transit_invoice":"In Transit Inventory"
+        "transit_invoice":"In Transit Inventory",
+        "adjustmentreport":"Adjustments",
+        "itemmovedreport":"Product Movements"
 
     },
     "labels":{
@@ -232,7 +234,11 @@
         "Notifications":"Notifications",
         "adjustdispatch":"Adjust Dispatch",
         "confirm_cancelTransaction":"Are you sure you want to cancel this transaction",
-        "year":"Year"
+        "year":"Year",
+        "previous_amount":"Previous Amount",
+        "current_amount":"Current Amount",
+        "dispatch_reference":"Dispatch Reference",
+        "adjusted_volume":"Adjusted Volume"
 
     },
     "error": {
