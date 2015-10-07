@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\RecipientAnnualQuota;
 use Illuminate\Http\Request;
 
@@ -62,6 +63,10 @@ class AnnualQuotaController extends Controller
         $item->year  = $request->input("year");
         $item->parent_id  = Auth::user()->recipient_id;
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add ".$item->year." Yearly Plan for ".$item->recipient->name.", ".$item->vaccine->name
+        ));
         return $item->load('recipient','vaccine');
     }
 
@@ -94,6 +99,10 @@ class AnnualQuotaController extends Controller
         $item->year  = $request->input("year");
         $item->parent_id  = Auth::user()->recipient_id;
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update ".$item->year." Yearly Plan for ".$item->recipient->name.", ".$item->vaccine->name
+        ));
         return $item->load('recipient','vaccine')->get();
     }
 
@@ -107,6 +116,10 @@ class AnnualQuotaController extends Controller
     public function destroy($id)
     {
         $item = RecipientAnnualQuota::find($id);
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete ".$item->year." Yearly Plan for ".$item->recipient->name.", ".$item->vaccine->name
+        ));
         $item->delete();
     }
 

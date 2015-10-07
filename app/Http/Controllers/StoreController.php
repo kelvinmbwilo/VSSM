@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Adjustment;
 use App\ArrivalItem;
 use App\ItemMovement;
+use App\Log;
 use App\RecipientPackageItem;
 use App\Stock;
 use App\Store;
@@ -58,6 +59,10 @@ class StoreController extends Controller
         $item->store_type       = $request->input("store_type");
         $item->notes            = $request->has("notes")?$request->input("notes"):"";
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Store named ".$item->name
+        ));
         return $item;
     }
 
@@ -91,6 +96,10 @@ class StoreController extends Controller
         $item->store_type       = $request->input("store_type");
         $item->notes            = $request->has("notes")?$request->input("notes"):"";
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Store named ".$item->name
+        ));
         return $item;
     }
 
@@ -106,6 +115,10 @@ class StoreController extends Controller
         $item = Store::find($id);
         $item->status = "deleted";
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Store named ".$item->name
+        ));
     }
 
     /**

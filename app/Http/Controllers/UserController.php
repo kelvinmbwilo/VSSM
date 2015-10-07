@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\SystemSettings;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,11 +31,12 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param $id
      * @return Response
      */
-    public function create()
+    public function userlogs($id)
     {
-        //
+        return Log::where('user_id',$id)->get();
     }
 
 
@@ -57,6 +59,10 @@ class UserController extends Controller
         $user->password     = Hash::make($request->input('password'));
         $user->recipient_id = $request->input('recipient_id');
         $user->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add user named ".$user->first_name," ".$user->last_name
+        ));
         return $user->load('recipient', 'roles');
     }
 
@@ -103,6 +109,10 @@ class UserController extends Controller
         $user->role         = $request->input('role');
 //        $user->recipient_id = $request->input('recipient_id');
         $user->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update user named ".$user->first_name," ".$user->last_name
+        ));
         return $user->load('recipient', 'roles');;
     }
 
@@ -118,6 +128,10 @@ class UserController extends Controller
         $user = User::find($id);
         $user->status = "deleted";
         $user->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete user named ".$user->first_name," ".$user->last_name
+        ));
 
     }
 
@@ -138,6 +152,10 @@ class UserController extends Controller
 
                 return Redirect::to("/");
             }
+            Log::create(array(
+                "user_id"=>  Auth::user()->id,
+                "action"  =>"Logged In"
+            ));
         }
         else{
             return View::make("welcome")->with("error","Incorrect Username or Password");
@@ -151,6 +169,10 @@ class UserController extends Controller
      */
     public function logout(){
         Auth::logout();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Logged Out"
+        ));
         return Redirect::to("login");
     }
 
@@ -179,6 +201,10 @@ class UserController extends Controller
         $item->main_currency     = $request->input("main_currency");
         $item-> start_year    = $request->input("start_year");
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update System Settings"
+        ));
         return $item;
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\UserRoles;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,10 @@ class UserRolesController extends Controller
         $item->name  = $request->input("name");
         $item->roles  = $request->input("roles");
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add User Role named ".$item->name
+        ));
         return $item;
     }
 
@@ -80,6 +85,10 @@ class UserRolesController extends Controller
         $item->name  = $request->input("name");
         $item->roles  = $request->input("roles");
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update User Role named ".$item->name
+        ));
         return $item;
     }
 
@@ -92,6 +101,11 @@ class UserRolesController extends Controller
     public function destroy($id)
     {
         $item = UserRoles::find($id);
-        $item->delete();
+        $item->status = 'deleted';
+        $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete User Role named ".$item->name
+        ));
     }
 }

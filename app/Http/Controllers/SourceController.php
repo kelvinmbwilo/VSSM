@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Source;
 use Illuminate\Http\Request;
 
@@ -46,6 +47,10 @@ class SourceController extends Controller
         $item->code     = $request->input("code");
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Source named ".$item->name
+        ));
         return $item;
     }
 
@@ -76,6 +81,10 @@ class SourceController extends Controller
         $item->code = $request->input('code');
         $item->status = $request->input('status');
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Source named ".$item->name
+        ));
         return $item;
     }
 
@@ -91,6 +100,10 @@ class SourceController extends Controller
         $item = Source::find($id);
         $item->status = "deleted";
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Source named ".$item->name
+        ));
     }
 
 }

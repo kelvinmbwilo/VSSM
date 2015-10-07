@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Recipient;
 use Illuminate\Http\Request;
 
@@ -81,6 +82,10 @@ class RecipientController extends Controller
         $item->status               = "active";
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Recipient named ".$item->name
+        ));
         return $item;
     }
 
@@ -103,6 +108,10 @@ class RecipientController extends Controller
         $item->status               = "active";
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Recipient named ".$item->name
+        ));
         return $item;
     }
 
@@ -146,6 +155,10 @@ class RecipientController extends Controller
         $item->status               = $request->input("status");
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"update Recipient named ".$item->name
+        ));
         return $item;
     }
 
@@ -167,6 +180,10 @@ class RecipientController extends Controller
         $item->status               = $request->input("status");
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"U[pdate Recipient named ".$item->name
+        ));
         return $item;
     }
 
@@ -181,6 +198,10 @@ class RecipientController extends Controller
         $item = Recipient::find($id);
         $item->status    ="deleted";
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Recipient named ".$item->name
+        ));
         return $item;
     }
 }

@@ -53,6 +53,9 @@ angular.module("vssmApp")
         }
 
         $scope.showLogs = function(item){
+            $http.get("index.php/userlogs/"+item.id).success(function(data){
+                $scope.data.logItems = data;
+            });
             $scope.logItem = item;
             $scope.currUsername = item.first_name +" "+item.last_name
             $modal.open({

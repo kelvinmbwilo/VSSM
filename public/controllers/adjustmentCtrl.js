@@ -825,40 +825,38 @@ angular.module("vssmApp")
             $scope.newItem={};
         }
 
+        $scope.canCancelyes = false;
         var $translate = $filter('translate');
         $scope.cancelarrival = function(ev,item) {
-            var confirm = $mdDialog.confirm()
-                .title($translate('labels.confirm_cancelTransaction'))
-                .content($translate('labels.irreversible_warning'))
-                .ariaLabel('Lucky day')
-                .ok($translate('help.delete'))
-                .cancel($translate('labels.cancel'))
-                .targetEvent(ev);
-            $mdDialog.show(confirm).then(function() {
-                $scope.currentSaving = true;
-                $http.post("index.php/arrival_adjust/", item).success(function (newVal) {
-                    $scope.currentSaving = false;
-                    $scope.cancel2();
-                    $scope.getCanceledItems();
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content($translate('error.delete_success'))
-                            .position($scope.getToastPosition())
-                            .hideDelay(3000)
-                    );
-                }).error(function(){
-                    $scope.currentSaving = false;
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content($translate('error.delete_falure'))
-                            .position($scope.getToastPosition())
-                            .hideDelay(5000)
-                    );
-                });
-            }, function() {
+            $scope.canCancelyes = true;
+        }
+        $scope.cancel3 = function(ev,item) {
+            $scope.canCancelyes = false;
+        }
 
+        $scope.cancelarrival1 = function(ev,item) {
+            $scope.currentSaving = true;
+            $http.post("index.php/arrival_adjust/", item).success(function (newVal) {
+                $scope.currentSaving = false;
+                $scope.canCancelyes = false;
+                $scope.cancel2();
+                $scope.getCanceledItems();
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.delete_success'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(3000)
+                );
+            }).error(function(){
+                $scope.currentSaving = false;
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.delete_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
             });
-        };
 
+        };
 
     });

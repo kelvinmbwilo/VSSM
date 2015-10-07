@@ -6,6 +6,7 @@ use App\Adjustment;
 use App\Arrival;
 use App\ArrivalItem;
 use App\ItemMovement;
+use App\Log;
 use App\PackagingInformation;
 use App\PreShipment;
 use App\Recipient;
@@ -95,19 +96,23 @@ class VaccineController extends Controller
         $stock = Stock::where('recipient_id',$recipient_id)->get();
         $arrivals = Arrival::where('recipient_destination_id',Auth::user()->recipient_id)->get()->load('fromSource','source','arrivalItems');
         $arr = array();
-        foreach($stock as $stk){
+
             foreach($arrivals as $arrival){
                 $k = 0;
-                $j = count($arrival->arrivalItems);
+                $j = 0;
                 foreach($arrival->arrivalItems as $item){
-                    if($stk->vaccine_id == $item->vaccine_id && $stk->lot_number == $item->lot_number && $stk->amount >= $item->number_received ){
-                       $k++;
+                    $stk = Stock::where('recipient_id',$recipient_id)->where('vaccine_id',$item->vaccine_id)->where('lot_number',$item->lot_number)->first();
+                    $j ++;
+                    if($stk){
+                        if($stk->amount >= $item->number_received){
+                            $k++;
+                        }
                     }
                 }
                 if($k == $j){
                     $arr[] = $arrival;
                 }
-            }
+
         }
         return json_encode($arr);
     }
@@ -264,6 +269,10 @@ class VaccineController extends Controller
         $item->diluent_id           = ($request->has('diluent_id'))?$request->input("diluent_id"):0;
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Product named ".$item->name
+        ));
         return $item;
     }
 
@@ -300,6 +309,10 @@ class VaccineController extends Controller
         $item->diluent_id           = ($request->has('diluent_id'))?$request->input("diluent_id"):0;
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Product named ".$item->name
+        ));
         return $item;
     }
 
@@ -315,6 +328,10 @@ class VaccineController extends Controller
         $item = Vaccine::find($id);
         $item->status = "deleted";
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Product named ".$item->name
+        ));
     }
 
     /**
@@ -435,7 +452,10 @@ class VaccineController extends Controller
                 $storeStock->save();
             }
         }
-
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Receive Products, Reference Number ".$arrival->reference
+        ));
         return $arrival->reference;
     }
 
@@ -551,6 +571,10 @@ class VaccineController extends Controller
                 $storeStock->save();
             }
         }
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Open Stock for Products, Reference Number ".$arrival->reference
+        ));
         return $arrival->reference;
     }
 
@@ -705,6 +729,10 @@ class VaccineController extends Controller
         }
         }
 
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Receive Products, Reference Number ".$arrival->reference
+        ));
         return $arrival->reference;
     }
 
@@ -780,6 +808,10 @@ class VaccineController extends Controller
 
             }
         }
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Dispatch Products Reference Number ".$dispatch->voucher_number
+        ));
         return $dispatch->voucher_number;
     }
 
@@ -821,6 +853,10 @@ class VaccineController extends Controller
         //update arrival status
         $arrival->status = 'canceled';
         $arrival->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Cancel Arrival with reference Number ".$arrival->reference
+        ));
 
     }
 
@@ -958,7 +994,10 @@ class VaccineController extends Controller
         $adjustment->current_amount    = $stock->amount;
         $adjustment->adjusted_volume    = $volume;
         $adjustment->save();
-
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Stock Adjustment with reference Number ".$adjustment->reference
+        ));
         return $adjustment->reference;
     }
 
@@ -1009,6 +1048,10 @@ class VaccineController extends Controller
         $store->save();
         $store1->used_volume = $store1->used_volume + $volume ;
         $store1->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Move ".$request->input('doses')." Doses of ".Vaccine::find($storeStock->vaccine_id)->name." from ".$store->name." To ". $store1->name
+        ));
     }
 
     public function cancelDispatch($id){
@@ -1043,6 +1086,10 @@ class VaccineController extends Controller
         //update arrival status
         $dispatch->receiving_status = 'canceled';
         $dispatch->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Cancel Dispatch with reference Number ".$dispatch->voucher_number
+        ));
         return $dispatch->voucher_number;
     }
 }

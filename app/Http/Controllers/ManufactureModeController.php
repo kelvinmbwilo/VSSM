@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Manufacture;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,10 @@ class ManufactureModeController extends Controller
         $item->physical_address = ($request->has('physical_address'))?$request->input("physical_address"):"";
         $item->product_type     = $request->input("product_type");
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Manufacture named ".$item->name
+        ));
         return $item;
     }
 
@@ -81,6 +86,10 @@ class ManufactureModeController extends Controller
         $item->physical_address = $request->input("physical_address");
         $item->product_type     = $request->input("product_type");
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Manufacture named ".$item->name
+        ));
         return $item;
     }
 
@@ -93,9 +102,13 @@ class ManufactureModeController extends Controller
      */
     public function destroy($id)
     {
-        $recipient = Manufacture::find($id);
-        $recipient->status = 'deleted';
-        $recipient->save();
+        $item = Manufacture::find($id);
+        $item->status = 'deleted';
+        $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Manufacture named ".$item->name
+        ));
     }
 
 }

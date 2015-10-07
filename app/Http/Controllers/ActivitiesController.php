@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\Log;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -46,6 +47,10 @@ class ActivitiesController extends Controller
         $item->code     = $request->input("code");
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Activities named ".$item->name
+        ));
         return $item;
     }
 
@@ -75,6 +80,10 @@ class ActivitiesController extends Controller
         $item->code = $request->input('code');
         $item->status = $request->input('status');
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Activities named ".$item->name
+        ));
         return $item;
     }
 
@@ -90,6 +99,10 @@ class ActivitiesController extends Controller
         $item = Activity::find($id);
         $item->status = 'deleted';
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Activities named ".$item->name
+        ));
     }
 
 }

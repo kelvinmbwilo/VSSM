@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AdjustmentReason;
+use App\Log;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,6 +49,10 @@ class AdjustmentReasonModeController extends Controller
         $item->increase_amount      = $request->has("increase_amount")?$request->input("increase_amount"):'no';
         $item->consider_wastage     = $request->has("consider_wastage")?$request->input("consider_wastage"):'no';
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Adjustment Reason named ".$item->name
+        ));
         return $item;
     }
 
@@ -81,6 +86,10 @@ class AdjustmentReasonModeController extends Controller
         $item->increase_amount      = $request->has("increase_amount")?$request->input("increase_amount"):'no';
         $item->consider_wastage     = $request->has("consider_wastage")?$request->input("consider_wastage"):'no';
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Adjustment Reason named ".$item->name
+        ));
         return $item;
     }
 
@@ -96,6 +105,10 @@ class AdjustmentReasonModeController extends Controller
         $item = AdjustmentReason::find($id);
         $item->status = 'deleted';
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Adjustment Reason named ".$item->name
+        ));
     }
 
 }

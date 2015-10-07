@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use Illuminate\Http\Request;
 use App\RecipientLevel;
 use App\Recipient;
@@ -47,6 +48,10 @@ class RecipientLevelController extends Controller
         $item->code     = $request->input("code");
 
         $item->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Add Recipient Level named ".$item->name
+        ));
         return $item;
     }
 
@@ -90,6 +95,10 @@ class RecipientLevelController extends Controller
         $recipient->code = $request->input('code');
         $recipient->status = $request->input('status');
         $recipient->save();
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Update Recipient Level named ".$recipient->name
+        ));
         return $recipient;
     }
 
@@ -103,6 +112,10 @@ class RecipientLevelController extends Controller
     public function destroy($id)
     {
         $recipient = RecipientLevel::find($id);
+        Log::create(array(
+            "user_id"=>  Auth::user()->id,
+            "action"  =>"Delete Recipient Level named ".$recipient->name
+        ));
         $recipient->delete();
     }
 

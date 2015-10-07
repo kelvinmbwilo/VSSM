@@ -40,6 +40,9 @@ Route::post('login',array('as'=>'login', 'uses'=>'UserController@validateUser'))
 //logging a user out
 Route::get('logout',array('as'=>'logout', 'uses'=>'UserController@logout'));
 
+//logging a user out
+Route::get('userlogs/{id}',array('as'=>'logout', 'uses'=>'UserController@userlogs'));
+
 //details of the logged in user
 Route::get('loggenInuser',array('as'=>'logout', 'uses'=>'UserController@show'));
 

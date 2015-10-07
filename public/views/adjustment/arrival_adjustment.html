@@ -162,6 +162,12 @@
         <button  ng-if="!currentSaving" ng-click="cancelarrival($event,newItem)" class="btn  btn-danger"  translate="labels.cancel_arrival"> </button>
         <button  ng-if="!currentSaving" ng-click="cancel2()"  class="btn btn-warning" translate="labels.cancel"> </button>
     </div>
+    <div class="col-md-12 " ng-if="canCancelyes" style="margin-top: 20px">
+        <h4 translate="labels.confirm_cancelTransaction"></h4>
+        <button  ng-click="cancelarrival1($event,newItem)" class="btn  btn-danger"  translate="labels.yes"> </button>
+        <button  ng-click="cancel3()"  class="btn btn-warning" translate="labels.no"> </button>
+    </div>
+
 </div>
 
 

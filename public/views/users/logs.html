@@ -12,10 +12,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in userLogs" ng-hide="deletedItem[item.id]">
+        <tr ng-repeat="item in data.logItems" ng-hide="deletedItem[item.id]">
             <td>{{ $index+1 }}</td>
             <td>{{ item.action }} </td>
-            <td>{{ item.created_at }}</td>
+            <td>{{ item.created_at | date:'YY MMM dd' }}</td>
 
         </tr>
         </tbody>
