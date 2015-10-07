@@ -138,7 +138,6 @@ class VaccineController extends Controller
      */
     public function expectedPackagesItems()
     {
-
         return RecipientPackageItem::where('receiver_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','package');
     }
     /**

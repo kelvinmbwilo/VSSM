@@ -17,7 +17,7 @@
 
     <div class="row">
 
-        <table datatable="ng" class="table table-striped table-bordered table-responsive" dt-options="dtOptions" >
+        <table ng-if="userRecipientLevel != 1" datatable="ng" class="table table-striped table-bordered table-responsive" dt-options="dtOptions" >
             <thead>
             <tr>
                 <th >#</th>
@@ -50,6 +50,47 @@
                 <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>
                 <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2 }}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table ng-if="userRecipientLevel == 1" datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
+            <thead>
+            <tr>
+                <th width="5%">#</th>
+                <th width="15%" translate="labels.packaging_id"></th>
+                <th width="10%" translate="labels.source"></th>
+                <th width="10%" translate="labels.product"></th>
+                <th width="10%" translate="labels.lot_number"></th>
+                <th width="10%" translate="labels.expired_date"></th>
+                <th width="10%" translate="labels.status"></th>
+                <th width="10%" translate="labels.action">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in pre_shipments" ng-hide="deletedItem[item.id]">
+                <td>{{ $index+1 }}</td>
+                <td>{{ item.package_id }}</td>
+                <td>{{ item.source.name }}</td>
+                <td>{{ item.vaccine.name }}</td>
+                <td>{{ item.lot_number }}</td>
+                <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
+                <td ng-if="item.status == 'pending'" translate="labels.pending"></td>
+                <td ng-if="item.status == 'received'" translate="labels.received"></td>
+                <td>
+                    <md-button aria-label="btu" ng-if="hasRole(userRoles,'update_preadvicenotice')" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updatePreAdvice')"><i class="fa fa-pencil-square"></i>
+                        <md-tooltip>
+                            <span translate="help.update"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <md-button  aria-label="btu" ng-if="hasRole(userRoles,'delete_preadvicenotice')" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'pre_shipments')"><i class="fa fa-trash-o"></i>
+
+                        <md-tooltip>
+                            <span translate="help.delete"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span ng-if="deletingItem[item.id]"><i class="fa fa-spin fa-spinner"></i> <span translate="labels.deleting"></span></span>
+                </td>
             </tr>
             </tbody>
         </table>

@@ -188,8 +188,17 @@ angular.module("vssmApp")
         $http.get("index.php/expected_items").success(function(data){
             $scope.expected_packages = [];
             angular.forEach(data,function(value){
-                if(data.package.receiving_status == "pending"){
+                if(value.package.receiving_status == "pending"){
                     $scope.expected_packages.push(value);
+                }
+            });
+        });
+
+        $http.get("index.php/pre_shipments").success(function(data){
+            $scope.pre_shipments = [];
+            angular.forEach(data,function(value){
+                if(value.status == "pending"){
+                    $scope.pre_shipments.push(value);
                 }
             });
         });

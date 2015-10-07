@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function userlogs($id)
     {
-        return Log::where('user_id',$id)->get();
+        return Log::where('user_id',$id)->orderBy('id','DESC')->get();
     }
 
 
@@ -149,13 +149,13 @@ class UserController extends Controller
             Auth::login($user,TRUE);
 
             if(Auth::check()){
-
+                Log::create(array(
+                    "user_id"=>  Auth::user()->id,
+                    "action"  =>"Logged In"
+                ));
                 return Redirect::to("/");
             }
-            Log::create(array(
-                "user_id"=>  Auth::user()->id,
-                "action"  =>"Logged In"
-            ));
+
         }
         else{
             return View::make("welcome")->with("error","Incorrect Username or Password");
@@ -168,11 +168,12 @@ class UserController extends Controller
      * @return view
      */
     public function logout(){
-        Auth::logout();
         Log::create(array(
             "user_id"=>  Auth::user()->id,
             "action"  =>"Logged Out"
         ));
+        Auth::logout();
+
         return Redirect::to("login");
     }
 
