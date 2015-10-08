@@ -237,6 +237,20 @@ class VaccineController extends Controller
         }
     }
 
+    /**
+     * get the last package number for item movements
+     *
+     * @return Response
+     */
+    public function getNextMovementNumber()
+    {
+        if(count(ItemMovement::all()) != 0){
+            return ItemMovement::orderBy('order_no','DESC')->first()->order_no +1;
+        }else{
+            return 1;
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -350,6 +364,7 @@ class VaccineController extends Controller
         $arrival = new Arrival;
         $arrival->reference                 = date('Y')."1".$str+"".$nextNumber;
         $arrival->order_no                  = $nextNumber;
+        $arrival->year                      = date('Y');
         $arrival->recipient_source_id       = $recipient->parent_id;
         $arrival->recipient_destination_id  = $recipient->id;
         $arrival->source_id                 = $request->input('source_id');
@@ -473,8 +488,9 @@ class VaccineController extends Controller
         for($sj = 6; $sj > strlen($nextNumber);$sj--){
             $str.="0";
         }
-        $arrival->reference                 = date('Y')."4".$str+"".$nextNumber;
+        $arrival->reference                 = date('Y')."1".$str+"".$nextNumber;
         $arrival->order_no                  = $nextNumber;
+        $arrival->year                      = date('Y');
         $arrival->recipient_source_id       = $recipient->parent_id;
         $arrival->recipient_destination_id  = $recipient->id;
 //        $arrival->source_id                 = $request->input('source_id');
@@ -603,6 +619,7 @@ class VaccineController extends Controller
         $arrival->freight_cost              = ($request->has('freight_cost'))?$request->input('freight_cost'):'';
         $arrival->receiving_user            = Auth::user()->id;
         $arrival->order_no                  = $nextNumber;
+        $arrival->year                      = date('Y');
         $arrival->notes                     = ($request->has('notes'))?$request->input('notes'):'';
         $arrival->main_currency             = ($request->has('main_currency'))?$request->input('main_currency'):'';
         $arrival->used_currency             = ($request->has('currency_of_bill'))?$request->input('currency_of_bill'):'';
@@ -1029,16 +1046,25 @@ class VaccineController extends Controller
         }
 
         $movement = new ItemMovement;
-        $movement->from_store = $storeStock->store_id;
-        $movement->to_store = $storeStock1->store_id;
-        $movement->store_item_id = $storeStock->id;
-        $movement->user_id = Auth::user()->id;
-        $movement->amount = $request->input('doses');
-        $movement->recipient_id = Auth::user()->recipient_id;
-        $movement->vaccine_id = $storeStock->vaccine_id;
-        $movement->lot_number = $storeStock->lot_number;
-        $movement->expiry_date = $storeStock->expiry_date;
-        $movement->moved_volume = $volume;
+        $nextNumber = $this->getNextMovementNumber();
+
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $movement->reference         = date('Y')."4".$str+"".$nextNumber;
+        $movement->from_store       = $storeStock->store_id;
+        $movement->to_store         = $storeStock1->store_id;
+        $movement->store_item_id    = $storeStock->id;
+        $movement->user_id          = Auth::user()->id;
+        $movement->amount           = $request->input('doses');
+        $movement->recipient_id     = Auth::user()->recipient_id;
+        $movement->vaccine_id       = $storeStock->vaccine_id;
+        $movement->lot_number       = $storeStock->lot_number;
+        $movement->expiry_date      = $storeStock->expiry_date;
+        $movement->moved_volume     = $volume;
+        $movement->year              = date('Y');
+        $movement->order_no          = $nextNumber;
         $movement->save();
 
         $store = Store::find($storeStock->store_id);
@@ -1051,6 +1077,7 @@ class VaccineController extends Controller
             "user_id"=>  Auth::user()->id,
             "action"  =>"Move ".$request->input('doses')." Doses of ".Vaccine::find($storeStock->vaccine_id)->name." from ".$store->name." To ". $store1->name
         ));
+        return $movement->reference;
     }
 
     public function cancelDispatch($id){

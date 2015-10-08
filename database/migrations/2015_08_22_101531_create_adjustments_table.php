@@ -14,6 +14,24 @@ class CreateAdjustmentsTable extends Migration
     {
         Schema::create('adjustments', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('vaccine_id');
+            $table->integer('packaging_id');
+            $table->string('lot_number');
+            $table->date('expiry_date');
+            $table->integer('store_id');
+            $table->integer('activity_id');
+            $table->integer('source_id');
+            $table->integer('recipient_id');
+            $table->string('notes');
+            $table->string('adjustment_reason');
+            $table->string('adjustment_type');
+            $table->integer('resource_id');
+            $table->integer('order_no');
+            $table->integer('year');
+            $table->string('reference');
+            $table->string('previous_amount');
+            $table->string('current_amount');
+            $table->string('adjusted_volume');
             $table->timestamps();
         });
     }

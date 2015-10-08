@@ -50,6 +50,10 @@ angular.module("vssmApp")
             $scope.system_settings = data[0];
             $translate.use(data[0].language);
             $scope.main_currency = data[0].main_currency;
+            //getting the recipients level2
+            $http.get("index.php/getFirstRecipients").success(function(data){
+                $scope.system_settings.central_level_name = data.name;
+            });
         });
 
         $scope.hasRole = function(roleArr,role){
@@ -144,6 +148,7 @@ angular.module("vssmApp")
         $http.get("index.php/recipients/2").success(function(data){
             $scope.data.recipientsLevel2 = data;
         });
+
 
         //getting the recipients level3
         $http.get("index.php/recipients/3").success(function(data){

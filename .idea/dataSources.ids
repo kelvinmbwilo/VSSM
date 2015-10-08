@@ -2691,6 +2691,7 @@
       <column name="reference" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
       <column name="order_no" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="status" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="year" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="item_movements" schema="" catalog="vssm" type="TABLE">
@@ -2707,6 +2708,9 @@
       <column name="lot_number" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="expiry_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="moved_volume" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="year" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="reference" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="order_no" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="items_min_max" schema="" catalog="vssm" type="TABLE">
@@ -2780,6 +2784,9 @@
       <column name="updated_at" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="package_id" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <column name="packed_volume" sqlType="FLOAT" length="12" precision="0" nullable="false" jdbcType="7"/>
+      <column name="reference" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="order_no" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="year" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="pre_advice_items" schema="" catalog="vssm" type="TABLE">

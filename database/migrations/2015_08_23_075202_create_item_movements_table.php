@@ -20,6 +20,13 @@ class CreateItemMovementsTable extends Migration
             $table->integer('user_id');
             $table->integer('amount');
             $table->integer('recipient_id');
+            $table->integer('vaccine_id');
+            $table->string('lot_number');
+            $table->date('expiry_date');
+            $table->string('moved_volume');
+            $table->string('year');
+            $table->string('reference');
+            $table->integer('order_no');
             $table->timestamps();
         });
     }

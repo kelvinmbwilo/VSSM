@@ -27,6 +27,10 @@ class CreateArrivalsTable extends Migration
             $table->string('main_currency');
             $table->string('used_currency');
             $table->string('exchange_rate');
+            $table->string('reference');
+            $table->integer('order_no');
+            $table->string('status');
+            $table->string('year');
             $table->timestamps();
         });
     }

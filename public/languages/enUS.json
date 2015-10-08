@@ -152,7 +152,7 @@
         "packaging_id":"Packaging",
         "number_of_doses":"Amount( doses )",
         "lot_number":"Batch Number",
-        "expired_date":"Expired Date",
+        "expired_date":"Expiration Date",
         "manufacture_date":"Production Date",
         "pending":"Pending",
         "received":"Received",
@@ -181,7 +181,7 @@
         "scan_item":"Scan The Vaccine Box",
         "start_year":"Start of year",
         "language":"Language",
-        "voucher_no":"Voucher Number",
+        "voucher_no":"Transaction No.",
         "dispatch_date":"Dispatch Date",
         "request_number":"Request Number",
         "transport_mode":"Transport Mode",
@@ -238,7 +238,9 @@
         "previous_amount":"Previous Amount",
         "current_amount":"Current Amount",
         "dispatch_reference":"Dispatch Reference",
-        "adjusted_volume":"Adjusted Volume"
+        "adjusted_volume":"Adjusted Volume",
+        "old_password":"Old Password",
+        "central_level_name":"Central Level name"
 
     },
     "error": {
@@ -255,6 +257,8 @@
         "stock_added_successfull":"Items Received successful",
         "stock_added_falure":"Something Went Wrong, Items was Not Received!",
         "stock_adjusted_successfull":"Items adjusted successful",
+        "stock_adjusted_successfull1":"Items adjusted successful, Reference Number {{ reference }}",
+        "stock_moved_successfull":"Items Moved successful, Reference Number {{ reference }}",
         "stock_adjusted_falure":"Something Went Wrong, Items was Not adjusted!",
         "stock_dispatched_successfull":"Items Dispatched successful",
         "stock_dispatched_falure":"Something Went Wrong, Items was Not Dispatched!",

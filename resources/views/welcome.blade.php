@@ -32,7 +32,7 @@ License: You must have a valid license purchased only from themeforest (the abov
 <div id=header class="animated fadeInDown">
     <div class=row>
         <div class=navbar>
-            <div class="container text-center"><a class=navbar-brand href="#">VSM<span class=slogan> (Vaccine Visibility System) </span></a>
+            <div class="container text-center"><a class=navbar-brand href="#">VVS<span class=slogan> (Vaccine Visibility System) </span></a>
             </div>
         </div>
         <!-- /navbar -->
@@ -56,7 +56,7 @@ License: You must have a valid license purchased only from themeforest (the abov
                 <div class=form-group>
                     <div class=col-md-12>
                         <!-- col-md-12 start here -->
-                        <label for="" translate="labels.username">Username:</label>
+                        <label for="" translate="labels.username">Username/Usuario:</label>
                     </div>
                     <!-- col-md-12 end here -->
                     <div class=col-lg-12>
@@ -68,24 +68,25 @@ License: You must have a valid license purchased only from themeforest (the abov
                 <div class=form-group>
                     <div class=col-md-12>
                         <!-- col-md-12 start here -->
-                        <label for="" translate="labels.password">Password:</label>
+                        <label for="" translate="labels.password">Password/Contrasena:</label>
                     </div>
                     <!-- col-md-12 end here -->
                     <div class=col-lg-12>
                         <div class="input-group input-icon">
                             <input type=password name=password id=password class=form-control placeholder="Your password"> <span class=input-group-addon><i class="icomoon-icon-lock s16"></i></span>
-                        </div><span class="help-block text-right"><a href="lost-password.html" translate="labels.forgert_password">Forgot password ?</a></span>
+                        </div>
+                        <span class="help-block text-right"><a href="lost-password.html" translate="labels.forgert_password">Forgot password ?</a></span>
                     </div>
                 </div>
                 <div class="form-group mb0">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
                         <div class=checkbox-custom>
                             <input type=checkbox name=remember id=remember value=option>
-                            <label for=remember translate="labels.remember_me">Remember Me</label>
+                            <label for=remember translate="labels.remember_me">Remember Me/Recordarme</label>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 mb25">
-                        <button class="btn btn-default pull-right" type=submit>Login</button>
+                        <button class="btn btn-default pull-right" type=submit>Login/Ingresar</button>
                     </div>
                 </div>
             </form>
@@ -106,14 +107,10 @@ License: You must have a valid license purchased only from themeforest (the abov
 </div>
 <!-- Javascripts -->
 <!-- Important javascript libs(put in all pages) -->
-<script src=http://code.jquery.com/jquery-2.1.1.min.js></script>
-<script>
-    window.jQuery || document.write('<script src="http://themes.suggelab.com/supr/assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
-</script>
-<script src=http://code.jquery.com/ui/1.10.4/jquery-ui.js></script>
-<script>
-    window.jQuery || document.write('<script src="http://themes.suggelab.com/supr/assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
-</script>
+
+<script src="<?php echo  asset('js/libs/jquery-2.1.1.min.js') ?>"></script>
+<script src="<?php echo  asset('jqueryui/js/jquery-ui-1.10.4.custom.js') ?>"></script>
+<script src="<?php echo  asset('js/libs/jquery-migrate-1.2.1.min.js') ?>"></script>
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/libs/excanvas.min.js"></script>
 <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

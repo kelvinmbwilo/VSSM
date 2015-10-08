@@ -21,6 +21,20 @@ class PreShipmentController extends Controller
     }
 
     /**
+     * get the last package number for item movements
+     *
+     * @return Response
+     */
+    public function getNextNumber()
+    {
+        if(count(PreShipment::all()) != 0){
+            return PreShipment::orderBy('order_no','DESC')->first()->order_no +1;
+        }else{
+            return 1;
+        }
+    }
+
+    /**
      * Display a listing of the pending_shipments.
      *
      * @return Response
@@ -63,6 +77,13 @@ class PreShipmentController extends Controller
     public function store(Request $request)
     {
         $item = new PreShipment();
+        $nextNumber = $this->getNextNumber();
+
+        $str = "";
+        for($sj = 6; $sj > strlen($nextNumber);$sj--){
+            $str.="0";
+        }
+        $item->reference                = date('Y')."5".$str+"".$nextNumber;
         $item->status                   = "pending";
         $item->source_id                = $request->input("source_id");
         $item->package_id               = $request->input("package_id");
@@ -75,6 +96,8 @@ class PreShipmentController extends Controller
         $item->lot_number               = $request->input("lot_number");
         $item->manufacture_date         = $request->has("manufacture_date")?$request->input("manufacture_date"):'';
         $item->expired_date             = $request->input("expired_date");
+        $item->year                     = date('Y');
+        $item->order_no                  = $nextNumber;
 
         $item->save();
         return $item->load('vaccine','packaging','source');

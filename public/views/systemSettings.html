@@ -28,6 +28,10 @@
                 <input required="" type="text" ng-model="system_settings.main_currency" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.main_currency' | translate }}">
             </div>
             <div class="form-group">
+                <label class="required" for="exampleInputPassword1" translate="labels.central_level_name"></label>
+                <input required="" type="text" ng-model="system_settings.central_level_name" class="form-control" id="exampleInputPassword1" placeholder="{{ 'labels.central_level_name' | translate }}">
+            </div>
+            <div class="form-group">
                 <label class="required" for="start_year" translate="labels.start_year"></label>
                 <select required="" type="text" ng-model="system_settings.start_year" class="form-control" id="start_year" >
                     <option value="" translate="labels.select"></option>
@@ -44,20 +48,6 @@
                     <option value="11" translate="help.november"></option>
                     <option value="12" translate="help.december"></option>
                 </select>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-4">
-                    <label class="required" for="exampleInputPassword1" translate="labels.arrival_number"></label>
-                    <input type="text" ng-model="system_settings.arrival_number" class="form-control" id="arrival_number" placeholder="{{ 'labels.arrival_number' | translate }}">
-                </div>
-                <div class="col-sm-4">
-                    <label class="required" for="dispatch_number" translate="labels.dispatch_number"></label>
-                    <input  type="text" ng-model="system_settings.dispatch_number" class="form-control" id="dispatch_number" placeholder="{{ 'labels.dispatch_number' | translate }}">
-                </div>
-                <div class="col-sm-4">
-                    <label class="required" for="adjustment_number" translate="labels.adjustment_number"></label>
-                    <input  type="text" ng-model="system_settings.adjustment_number" class="form-control" id="adjustment_number" placeholder="{{ 'labels.adjustment_number' | translate }}">
-                </div>
             </div>
 
             <button ng-if="hasRole(userRoles,'update_configuration')" type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveSettings(system_settings)"></button>

@@ -21,6 +21,15 @@ class CreateRecipientPackageItemsTable extends Migration
             $table->string('VVM stage');
             $table->string('activity');
             $table->integer('store_id');
+            $table->integer('source_id');
+            $table->integer('amount');
+            $table->integer('unit_price');
+            $table->date('expiry_date');
+            $table->integer('recipient_id');
+            $table->integer('receiver_id');
+            $table->date('date_sent');
+            $table->string('voucher_number');
+            $table->string('status');
             $table->timestamps();
         });
     }

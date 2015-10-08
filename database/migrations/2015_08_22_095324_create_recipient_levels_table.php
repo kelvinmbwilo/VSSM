@@ -20,6 +20,16 @@ class CreateRecipientLevelsTable extends Migration
             $table->string('code');
             $table->timestamps();
         });
+
+        for($i=1;$i<=4;$i++){
+            \Illuminate\Support\Facades\DB::table('recipient_levels')->insert([
+                'order' => $i,
+                'name' => 'Level'.$i,
+                'status' => 'active',
+                'code' => 'Level'.$i,
+            ]);
+        }
+
     }
 
     /**

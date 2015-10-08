@@ -36,6 +36,11 @@ angular.module("vssmApp")
             controller: 'userCtrl'
         });
 
+        $routeProvider.when("/change_pass",{
+            templateUrl: 'views/users/changePass.html',
+            controller: 'userCtrl'
+        });
+
         $routeProvider.when("/user_roles",{
             templateUrl: 'views/users/user_roles.html',
             controller: 'userRolesCtrl'

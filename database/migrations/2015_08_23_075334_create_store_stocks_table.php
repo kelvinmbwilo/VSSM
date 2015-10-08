@@ -22,6 +22,7 @@ class CreateStoreStocksTable extends Migration
             $table->date('expiry_date');
             $table->float('unit_price');
             $table->integer('activity_id');
+            $table->integer('source_id');
             $table->timestamps();
         });
     }

@@ -37,6 +37,10 @@ class CreateArrivalItemsTable extends Migration
             $table->integer('manufacture_id');
             $table->date('prduction_date');
             $table->date('expiry_date');
+            $table->integer('source_id');
+            $table->date('arrival_date');
+            $table->string('voucher_number');
+            $table->string('status');
             $table->timestamps();
         });
     }

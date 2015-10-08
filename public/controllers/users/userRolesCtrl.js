@@ -61,6 +61,8 @@ angular.module("vssmApp")
             {  name: "Add", role: "add_recipients", ticked: false },
             {  name: "Update", role: "update_recipients", ticked: false },
             {  name: "Delete", role: "delete_recipients", ticked: false },
+            {   msGroup: false },
+            {name: 'Recipients Levels', msGroup: true},
             {  name: "See", role: "see_recipientslevels", ticked: false },
             {  name: "Add", role: "add_recipientslevels", ticked: false },
             {  name: "Update", role: "update_recipientslevels", ticked: false },
@@ -149,7 +151,7 @@ angular.module("vssmApp")
             {   msGroup: false },
             {   msGroup: false }
         ];
-        var roles1 = [
+        var roles1 =[
             {name: 'Dashboard', msGroup: true},
             {  name: "See Dashboard", role: "see_dashboard", ticked: false },
             {   msGroup: false },
@@ -201,6 +203,8 @@ angular.module("vssmApp")
             {  name: "Add", role: "add_recipients", ticked: false },
             {  name: "Update", role: "update_recipients", ticked: false },
             {  name: "Delete", role: "delete_recipients", ticked: false },
+            {   msGroup: false },
+            {name: 'Recipients Levels', msGroup: true},
             {  name: "See", role: "see_recipientslevels", ticked: false },
             {  name: "Add", role: "add_recipientslevels", ticked: false },
             {  name: "Update", role: "update_recipientslevels", ticked: false },

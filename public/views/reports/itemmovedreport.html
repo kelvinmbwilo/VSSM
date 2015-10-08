@@ -18,6 +18,7 @@
         <thead>
         <tr>
             <th >#</th>
+            <th translate="labels.voucher_no"></th>
             <th translate="labels.product"></th>
             <th translate="labels.from_store"></th>
             <th translate="labels.to_store"></th>
@@ -31,6 +32,7 @@
         <tbody>
         <tr ng-repeat="item in movedItems">
             <td>{{ $index+1 }}</td>
+            <td>{{ item.reference }}</td>
             <td>{{ getVaccineName(item.vaccine_id) }}</td>
             <td>{{ getStoreName(item.from_store) }}</td>
             <td>{{ getStoreName(item.to_store) }}</td>

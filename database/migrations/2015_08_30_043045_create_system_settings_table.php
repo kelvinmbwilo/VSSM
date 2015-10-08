@@ -20,6 +20,12 @@ class CreateSystemSettingsTable extends Migration
             $table->string('start_year');
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::table('system_settings')->insert([
+            'language' => 'enUS',
+            'main_currency' => '$',
+            'start_year' => '01',
+        ]);
     }
 
     /**

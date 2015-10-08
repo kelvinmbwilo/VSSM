@@ -27,6 +27,20 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::table('users')->insert([
+            'first_name' => 'Admin',
+            'middle_name' => '',
+            'last_name' => 'User',
+            'phone' => '',
+            'recipient_id' => 1,
+            'role' => 1,
+            'user_name' => 'admin',
+            'email' => 'adminuser@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('admin'),
+            'status' => 'active',
+        ]);
+
     }
 
     /**

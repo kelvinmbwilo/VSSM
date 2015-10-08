@@ -85,8 +85,8 @@ else{
                     <ul class="dropdown-menu right">
                         <li class=menu style="min-width: 200px;">
                             <ul>
-                                <li><a href="blank.html#"><i class="s16 icomoon-icon-user-plus" translate="menu.edit_profile"></i></a></li>
-                                <li><a href="blank.html#"><i class="s16 icomoon-icon-lock" translate="menu.reset_password"></i></a></li>
+                                <li><a href="./#change_pass"><i class="s16 icomoon-icon-user-plus" translate="menu.reset_password"></i></a></li>
+<!--                                <li><a href="change_pass"><i class="s16 icomoon-icon-lock" translate="menu.reset_password"></i></a></li>-->
                                 <li><a href="./index.php/logout"><i class="s16 fa fa-sign-out" translate="menu.logout"></i></a></li>
                                 <li class="seperator"></li>
                                 <li>

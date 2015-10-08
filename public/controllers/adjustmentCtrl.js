@@ -167,10 +167,10 @@ angular.module("vssmApp")
         $scope.currentSaving3 = false;
         $scope.saveStockAdjust = function(item){
             $scope.currentSaving2 = true;
-            $http.post("index.php/stock_adjust/", item).success(function (newItem) {
+            $http.post("index.php/stock_adjust/", item).success(function (ref) {
                 $mdToast.show(
                     $mdToast.simple()
-                        .content($translate('error.stock_adjusted_successfull'))
+                        .content($translate('error.stock_adjusted_successfull1',{ reference: ref }))
                         .position($scope.getToastPosition())
                         .hideDelay(5000)
                 );
@@ -227,11 +227,11 @@ angular.module("vssmApp")
         $scope.currentSaving4 = false;
         $scope.moveItem = function(item){
             $scope.currentSaving1 = true;
-            $http.post("index.php/move_item", item).success(function (newItem) {
+            $http.post("index.php/move_item", item).success(function (ref) {
                 $scope.newItem = {};
                $mdToast.show(
                     $mdToast.simple()
-                        .content($translate('error.stock_adjusted_successfull'))
+                        .content($translate('error.stock_moved_successfull',{ reference: ref }))
                         .position($scope.getToastPosition())
                         .hideDelay(5000)
                 );

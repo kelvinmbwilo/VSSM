@@ -34,6 +34,9 @@ Route::post('delete/users/{id}',array('uses'=>'UserController@destroy'));
 //Updating  user
 Route::post('users/{id}',array('uses'=>'UserController@update'));
 
+//Updating  user
+Route::post('password/{id}',array('uses'=>'UserController@updatePassword'));
+
 //validating user during login
 Route::post('login',array('as'=>'login', 'uses'=>'UserController@validateUser'));
 

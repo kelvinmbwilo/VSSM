@@ -239,6 +239,40 @@ angular.module("vssmApp")
                 }
             }
         }
+        $scope.currentSaving = false;
+        $scope.updateUserPassword = function(user){
+            $scope.currentSaving = true;
+            $http.post("index.php/password/"+$scope.logedInUser.id, user).success(function (ret) {
+                if(ret == "success"){
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .content($translate('error.save_success'))
+                            .position($scope.getToastPosition())
+                            .hideDelay(3000)
+                    );
+                }else{
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .content($translate('error.save_falure'))
+                            .position($scope.getToastPosition())
+                            .hideDelay(5000)
+                    );
+                }
+
+                $scope.currentSaving = false;
+                $scope.newItem = {};
+            }).error(function(){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.save_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+                $scope.newItem = {};
+            })
+
+        }
 
 
     }).controller('UserModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {

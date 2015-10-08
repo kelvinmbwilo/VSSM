@@ -22,6 +22,7 @@ class CreateStoresTable extends Migration
             $table->string('status');
             $table->float('used_volume');
             $table->integer('store_id');
+            $table->integer('notes');
             $table->timestamps();
         });
     }

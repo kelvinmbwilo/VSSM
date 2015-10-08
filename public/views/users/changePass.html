@@ -1,0 +1,45 @@
+<div class=contentwrapper>
+    <!--Content wrapper-->
+    <div class=heading>
+        <!--  .heading-->
+        <h3 translate="menu.reset_password"></h3>
+        <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
+
+        <ul class=breadcrumb>
+            <li translate="labels.you_are_here"></li>
+            <li><a href="./#home" class=tip title="back to dashboard"><i class="s16 icomoon-icon-screen-2"></i><span translate="menu.dashboard"></span></a> <span class=divider><i class="s16 icomoon-icon-arrow-right-3"></i> </span></li>
+            <li class=active translate="menu.reset_password"></li>
+        </ul>
+    </div>
+    <!-- End  / heading--><!-- Start .row -->
+    <div class="row">
+        <form novalidate name="myForm">
+        <div class="col-xs-8" ng-hide="currentEditting">
+            <div class="col-xs-8" ><b translate="labels.old_password">Old Password</b>
+                <input type="password" class="form-control" ng-model="newItem.oldPassword" required/></div>
+            <div class="col-xs-8"><b translate="labels.password">Password</b>
+                <input type="password" class="form-control" ng-model="newItem.password" ng-change="passwordNoMatch()" required/>
+            </div>
+            <div class="col-xs-8"><b translate="labels.re_password">Re-password</b>
+                <input type="password" class="form-control" ng-model="newItem.re_password" ng-change="passwordNoMatch()" required/>
+            </div>
+
+        </div>
+        </form>
+        <div class="col-xs-8" style="margin-top: 10px;margin-bottom: 10px">
+            <div class="col-xs-8">
+
+                <!--saving messages-->
+                <span class="pull-left" ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> Saving.... </span>
+                <span class="pull-left text-success" ng-if="kayaSavedSuccess"><i class='fa fa-check fa-2x'></i> Saved Successful </span>
+                <span class="pull-left text-danger" ng-if="kayaSavedFalue"><i class='fa fa-times fa-2x'></i> Saving Failed </span>
+                <span class="pull-left text-warning" ng-if="passcheck"><i class='fa fa-warning fa-2x'></i> Two Password Do not Match </span>
+
+                <div ng-disabled="myForm.$invalid || passcheck" class="btn btn-primary btn-sm pull-right" ng-click="updateUserPassword(newItem)">Update </div>
+            </div>
+        </div>
+    </div>
+    <!-- End .row -->
+    <!-- End .row -->
+</div>
+

@@ -58,6 +58,7 @@
             <thead>
             <tr>
                 <th width="5%">#</th>
+                <th translate="labels.voucher_no"></th>
                 <th width="15%" translate="labels.packaging_id"></th>
                 <th width="10%" translate="labels.source"></th>
                 <th width="10%" translate="labels.product"></th>
@@ -70,6 +71,7 @@
             <tbody>
             <tr ng-repeat="item in pre_shipments" ng-hide="deletedItem[item.id]">
                 <td>{{ $index+1 }}</td>
+                <td>{{ item.reference }}</td>
                 <td>{{ item.package_id }}</td>
                 <td>{{ item.source.name }}</td>
                 <td>{{ item.vaccine.name }}</td>

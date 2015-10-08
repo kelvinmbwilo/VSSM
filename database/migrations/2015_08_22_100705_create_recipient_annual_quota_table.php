@@ -18,6 +18,7 @@ class CreateRecipientAnnualQuotaTable extends Migration
             $table->integer('item_id');
             $table->string('expected_annual_need');
             $table->string('year');
+            $table->integer('parent_id');
             $table->timestamps();
         });
     }

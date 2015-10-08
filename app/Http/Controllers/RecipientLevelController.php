@@ -67,6 +67,16 @@ class RecipientLevelController extends Controller
         return count(Recipient::where('level',$order)->get());
     }
 
+    /**
+     * Display the number of items in recipient level.
+     *
+     * @return Response
+     */
+    public function getCentralLevel()
+    {
+        return Recipient::where('parent_id',0)->first();
+    }
+
 
     /**
      * Show the form for editing the specified resource.

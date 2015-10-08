@@ -26,6 +26,9 @@ class CreatePreAdviceTable extends Migration
             $table->date('expired_date');
             $table->string('status');
             $table->float('packed_volume');
+            $table->string('reference');
+            $table->integer('order_no');
+            $table->string('year');
             $table->timestamps();
         });
     }

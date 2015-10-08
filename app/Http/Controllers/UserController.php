@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Log;
+use App\Recipient;
 use App\SystemSettings;
 use App\User;
 use Illuminate\Http\Request;
@@ -81,12 +82,24 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     *  @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function updatePassword(Request $request,$id)
     {
-        //
+        $user = User::find($id);
+        if($user && Hash::check($request->input('oldPassword'), $user->password)){
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+            Log::create(array(
+                "user_id"=>  Auth::user()->id,
+                "action"  =>"Updates Password"
+            ));
+            return "success";
+        }else{
+            return "error";
+        }
     }
 
 
@@ -202,6 +215,9 @@ class UserController extends Controller
         $item->main_currency     = $request->input("main_currency");
         $item-> start_year    = $request->input("start_year");
         $item->save();
+        $central = Recipient::where('parent_id',0)->first();
+        $central->name = $request->input("central_level_name");
+        $central->save();
         Log::create(array(
             "user_id"=>  Auth::user()->id,
             "action"  =>"Update System Settings"

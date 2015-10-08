@@ -21,6 +21,9 @@ angular.module("vssmApp")
             $scope.currentSaving = true;
             $http.post("index.php/system_settings", item).success(function (Item) {
                 $scope.system_settings = Item;
+                $http.get("index.php/getFirstRecipients").success(function(data){
+                    $scope.system_settings.central_level_name = data.name;
+                });
                 $mdToast.show(
                     $mdToast.simple()
                         .content($translate('error.save_success'))

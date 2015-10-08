@@ -28,6 +28,21 @@ class CreateRecipientsTable extends Migration
             $table->string('status');
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::table('recipients')->insert([
+            'level' => 1,
+            'parent_id' => 0,
+            'code' => 'ORG1',
+            'name' => 'Central Level',
+            'transport_mode_id' => '',
+            'population' => '',
+            'population_year' => '',
+            'notes' => '',
+            'longitude' => '12.0962041',
+            'latitude' => '-86.2584606',
+            'distance' => '',
+            'status' => 'active',
+        ]);
     }
 
     /**
