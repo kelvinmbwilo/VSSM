@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RecipientLevelController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecipientLevelController.php">
+      <file leaf-file-name="database.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="36" selection-start="198" selection-end="198" vertical-scroll-proportion="-5.851852" vertical-offset="4" max-vertical-offset="2502">
-              <folding>
-                <element signature="e#40#52#0" expanded="true" />
-              </folding>
+            <state line="57" column="50" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-0.078947365" vertical-offset="1062" max-vertical-offset="2376">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VaccineController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="VaccineController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="614" column="119" selection-start="26039" selection-end="26039" vertical-scroll-proportion="0.34449762" vertical-offset="10908" max-vertical-offset="20286">
+            <state line="728" column="106" selection-start="33919" selection-end="33919" vertical-scroll-proportion="-29.333334" vertical-offset="12312" max-vertical-offset="20304">
               <folding>
                 <element signature="e#40#59#0" expanded="true" />
               </folding>
@@ -183,7 +181,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_08_30_043045_create_system_settings_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/public/controllers/users/userRolesCtrl.js" />
-        <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivitiesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdjustmentReasonModeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ManufactureModeController.php" />
@@ -197,6 +194,7 @@
         <option value="$PROJECT_DIR$/public/views/recipient/recipient_level.html" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
+        <option value="$PROJECT_DIR$/config/database.php" />
       </list>
     </option>
   </component>
@@ -392,20 +390,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VSSM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -783,13 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="53" selection-start="2092" selection-end="2092" vertical-scroll-proportion="-0.0" vertical-offset="1062" max-vertical-offset="2376">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="36" selection-start="160" selection-end="197" vertical-scroll-proportion="-4.0" vertical-offset="72" max-vertical-offset="2070">
@@ -862,7 +839,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="36" selection-start="198" selection-end="198" vertical-scroll-proportion="-5.851852" vertical-offset="4" max-vertical-offset="2502">
           <folding>
-            <element signature="e#40#52#0" expanded="true" />
+            <element signature="e#40#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -939,10 +916,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="614" column="119" selection-start="26039" selection-end="26039" vertical-scroll-proportion="0.34449762" vertical-offset="10908" max-vertical-offset="20286">
+        <state line="728" column="106" selection-start="33919" selection-end="33919" vertical-scroll-proportion="-29.333334" vertical-offset="12312" max-vertical-offset="20304">
           <folding>
             <element signature="e#40#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="50" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-0.078947365" vertical-offset="1062" max-vertical-offset="2376">
+          <folding />
         </state>
       </provider>
     </entry>
