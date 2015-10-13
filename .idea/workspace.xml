@@ -94,7 +94,7 @@
       <file leaf-file-name="VaccineController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="613" column="103" selection-start="25920" selection-end="25920" vertical-scroll-proportion="10.636364" vertical-offset="6588" max-vertical-offset="20286">
+            <state line="614" column="119" selection-start="26039" selection-end="26039" vertical-scroll-proportion="0.34449762" vertical-offset="10908" max-vertical-offset="20286">
               <folding>
                 <element signature="e#40#59#0" expanded="true" />
               </folding>
@@ -556,10 +556,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31025642" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31025642" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1846877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -939,7 +939,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="613" column="103" selection-start="25920" selection-end="25920" vertical-scroll-proportion="10.636364" vertical-offset="6588" max-vertical-offset="20286">
+        <state line="614" column="119" selection-start="26039" selection-end="26039" vertical-scroll-proportion="0.34449762" vertical-offset="10908" max-vertical-offset="20286">
           <folding>
             <element signature="e#40#59#0" expanded="true" />
           </folding>

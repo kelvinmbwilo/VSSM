@@ -367,8 +367,8 @@ class VaccineController extends Controller
         $arrival->year                      = date('Y');
         $arrival->recipient_source_id       = $recipient->parent_id;
         $arrival->recipient_destination_id  = $recipient->id;
-        $arrival->source_id                 = $request->has('source_id')?$request->input('source_id'):'';
-        $arrival->arrival_report_number     = $request->has('arrival_report_no')?$request->input('arrival_report_no'):'';
+        $arrival->source_id                 = $request->has('source_id')?$request->input('source_id'):0;
+        $arrival->arrival_report_number     = $request->has('arrival_report_no')?$request->input('arrival_report_no'):0;
         $arrival->package_volume            = ($request->has('packed_volume'))?$request->input('packed_volume'):'';
         $arrival->total_weight              = ($request->has('total_weight'))?$request->input('total_weight'):'';
         $arrival->arrival_date              = $request->input('arrival_date');
@@ -612,7 +612,7 @@ class VaccineController extends Controller
         $arrival->recipient_source_id       = $recipient->parent_id;
         $arrival->recipient_destination_id  = $recipient->id;
         $arrival->source_id                 = $request->has('source_id')?$request->input('source_id'):0;
-        $arrival->arrival_report_number     = $request->has('arrival_report_no')?$request->input('arrival_report_no'):'';
+        $arrival->arrival_report_number     = $request->has('arrival_report_no')?$request->input('arrival_report_no'):0;
         $arrival->package_volume            = ($request->has('packed_volume'))?$request->input('packed_volume'):'';
         $arrival->total_weight              = ($request->has('total_weight'))?$request->input('total_weight'):'';
         $arrival->arrival_date              = $request->input('arrival_date');
