@@ -116,7 +116,7 @@ class UserController extends Controller
         $user->first_name   = $request->input('first_name');
         $user->middle_name   = $request->has('middle_name')?$request->input('middle_name'):'';
         $user->last_name    = $request->input('last_name');
-        $user->phone        = $request->has('phone')?$request->input('phone'):"";
+        $user->phone        = $request->has('phone')?$request->input('phone'):'';
         $user->email        = $request->input('email');
 //        $user->user_name    = $request->input('user_name');
         $user->role         = $request->input('role');
