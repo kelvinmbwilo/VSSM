@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\RecipientLevel;
 use App\Recipient;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class RecipientLevelController extends Controller
 {
