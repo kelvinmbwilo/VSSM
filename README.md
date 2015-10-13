@@ -1,2 +1,2 @@
-# VSSM
-Vaccine Stock Management System
+# VVS
+Vaccine Visibility System
