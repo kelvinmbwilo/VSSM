@@ -29,7 +29,7 @@ class AnnualQuotaController extends Controller
      */
     public function thisyearAnualQuota()
     {
-        return RecipientAnnualQuota::where('parent_id',Auth::user()->recipient_id)->where('year',date('Y'))->with('recipient','vaccine')->get();
+        return RecipientAnnualQuota::where('parent_id',Auth::user()->recipient_id)->with('recipient','vaccine')->get();
     }
 
 
