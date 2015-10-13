@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
     </list>
     <ignored path="VSSM.iws" />
@@ -95,7 +94,7 @@
       <file leaf-file-name="VaccineController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="778" column="23" selection-start="35587" selection-end="35587" vertical-scroll-proportion="0.68899524" vertical-offset="13716" max-vertical-offset="20286">
+            <state line="613" column="103" selection-start="25920" selection-end="25920" vertical-scroll-proportion="10.636364" vertical-offset="6588" max-vertical-offset="20286">
               <folding>
                 <element signature="e#40#59#0" expanded="true" />
               </folding>
@@ -940,7 +939,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="778" column="23" selection-start="35587" selection-end="35587" vertical-scroll-proportion="0.68899524" vertical-offset="13716" max-vertical-offset="20286">
+        <state line="613" column="103" selection-start="25920" selection-end="25920" vertical-scroll-proportion="10.636364" vertical-offset="6588" max-vertical-offset="20286">
           <folding>
             <element signature="e#40#59#0" expanded="true" />
           </folding>
