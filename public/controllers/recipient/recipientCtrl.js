@@ -4,6 +4,7 @@
 angular.module("vssmApp")
     .controller("recipientCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
 
+        $scope.fetchBasicData();
         $scope.activeRecip = true;
         $scope.getRootChildren = function(id){
             var child = [];

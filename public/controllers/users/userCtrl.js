@@ -10,6 +10,8 @@ angular.module("vssmApp")
         $scope.userroles   = [];
         $scope.currentSaving = false;
         //get Users
+
+        $scope.fetchBasicData();
         $http.get("index.php/users").success(function(data){
             $scope.systemusers = data;
         });

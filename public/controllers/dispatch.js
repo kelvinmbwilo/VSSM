@@ -8,6 +8,7 @@ angular.module("vssmApp")
         $scope.showSummary = false;
         //managing the date picker
 
+        $scope.fetchBasicData();
         //get stock_items
         $http.get("index.php/stock_items").success(function(data){
             $scope.stock_items = data;

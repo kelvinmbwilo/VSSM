@@ -10,6 +10,7 @@ angular.module("vssmApp")
             right: true
         };
 
+        $scope.fetchBasicData();
         $scope.getToastPosition = function() {
             return Object.keys($scope.toastPosition)
                 .filter(function(pos) { return $scope.toastPosition[pos]; })

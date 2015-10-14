@@ -81,20 +81,24 @@ angular.module("vssmApp")
         $http.get("index.php/diluents").success(function(data){
             $scope.diluents = data;
         });
+
         //get user_recipients
         $http.get("index.php/user/recipients").success(function(data){
             $scope.userRecipients = data;
         });
+
         //get pre-shipments
         $http.get("index.php/pre_shipments").success(function(data){
             $scope.pre_shipments = data;
         });
+
         //update Diluent list
         $scope.updatedDiluents = function(){
             $http.get("index.php/diluents").success(function(data){
                 $scope.diluents = data;
             });
-        }
+        };
+
         $scope.getDiluentName = function(id){
             var name = "";
             angular.forEach($scope.vaccines,function(value){
@@ -103,7 +107,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
 
         //updating add Model when either vaccine or diluent is selected
         $scope.isVaccine = true;
@@ -117,7 +121,7 @@ angular.module("vssmApp")
             }else{
                 $scope.isVaccine = false;
             }
-        }
+        };
 
         //check if dilluent is requiered
         $scope.dilluentRequired = false;
@@ -129,7 +133,7 @@ angular.module("vssmApp")
                 $scope.dilluentRequired = false;
                 delete $scope.newItem['diluent_id'];
             }
-        }
+        };
 
 
         $scope.showAEdit = function(item,view){
@@ -142,7 +146,7 @@ angular.module("vssmApp")
                 size: "lg",
                 "backdrop":"static"
             });
-        }
+        };
 
         $scope.showAdd = function(view){
 
@@ -156,18 +160,18 @@ angular.module("vssmApp")
                 size: "lg",
                 "backdrop":"static"
             });
-        }
+        };
 
         $scope.cancelEditting = function(){
             $scope.showEditAdd = false;
             $scope.currentEditting = false;
             $scope.currentKaya = {};
-        }
+        };
 
         $scope.cancelAdding = function(){
             $scope.showEditAdd = false;
             $scope.currentKaya = {};
-        }
+        };
 
         var $translate = $filter('translate');
         $scope.deletedItem = [];
@@ -213,7 +217,8 @@ angular.module("vssmApp")
                     $scope.packagingInformation.push(value);
                 }
             });
-        }
+        };
+
         $scope.dateOptions = {
             formatYear: 'yy',
             startingDay: 1
@@ -224,6 +229,7 @@ angular.module("vssmApp")
             opened2: false,
             opened3: false
         };
+
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[0];
         $scope.open = function($event) {
@@ -249,7 +255,7 @@ angular.module("vssmApp")
                     $scope.newItem.packed_volume = value.packed_volume;
                 }
             })
-        }
+        };
 
     }).controller('BasicModalInstanceCtrl', function ($scope, $modalInstance,$http,$mdDialog,$mdToast,$filter) {
         var $translate = $filter('translate');
@@ -281,7 +287,7 @@ angular.module("vssmApp")
                 $scope.currentSaving = false;
                 $modalInstance.close();
             });
-        }
+        };
 
         //updating an Item
         $scope.currentUpdating = false;
@@ -313,13 +319,15 @@ angular.module("vssmApp")
                 $modalInstance.close();
             })
 
-        }
+        };
+
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };
         $scope.cancelupdate = function () {
             $modalInstance.dismiss('cancel');
         };
+
     });
 
 function formatDate(date) {

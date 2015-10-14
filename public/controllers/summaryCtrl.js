@@ -4,6 +4,7 @@
 angular.module("vssmApp")
     .controller("stockCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
 
+        $scope.fetchBasicData();
         //get stock_items
         $http.get("index.php/stock_items").success(function(data){
             $scope.stock_items = data;
@@ -185,6 +186,8 @@ angular.module("vssmApp")
     })
     .controller("expectedCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter){
         //get sent packages
+
+        $scope.fetchBasicData();
         $http.get("index.php/expected_items").success(function(data){
             $scope.expected_packages = [];
             angular.forEach(data,function(value){
@@ -206,6 +209,8 @@ angular.module("vssmApp")
     .controller("dispatchedCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
         $scope.vaccineNames = [];
         $scope.vacciineValues = [];
+
+        $scope.fetchBasicData();
         $http.get("index.php/disaptchedItems").success(function(data){
             $scope.disaptchedItems = data;
 
@@ -379,6 +384,7 @@ angular.module("vssmApp")
     })
     .controller("arrivalCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter){
 
+        $scope.fetchBasicData();
         $scope.vaccineNames = [];
         $scope.vacciineValues = [];
         $http.get("index.php/receivItems").success(function(data){

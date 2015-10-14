@@ -5,6 +5,7 @@
 angular.module("vssmApp")
     .controller("adjustmentCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
 
+        $scope.fetchBasicData();
         $scope.newItem = {};
 
         $scope.firstItem = {};
@@ -253,6 +254,8 @@ angular.module("vssmApp")
     })
     .controller("dispatchAdjustmentCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter){
         //ntialize variables
+
+        $scope.fetchBasicData();
         $scope.newItem = {};
         $scope.newItem.items = [];
         $scope.oneItem = {};
@@ -752,6 +755,7 @@ angular.module("vssmApp")
     })
     .controller("arrivalAdjustmentCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter){
         $scope.newItem = {};
+        $scope.fetchBasicData();
         $scope.getCanceledItems = function(){
             $http.get("index.php/arrivalsforcancel").success(function(data){
                 $scope.arrivals = [];

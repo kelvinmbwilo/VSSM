@@ -9,6 +9,8 @@ angular.module("vssmApp")
         $(document).ready(function(){
             $("#arrival_report_no").focus();
         })
+
+        $scope.fetchBasicData();
         $scope.barcode = {};
         $scope.newItem = {};
         $scope.newItem.items = [];

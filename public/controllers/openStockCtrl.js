@@ -10,6 +10,8 @@ angular.module("vssmApp")
                 $scope.newItem.items = [];
                 $scope.oneItem = {};
                 $scope.hasItems = false;
+
+        $scope.fetchBasicData();
                 $scope.prepareItems = function(str){
                     $scope.barcode ={};
                     $scope.barcode.lot_number = str.substring(29);
@@ -25,19 +27,20 @@ angular.module("vssmApp")
 //            if($scope.barcode.gtin){$scope.oneItem.packaging_id = $scope.barcode.gtin}
                     angular.forEach($scope.packaging_information,function(value){
                         if(value.GTIN == $scope.barcode.gtin){
-                            $scope.oneItem.packaging_id = value.id;
-                            $scope.oneItem.packaging = value.usename;
-                            $scope.oneItem.dose_vial = value.dose_per_vial;
-                            $scope.oneItem.vials_per_box = value.vials_per_box;
-                            $scope.oneItem.cm_per_dose = value.cm_per_dose;
-                            $scope.oneItem.item_id = value.vaccine.id;
-                            $scope.oneItem.item_type = value.vaccine.type;
-                            $scope.oneItem.diluent_id = value.vaccine.diluent_id;
-                            $scope.oneItem.require_diluent = value.vaccine.require_diluent;
-                            $scope.oneItem.item = value.vaccine.name;
-                            $scope.vaccineStore = value.vaccine.storage_type;
-                            $scope.oneItem.manufacture_id = value.manufacture.id;
-                            $scope.oneItem.manufacture = value.manufacture.name;
+                            $scope.oneItem.packaging_id     = value.id;
+                            $scope.oneItem.packaging        = value.usename;
+                            $scope.oneItem.dose_vial        = value.dose_per_vial;
+                            $scope.oneItem.doses            = value.dose_per_vial * value.vials_per_box;
+                            $scope.oneItem.vials_per_box    = value.vials_per_box;
+                            $scope.oneItem.cm_per_dose      = value.cm_per_dose;
+                            $scope.oneItem.item_id          = value.vaccine.id;
+                            $scope.oneItem.item_type        = value.vaccine.type;
+                            $scope.oneItem.diluent_id       = value.vaccine.diluent_id;
+                            $scope.oneItem.require_diluent  = value.vaccine.require_diluent;
+                            $scope.oneItem.item             = value.vaccine.name;
+                            $scope.vaccineStore             = value.vaccine.storage_type;
+                            $scope.oneItem.manufacture_id   = value.manufacture.id;
+                            $scope.oneItem.manufacture      = value.manufacture.name;
                         }
                     });
                 }

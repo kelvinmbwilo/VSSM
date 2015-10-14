@@ -41,17 +41,22 @@ class PackagingController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new PackagingInformation;
-        $item->vaccine_id         = $request->input("vaccine_id");
-        $item->GTIN               = $request->input("GTIN");
-        $item->dose_per_vial      = $request->input("dose_per_vial");
-        $item->vials_per_box      = $request->input("vials_per_box");
-        $item->cm_per_dose        = $request->input("cm_per_dose");
-        $item->manufacture_id     = $request->input("manufacture_id");
-        $item->commercial_name    = $request->has("commercial_name")?$request->input("commercial_name"):"";
-        $item->status               = "active";
-        $item->save();
-        return $item->load('vaccine','manufacture');
+        if(count(PackagingInformation::where('GTIN',$request->input("GTIN"))->get()) != 0){
+
+        }else{
+            $item = new PackagingInformation;
+            $item->vaccine_id         = $request->input("vaccine_id");
+            $item->GTIN               = $request->input("GTIN");
+            $item->dose_per_vial      = $request->input("dose_per_vial");
+            $item->vials_per_box      = $request->input("vials_per_box");
+            $item->cm_per_dose        = $request->input("cm_per_dose");
+            $item->manufacture_id     = $request->input("manufacture_id");
+            $item->commercial_name    = $request->has("commercial_name")?$request->input("commercial_name"):"";
+            $item->status               = "active";
+            $item->save();
+            return $item->load('vaccine','manufacture');
+        }
+
     }
 
     /**

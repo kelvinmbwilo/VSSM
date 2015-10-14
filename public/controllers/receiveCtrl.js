@@ -12,6 +12,7 @@ angular.module("vssmApp")
         $scope.hasItems = false;
         $scope.newItem.main_currency = $scope.main_currency;
         $scope.showSummary = false;
+        $scope.fetchBasicData();
         $scope.prepareItems = function(str){
             $scope.barcode ={};
             $scope.barcode.lot_number = str.substring(29);
