@@ -109,6 +109,16 @@ angular.module("vssmApp")
             return name;
         };
 
+        $scope.getPackaging = function(id){
+            var name = false;
+            angular.forEach($scope.packaging_information,function(value){
+                if(value.id == id){
+                    name =  true;
+                }
+            });
+            return name;
+        };
+
         //updating add Model when either vaccine or diluent is selected
         $scope.isVaccine = true;
         $scope.changeVaccine = function(val){

@@ -3,6 +3,21 @@
  */
 angular.module("vssmApp")
     .controller("recipientCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter) {
+//getting the recipients level2
+        $http.get("index.php/recipients/2").success(function(data){
+            $scope.data.recipientsLevel2 = data;
+        });
+
+
+        //getting the recipients level3
+        $http.get("index.php/recipients/3").success(function(data){
+            $scope.data.recipientsLevel3 = data;
+        });
+
+        //getting the recipients level4
+        $http.get("index.php/recipients/4").success(function(data){
+            $scope.data.recipientsLevel4 = data;
+        });
 
         $scope.fetchBasicData();
         $scope.activeRecip = true;

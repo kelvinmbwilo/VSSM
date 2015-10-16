@@ -869,6 +869,17 @@ class VaccineController extends Controller
         }
         //update arrival status
         $arrival->status = 'canceled';
+        if($recipient->level == 1){
+          foreach(PreShipment::where('package_id',$arrival->arrival_report_number)->get() as $package){
+              $package->status = 'pending';
+              $package->save();
+          };
+        }else{
+          foreach(RecipientPackage::where('voucher_number',$arrival->arrival_report_number)->get() as $package){
+              $package->receiving_status = 'pending';
+              $package->save();
+          };
+        }
         $arrival->save();
         Log::create(array(
             "user_id"=>  Auth::user()->id,
