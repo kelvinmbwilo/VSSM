@@ -7,7 +7,7 @@
         "help":"Ayuda"
     },
     "menu":{
-        "home": "Zuhause",
+        "home": "casa",
         "group":"Gruppe",
         "edit_profile":"Editar perfil",
         "reset_password": "Restablecer la contraseña",
@@ -287,7 +287,7 @@
         "add_transport" : "Añadir el modo de transporte",
         "add_adjustment_reason" : "Añadir Ajuste Razón",
         "add_activities" : "Añadir Actividad",
-        "add_ manufacture" : "Añadir Fabricación",
+        "add_manufacture" : "Añadir Fabricación",
         "add_annual_quota" : "Añadir Plan Anual",
         "update_vaccine" : "Actualización de Vacunas y el diluyente",
         "update_packaging" : "Actualización de información Packaging",
@@ -327,7 +327,8 @@
         "scan_item":"artículo Scan / Número de lote",
         "print":"Descargar Archivo",
         "storage_use":"Almacenamiento uso",
-        "current_stock_summary":"Inventario Actual"
+        "current_stock_summary":"Inventario Actual",
+        "how_long":"Cuánto tiempo durará artículo"
     },
     "global": {
         "back": "Zurück",

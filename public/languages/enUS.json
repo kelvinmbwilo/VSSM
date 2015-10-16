@@ -330,7 +330,8 @@
         "scan_item":"Scan Item/Batch Number",
         "print":"Download File",
         "storage_use":"Storage Use",
-        "current_stock_summary":"Current Stock Summary"
+        "current_stock_summary":"Current Stock Summary",
+        "how_long":"How Long Item Will Last"
     },
     "global": {
         "back": "Back",

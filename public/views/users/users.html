@@ -40,7 +40,7 @@
                 <td>{{ item.roles.name }}</td>
                 <td>{{ item.recipient.name }}</td>
                 <td>
-                    <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item)"><i class="fa fa-pencil-square"></i>
+                    <md-button ng-if="hasRole(userRoles,'update_users')" aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item)"><i class="fa fa-pencil-square"></i>
                         <md-tooltip>
                             <span translate="help.update"></span>
                         </md-tooltip>

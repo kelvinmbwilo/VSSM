@@ -400,7 +400,7 @@ angular.module("vssmApp")
             });
         });
 
-    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http) {
+    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http,$translate,$filter) {
 
         //get stores
         $scope.storeNames= [];
@@ -428,7 +428,7 @@ angular.module("vssmApp")
             })
 
         });
-
+        var $translate = $filter('translate');
         $scope.vaccineNames = [];
         $scope.vacciineValues = [];
         $scope.setStoreType = function(id){
@@ -447,8 +447,8 @@ angular.module("vssmApp")
                     });
 
                     $scope.data.storeName = value.name;
-                    $scope.storeCapacity.push({name: value.name+" - Used Volume" , y: parseInt(value.used_volume) })
-                    $scope.storeCapacity.push({name: value.name+" - Remainig Volume" , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - "+$translate('labels.used_volume') , y: parseInt(value.used_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - "+$translate('labels.free_volume') , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
             })
         }
@@ -505,7 +505,7 @@ angular.module("vssmApp")
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Volume(Ltr)'
+                    text: $translate('labels.net_volume')
                 }
             },
             xAxis: {
@@ -519,17 +519,17 @@ angular.module("vssmApp")
                 categories: $scope.storeNames
             },
             series: [{
-                name:'Total Volume',
+                name:$translate('labels.total_volume'),
                 data: $scope.storeValues
             },{
-                name:'Used Volume',
+                name:$translate('labels.used_volume'),
                 data: $scope.usedValues
             },{
-                name:'Free Volume',
+                name:$translate('labels.free_volume'),
                 data: $scope.freeValues
             }],
             title: {
-                text: 'Hello'
+                text: ''
             },
 //            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
             loading: false
@@ -545,7 +545,7 @@ angular.module("vssmApp")
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Doses'
+                    text: $translate('labels.doses')
                 }
             },
             xAxis: {
@@ -559,7 +559,7 @@ angular.module("vssmApp")
                 categories: $scope.vaccineNames
             },
             series: [{
-                name:"Doses",
+                name:$translate('labels.doses'),
                 data: $scope.vacciineValues
             }],
             title: {
@@ -578,11 +578,11 @@ angular.module("vssmApp")
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Doses'
+                    text: $translate('labels.doses')
                 }
             },
             series: [{
-                name: "Volume(Ltr)",
+                name: $translate('labels.net_volume'),
                 data: $scope.storeCapacity
             }],
             title: {

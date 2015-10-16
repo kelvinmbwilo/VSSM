@@ -131,7 +131,6 @@ angular.module("vssmApp")
             var packages = [];
             var counter = 0;
             angular.forEach($scope.expected_packages,function(value){
-                console.log(value.voucher_number+"==" +package_number)
                 if(value.receiving_status == 'pending'){
                     if(value.voucher_number == package_number){
                         $scope.newItem.arrival_date = new Date();
