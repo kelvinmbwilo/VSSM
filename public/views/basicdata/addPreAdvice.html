@@ -61,13 +61,13 @@
             </div>
             <!--lot_number-->
             <div class="form-group">
-                <label class="required" for="lot_number" translate="labels.lot_number"></label>
-                <input required="" type="text" ng-model="newItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
+                <label class="" for="lot_number" translate="labels.lot_number"></label>
+                <input type="text" ng-model="newItem.lot_number" class="form-control" id="lot_number" placeholder="{{ 'labels.lot_number' | translate }}">
             </div>
             <!--packaging_id-->
             <div class="form-group">
-                <label class="required" for="packaging_id" translate="labels.packaging_id"></label>
-                <select required="" id="packaging_id" class="form-control" ng-model="newItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
+                <label class="" for="packaging_id" translate="labels.packaging_id"></label>
+                <select  id="packaging_id" class="form-control" ng-model="newItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
@@ -78,9 +78,9 @@
             </div>
             <!--expired_date-->
             <div class="form-group">
-                <label class="required" translate="labels.expired_date"></label>
+                <label translate="labels.expired_date"></label>
                 <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.expired_date" is-open="status.opened2" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="newItem.expired_date" is-open="status.opened2" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>

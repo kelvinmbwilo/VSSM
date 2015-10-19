@@ -86,17 +86,17 @@ class PreShipmentController extends Controller
         }
         $item->reference                = date('Y')."5".$str+"".$nextNumber;
         $item->status                   = "pending";
-        $item->source_id                = $request->input("source_id");
-        $item->package_id               = $request->input("package_id");
-        $item->expected_time_of_arrival = $request->input("expected_time_of_arrival");
+        $item->source_id                = $request->has("source_id")?$request->input("source_id"):"";
+        $item->package_id               = $request->has("package_id")?$request->input("package_id"):"";
+        $item->expected_time_of_arrival = $request->has("expected_time_of_arrival")?$request->input("expected_time_of_arrival"):"";
         $item->total_weight             = $request->has("total_weight")?$request->input("total_weight"):'';
         $item->packed_volume            = $request->has("packed_volume")?$request->input("packed_volume"):'';
-        $item->item_id                  = $request->input("item_id");
-        $item->packaging_id             = $request->input("packaging_id");
-        $item->number_of_doses          = $request->input("number_of_doses");
-        $item->lot_number               = $request->input("lot_number");
+        $item->item_id                  = $request->has("item_id")?$request->input("item_id"):"";
+        $item->packaging_id             = $request->has("packaging_id")?$request->input("packaging_id"):"";
+        $item->number_of_doses          = $request->has("number_of_doses")?$request->input("number_of_doses"):"";
+        $item->lot_number               = $request->has("lot_number")?$request->input("lot_number"):"";
         $item->manufacture_date         = $request->has("manufacture_date")?$request->input("manufacture_date"):'';
-        $item->expired_date             = $request->input("expired_date");
+        $item->expired_date             = $request->has("expired_date")?$request->input("expired_date"):"";
         $item->year                     = date('Y');
         $item->order_no                  = $nextNumber;
 
@@ -127,17 +127,17 @@ class PreShipmentController extends Controller
     {
 
         $item = PreShipment::find($id);
-        $item->source_id                = $request->input("source_id");
-        $item->package_id               = $request->input("package_id");
-        $item->expected_time_of_arrival = $request->input("expected_time_of_arrival");
-        $item->total_weight             = $request->input("total_weight");
-        $item->packed_volume            = $request->input("packed_volume");
-        $item->item_id                  = $request->input("item_id");
-        $item->packaging_id             = $request->input("packaging_id");
-        $item->number_of_doses          = $request->input("number_of_doses");
-        $item->lot_number               = $request->input("lot_number");
-        $item->manufacture_date         = $request->input("manufacture_date");
-        $item->expired_date             = $request->input("expired_date");
+        $item->source_id                = $request->has("source_id")?$request->input("source_id"):"";
+        $item->package_id               = $request->has("package_id")?$request->input("package_id"):"";
+        $item->expected_time_of_arrival = $request->has("expected_time_of_arrival")?$request->input("expected_time_of_arrival"):"";
+        $item->total_weight             = $request->has("total_weight")?$request->input("total_weight"):'';
+        $item->packed_volume            = $request->has("packed_volume")?$request->input("packed_volume"):'';
+        $item->item_id                  = $request->has("item_id")?$request->input("item_id"):"";
+        $item->packaging_id             = $request->has("packaging_id")?$request->input("packaging_id"):"";
+        $item->number_of_doses          = $request->has("number_of_doses")?$request->input("number_of_doses"):"";
+        $item->lot_number               = $request->has("lot_number")?$request->input("lot_number"):"";
+        $item->manufacture_date         = $request->has("manufacture_date")?$request->input("manufacture_date"):'';
+        $item->expired_date             = $request->has("expired_date")?$request->input("expired_date"):"";
         $item->save();
         return $item->load('vaccine','packaging','source');
     }

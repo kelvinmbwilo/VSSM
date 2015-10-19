@@ -71,6 +71,7 @@ angular.module("vssmApp")
         }
 
         $scope.showAdd = function(){
+            $scope.newItem = {};
             var modalInstance = $modal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/users/addUsers.html',
