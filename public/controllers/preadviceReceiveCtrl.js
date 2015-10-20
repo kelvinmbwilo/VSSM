@@ -9,7 +9,7 @@ angular.module("vssmApp")
         $(document).ready(function(){
             $("#arrival_report_no").focus();
         })
-
+        $scope.minDate = new Date();
         $scope.fetchBasicData();
         $scope.barcode = {};
         $scope.newItem = {};
@@ -275,7 +275,7 @@ angular.module("vssmApp")
         $scope.cansave = function(){
             var i =0;
             angular.forEach($scope.newItem.items,function(value){
-                if(value.hasOwnProperty('u_price') && value.hasOwnProperty('store_id') && value.hasOwnProperty('activity')){
+                if(value.hasOwnProperty('expired_date') && value.hasOwnProperty('lot_number') && value.hasOwnProperty('u_price') && value.hasOwnProperty('store_id') && value.hasOwnProperty('activity')){
                     i++;
                 }
             })

@@ -23,7 +23,7 @@ else{
     <meta name=author content="Kelvi Mbwilo">
     <meta name=description content="Vaccines and Supplies Stock Management">
     <meta name=keywords content="Vaccine,Supply,Stock">
-    <meta name=application-name content="VSSM">
+    <meta name=application-name content="VVS">
     <!-- Import google fonts - Heading first/ text second -->
 <!--    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel=stylesheet type=text/css>-->
 <!--    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel=stylesheet type=text/css>-->

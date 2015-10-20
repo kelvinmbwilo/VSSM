@@ -646,18 +646,18 @@ class VaccineController extends Controller
             $ArrivalItem = new ArrivalItem;
             $ArrivalItem->recipient_source_id       = $recipient->parent_id;
             $ArrivalItem->recipient_destination_id  = $recipient->id;
-            $ArrivalItem->vaccine_id                = $item['item_id'];
-            $ArrivalItem->packaging_id              = $item['packaging_id'];
-            $ArrivalItem->activity_id               = $item['activity'];
-            $ArrivalItem->store_id                  = $item['store_id'];
+            $ArrivalItem->vaccine_id                = (isset($item['item_id']))?$item['item_id']:"";
+            $ArrivalItem->packaging_id              = (isset($item['packaging_id']))?$item['packaging_id']:"";
+            $ArrivalItem->activity_id               = (isset($item['activity']))?$item['activity']:"";
+            $ArrivalItem->store_id                  = (isset($item['store_id']))?$item['store_id']:"";
             $ArrivalItem->vvm_status                = (isset($item['vvm_stage']))?$item['u_price']:'';
             $ArrivalItem->arrival_id                = $arrival->id;
             $ArrivalItem->package_number            = $request->has('arrival_report_no')?$request->input('arrival_report_no'):'';
-            $ArrivalItem->lot_number                = $item['lot_number'];
-            $ArrivalItem->number_expected           = $item['doses'];
+            $ArrivalItem->lot_number                = (isset($item['lot_number']))?$item['lot_number']:"";
+            $ArrivalItem->number_expected           = (isset($item['doses']))?$item['doses']:"";
             $ArrivalItem->number_received           = $amount;
-            $ArrivalItem->physical_damage           = $item['physical_damage'];
-            $ArrivalItem->number_as_expected        = $item['number_as_expected'];
+            $ArrivalItem->physical_damage           = (isset($item['physical_damage']))?$item['physical_damage']:"";
+            $ArrivalItem->number_as_expected        = (isset($item['number_as_expected']))?$item['number_as_expected']:"";
             $ArrivalItem->damaged_amount            = (isset($item['damaged_amount']))?$item['damaged_amount']:0;
             $ArrivalItem->receiving_user            = Auth::user()->id;
             $ArrivalItem->unit_price                = (isset($item['u_price']))?$item['u_price']:'';
@@ -677,57 +677,56 @@ class VaccineController extends Controller
             //adding the item to stock
             if(count(Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->get()) != 0){
                 $stock = Stock::where('recipient_id',$recipient->id)->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
-                $stock->vaccine_id      = $item['item_id'];
+                $stock->vaccine_id      = (isset($item['item_id']))?$item['item_id']:"";
                 $stock->recipient_id    = $recipient->id;
                 $stock->source_id       = $request->has('source_id')?$request->input('source_id'):'';
                 $stock->amount          = $amount+$stock->amount;
-                $stock->lot_number      = $item['lot_number'];
-                $stock->packaging_id    = $item['packaging_id'];
-                $stock->expiry_date     = $item['expired_date'];
-                $stock->store_id  = $item['store_id'];
-                $stock->unit_price      = $item['u_price'];
-                $stock->activity_id     = $item['activity'];
+                $stock->lot_number      = (isset($item['lot_number']))?$item['lot_number']:"";
+                $stock->packaging_id    = (isset($item['packaging_id']))?$item['packaging_id']:"";
+                $stock->expiry_date     = (isset($item['expired_date']))?$item['expired_date']:"";
+                $stock->store_id        = (isset($item['store_id']))?$item['store_id']:"";
+                $stock->unit_price      = (isset($item['u_price']))?$item['u_price']:"";
+                $stock->activity_id     = (isset($item['activity']))?$item['activity']:"";
                 $stock->save();
             }else{
                 $stock = new Stock;
-                $stock->vaccine_id      = $item['item_id'];
+                $stock->vaccine_id      = (isset($item['item_id']))?$item['item_id']:"";
                 $stock->recipient_id    = $recipient->id;
                 $stock->amount          = $amount;
                 $stock->source_id       = $request->has('source_id')?$request->input('source_id'):'';
-                $stock->lot_number      = $item['lot_number'];
-                $stock->packaging_id    = $item['packaging_id'];
-                $stock->source_id       = $request->input('source_id');
-                $stock->expiry_date     = $item['expired_date'];
-                $stock->store_id  = $item['store_id'];
-                $stock->unit_price      = $item['u_price'];
-                $stock->activity_id     = $item['activity'];
+                $stock->lot_number      = (isset($item['lot_number']))?$item['lot_number']:"";
+                $stock->packaging_id    = (isset($item['packaging_id']))?$item['packaging_id']:"";
+                $stock->expiry_date     = (isset($item['expired_date']))?$item['expired_date']:"";
+                $stock->store_id        = (isset($item['store_id']))?$item['store_id']:"";
+                $stock->unit_price      = (isset($item['u_price']))?$item['u_price']:"";
+                $stock->activity_id     = (isset($item['activity']))?$item['activity']:"";
                 $stock->save();
             }
 
             //adding the item to store
             if(count(StoreStock::where('store_id',$item['store_id'])->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->get()) != 0){
                 $storeStock = StoreStock::where('store_id',$item['store_id'])->where('vaccine_id',$item['item_id'])->where('lot_number',$item['lot_number'])->first();
-                $storeStock->vaccine_id     = $item['item_id'];
-                $storeStock->store_id       = $item['store_id'];
+                $storeStock->vaccine_id     = (isset($item['item_id']))?$item['item_id']:"";
+                $storeStock->store_id       = (isset($item['store_id']))?$item['store_id']:"";
                 $storeStock->amount         = $amount+$storeStock->amount;
-                $storeStock->lot_number     = $item['lot_number'];
-                $storeStock->packaging_id   = $item['packaging_id'];
-                $storeStock->expiry_date    = $item['expired_date'];
-                $storeStock->unit_price     = $item['u_price'];
+                $storeStock->lot_number     = (isset($item['lot_number']))?$item['lot_number']:"";
+                $storeStock->packaging_id   = (isset($item['packaging_id']))?$item['packaging_id']:"";
+                $storeStock->expiry_date    = (isset($item['expired_date']))?$item['expired_date']:"";
+                $storeStock->unit_price     = (isset($item['u_price']))?$item['u_price']:"";
                 $storeStock->source_id       = $request->has('source_id')?$request->input('source_id'):'';
-                $storeStock->activity_id    = $item['activity'];
+                $storeStock->activity_id    = (isset($item['activity']))?$item['activity']:"";
                 $storeStock->save();
             }else{
                 $storeStock = new StoreStock;
-                $storeStock->vaccine_id     = $item['item_id'];
-                $storeStock->store_id       = $item['store_id'];
+                $storeStock->vaccine_id     = (isset($item['item_id']))?$item['item_id']:"";
+                $storeStock->store_id       = (isset($item['store_id']))?$item['store_id']:"";
                 $storeStock->amount         = $amount;
-                $storeStock->lot_number     = $item['lot_number'];
-                $storeStock->packaging_id   = $item['packaging_id'];
-                $storeStock->expiry_date    = $item['expired_date'];
-                $storeStock->unit_price     = $item['u_price'];
+                $storeStock->lot_number     = (isset($item['lot_number']))?$item['lot_number']:"";
+                $storeStock->packaging_id   = (isset($item['packaging_id']))?$item['packaging_id']:"";
+                $storeStock->expiry_date    = (isset($item['expired_date']))?$item['expired_date']:"";
+                $storeStock->unit_price     = (isset($item['u_price']))?$item['u_price']:"";
                 $storeStock->source_id       = $request->has('source_id')?$request->input('source_id'):'';
-                $storeStock->activity_id    = $item['activity'];
+                $storeStock->activity_id    = (isset($item['activity']))?$item['activity']:"";
                 $storeStock->save();
             }
 

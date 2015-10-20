@@ -24,7 +24,9 @@ angular.module("vssmApp")
         $scope.status = {
             opened: false,
             opened2: false,
-            opened3: false
+            opened3: false,
+            opened4: false,
+            opened5: false
         }
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd MMM yyyy', 'shortDate'];
         $scope.format = $scope.formats[2];
@@ -33,6 +35,10 @@ angular.module("vssmApp")
         };
         $scope.open3 = function($event) {
             $scope.status.opened3 = true;
+        }; $scope.open4 = function($event) {
+            $scope.status.opened4 = true;
+        }; $scope.open5 = function($event) {
+            $scope.status.opened5 = true;
         };
         $scope.open2 = function($event) {
             $scope.status.opened2 = true;

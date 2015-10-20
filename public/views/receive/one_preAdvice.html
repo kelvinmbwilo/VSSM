@@ -48,12 +48,8 @@
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="expired_date" translate="labels.expired_date"></label>
-                <p class="input-group">
-                    <input  type="text" id="expired_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.expired_date" is-open="status.opened3"  datepicker-options="dateOptions" required="" close-text="Close"  placeholder="{{ 'labels.expired_date' | translate }}" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-                </p>
+                <input class="form-control" ui-date="dateOptions1" ng-model="oneItem.expired_date" >
+
             </div>
 
         </div>
@@ -82,12 +78,7 @@
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label for="prod_date" translate="labels.prod_date"></label>
-                <p class="input-group">
-                    <input type="text" id="prod_date" class="form-control" datepicker-popup="{{format}}" ng-model="oneItem.prod_date" is-open="status.opened2"  datepicker-options="dateOptions" close-text="Close"  placeholder="{{ 'labels.prod_date' | translate }}" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-                </p>
+                <input class="form-control" ui-date="dateOptions1" ng-model="oneItem.prod_date" >
             </div>
 
             <div class="col-md-3"  style="margin-bottom: 15px">
