@@ -42,7 +42,7 @@
                             <span translate="help.update"></span>
                         </md-tooltip>
                     </md-button>
-                    <md-button ng-if="hasRole(userRoles,'delete_basicrecipients')"  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item)"><i class="fa fa-trash-o"></i>
+                    <md-button ng-if="hasRole(userRoles,'delete_basicrecipients')"  aria-label="btu" ng-if="!deletingItem[item.id]" class="md-hue-3 md-raised md-warn md-fab"  ng-click="showConfirm($event,item.id,'recipients')"><i class="fa fa-trash-o"></i>
 
                         <md-tooltip>
                             <span translate="help.delete"></span>

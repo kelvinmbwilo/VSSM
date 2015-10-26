@@ -54,6 +54,7 @@
                 <th translate="labels.total_volume"></th>
                 <th translate="labels.t_price"></th>
                 <th translate="labels.activity"></th>
+                <th translate="labels.dispatch_date"></th>
                 <th translate="labels.status"></th>
                 <th><i class="fa fa-print"></i></th>
             </tr>
@@ -73,6 +74,7 @@
                 <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4  }}</td>
                 <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2}}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
+                <td>{{ item.created_at | date:'yyyy-MMM-dd' }}</td>
                 <td>{{ item.package.receiving_status }}</td>
                 <td>
                     <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="downloadData(item.package.voucher_number)"><i class="fa fa-file-pdf-o"></i>
