@@ -157,7 +157,7 @@ class UserController extends Controller
     public function validateUser(Request $request)
     {
 //        $user = User::where("email",Input::get('email'))->first();
-        $user = User::where("user_name",$request->input('username'))->first();
+        $user = User::where("user_name",$request->input('username'))->where('status','!=','deleted')->first();
         if($user && Hash::check($request->input('password'), $user->password)){
             Auth::login($user,TRUE);
 
