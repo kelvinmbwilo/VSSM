@@ -31,6 +31,7 @@
                     <th translate="labels.activity"></th>
                     <th translate="labels.store"></th>
                     <th translate="labels.voucher_no"></th>
+                    <th translate="labels.notes"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,7 @@
                     <td>{{ getActivityName(item.activity) }}</td>
                     <td>{{ getStoreName(item.store_id) }}</td>
                     <td>{{ item.voucher_number }}</td>
+                    <td>{{ item.package.comments }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -66,6 +68,7 @@
                     <th translate="labels.activity"></th>
                     <th translate="labels.store"></th>
                     <th translate="labels.voucher_no"></th>
+                    <th translate="labels.notes"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,6 +84,7 @@
                     <td>{{ getActivityName(item.activity_id) }}</td>
                     <td>{{ getStoreName(item.store_id) }}</td>
                     <td>{{ item.voucher_number }}</td>
+                    <td>{{ item.arrival.notes }}</td>
                 </tr>
                 </tbody>
             </table>

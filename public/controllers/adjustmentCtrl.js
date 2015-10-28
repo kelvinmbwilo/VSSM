@@ -441,7 +441,7 @@ angular.module("vssmApp")
                 .targetEvent(ev);
             $mdDialog.show(confirm).then(function() {
                 $scope.currentSaving = true;
-                $http.post("index.php/cancelDispatch/"+item.id).success(function (newVal) {
+                $http.post("index.php/cancelDispatch/"+item.id,item).success(function (newVal) {
                     $scope.currentSaving = false;
                     console.log(newVal)
                     $scope.cancelDispatch();

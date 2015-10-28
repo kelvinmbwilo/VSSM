@@ -94,7 +94,7 @@ class VaccineController extends Controller
     {
         $recipient_id = Auth::user()->recipient_id;
         $stock = Stock::where('recipient_id',$recipient_id)->get();
-        $arrivals = Arrival::where('recipient_destination_id',Auth::user()->recipient_id)->get()->load('fromSource','source','arrivalItems');
+        $arrivals = Arrival::where('recipient_destination_id',Auth::user()->recipient_id)->where('status','!=','canceled')->get()->load('fromSource','source','arrivalItems');
         $arr = array();
 
             foreach($arrivals as $arrival){
@@ -868,6 +868,7 @@ class VaccineController extends Controller
         }
         //update arrival status
         $arrival->status = 'canceled';
+        $arrival->notes = $request->has('notes')?$request->input('notes'):"";
         if($recipient->level == 1){
           foreach(PreShipment::where('package_id',$arrival->arrival_report_number)->get() as $package){
               $package->status = 'pending';
@@ -1091,7 +1092,7 @@ class VaccineController extends Controller
         return $movement->reference;
     }
 
-    public function cancelDispatch($id){
+    public function cancelDispatch($id,Request $request){
         $dispatch = RecipientPackage::find($id);
         $recipient = Recipient::find(Auth::user()->recipient_id);
         foreach($dispatch->items as $items){
@@ -1122,6 +1123,7 @@ class VaccineController extends Controller
         }
         //update arrival status
         $dispatch->receiving_status = 'canceled';
+        $dispatch->comments = $request->has('notes')?$request->input('notes'):"";
         $dispatch->save();
         Log::create(array(
             "user_id"=>  Auth::user()->id,

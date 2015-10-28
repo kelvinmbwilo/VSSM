@@ -237,7 +237,7 @@ class StoreController extends Controller
      */
     public function canceledarrivalItems()
     {
-        $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->where('status','canceled')->get();
+        $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->where('status','canceled')->get()->load('arrival');
         return $dispatch;
     }
 
@@ -260,7 +260,7 @@ class StoreController extends Controller
      */
     public function canceledDisItems()
     {
-        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->where('status','canceled')->get();
+        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->where('status','canceled')->get()->load('package');
         return $dispatch;
 
     }
