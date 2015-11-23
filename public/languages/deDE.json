@@ -63,7 +63,13 @@
         "transit_invoice":"En Inventario de Tránsito",
         "adjustmentreport":"Ajustes",
         "recipients_tree" : "destinatarios Árbol",
-        "itemmovedreport":"Movimientos del producto"
+        "itemmovedreport":"Movimientos del producto",
+        "include_lower":"Incluya Niveles Inferiores",
+        "select_level":"Selecciona el nivel",
+        "with_all_lower_level":"Con todos los niveles inferiores",
+        "my_level":"Mi nivel",
+        "with_children":"Este nivel",
+        "show_for":"Para mostrar"
 
     },
     "error": {

@@ -7,6 +7,13 @@ angular.module("vssmApp")
         $http.get("index.php/vaccines").success(function(data){
             $scope.vaccines = data;
         });
+
+        $scope.selected_level = '1';
+
+        $scope.childs = $scope.userRecipients;
+        $scope.childs.unshift($scope.logedInUser.recipient);
+        $scope.data.children = $scope.logedInUser.recipient.id;
+
         $scope.number_of_notification = 0
         $scope.number_close_to_expiry = 0
         $scope.number_below_minimum = 0
@@ -51,6 +58,23 @@ angular.module("vssmApp")
             })
         });
 
+
+        $scope.updateExpired = function(){
+            //get stock_items
+            $http.get('index.php/expired_stock_items/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.stock_items = data;
+                angular.forEach($scope.stock_items,function(value){
+                    value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                    value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    $scope.notification_object.push({'url':'expired_items','name':'Expired Item','descr':value.vaccine.name +" of Batch Number "+ value.lot_number+' Has expired Since ' +value.expiry_date })
+                    $scope.number_of_notification += 1;
+                    $scope.number_expired_items += 1;
+                    value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                });
+            });
+
+        }
         //get stock_items
         $http.get("index.php/expired_stock_items").success(function(data){
             $scope.stock_items = data;
@@ -65,18 +89,36 @@ angular.module("vssmApp")
             });
         });
     }).controller("cancelInvoiceCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
-        //getting canceled_arrival_invoices
-        $http.get('index.php/canceledarrivalItems').success(function(data){
-            $scope.canceled_arrival_invoices = data;
-        });
+        $scope.selected_level = '1';
 
-        //getting canceled_dispatch_invoices
-        $http.get('index.php/canceledDisItems').success(function(data){
-            $scope.canceled_dispatch_invoices = data;
-        });
+        $scope.childs = $scope.userRecipients;
+        $scope.childs.unshift($scope.logedInUser.recipient);
+        $scope.data.children = $scope.logedInUser.recipient.id;
+
+//getting screening types
+
+        $scope.updateCanceledInvoice = function(){
+            $http.get('index.php/canceledarrivalItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.canceled_arrival_invoices = data;
+            });
+            $http.get('index.php/canceledDisItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.canceled_dispatch_invoices = data;
+            });
+        }
+        $scope.updateCanceledInvoice();
+//        //getting canceled_arrival_invoices
+//        $http.get('index.php/canceledarrivalItems').success(function(data){
+//            $scope.canceled_arrival_invoices = data;
+//        });
+//
+//        //getting canceled_dispatch_invoices
+//        $http.get('index.php/canceledDisItems').success(function(data){
+//            $scope.canceled_dispatch_invoices = data;
+//        });
 
         //getting adjustedItems
-        $http.get('index.php/adjustedItems').success(function(data){
+        $scope.updateadjusted = function(){
+        $http.get('index.php/adjustedItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
             $scope.adjustedItems = data;
             angular.forEach($scope.stock_items,function(value){
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
@@ -85,9 +127,14 @@ angular.module("vssmApp")
             });
 
         });
+        };
+        $scope.updateadjusted();
 
         //getting movedItems
-        $http.get('index.php/movedItems').success(function(data){
+        $scope.updateItemMoved = function(){
+        $http.get('index.php/movedItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
             $scope.movedItems = data;
         });
+        };
+        $scope.updateItemMoved();
     });

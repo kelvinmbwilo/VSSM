@@ -6,6 +6,7 @@ use App\Adjustment;
 use App\ArrivalItem;
 use App\ItemMovement;
 use App\Log;
+use App\Recipient;
 use App\RecipientPackageItem;
 use App\Stock;
 use App\Store;
@@ -231,6 +232,51 @@ class StoreController extends Controller
     }
 
     /**
+     * get arrivalItems.
+     * @param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function arrivalItems1($recipient,$level)
+    {
+
+        if($level == '1'){
+            $dispatch =  ArrivalItem::where('recipient_destination_id',$recipient)->get();
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = DB::table('arrival_items')
+                ->whereIn('recipient_destination_id', $arr)
+                ->get();
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = DB::table('arrival_items')
+                ->whereIn('recipient_destination_id', $arr)
+                ->get();
+
+        }else{
+            $dispatch =  ArrivalItem::where('recipient_destination_id',Auth::user()->recipient_id)->get();
+        }
+
+        return $dispatch;
+
+    }
+
+    /**
      * get canceledarrivalItems.
      *
      * @return Response
@@ -242,13 +288,90 @@ class StoreController extends Controller
     }
 
     /**
-     * get dispatchedItems.
+     * get canceledarrivalItems.
      *
+     *@param $recipient
+     * @param $level
      * @return Response
      */
-    public function disItems()
+    public function canceledarrivalItems1($recipient,$level)
     {
-        $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->get();
+        if($level == '1'){
+            $dispatch =  ArrivalItem::where('recipient_destination_id',$recipient)->where('status','canceled')->get()->load('arrival');
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = ArrivalItem::where('status','canceled')
+                ->whereIn('recipient_destination_id', $arr)
+                ->get()->load('arrival');
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = ArrivalItem::where('status','canceled')
+                ->whereIn('recipient_destination_id', $arr)
+                ->get()->load('arrival');
+
+        }else{
+            $dispatch =  ArrivalItem::where('recipient_destination_id',$recipient)->where('status','canceled')->get()->load('arrival');
+        }
+
+        return $dispatch;
+    }
+
+    /**
+     * get dispatchedItems.
+     *
+     * @param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function disItems($recipient,$level)
+    {
+        if($level == '1'){
+            $dispatch =  RecipientPackageItem::where('recipient_id',$recipient)->get();
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = DB::table('recipients_package_items')
+                ->whereIn('recipient_id', $arr)
+                ->get();
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = DB::table('recipients_package_items')
+                ->whereIn('recipient_id', $arr)
+                ->get();
+
+        }else{
+            $dispatch =  RecipientPackageItem::where('recipient_id',$recipient)->get();
+        }
+
         return $dispatch;
 
     }
@@ -261,6 +384,50 @@ class StoreController extends Controller
     public function canceledDisItems()
     {
         $dispatch =  RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->where('status','canceled')->get()->load('package');
+        return $dispatch;
+
+    }
+
+    /**
+     * get dispatchedItems.
+     *@param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function canceledDisItems1($recipient,$level)
+    {
+        if($level == '1'){
+            $dispatch =  RecipientPackageItem::where('recipient_id',$recipient)->where('status','canceled')->get()->load('package');
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = RecipientPackageItem::where('status','canceled')
+                ->whereIn('recipient_id', $arr)
+                ->get()->load('package');
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = RecipientPackageItem::where('status','canceled')
+                ->whereIn('recipient_id', $arr)
+                ->get()->load('package');
+
+        }else{
+            $dispatch =  RecipientPackageItem::where('recipient_id',$recipient)->where('status','canceled')->get()->load('package');
+        }
+
         return $dispatch;
 
     }
@@ -319,6 +486,47 @@ class StoreController extends Controller
         return Adjustment::where('recipient_id',Auth::user()->recipient_id)->get();
     }
 
+    /**
+     * get adjustedItems.
+     *@param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function adjustedItems1($recipient,$level)
+    {
+        if($level == '1'){
+            return Adjustment::where('recipient_id',$recipient)->get();
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = Adjustment::whereIn('recipient_id', $arr)
+                ->get();
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = Adjustment::whereIn('recipient_id', $arr)
+                ->get();
+
+        }else{
+            return Adjustment::where('recipient_id',$recipient)->get();
+        }
+
+        return $dispatch;
+    }
+
 /**
      * get movedItems.
      *
@@ -326,9 +534,49 @@ class StoreController extends Controller
      */
     public function movedItems()
     {
+
         return ItemMovement::where('recipient_id',Auth::user()->recipient_id)->get();
     }
 
+    /**
+     * get movedItems.
+     *@param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function movedItems1($recipient,$level)
+    {
+        if($level == '1'){
+            return ItemMovement::where('recipient_id',$recipient)->get();
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = ItemMovement::whereIn('recipient_id', $arr)
+                ->get();
 
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = ItemMovement::whereIn('recipient_id', $arr)
+                ->get();
+
+        }else{
+            return ItemMovement::where('recipient_id',$recipient)->get();
+        }
+
+        return $dispatch;
+    }
 
 }

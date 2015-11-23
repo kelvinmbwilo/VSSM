@@ -12,7 +12,23 @@
         </ul>
     </div>
     <!-- End  / heading--><!-- Start .row -->
-
+    <div class="row">
+        <div class="col-sm-4">
+            <label translate="labels.select_level"></label>
+            <select ng-change="updateItemMoved()" ng-model="selected_level" class="form-control">
+                <option value="1" translate="labels.my_level"></option>
+                <option value="2" translate="labels.with_children"></option>
+                <option value="3"  translate="labels.with_all_lower_level"></option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label translate="labels.show_for"></label>
+            <select   ng-change="updateItemMoved()"  class="form-control" ng-model="data.children"  ng-options="obj.id as obj.name for obj in childs | filter:{status:'active'}:true">
+                <!--<option value="" translate="labels.select"></option>-->
+                <option value="logedInUser.recipient.id" translate="labels.select">{{ logedInUser.recipient.name }}</option>
+            </select>
+        </div>
+    </div>
     <h3 class="text-center" translate="menu.itemmovedreport"></h3>
     <table datatable="ng" class="table table-striped table-bordered table-responsive" dt-options="dtOptions" >
         <thead>

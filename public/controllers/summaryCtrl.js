@@ -210,6 +210,13 @@ angular.module("vssmApp")
         $scope.vaccineNames = [];
         $scope.vacciineValues = [];
 
+        $scope.selected_level = '1';
+
+        $scope.childs = $scope.userRecipients;
+        $scope.childs.unshift($scope.logedInUser.recipient);
+        $scope.data.children = $scope.logedInUser.recipient.id;
+
+
         $scope.fetchBasicData();
         $http.get("index.php/disaptchedItems").success(function(data){
             $scope.disaptchedItems = data;
@@ -223,6 +230,14 @@ angular.module("vssmApp")
         $http.get("index.php/sent_packages").success(function(data){
             $scope.sent_packages = data;
         });
+
+        $scope.updateLevel = function(){
+            $http.get('index.php/sent_packages/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.sent_packages1 = data;
+            });
+        }
+        $scope.updateLevel();
+
 
         $scope.seeStock = 'details';
         $scope.setSeeStock = function(value){

@@ -81,31 +81,31 @@
                 <input class="form-control" ui-date="dateOptions1" ng-model="oneItem.prod_date" >
             </div>
 
-            <div class="col-md-3"  style="margin-bottom: 15px">
-                <label for="vvm_stage" translate="labels.amount_okay"></label>
-                <!--status-->
-                <select id="vvm_stage"  type="text" ng-model="oneItem.number_as_expected" class="form-control" id="exampleInputPassword2" >
-                    <option value="yes" translate="labels.yes"></option>
-                    <option value="no" translate="labels.no"></option>
-                </select>
-            </div>
-            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.number_as_expected == 'no'">
-                <label class="required" for="u_price" translate="labels.received_amount"></label>
-                <input  required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}">
-            </div>
-            <div class="col-md-3"  style="margin-bottom: 15px">
-                <label for="vvm_stage" translate="labels.physical_damage"></label>
-                <!--status-->
-                <select id="vvm_stage"  type="text" ng-model="oneItem.physical_damage" class="form-control" id="exampleInputPassword2" >
-                    <!--<option value="" translate="labels.select"></option>-->
-                    <option value="yes" translate="labels.yes"></option>
-                    <option value="no" translate="labels.no"></option>
-                </select>
-            </div>
-            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.physical_damage == 'yes'">
-                <label class="required" for="u_price" translate="labels.damaged_amount"></label>
-                <input  required="" type="number" ng-model="oneItem.damaged_amount" class="form-control" id="u_price" placeholder="{{ 'labels.damaged_amount' | translate }}">
-            </div>
+            <!--<div class="col-md-3"  style="margin-bottom: 15px">-->
+                <!--<label for="vvm_stage" translate="labels.amount_okay"></label>-->
+                <!--&lt;!&ndash;status&ndash;&gt;-->
+                <!--<select id="vvm_stage"  type="text" ng-model="oneItem.number_as_expected" class="form-control" id="exampleInputPassword2" >-->
+                    <!--<option value="yes" translate="labels.yes"></option>-->
+                    <!--<option value="no" translate="labels.no"></option>-->
+                <!--</select>-->
+            <!--</div>-->
+            <!--<div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.number_as_expected == 'no'">-->
+                <!--<label class="required" for="u_price" translate="labels.received_amount"></label>-->
+                <!--<input  required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}">-->
+            <!--</div>-->
+            <!--<div class="col-md-3"  style="margin-bottom: 15px">-->
+                <!--<label for="vvm_stage" translate="labels.physical_damage"></label>-->
+                <!--&lt;!&ndash;status&ndash;&gt;-->
+                <!--<select id="vvm_stage"  type="text" ng-model="oneItem.physical_damage" class="form-control" id="exampleInputPassword2" >-->
+                    <!--&lt;!&ndash;<option value="" translate="labels.select"></option>&ndash;&gt;-->
+                    <!--<option value="yes" translate="labels.yes"></option>-->
+                    <!--<option value="no" translate="labels.no"></option>-->
+                <!--</select>-->
+            <!--</div>-->
+            <!--<div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.physical_damage == 'yes'">-->
+                <!--<label class="required" for="u_price" translate="labels.damaged_amount"></label>-->
+                <!--<input  required="" type="number" ng-model="oneItem.damaged_amount" class="form-control" id="u_price" placeholder="{{ 'labels.damaged_amount' | translate }}">-->
+            <!--</div>-->
         </div>
         <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != oneItem.vaccineStore" class="text-danger" translate="error.store_do_not_match"></div>
         <div class="col-sm-12" ng-if="oneItem.store_id" class="text-warning" translate="error.volume_used" translate-value-volume="{{ oneItem.used | number:2 }}" translate-value-volume1="{{ oneItem.used1 | number:2}}" ></div>

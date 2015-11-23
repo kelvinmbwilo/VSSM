@@ -19,8 +19,11 @@
                 $scope.data.activity = "";
                 $scope.data.store = "";
                 $scope.data.main_date = "system_date";
+                $scope.selected_level = '1';
 
-                //preparing start date and end date
+                $scope.childs = $scope.userRecipients;
+                $scope.childs.unshift($scope.logedInUser.recipient);
+                $scope.data.children = $scope.logedInUser.recipient.id;
                 var date = new Date();
                 var curr_date	= date.getDate();
                 var curr_month	= date.getMonth()+1;
@@ -67,9 +70,19 @@
                 };
 
                 //getting screening types
-                $http.get('index.php/disItems').success(function(data){
-                    $scope.data.disItems = data;
-                });
+                $scope.fetchData = function(){
+                    $http.get('index.php/disItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                        $scope.data.disItems = data;
+                    });
+                }
+
+                $scope.fetchData();
+                $scope.updateLevel = function(){
+                    $http.get('index.php/disItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                        $scope.data.disItems = data;
+                        $scope.prepareSeries();
+                    });
+                }
 
                 //get vaccines
                 $http.get("index.php/vaccines").success(function(data){

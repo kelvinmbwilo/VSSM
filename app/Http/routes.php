@@ -323,6 +323,9 @@ Route::get('stock_items',array('uses'=>'VaccineController@stock_items'));
 //getting expired_stock_items
 Route::get('expired_stock_items',array('uses'=>'VaccineController@expired_stock_items'));
 
+//getting expired_stock_items
+Route::get('expired_stock_items/{recipient}/child/{level}',array('uses'=>'VaccineController@expired_stock_items1'));
+
 //getting near_expired_stock_items
 Route::get('near_expired_stock_items',array('uses'=>'VaccineController@near_expired_stock_items'));
 
@@ -337,6 +340,9 @@ Route::get('arrivalsforcancel',array('uses'=>'VaccineController@arrivalsforcance
 
 //getting packages
 Route::get('sent_packages',array('uses'=>'VaccineController@packages'));
+
+//getting packages
+Route::get('sent_packages/{recipient}/child/{level}',array('uses'=>'VaccineController@packages1'));
 
 //getting expected_packages
 Route::get('expected_items',array('uses'=>'VaccineController@expectedPackagesItems'));
@@ -380,20 +386,35 @@ Route::get('arrivalItemsMonth',array('uses'=>'StoreController@arrivalItemsMonth'
 //getting all arival Items
 Route::get('arrivalItems',array('uses'=>'StoreController@arrivalItems'));
 
+//getting all arival Items
+Route::get('arrivalItems/{recipient}/child/{level}',array('uses'=>'StoreController@arrivalItems1'));
+
 //getting all adjustedItems
 Route::get('adjustedItems',array('uses'=>'StoreController@adjustedItems'));
+
+//getting all adjustedItems
+Route::get('adjustedItems/{recipient}/child/{level}',array('uses'=>'StoreController@adjustedItems1'));
 
 //getting all movedItems
 Route::get('movedItems',array('uses'=>'StoreController@movedItems'));
 
+//getting all movedItems
+Route::get('movedItems/{recipient}/child/{level}',array('uses'=>'StoreController@movedItems1'));
+
 //getting all canceledarrivalItems
 Route::get('canceledarrivalItems',array('uses'=>'StoreController@canceledarrivalItems'));
+
+//getting all canceledarrivalItems
+Route::get('canceledarrivalItems/{recipient}/child/{level}',array('uses'=>'StoreController@canceledarrivalItems1'));
 
 //getting all arival Items
 Route::get('canceledDisItems',array('uses'=>'StoreController@canceledDisItems'));
 
+//getting all arival Items
+Route::get('canceledDisItems/{recipient}/child/{level}',array('uses'=>'StoreController@canceledDisItems1'));
+
 //getting all dispatched Items
-Route::get('disItems',array('uses'=>'StoreController@disItems'));
+Route::get('disItems/{recipient}/child/{level}',array('uses'=>'StoreController@disItems'));
 
 //getting all receivItems per vaccine
 Route::get('receivItems',array('uses'=>'StoreController@receivItems'));

@@ -240,7 +240,13 @@
         "dispatch_reference":"Dispatch Reference",
         "adjusted_volume":"Adjusted Volume",
         "old_password":"Old Password",
-        "central_level_name":"Central Level name"
+        "central_level_name":"Central Level name",
+        "include_lower":"Include Lower Levels",
+        "select_level":"select Level",
+        "with_all_lower_level":"With All Lower Levels",
+        "my_level":"This level",
+        "with_children":"With Children",
+        "show_for":"show For"
 
     },
     "error": {

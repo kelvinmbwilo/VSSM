@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VaccineController extends Controller
 {
@@ -53,6 +54,55 @@ class VaccineController extends Controller
     {
         $date = date('Y-m-d');
         return Stock::where('recipient_id',Auth::user()->recipient_id)->where('expiry_date','<=',$date)->get();
+    }
+
+    /**
+     * Display a stockItems for user.
+     *
+     *@param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function expired_stock_items1($recipient,$level)
+    {
+
+        $date = date('Y-m-d');
+        if($level == '1'){
+        $dispatch =  Stock::where('recipient_id',$recipient)->where('expiry_date','<=',$date)->get();
+    }elseif($level == '2'){
+        $orgunit = Recipient::find($recipient);
+        $arr = [0,$recipient];
+        array_push($arr,$recipient);
+        foreach($orgunit->childrens as $val){
+            array_push($arr,$val->id);
+        }
+        $dispatch = DB::table('stock')
+            ->whereIn('recipient_id', $arr)
+            ->where('expiry_date','<=',$date)
+            ->get();
+
+    }elseif($level == '3'){
+        $orgunit = Recipient::find($recipient);
+        $arr = [0];
+        array_push($arr,$recipient);
+        foreach($orgunit->childrens as $val){
+            array_push($arr,$val->id);
+            $orgunit1 = Recipient::find($val->id);
+            foreach($orgunit1->childrens as $val){
+                array_push($arr,$val->id);
+            }
+        }
+        $dispatch = DB::table('stock')
+            ->whereIn('recipient_id', $arr)
+            ->where('expiry_date','<=',$date)
+            ->get();
+
+    }else{
+        $dispatch = Stock::where('recipient_id',$recipient)->where('expiry_date','<=',$date)->get();
+    }
+
+
+        return $dispatch;
     }
 
     /**
@@ -129,6 +179,46 @@ class VaccineController extends Controller
     public function packages()
     {
         return RecipientPackageItem::where('recipient_id',Auth::user()->recipient_id)->get()->load('recipient','vaccine','packaging','receiver','package');
+    }
+
+    /**
+     * Display a packages for user.
+     *@param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function packages1($recipient,$level)
+    {
+        if($level == '1'){
+            $dispatch =  RecipientPackageItem::where('recipient_id',$recipient)->get()->load('recipient','vaccine','packaging','receiver','package');
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = $dispatch = RecipientPackageItem::whereIn('recipient_id', $arr)
+                ->get()->load('recipient','vaccine','packaging','receiver','package');
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = RecipientPackageItem::whereIn('recipient_id', $arr)
+                ->get()->load('recipient','vaccine','packaging','receiver','package');
+
+        }else{
+            $dispatch =  RecipientPackageItem::where('recipient_id',$recipient)->get()->load('recipient','vaccine','packaging','receiver','package');
+        }
+        return $dispatch;
     }
 
     /**

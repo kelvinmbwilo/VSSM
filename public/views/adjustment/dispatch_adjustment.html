@@ -126,8 +126,13 @@
         <div class="col-md-12"  ng-if="!showSummary">
             <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
             <!--<button  ng-disabled="myForm.$invalid" ng-click="adjustdispatch(newItem)" class="btn btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="labels.adjustdispatch"></button>-->
-            <button  ng-click="sendCancelDispatch($event,newItem)" class="btn btn-danger" ng-if="canCancel" translate="labels.cancel_dispatch"></button>
+            <button  ng-click="cancelarrival($event,newItem)" class="btn btn-danger" ng-if="canCancel" translate="labels.cancel_dispatch"></button>
         </div >
+        <div class="col-md-12 " ng-if="canCancelyes" style="margin-top: 20px">
+            <h4 translate="labels.confirm_cancelTransaction"></h4>
+            <button  ng-click="sendCancelDispatch($event,newItem)" class="btn  btn-danger"  translate="labels.yes"> </button>
+            <button  ng-click="cancel3()"  class="btn btn-warning" translate="labels.no"> </button>
+        </div>
     </div>
     <!--printed voucher-->
     <div class="row" ng-if="showSummary">
@@ -195,9 +200,10 @@
             </div>
         </div>
         <div class="col-sm-10 col-sm-offset-1" style="margin-top: 15px">
-            <button class="btn btn-warning" translate="labels.cancel" ng-click="cancelDispatch()"></button>
+            <button class="btn btn-warning" translate="labels.cancel" ng-click="cancelarrival($event,newItem)"></button>
             <button class="btn btn-info" ng-click="downloadData()"><i class="fa fa-print"></i> </button>
         </div>
+
     </div>
 </div>
 

@@ -22,6 +22,11 @@ angular.module("vssmApp")
         $scope.data.activity = "";
         $scope.data.store = "";
         $scope.data.main_date = "system_date";
+        $scope.selected_level = '1';
+
+        $scope.childs = $scope.userRecipients;
+        $scope.childs.unshift($scope.logedInUser.recipient);
+        $scope.data.children = $scope.logedInUser.recipient.id;
 
         //preparing start date and end date
         var date = new Date();
@@ -69,10 +74,21 @@ angular.module("vssmApp")
             }
         };
 
-        //getting arrivals items
-        $http.get('index.php/arrivalItems').success(function(data){
-            $scope.data.arrivalItems = data;
-        });
+        //getting screening types
+        $scope.fetchData = function(){
+            $http.get('index.php/arrivalItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.data.arrivalItems = data;
+            });
+        }
+
+        $scope.fetchData();
+        $scope.updateLevel = function(){
+            $http.get('index.php/arrivalItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.data.arrivalItems  = data;
+                $scope.prepareSeries();
+            });
+        }
+
 
         //get vaccines
         $http.get("index.php/vaccines").success(function(data){

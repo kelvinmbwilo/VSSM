@@ -273,6 +273,14 @@ angular.module("vssmApp")
         }
         $scope.getDispatchesTocancel();
 
+        $scope.canCancelyes = false;
+        var $translate = $filter('translate');
+        $scope.cancelarrival = function(ev,item) {
+            $scope.canCancelyes = true;
+        }
+        $scope.cancel3 = function(ev,item) {
+            $scope.canCancelyes = false;
+        }
 
         //prepare an adjustment item to udjust
         $scope.canCancel = false;
@@ -432,18 +440,9 @@ angular.module("vssmApp")
 
 
         $scope.sendCancelDispatch = function(ev,item){
-            var confirm = $mdDialog.confirm()
-                .title($translate('labels.confirm_cancelTransaction'))
-                .content($translate('labels.irreversible_warning'))
-                .ariaLabel('Lucky day')
-                .ok($translate('help.delete'))
-                .cancel($translate('labels.cancel'))
-                .targetEvent(ev);
-            $mdDialog.show(confirm).then(function() {
                 $scope.currentSaving = true;
                 $http.post("index.php/cancelDispatch/"+item.id,item).success(function (newVal) {
                     $scope.currentSaving = false;
-                    console.log(newVal)
                     $scope.cancelDispatch();
                     $scope.getDispatchesTocancel();
                     $mdToast.show(
@@ -452,6 +451,7 @@ angular.module("vssmApp")
                             .position($scope.getToastPosition())
                             .hideDelay(3000)
                     );
+                    $scope.canCancelyes = false;
                 }).error(function(){
                     $scope.currentSaving = false;
                     $mdToast.show(
@@ -460,10 +460,8 @@ angular.module("vssmApp")
                             .position($scope.getToastPosition())
                             .hideDelay(5000)
                     );
+                    $scope.canCancelyes = false;
                 });
-            }, function() {
-
-            });
 
         }
 
