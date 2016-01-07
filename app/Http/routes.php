@@ -445,3 +445,6 @@ Route::post('move_item',array('uses'=>'VaccineController@move_item'));
 
 //saving  stock adjust
 Route::post('cancelDispatch/{id}',array('uses'=>'VaccineController@cancelDispatch'));
+
+//updating the items
+Route::get('updateItems',array('uses'=>'VaccineController@updateItems'));

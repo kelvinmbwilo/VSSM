@@ -226,7 +226,7 @@ angular.module("vssmApp")
             angular.forEach($scope.stores,function(value){
                 if(value.id == id){
                     $scope.oneItem.store_type = value.store_type;
-                    $scope.oneItem.used = (value.used_volume/value.net_volume)*1000;
+                    $scope.oneItem.used = (value.used_volume/value.net_volume)*100;
                     $scope.oneItem.used1 = ((value.net_volume - value.used_volume)*1000)/$scope.oneItem.cm_per_dose;
                 }
             });

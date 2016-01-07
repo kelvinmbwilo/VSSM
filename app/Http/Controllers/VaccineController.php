@@ -1221,4 +1221,18 @@ class VaccineController extends Controller
         ));
         return $dispatch->voucher_number;
     }
+
+public function updateItems(){
+     foreach(RecipientPackage::all() as $package){
+         
+         foreach($package->items as $items){
+             echo $items->voucher_number;
+             $items->voucher_number = $package->voucher_number;
+             $items->save();
+         }
+     }
+
+    }
+
+
 }
