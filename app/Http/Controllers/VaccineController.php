@@ -1223,14 +1223,14 @@ class VaccineController extends Controller
     }
 
 public function updateItems(){
-     foreach(RecipientPackage::all() as $package){
-         
-         foreach($package->items as $items){
-             echo $items->voucher_number;
-             $items->voucher_number = $package->voucher_number;
-             $items->save();
-         }
-     }
+    foreach(Store::all() as $store){
+        $total_volume = 0;
+        foreach($store->stock_items as $item){
+            $total_volume += ($item->amount*0.001* $item->packaging->cm_per_dose);
+        };
+        $store->used_volume = $total_volume;
+        $store->save();
+    }
 
     }
 

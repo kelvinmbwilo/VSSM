@@ -51,6 +51,11 @@ angular.module("vssmApp")
             $scope.logedInUserName = data.first_name +" "+ data.last_name;
             $scope.userRoles = data.roles.roles.split(":");
         });
+
+        //getting the loggedIn User
+        $http.get("index.php/updateItems").success(function(data){
+            console.log("volumes updated");
+        });
         //getting the system settings
         $http.get("index.php/system_settings").success(function(data){
             $scope.system_settings = data[0];
