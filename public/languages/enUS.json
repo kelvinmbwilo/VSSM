@@ -248,7 +248,9 @@
         "with_children":"With Children",
         "show_for":"show For",
         "cancelation_date":"Date Canceled",
-        "dispach_date":"Date Dispatched"
+        "dispach_date":"Date Dispatched",
+        "canceled_dispatch":"Canceled Dispatches",
+        "canceled_arrival":"Canceled Arrivals"
 
     },
     "error": {

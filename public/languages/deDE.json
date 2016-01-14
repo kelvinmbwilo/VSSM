@@ -275,13 +275,15 @@
         "old_password":"Contraseña anterior",
         "central_level_name":"Nombre Nivel Central",
         "include_lower":"Include Lower Levels",
-        "select_level":"Seleccior Nivel",
+        "select_level":"Seleccionar Nivel",
         "with_all_lower_level":"Todos los Niveles",
         "my_level":"Este Nivel ",
         "with_children":"Este Nivel El Nivel Secundario",
         "show_for":"Mostar Por",
         "cancelation_date":"Fecha de Cancelacion",
-        "dispach_date":"Fecha de Despacho"
+        "dispach_date":"Fecha de Despacho",
+        "canceled_dispatch":"Despachos Cancelados",
+        "canceled_arrival":"Ingresos  Cancelados"
     },
     "help": {
         "add_another" : "Agrega otro",
