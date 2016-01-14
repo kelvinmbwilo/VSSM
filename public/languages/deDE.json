@@ -273,7 +273,8 @@
         "dispatch_reference":"Despacho Referencia",
         "adjusted_volume":"El volumen ajustado",
         "old_password":"Contraseña anterior",
-        "central_level_name":"Nombre Nivel Central"
+        "central_level_name":"Nombre Nivel Central",
+        "cancelation_date":"Fecha de Cancelation"
     },
     "help": {
         "add_another" : "Agrega otro",

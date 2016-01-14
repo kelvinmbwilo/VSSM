@@ -246,7 +246,8 @@
         "with_all_lower_level":"With All Lower Levels",
         "my_level":"This level",
         "with_children":"With Children",
-        "show_for":"show For"
+        "show_for":"show For",
+        "cancelation_date":"Date Canceled"
 
     },
     "error": {
