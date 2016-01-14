@@ -420,6 +420,8 @@ angular.module("vssmApp")
         $scope.freeValues = [];
         $scope.storeTable = [];
         $scope.storeCapacity = [];
+//getting the loggedIn User
+        $http.get("index.php/updateItems").success(function(data){
 
         $http.get("index.php/stores").success(function(data){
             $scope.stores = data;
@@ -438,6 +440,8 @@ angular.module("vssmApp")
                 $scope.freeValues.push(parseInt(value.net_volume) - parseInt(value.used_volume));
             })
 
+        });
+            console.log("volumes updated");
         });
         var $translate = $filter('translate');
         $scope.vaccineNames = [];
