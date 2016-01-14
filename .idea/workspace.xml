@@ -66,7 +66,7 @@
       <file leaf-file-name="deDE.json" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="49" selection-start="12636" selection-end="12636" vertical-scroll-proportion="0.44671533" vertical-offset="4698" max-vertical-offset="7218">
+            <state line="280" column="55" selection-start="12731" selection-end="12731" vertical-scroll-proportion="0.5781022" vertical-offset="4644" max-vertical-offset="7218">
               <folding />
             </state>
           </provider>
@@ -768,7 +768,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/languages/deDE.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="49" selection-start="12636" selection-end="12636" vertical-scroll-proportion="0.44671533" vertical-offset="4698" max-vertical-offset="7218">
+        <state line="280" column="55" selection-start="12731" selection-end="12731" vertical-scroll-proportion="0.5781022" vertical-offset="4644" max-vertical-offset="7218">
           <folding />
         </state>
       </provider>

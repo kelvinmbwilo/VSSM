@@ -275,10 +275,10 @@
         "old_password":"Contraseña anterior",
         "central_level_name":"Nombre Nivel Central",
         "include_lower":"Include Lower Levels",
-        "select_level":"select Level",
+        "select_level":"Seleccior Nivel",
         "with_all_lower_level":"Todos los Niveles",
         "my_level":"Este Nivel ",
-        "with_children":"Este Nivel El Nivel",
+        "with_children":"Este Nivel El Nivel Secundario",
         "show_for":"Mostar Por",
         "cancelation_date":"Fecha de Cancelacion",
         "dispach_date":"Fecha de Despacho"
