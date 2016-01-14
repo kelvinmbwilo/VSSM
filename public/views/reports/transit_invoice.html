@@ -45,6 +45,7 @@
             <th translate="labels.total_volume"></th>
             <th translate="labels.t_price"></th>
             <th translate="labels.activity"></th>
+            <th translate="labels.dispach_date"></th>
         </tr>
         </thead>
         <tbody>
@@ -61,6 +62,7 @@
             <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4  }}</td>
             <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2}}</td>
             <td>{{ getActivityName(item.activity) }}</td>
+            <td>{{ item.package.updated_at  | date:'yyyy-MMM-dd' }}</td>
 
         </tr>
         </tbody>

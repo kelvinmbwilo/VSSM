@@ -247,7 +247,8 @@
         "my_level":"This level",
         "with_children":"With Children",
         "show_for":"show For",
-        "cancelation_date":"Date Canceled"
+        "cancelation_date":"Date Canceled",
+        "dispach_date":"Date Dispatched"
 
     },
     "error": {

@@ -274,7 +274,14 @@
         "adjusted_volume":"El volumen ajustado",
         "old_password":"Contraseña anterior",
         "central_level_name":"Nombre Nivel Central",
-        "cancelation_date":"Fecha de Cancelation"
+        "include_lower":"Include Lower Levels",
+        "select_level":"select Level",
+        "with_all_lower_level":"With All Lower Levels",
+        "my_level":"This level",
+        "with_children":"With Children",
+        "show_for":"show For",
+        "cancelation_date":"Fecha de Cancelacion",
+        "dispach_date":"Fecha de Despacho"
     },
     "help": {
         "add_another" : "Agrega otro",
