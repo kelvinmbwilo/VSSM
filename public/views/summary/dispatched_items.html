@@ -74,9 +74,11 @@
                 <td>{{ (item.amount*item.packaging.cm_per_dose)*0.001 | number:4  }}</td>
                 <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2}}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
-                <td>{{ item.created_at | date:'yyyy-MMM-dd' }}</td>
+                <td>{{ item.created_at | limitTo:10 }}</td>
                 <td>{{ item.package.receiving_status }}
-                    <span ng-if="item.package.receiving_status == 'received'"
+                    <span ng-if="item.package.receiving_status == 'received'">
+                        <br><small style="font-size: 8px">( {{ item.package.updated_at | limitTo:10 }} )</small>
+                    </span>
                 </td>
                 <td>
                     <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="downloadData(item.package.voucher_number)"><i class="fa fa-file-pdf-o"></i>
