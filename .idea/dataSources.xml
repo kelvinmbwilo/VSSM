@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4216375571">
-    <data-source source="LOCAL" name="MySQL - vssm@localhost" uuid="777beae2-6257-4248-85e0-e460853ed938">
+  <component name="DataSourceManagerImpl" format="xml" hash="3732198376">
+    <data-source source="LOCAL" name="MySQL - vvs@localhost" uuid="8c850e4a-2e94-45d6-bbb7-7390a8c0ba93">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/vssm</jdbc-url>
-      <user-name>root</user-name>
-      <user-password>dfc1dfcfdfdcdfcedfc5dfc7</user-password>
+      <jdbc-url>jdbc:mysql://localhost:3306/vvs</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
       </driver-properties>
-      <libraries />
     </data-source>
   </component>
 </project>
-

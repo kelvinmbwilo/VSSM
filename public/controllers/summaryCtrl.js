@@ -235,7 +235,7 @@ angular.module("vssmApp")
             $http.get('index.php/sent_packages/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
                 $scope.sent_packages1 = data;
             });
-        }
+        };
         $scope.updateLevel();
 
 
