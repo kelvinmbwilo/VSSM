@@ -9,26 +9,26 @@
         <!--item_id-->
         <div class="form-group" >
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="total_population" translate="labels.product"></label>
-                <select  required="" ng-change="updatePackaging(oneItem.item_id)" class="form-control" ng-model="oneItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
+                <label class="required" for="product" translate="labels.product"></label>
+                <select disabled required="" ng-change="updatePackaging(oneItem.item_id)" id="product" class="form-control" ng-model="oneItem.item_id"  ng-options="obj.id as obj.name for obj in vaccines | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="packaging_id" translate="labels.Dose_vial"></label>
-                <select  required="" ng-change="getVaccineInfo(oneItem.packaging_id)" id="packaging_id" class="form-control" ng-model="oneItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
+                <select disabled  required="" ng-change="getVaccineInfo(oneItem.packaging_id)" id="packaging_id" class="form-control" ng-model="oneItem.packaging_id"  ng-options="obj.id as obj.usename for obj in packagingInformation | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
-                <label class="required" for="under_one" translate="labels.manufacture"></label>
-                <select  required="" class="form-control" ng-model="oneItem.manufacture_id"  ng-options="obj.id as obj.name for obj in manufactures  | filter:{status:'active'}:true">
+                <label class="required" for="manufacture" translate="labels.manufacture"></label>
+                <select disabled required="" class="form-control" ng-model="oneItem.manufacture_id" id="manufacture"  ng-options="obj.id as obj.name for obj in manufactures  | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="no_doses" translate="labels.lot_number"></label>
-                <input  required="" type="text" ng-model="oneItem.lot_number" class="form-control" id="no_doses" placeholder="{{ 'labels.lot_number' | translate }}">
+                <input disabled required="" type="text" ng-model="oneItem.lot_number" class="form-control" id="no_doses" placeholder="{{ 'labels.lot_number' | translate }}">
             </div>
 
         </div>
@@ -36,19 +36,19 @@
 
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label  class="required" for="doses" translate="labels.doses"></label>
-                <input  required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
+                <input   disabled required="" ng-change="getTotalUnit(oneItem.u_price,oneItem.doses,oneItem.t_price)" type="text" ng-model="oneItem.doses" class="form-control" id="doses" placeholder="{{ 'labels.doses' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="u_price" translate="labels.u_price"></label>
-                <input  required="" ng-change="getTotal(oneItem.u_price,oneItem.doses)" type="text" ng-model="oneItem.u_price" class="form-control" id="u_price" placeholder="{{ 'labels.u_price' | translate }}">
+                <input  ng-disabled="logedInUser.recipient.level != '1'" required="" ng-change="getTotal(oneItem.u_price,oneItem.doses)" type="text" ng-model="oneItem.u_price" class="form-control" id="u_price" placeholder="{{ 'labels.u_price' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="t_price" translate="labels.t_price"></label>
-                <input required="" ng-change="getUnit(oneItem.t_price,oneItem.doses)" type="text" ng-model="oneItem.t_price" class="form-control" id="t_price" placeholder="{{ 'labels.t_price' | translate }}">
+                <input  ng-disabled="logedInUser.recipient.level != '1'" required="" ng-change="getUnit(oneItem.t_price,oneItem.doses)" type="text" ng-model="oneItem.t_price" class="form-control" id="t_price" placeholder="{{ 'labels.t_price' | translate }}">
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="expired_date" translate="labels.expired_date"></label>
-                <input class="form-control" ui-date="dateOptions1" ng-model="oneItem.expired_date" >
+                <input  disabled class="form-control" ui-date="dateOptions1" ng-model="oneItem.expired_date" id="expired_date">
 
             </div>
 
@@ -56,7 +56,7 @@
         <div class="form-group">
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label class="required" for="activity" translate="labels.activity"></label>
-                <select required="" id="activity" class="form-control" ng-model="oneItem.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+                <select required="" ng-disabled="logedInUser.recipient.level != '1'" id="activity" class="form-control" ng-model="oneItem.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
                     <option value="" translate="labels.select"></option>
                 </select>            </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
@@ -78,34 +78,34 @@
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px">
                 <label for="prod_date" translate="labels.prod_date"></label>
-                <input class="form-control" ui-date="dateOptions1" ng-model="oneItem.prod_date" >
+                <input disabled class="form-control" ui-date="dateOptions1" ng-model="oneItem.prod_date" id="prod_date" >
             </div>
 
-            <!--<div class="col-md-3"  style="margin-bottom: 15px">-->
-                <!--<label for="vvm_stage" translate="labels.amount_okay"></label>-->
-                <!--&lt;!&ndash;status&ndash;&gt;-->
-                <!--<select id="vvm_stage"  type="text" ng-model="oneItem.number_as_expected" class="form-control" id="exampleInputPassword2" >-->
-                    <!--<option value="yes" translate="labels.yes"></option>-->
-                    <!--<option value="no" translate="labels.no"></option>-->
-                <!--</select>-->
-            <!--</div>-->
-            <!--<div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.number_as_expected == 'no'">-->
-                <!--<label class="required" for="u_price" translate="labels.received_amount"></label>-->
-                <!--<input  required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}">-->
-            <!--</div>-->
-            <!--<div class="col-md-3"  style="margin-bottom: 15px">-->
-                <!--<label for="vvm_stage" translate="labels.physical_damage"></label>-->
-                <!--&lt;!&ndash;status&ndash;&gt;-->
-                <!--<select id="vvm_stage"  type="text" ng-model="oneItem.physical_damage" class="form-control" id="exampleInputPassword2" >-->
-                    <!--&lt;!&ndash;<option value="" translate="labels.select"></option>&ndash;&gt;-->
-                    <!--<option value="yes" translate="labels.yes"></option>-->
-                    <!--<option value="no" translate="labels.no"></option>-->
-                <!--</select>-->
-            <!--</div>-->
-            <!--<div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.physical_damage == 'yes'">-->
-                <!--<label class="required" for="u_price" translate="labels.damaged_amount"></label>-->
-                <!--<input  required="" type="number" ng-model="oneItem.damaged_amount" class="form-control" id="u_price" placeholder="{{ 'labels.damaged_amount' | translate }}">-->
-            <!--</div>-->
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label for="vvm_stage" translate="labels.amount_okay"></label>
+                <!--status-->
+                <select id="amount_okay"  type="text" ng-model="oneItem.number_as_expected" class="form-control">
+                    <option value="yes" translate="labels.yes"></option>
+                    <option value="no" translate="labels.no"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.number_as_expected == 'no'">
+                <label class="required" for="u_price" translate="labels.received_amount"></label>
+                <input  required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}">
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px">
+                <label for="physical_damage" translate="labels.physical_damage"></label>
+                <!--status-->
+                <select id="physical_damage"  type="text" ng-model="oneItem.physical_damage" class="form-control" >
+                    <!--<option value="" translate="labels.select"></option>-->
+                    <option value="yes" translate="labels.yes"></option>
+                    <option value="no" translate="labels.no"></option>
+                </select>
+            </div>
+            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.physical_damage == 'yes'">
+                <label class="required" for="damaged_amount" translate="labels.damaged_amount"></label>
+                <input  required="" type="number" ng-model="oneItem.damaged_amount" class="form-control" id="damaged_amount" placeholder="{{ 'labels.damaged_amount' | translate }}">
+            </div>
         </div>
         <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != oneItem.vaccineStore" class="text-danger" translate="error.store_do_not_match"></div>
         <div class="col-sm-12" ng-if="oneItem.store_id" class="text-warning" translate="error.volume_used" translate-value-volume="{{ oneItem.used | number:2 }}" translate-value-volume1="{{ oneItem.used1 | number:2}}" ></div>

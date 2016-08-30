@@ -268,7 +268,7 @@ angular.module("vssmApp")
             $scope.oneItem = {};
             $scope.checkVaccineDiluent();
             $modalInstance.close();
-        }
+        };
 
 
 

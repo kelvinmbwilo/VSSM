@@ -718,21 +718,22 @@ class VaccineController extends Controller
 
         foreach($request->input('items') as $item){
             $amount = 0;
-            if(isset($item['number_received'])){
-                if(isset($item['damaged_amount'])){
-                    $amount = $item['number_received'] - $item['damaged_amount'];
-                    $amount = $amount <= 0?0:$amount;
-                }else{
-                    $amount = $item['number_received'];
-                }
-            }else{
-                if(isset($item['damaged_amount'])){
-                    $amount = $item['doses'] - $item['damaged_amount'];
-                    $amount = $amount <= 0?0:$amount;
-                }else{
-                    $amount = $item['doses'];
-                }
-            }
+            $amount = $item['number_received'];
+//            if(isset($item['number_received'])){
+//                if(isset($item['damaged_amount'])){
+//                    $amount = $item['number_received'] - $item['damaged_amount'];
+//                    $amount = $amount <= 0?0:$amount;
+//                }else{
+//                    $amount = $item['number_received'];
+//                }
+//            }else{
+//                if(isset($item['damaged_amount'])){
+//                    $amount = $item['doses'] - $item['damaged_amount'];
+//                    $amount = $amount <= 0?0:$amount;
+//                }else{
+//                    $amount = $item['doses'];
+//                }
+//            }
             $ArrivalItem = new ArrivalItem;
             $ArrivalItem->recipient_source_id       = $recipient->parent_id;
             $ArrivalItem->recipient_destination_id  = $recipient->id;
