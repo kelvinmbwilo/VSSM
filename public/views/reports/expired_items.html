@@ -31,6 +31,112 @@
             </select>
         </div>
     </div>
+    <!-- ADDED-->
+    <div class="row">
+        <div class="col-sm-2">
+            Show
+            <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
+                <option value="doses" >Doses</option>
+                <option value="cost" >Cost</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+            Date Option
+            <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
+                <option value="user_date" >user entry date</option>
+                <option value="system_date" >system entry date</option>
+            </select>
+        </div>
+
+        <div class="col-sm-2">
+            Period Type
+            <select ng-model="data.reportPeriod" ng-click="selectPeriod()"  class="form-control">
+                <option value="Years" >Years</option>
+                <option value="Month" >Month</option>
+                <option value="Date range" >Date Range</option>
+            </select>
+        </div>
+
+        <div class="col-sm-3"  ng-if="showMonthRange">
+            Year
+            <select ng-model="data.selectedMonthYear" class="form-control" ng-change="prepareSeries()">
+                <option value="2015" >2015</option>
+                <option value="2014" >2014</option>
+            </select>
+        </div>
+
+        <div class="col-xs-2"  ng-if="showMonthRange">
+            Month
+            <div
+                    multi-select
+                    input-model="data.months"
+                    button-label="name"
+                    item-label="name"
+                    tick-property="ticked"
+                    output-model="data.selectedMonth"
+                    max-labels="0"
+                    max-height ="150px"
+                    on-item-click = "prepareSeries()"
+                    helper-elements="filter"
+                    >
+            </div>
+        </div>
+        <div class="col-xs-2" ng-if="showYearRange">
+            Years
+            <div
+                    multi-select
+                    input-model="data.years"
+                    button-label="name"
+                    item-label="name"
+                    tick-property="ticked"
+                    output-model="data.selectedYear"
+                    max-labels="0"
+                    max-height ="150px"
+                    on-item-click = "prepareSeries()"
+                    helper-elements="filter"
+                    >
+            </div>
+        </div>
+        <div class="col-xs-3" ng-show="showDayRange">
+            From
+            <input class="form-control" ui-date="dateOptions1" ng-model="data.startDate" ng-blur="prepareSeries()">
+        </div>
+        <div class="col-xs-3" ng-show="showDayRange">
+            To
+            <input class="form-control" ui-date="dateOptions2" ng-model="data.endDate" ng-blur="prepareSeries()">
+        </div>
+    </div>
+    <div class="row">
+        <label>Show Filters <input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
+    </div>
+    <div class="row">
+        <div class="col-md-3" ng-if="data.showFilter">
+            <label for="source" translate="labels.recipients"></label>
+            <select  id="source" ng-change="changeMainCat()" class="form-control" ng-model="data.recipient"  ng-options="obj.id as obj.name for obj in userRecipients | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <div class="col-md-3"  ng-if="data.showFilter">
+            <label for="transport_mode" translate="labels.source"></label>
+            <select id="transport_mode" ng-change="changeMainCat()" class="form-control" ng-model="data.sources"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <div class="col-md-3"  ng-if="data.showFilter">
+            <label for="activity" translate="labels.activity"></label>
+            <select id="activity" ng-change="changeMainCat()" class="form-control" ng-model="data.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+        <div class="col-md-3"  ng-if="data.showFilter">
+            <label for="store" translate="labels.store"></label>
+            <select id="store" ng-change="changeMainCat()" class="form-control" ng-model="data.store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+                <option value="" translate="labels.select"></option>
+            </select>
+        </div>
+    </div>
+    <!-- ADDED -->
+
     <div class="row">
         <div>
             <h3>Expired Items</h3>
