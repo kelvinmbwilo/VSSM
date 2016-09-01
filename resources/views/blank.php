@@ -38,6 +38,7 @@ else{
     <link rel=stylesheet href="<?php echo  asset('css/main.min.css') ?>">
     <link rel=stylesheet href="<?php echo  asset('bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css') ?>">
 
+    <link rel=stylesheet href="<?php echo  asset('barcodeGenerator/barcode.css') ?>">
     <!-- Fav and touch icons -->
     <link rel=icon href="<?php echo  asset('favicon.ico') ?>" type=image/png>
     <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
@@ -264,28 +265,37 @@ else{
 <script type="text/javascript" src="<?php echo  asset('js/libs/respond.min.js') ?>"></script>
 <![endif]-->
 
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/build/pdf.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/build/pdf.worker.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/web/compatibility.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jquery.base64.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/tableExport.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf/libs/base64.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf/libs/sprintf.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.htmltable.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/html2canvas.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.debug.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.addhtml.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.cell.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.split_text_to_size.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.standard_fonts_metrics.js')  ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.autotable.js')  ?>"></script>
+<!---->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/build/pdf.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/build/pdf.worker.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/web/compatibility.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jquery.base64.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/tableExport.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf/libs/base64.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf/libs/sprintf.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.htmltable.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/html2canvas.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.debug.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.addhtml.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.cell.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.split_text_to_size.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.standard_fonts_metrics.js')  ?><!--"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.autotable.js')  ?><!--"></script>-->
+
 <script src="<?php echo  asset('bower_components/datatables/media/js/jquery.dataTables.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular/angular.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-bootstrap/ui-bootstrap.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')  ?>"></script>
 <script src="<?php echo  asset('js/angular-route.js')  ?>"></script>
 <script src="<?php echo  asset('js/angular-resource.js')  ?>"></script>
+
+
+<script src="<?php echo  asset('barcodeGenerator/barcodeGenerator.js')  ?>"></script>
+<script src="<?php echo  asset('barcodeGenerator/pdfmake.min.js')  ?>"></script>
+<script src="<?php echo  asset('barcodeGenerator/vfs_fonts.js')  ?>"></script>
+<script src="<?php echo  asset('barcodeGenerator/html2canvas.js')  ?>"></script>
+
 <script src="<?php echo asset('bower_components/highcharts-ng/src/highcharts-custom.js') ?>"></script>
 <script src="<?php echo asset('bower_components/highcharts-ng/src/highcharts-ng.js') ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-animate/angular-animate.min.js')  ?>"></script>
@@ -306,7 +316,7 @@ else{
 <script src="<?php echo  asset('js/kendo.all.min.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular-multi-select/doc/js/libs/isteven-multi-select.js')  ?>"></script>
 <script>
-    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','kendo.directives','highcharts-ng','isteven-multi-select','multi-select']);
+    var mainModule = angular.module('vssmApp', ["ngRoute","ui.bootstrap",'ngAnimate','ngMaterial',"datatables",'datatables.bootstrap','datatables.colvis','datatables.tabletools','pascalprecht.translate','ngSanitize','angularBootstrapNavTree','ui.date','highcharts-ng','isteven-multi-select','multi-select','barcodeGenerator']);
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
 

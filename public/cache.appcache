@@ -51,7 +51,6 @@ js/pages/blank.js
 js/kendo.all.min.js
 
 controllers/adjustmentCtrl.js
-controllers/dispatch.js
 controllers/groupCtrl.js
 controllers/homeCtrl.js
 controllers/openStockCtrl.js
