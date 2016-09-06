@@ -19,7 +19,7 @@ class RecipientController extends Controller
      */
     public function index()
     {
-        //
+        return Recipient::where('status','active')->get();
     }
 
     /**
