@@ -4,15 +4,143 @@
 angular.module("vssmApp")
     .controller("reportCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
         //get vaccines
+
+         
+
         $http.get("index.php/vaccines").success(function(data){
             $scope.vaccines = data;
         });
 
         $scope.selected_level = '1';
+        $scope.data.main_cat = "doses";
+        $scope.data.main_date = "system_date";
+        $scope.data.reportPeriod = "Years"
+        $scope.data.selectedMonthYear = "2015";
 
         $scope.childs = $scope.userRecipients;
         $scope.childs.unshift($scope.logedInUser.recipient);
         $scope.data.children = $scope.logedInUser.recipient.id;
+
+        var date = new Date();
+        var curr_date   = date.getDate();
+        var curr_month  = date.getMonth()+1;
+        var curr_year   = date.getFullYear();
+        if(curr_month<10){
+            curr_month="0"+curr_month;
+        }
+        if(curr_date<10){
+            curr_date="0"+curr_date;
+        }
+        if(curr_month == 1){
+            var curr_month1 = 12;
+        }else{
+            var curr_month1 = date.getMonth();
+        }
+        $scope.data.startDate = curr_year+"-"+curr_month1+"-"+curr_date;
+        $scope.data.endDate = curr_year+"-"+curr_month+"-"+curr_date;
+
+        $scope.data.orderCategory = [{ name: "Pending", ticked: true },{ name: "In Progress", ticked: true},{ name: "Complete", ticked: true},{name: "Declined", ticked: true}]
+        $scope.data.generalCategory = [{ name: "Good", ticked: true },{ name: "Average", ticked: true},{ name: "Bad", ticked: true}];
+        $scope.data.months = [{ name: "January", ticked: true },{ name: "February", ticked: true},{ name: "March", ticked: true},{ name: "April", ticked: true},{ name: "May", ticked: true},{ name: "June", ticked: true},{ name: "July", ticked: true},{ name: "August", ticked: true},{ name: "September", ticked: true},{ name: "October", ticked: true},{ name: "November", ticked: true},{ name: "December", ticked: true}];
+        $scope.data.years = [{ name: "2015", ticked: true },{ name: "2014", ticked: true}];
+        $scope.startingYears = []
+        angular.forEach($scope.data.years,function(datta){
+            $scope.startingYears.push(datta.name);
+        });
+
+        //preparing date range pickers
+        $scope.dateOptions1 = {
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd",
+            onClose: function( selectedDate ) {
+                $scope.dateOptions2.minDate= selectedDate;
+            }
+        };
+        $scope.dateOptions2 = {
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd",
+            onClose: function( selectedDate ) {
+                $scope.dateOptions1.maxDate = selectedDate;
+            }
+        };
+
+        $scope.changeMainCat = function(){
+            $scope.prepareSeries();
+        }
+        $scope.changeShowFilter = function(){
+            $scope.data.recipient = "";
+            $scope.data.sources = "";
+            $scope.data.activity = "";
+            $scope.data.store = "";
+            $scope.prepareSeries();
+        }
+
+        $scope.showOrders = true;
+        $scope.showScreening = false;
+        $scope.showOrderType = true;
+
+        //selecting Series
+        $scope.toastPosition = {
+            bottom: true,
+            top: false,
+            left: false,
+            right: true
+        };
+
+        $scope.getToastPosition = function() {
+            return Object.keys($scope.toastPosition)
+                .filter(function(pos) { return $scope.toastPosition[pos]; })
+                .join(' ');
+        };
+        $scope.showYearRange = true;
+        $scope.showMonthRange = false;
+        $scope.showDayRange = false;
+        $scope.selectPeriod = function(){
+            if($scope.data.reportPeriod == "Years"){
+                $scope.showYearRange = true;
+                $scope.showMonthRange = false;
+                $scope.showDayRange = false;
+                $scope.prepareSeries();
+
+            }if($scope.data.reportPeriod == "Month"){
+                $scope.showYearRange = false;
+                $scope.showMonthRange = true;
+                $scope.showDayRange = false;
+                $scope.prepareSeries();
+            }if($scope.data.reportPeriod == "Date range"){
+                $scope.showYearRange = false;
+                $scope.showMonthRange = false;
+                $scope.showDayRange = true;
+                $scope.prepareSeries();
+            }
+
+        }
+
+        //changing chart types
+        $scope.showReport = false;
+        $scope.data.chartType = 'column'
+        $scope.changeChart = function(type){
+            $scope.displayTable = false;
+            $scope.showReport = true;
+            if(type == 'table'){
+                $scope.displayTable = true;
+                $scope.displayList = false;
+                $scope.data.chartType = 'table';
+            }else if(type == 'excel'){
+                $scope.displayTable = true;
+                $scope.displayList = false;
+                $scope.data.chartType = 'excel';
+            }else if(type == 'list'){
+                $scope.displayList = true;
+                $scope.displayTable = false;
+                $scope.data.chartType = 'list';
+            }else{
+                $scope.data.chartType = type;
+            }
+            $scope.prepareSeries();
+        };
 
         $scope.number_of_notification = 0
         $scope.number_close_to_expiry = 0

@@ -32,14 +32,14 @@
     <!-- ADDED -->
      <div class="row">
         <div class="col-sm-2">
-            Show
+            <label translate="labels.show"></label>
             <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
                 <option value="doses" >Doses</option>
                 <option value="cost" >Cost</option>
             </select>
         </div>
         <div class="col-sm-2">
-            Date Option
+            <label translate="labels.date_option"></label>
             <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
                 <option value="user_date" >user entry date</option>
                 <option value="system_date" >system entry date</option>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-sm-2">
-            Period Type
+             <label translate="labels.period_type"></label>
             <select ng-model="data.reportPeriod" ng-click="selectPeriod()"  class="form-control">
                 <option value="Years" >Years</option>
                 <option value="Month" >Month</option>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="col-sm-3"  ng-if="showMonthRange">
-            Year
+             <label translate="labels.year"></label>
             <select ng-model="data.selectedMonthYear" class="form-control" ng-change="prepareSeries()">
                 <option value="2015" >2015</option>
                 <option value="2014" >2014</option>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-xs-2"  ng-if="showMonthRange">
-            Month
+             <label translate="labels.month"></label>
             <div
                     multi-select
                     input-model="data.months"
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="col-xs-2" ng-if="showYearRange">
-            Years
+             <label translate="labels.years"></label>
             <div
                     multi-select
                     input-model="data.years"
@@ -96,16 +96,16 @@
             </div>
         </div>
         <div class="col-xs-3" ng-show="showDayRange">
-            From
+             <label translate="labels.from"></label>
             <input class="form-control" ui-date="dateOptions1" ng-model="data.startDate" ng-blur="prepareSeries()">
         </div>
         <div class="col-xs-3" ng-show="showDayRange">
-            To
+             <label translate="labels.to"></label>
             <input class="form-control" ui-date="dateOptions2" ng-model="data.endDate" ng-blur="prepareSeries()">
         </div>
     </div>
     <div class="row">
-        <label>Show Filters <input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
+        <label translate="labels.show_filters"><input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
     </div>
     <div class="row">
         <div class="col-md-3" ng-if="data.showFilter">
@@ -132,6 +132,38 @@
                 <option value="" translate="labels.select"></option>
             </select>
         </div>
+    </div>
+    <div class="col-sm-10" style="margin-top: 10px">
+        <md-button ng-click="changeChart('list')" class="md-hue-3 md-raised"><i class="fa fa-th-list" style="height: 20px;width: 20px"></i><label translate="labels.list"></label></md-button>
+        <md-button ng-click="changeChart('table')" class="md-hue-3 md-raised"><img src="img/table.png" style="height: 20px;width: 20px"><label translate="labels.table"></label></md-button>
+        <md-button ng-click="changeChart('column')" class="md-hue-3 md-raised"><img src="img/bar.png" style="height: 20px;width: 20px"><label translate="labels.bar"></label></md-button>
+        <md-button ng-click="changeChart('spline')" class="md-hue-3 md-raised"><img src="img/line.png" style="height: 20px;width: 20px"><label translate="labels.line"></label></md-button>
+        <md-button ng-click="changeChart('bar')" class="md-hue-3 md-raised"><img src="img/column.png" style="height: 20px;width: 20px"><label translate="labels.column"></label></md-button>
+        <md-button ng-click="changeChart('nyingine')" class="md-hue-3 md-raised"><img src="img/combined.jpg" style="height: 20px;width: 20px"><label translate="labels.combined_chart"></label></md-button>
+        <md-button ng-click="changeChart('area')" class="md-hue-3 md-raised"><img src="img/table.png" style="height: 20px;width: 20px"><label translate="labels.area"></label></md-button>
+        <md-button ng-click="changeChart('pie')" class="md-hue-3 md-raised"><img src="img/pie.png" style="height: 20px;width: 20px"><label translate="labels.pie"></label></md-button>
+    </div>
+    <highchart style="height: 500px;" id="chart1" config="chartConfig" class="col-sm-12" ng-if="!displayTable && !displayList && showReport"></highchart>
+    <div  ng-if="displayTable && showReport" class="col-sm-12" >
+        <h3 class="text-center">{{ chartConfig.title.text }}</h3>
+        <h4 class="text-center">{{ chartConfig.subtitle.text }}</h4>
+        <table  datatable dt-options="dtOptions" class="table table-condensed table-bordered table-responsive" >
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ data.category }}</th>
+                <th ng-repeat="cats in table.headers">{{ cats }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="column in table.colums">
+                <td>{{ $index+1 }}</td>
+                <td>{{ column.name }}</td>
+                <td ng-repeat="nsf in column.values">{{ nsf.value }}</td>
+            </tr>
+            </tbody>
+        </table>
+
     </div>
      <!-- ADDED -->
 

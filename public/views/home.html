@@ -44,7 +44,7 @@
         <div class="col-md-6 panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
             <!-- Start .panel -->
             <div class="panel-heading white-bg">
-                <h4 class="panel-title" >Store Usage Summary</h4>
+                <h4 class="panel-title" translate="labels.store_usage_summary"></h4>
                 <div class="panel-controls panel-controls-right">
                     <select ng-change="setStoreType(oneItem.store_id)" required="" id="store" ng-model="oneItem.store_id"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
                         <option value="" translate="labels.select"></option>
@@ -130,19 +130,19 @@
             <table class="col-sm-8">
                 <tr>
                     <td><label class="required" translate="labels.current_stock"></label> </td>
-                    <td>{{ curLevel | number:0 }} Doses<br></td>
+                    <td translate="labels.doses">{{ curLevel | number:0 }}<br></td>
                 </tr>
                 <tr>
                     <td><label class="required" translate="labels.routine_consuption"></label></td>
-                    <td>{{ total_cons | number:0 }} Doses<br></td>
+                    <td translate="labels.doses">{{ total_cons | number:0 }}<br></td>
                 </tr>
                 <tr>
                     <td><label class="required" translate="labels.monthly_avarage"></label></td>
-                    <td>{{ avg | number:2 }} Doses<br></td>
+                    <td translate="labels.doses">{{ avg | number:2 }}<br></td>
                 </tr>
                 <tr>
                     <td><label class="required" translate="labels.enough_for"></label></td>
-                    <td>{{ curLevel / avg | number:2 }} Month</td>
+                    <td translate="labels.month">{{ curLevel / avg | number:2 }}</td>
                 </tr>
             </table>
 
