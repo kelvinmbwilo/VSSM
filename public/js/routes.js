@@ -184,6 +184,11 @@ angular.module("vssmApp")
             controller: 'arrivalReportCtrl'
         });
 
+        $routeProvider.when("/stock_status",{
+            templateUrl: 'views/reports/stock_status.html',
+            controller: 'stockStatusCtrl'
+        });
+
 
         $routeProvider.when("/expired_items",{
             templateUrl: 'views/reports/expired_items.html',

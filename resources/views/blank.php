@@ -178,6 +178,7 @@ else{
                             <li ng-if="hasRole(userRoles,'see_intransityinvertory')"><a href="./#transit_invoice" ng-class="{ active1: isActive('/transit_invoice') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transit_invoice"></span></a></li>
                             <li ng-if="hasRole(userRoles,'see_adjustmentreport')"><a href="./#adjustmentreport" ng-class="{ active1: isActive('/adjustmentreport') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustmentreport"></span></a></li>
                             <li ng-if="hasRole(userRoles,'see_itemmovedreport')"><a href="./#itemmovedreport" ng-class="{ active1: isActive('/itemmovedreport') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.itemmovedreport"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_itemmovedreport')"><a href="./#stock_status" ng-class="{ active1: isActive('/stock_status') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
                         </ul>
                     </li>
                     <li ng-if="hasRole(userRoles,'see_stockopening')" ><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
@@ -265,23 +266,23 @@ else{
 <script type="text/javascript" src="<?php echo  asset('js/libs/respond.min.js') ?>"></script>
 <![endif]-->
 
-<!---->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/build/pdf.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/build/pdf.worker.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/web/compatibility.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jquery.base64.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/tableExport.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf/libs/base64.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf/libs/sprintf.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.htmltable.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/html2canvas.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.debug.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.addhtml.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.cell.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.split_text_to_size.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.standard_fonts_metrics.js')  ?><!--"></script>-->
-<!--<script type="text/javascript" charset="utf-8" src="--><?php //echo  asset('jspdf/jspdf.plugin.autotable.js')  ?><!--"></script>-->
+
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/build/pdf.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/build/pdf.worker.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/web/compatibility.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jquery.base64.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/tableExport.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf/libs/base64.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf/libs/sprintf.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.htmltable.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/html2canvas.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.debug.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.addhtml.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.cell.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.split_text_to_size.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.standard_fonts_metrics.js')  ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo  asset('jspdf/jspdf.plugin.autotable.js')  ?>"></script>
 
 <script src="<?php echo  asset('bower_components/datatables/media/js/jquery.dataTables.js')  ?>"></script>
 <script src="<?php echo  asset('bower_components/angular/angular.min.js')  ?>"></script>
@@ -337,6 +338,7 @@ else{
 <script src="<?php echo  asset('controllers/reports/arrivalReportCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/reports/dispatchReportCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/reports/reportCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/stockStatusCtrl.js')  ?>"></script>
 <!--<script src="--><?php //echo  asset('bootstrap/js/bootstrap.min.js')  ?><!--"></script>-->
 <script src="<?php echo  asset('js/ie10-viewport-bug-workaround.js')  ?>"></script>
 <script src="<?php echo  asset('js/pages/blank.js') ?>"></script>
