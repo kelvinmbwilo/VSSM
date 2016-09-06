@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/controllers/reports/expiredItemsReportCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VaccineController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/deDE.json" afterPath="$PROJECT_DIR$/public/languages/deDE.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/languages/enUS.json" afterPath="$PROJECT_DIR$/public/languages/enUS.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/adjustmentreport.html" afterPath="$PROJECT_DIR$/public/views/reports/adjustmentreport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/canceled_invoices.html" afterPath="$PROJECT_DIR$/public/views/reports/canceled_invoices.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/expired_items.html" afterPath="$PROJECT_DIR$/public/views/reports/expired_items.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/itemmovedreport.html" afterPath="$PROJECT_DIR$/public/views/reports/itemmovedreport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/transit_invoice.html" afterPath="$PROJECT_DIR$/public/views/reports/transit_invoice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" afterPath="$PROJECT_DIR$/public/views/summary/dispatched_items.html" />
     </list>
     <ignored path="VSSM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,7 +56,7 @@
           <file leaf-file-name="VaccineController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.7540984">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="825" column="51" selection-start-line="825" selection-start-column="51" selection-end-line="825" selection-end-column="51" />
                   <folding />
                 </state>
@@ -115,27 +105,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="monthly_arrivals.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="monthly_arrivals.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="vvs.adjustments" pinned="false" current-in-tab="true">
-            <entry file="dbDummy://dbtable:/afce16be/8c850e4a-2e94-45d6-bbb7-7390a8c0ba93/vvs.adjustments">
-              <provider editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
-                </state>
-              </provider>
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
                 </state>
               </provider>
             </entry>
@@ -163,11 +138,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="VaccineController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.44493392">
+                <state vertical-scroll-proportion="0.45676276">
                   <caret line="1128" column="39" selection-start-line="1128" selection-start-column="20" selection-end-line="1128" selection-end-column="39" />
                   <folding />
                 </state>
@@ -242,10 +217,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="18" />
-    <option name="width" value="1920" />
-    <option name="height" value="1062" />
+    <option name="x" value="45" />
+    <option name="y" value="24" />
+    <option name="width" value="1875" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -564,14 +539,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="18" width="1920" height="1062" extended-state="6" />
-    <editor active="true" />
+    <frame x="45" y="24" width="1875" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22038421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19850586" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1984691" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17101148" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -948,14 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/afce16be/8c850e4a-2e94-45d6-bbb7-7390a8c0ba93/vvs.adjustment_reasons">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -971,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VaccineController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.7540984">
-          <caret line="825" column="51" selection-start-line="825" selection-start-column="51" selection-end-line="825" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.45676276">
+          <caret line="1128" column="39" selection-start-line="1128" selection-start-column="20" selection-end-line="1128" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -981,12 +948,19 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
