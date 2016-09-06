@@ -300,7 +300,8 @@
         "column":"DE COLUMNA",
         "combined_chart":"GRÁFICO CONJUNTO",
         "area":"DE ÁREA",
-        "pie":"DE CIRCULAR"
+        "pie":"DE CIRCULAR",
+        "site_of_origin":"El sitio de origen"
     },
     "help": {
         "add_another" : "Agrega Otro",
