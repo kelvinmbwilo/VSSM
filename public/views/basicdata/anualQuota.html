@@ -20,7 +20,7 @@
     <option ng-repeat="year in rangetouse" value="{{ year }}">{{ year }}</option>
     </select>
 </div>
-   <h3>Year {{ selectyear }}</h3>
+   <h3><label translate="labels.year"></label> {{ selectyear }}</h3>
     <div class="row" ng-if="dataFormat">
 
         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >

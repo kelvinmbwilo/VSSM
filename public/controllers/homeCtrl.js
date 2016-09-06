@@ -249,6 +249,10 @@ angular.module("vssmApp")
             $http.get("index.php/user/recipients").success(function(data){
                 $scope.userRecipients = data;
             });
+            //get user_recipients
+            $http.get("index.php/recipients").success(function(data){
+                $scope.allRecipients = data;
+            });
         };
         $scope.fetchBasicData();
 
@@ -293,6 +297,15 @@ angular.module("vssmApp")
         $scope.getRecipientName = function(id){
             var name = "";
             angular.forEach($scope.userRecipients,function(value){
+                if(value.id == id){
+                    name = value.name;
+                }
+            });
+            return name;
+        }
+        $scope.getRecipientName1 = function(id){
+            var name = "";
+            angular.forEach($scope.allRecipients,function(value){
                 if(value.id == id){
                     name = value.name;
                 }
