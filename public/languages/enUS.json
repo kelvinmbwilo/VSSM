@@ -167,7 +167,7 @@
         "Dose_vial":"Dose/Vial",
         "doses":"Doses",
         "vials":"Vials",
-        "total_volume":"Total Volume(Lt)",
+        "total_volume":"Total Volum(Lt)",
         "vvm_stage":"VVM Stage",
         "prod_date":"Production Date",
         "u_price":"U. Price",
@@ -269,7 +269,16 @@
         "combined_chart":"COMBINED CHART",
         "area":"AREA",
         "pie":"PIE",
-        "site_of_origin":"Site of Origin"
+        "site_of_origin":"Site of Origin",
+        "near_expired_item":"Near Expired Item",
+        "of_batch_number":"of Batch Number",
+        "will_expire_at":"Will Expire At",
+        "item_below_minimum":"Item Below Minimum",
+        "is_below_minimum_settled_value":"is Below Minimum Settled Value",
+        "current_number_of_dose_is":"Current Number of Dose is",
+        "and_has_minimum_of":"and has minimum of",
+        "graph":"Graph",
+        "products":"Products"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

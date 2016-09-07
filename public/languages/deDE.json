@@ -301,7 +301,16 @@
         "combined_chart":"GRÁFICO CONJUNTO",
         "area":"DE ÁREA",
         "pie":"DE CIRCULAR",
-        "site_of_origin":"El sitio de origen"
+        "site_of_origin":"El sitio de origen",
+        "near_expired_item":"Artículo acercando a la caducidad",
+        "of_batch_number":"de lote",
+        "will_expire_at":"caducará al",
+        "item_below_minimum":"Producto debajo el mínimo",
+        "is_below_minimum_settled_value":"está debajo del valor mínimo",
+        "current_number_of_dose_is":"la cantidad actual de dosis es",
+        "and_has_minimum_of":"y tiene un mínimo de",
+        "graph":"Gráfico",
+        "products":"Productos"
     },
     "help": {
         "add_another" : "Agrega Otro",
