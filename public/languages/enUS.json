@@ -269,7 +269,10 @@
         "combined_chart":"COMBINED CHART",
         "area":"AREA",
         "pie":"PIE",
-        "site_of_origin":"Site of Origin"
+        "site_of_origin":"Site of Origin",
+        "user_entry_date":"user entry date",
+        "system_entry_date":"system entry date",
+        "cost":"Cost"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

@@ -33,15 +33,15 @@
         <div class="col-sm-2">
             <label translate="labels.show"></label>
             <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
-                <option value="doses" >Doses</option>
+                <option value="doses" translate="labels.doses">Doses</option>
                 <option value="cost" >Cost</option>
             </select>
         </div>
         <div class="col-sm-2">
              <label translate="labels.date_option"></label>
             <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
-                <option value="user_date" >user entry date</option>
-                <option value="system_date" >system entry date</option>
+                <option value="user_date" translate="labels.user_entry_date"></option>
+                <option value="system_date" translate="labels.system_entry_date"></option>
             </select>
         </div>
         <div class="col-sm-2">
@@ -103,7 +103,8 @@
         </div>
 </div>
     <div class="row">
-        <label translate="labels.show_filters">input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
+        <label><span  translate="labels.show_filters"></span>
+            <input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
     </div>
         <div class="row">
             <div class="col-md-3"  ng-if="data.showFilter">

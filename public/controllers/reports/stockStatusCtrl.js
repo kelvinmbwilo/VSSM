@@ -77,9 +77,8 @@ angular.module("vssmApp")
         $scope.fetchBasicData();
         //getting screening types
         $scope.fetchData = function(){
-
             //get stock_items
-            $http.get("index.php/stock_items").success(function(data){
+            $http.get('index.php/stock_items/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
                 $scope.stock_items = data;
                 angular.forEach($scope.stock_items,function(value){
                     value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
@@ -92,9 +91,14 @@ angular.module("vssmApp")
 
         $scope.fetchData();
         $scope.updateLevel = function(){
-            $http.get('index.php/arrivalItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
-                $scope.data.arrivalItems  = data;
-                $scope.prepareSeries();
+            $http.get('index.php/stock_items/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.stock_items = data;
+                angular.forEach($scope.stock_items,function(value){
+                    value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                    value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                });
             });
         }
 

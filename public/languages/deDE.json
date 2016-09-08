@@ -301,7 +301,10 @@
         "combined_chart":"GRÁFICO CONJUNTO",
         "area":"DE ÁREA",
         "pie":"DE CIRCULAR",
-        "site_of_origin":"El sitio de origen"
+        "site_of_origin":"El sitio de origen",
+        "user_entry_date":"Fecha de entrada del usario",
+        "system_entry_date":"Fecha de entrada del sistema",
+        "cost":"Precio"
     },
     "help": {
         "add_another" : "Agrega Otro",
