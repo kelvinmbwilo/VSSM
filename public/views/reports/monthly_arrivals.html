@@ -33,23 +33,23 @@
         <div class="col-sm-2">
             <label translate="labels.show"></label>
             <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
-                <option value="doses" >Doses</option>
-                <option value="cost" >Cost</option>
+                <option value="doses" translate="labels.doses"></option>
+                <option value="cost" translate="labels.cost"></option>
             </select>
         </div>
         <div class="col-sm-2">
              <label translate="labels.date_option"></label>
             <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
-                <option value="user_date" >user entry date</option>
-                <option value="system_date" >system entry date</option>
+                <option value="user_date" translate="labels.user_entry_date"></option>
+                <option value="system_date" translate="labels.system_entry_date"></option>
             </select>
         </div>
         <div class="col-sm-2">
              <label translate="labels.period_type"></label>
             <select ng-model="data.reportPeriod" ng-click="selectPeriod()"  class="form-control">
-                <option value="Years" >Years</option>
-                <option value="Month" >Month</option>
-                <option value="Date range" >Date Range</option>
+                <option value="Years" translate="labels.years"></option>
+                <option value="Month" translate="labels.month"></option>
+                <option value="Date range" translate="labels.date_range"></option>
             </select>
         </div>
 

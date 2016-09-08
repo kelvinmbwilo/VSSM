@@ -11,14 +11,14 @@
                 $scope.data.reportMainCategory = "Orders";
                 $scope.data.reportSeries = "Order Status";
                 $scope.data.selectedMonthYear = "2015";
-                $scope.data.main_cat = "doses";
+                $scope.data.main_cat = "Doses";
                 $scope.data.reportPeriod = "Years"
                 $scope.table = {};
                 $scope.data.recipient = "";
                 $scope.data.sources = "";
                 $scope.data.activity = "";
                 $scope.data.store = "";
-                $scope.data.main_date = "system_date";
+                $scope.data.main_date = "system entry date";
                 $scope.selected_level = '1';
 
                 $scope.childs = $scope.userRecipients;
