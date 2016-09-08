@@ -33,8 +33,8 @@
         <div class="col-sm-2">
             <label translate="labels.show"></label>
             <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
-                <option value="doses" translate="labels.doses">Doses</option>
-                <option value="cost" >Cost</option>
+                <option value="doses" translate="labels.doses"></option>
+                <option value="cost" translate="labels.cost"></option>
             </select>
         </div>
         <div class="col-sm-2">
@@ -47,9 +47,9 @@
         <div class="col-sm-2">
              <label translate="labels.period_type"></label>
             <select ng-model="data.reportPeriod" ng-click="selectPeriod()"  class="form-control">
-                <option value="Years" >Years</option>
-                <option value="Month" >Month</option>
-                <option value="Date range" >Date Range</option>
+                <option value="Years" translate="labels.years"></option>
+                <option value="Month" translate="labels.month"></option>
+                <option value="Date range" translate="labels.date_range"></option>
             </select>
         </div>
 
@@ -103,8 +103,7 @@
         </div>
 </div>
     <div class="row">
-        <label><span  translate="labels.show_filters"></span>
-            <input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
+        <label translate="labels.show_filters">input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
     </div>
         <div class="row">
             <div class="col-md-3"  ng-if="data.showFilter">

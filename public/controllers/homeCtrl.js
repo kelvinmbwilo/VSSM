@@ -379,10 +379,10 @@ angular.module("vssmApp")
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
-                $scope.notification_object.push({'url':'close_to_expiry','name':'Near Expired Item','descr':value.vaccine.name +" of Batch Number "+ value.lot_number+' Will Expire At ' +value.expiry_date })
+                $scope.notification_object.push({'url':'close_to_expiry','name': $translate('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translate('labels.of_batch_number')+" "+ value.lot_number+" "+$translate('labels.will_expire_at')+" " +value.expiry_date })
                 $scope.number_of_notification += 1;
                 $scope.number_close_to_expiry += 1;
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount + $translate('labels.doses')+", "+ $translate('labels.source')+": "+$scope.getSourceName(value.source_id);
             });
         });
 
@@ -401,7 +401,7 @@ angular.module("vssmApp")
                             $scope.number_above_maximum += 1;
                         }else if(parseInt(value.amount) < parseInt(val.min_value)){
                             $scope.below_minimum.push(value)
-                            $scope.notification_object.push({'url':'below_minimum','name':'Item Below Minimum','descr':value.itemMinMax.vaccine.name +" is Below Minimum Settled Value, Current Number of Dose is "+ value.amount+' and has minimum of ' +value.itemMinMax.min_value })
+                            $scope.notification_object.push({'url':'below_minimum','name': $translate('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+$translate('labels.is_below_minimum_settled_value')+", "+$translate('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translate('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
                             $scope.number_of_notification += 1;
                             $scope.number_below_minimum += 1;
                         }
@@ -468,7 +468,7 @@ angular.module("vssmApp")
                     $scope.detailedItems = $scope.storeItemsDetails[log];
                     while ($scope.vaccineNames.length) { $scope.vaccineNames.pop(); }
                     while ($scope.vacciineValues.length) { $scope.vacciineValues.pop(); }
-                    $scope.chartConfig1.title.text = value.name+" Items";
+                    $scope.chartConfig1.title.text = value.name+ $translate('labels.items');
                     angular.forEach($scope.storeItems[log],function(val){
                         $scope.vaccineNames.push($scope.getVaccineName(val.vaccine_id))
                         $scope.vacciineValues.push(parseInt(val.total))

@@ -177,7 +177,7 @@ angular.module("vssmApp")
                             $scope.number_above_maximum += 1;
                         }else if(parseInt(value.amount) < parseInt(val.min_value)){
                             $scope.below_minimum.push(value)
-                            $scope.notification_object.push({'url':'below_minimum','name':'Item Below Minimum','descr':value.itemMinMax.vaccine.name +" is Below Minimum Settled Value, Current Number of Dose is "+ value.amount+' and has minimum of ' +value.itemMinMax.min_value })
+                            $scope.notification_object.push({'url':'below_minimum','name': $translate('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+$translate('labels.is_below_minimum_settled_value')+", "+$translate('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translate('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
                             $scope.number_of_notification += 1;
                             $scope.number_below_minimum += 1;
                         }
