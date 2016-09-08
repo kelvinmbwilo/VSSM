@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca17fb5a-1a50-4f26-913d-7d5fa3a471b4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" afterPath="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" afterPath="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
     </list>
     <ignored path="VSSM.iws" />
@@ -119,15 +120,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monthly_arrivals.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="monthly_arrivals.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68070954">
-              <caret line="195" column="41" selection-start-line="195" selection-start-column="41" selection-end-line="195" selection-end-column="41" />
+            <state vertical-scroll-proportion="-15.333333">
+              <caret line="41" column="44" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="44" />
               <folding>
                 <element signature="n#div#4;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrivalReportCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.19265033">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -169,7 +180,6 @@
         <option value="$PROJECT_DIR$/public/js/routes.js" />
         <option value="$PROJECT_DIR$/resources/views/blank.php" />
         <option value="$PROJECT_DIR$/public/views/reports/stock_status.html" />
-        <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
         <option value="$PROJECT_DIR$/public/languages/deDE.json" />
@@ -181,6 +191,7 @@
         <option value="$PROJECT_DIR$/public/views/reports/transit_invoice.html" />
         <option value="$PROJECT_DIR$/public/controllers/reports/stockStatusCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/reports/monthly_arrivals.html" />
+        <option value="$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js" />
       </list>
     </option>
   </component>
@@ -435,6 +446,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VSSM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VVS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reports" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -881,14 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-96.741936">
-          <caret line="228" column="36" selection-start-line="228" selection-start-column="29" selection-end-line="228" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.793103">
@@ -1043,12 +1068,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/reports/monthly_arrivals.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68070954">
-          <caret line="195" column="41" selection-start-line="195" selection-start-column="41" selection-end-line="195" selection-end-column="41" />
+        <state vertical-scroll-proportion="-15.333333">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="44" />
           <folding>
             <element signature="n#div#4;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/controllers/reports/arrivalReportCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19265033">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
