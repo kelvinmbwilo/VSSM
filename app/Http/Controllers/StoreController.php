@@ -277,6 +277,51 @@ class StoreController extends Controller
     }
 
     /**
+     * Display a stockItems for user.
+     *@param $recipient
+     * @param $level
+     * @return Response
+     */
+    public function stock_items($recipient,$level)
+    {
+//        return Stock::where('recipient_id',Auth::user()->recipient_id)->get();
+        if($level == '1'){
+            $dispatch =  Stock::where('recipient_id',$recipient)->get();
+        }elseif($level == '2'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0,$recipient];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+            }
+            $dispatch = DB::table('stock')
+                ->whereIn('recipient_id', $arr)
+                ->get();
+
+        }elseif($level == '3'){
+            $orgunit = Recipient::find($recipient);
+            $arr = [0];
+            array_push($arr,$recipient);
+            foreach($orgunit->childrens as $val){
+                array_push($arr,$val->id);
+                $orgunit1 = Recipient::find($val->id);
+                foreach($orgunit1->childrens as $val){
+                    array_push($arr,$val->id);
+                }
+            }
+            $dispatch = DB::table('stock')
+                ->whereIn('recipient_id', $arr)
+                ->get();
+
+        }else{
+            Stock::where('recipient_id',Auth::user()->recipient_id)->get();
+        }
+
+        return $dispatch;
+    }
+
+
+    /**
      * get canceledarrivalItems.
      *
      * @return Response

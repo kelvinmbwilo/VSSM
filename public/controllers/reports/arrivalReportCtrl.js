@@ -14,14 +14,14 @@ angular.module("vssmApp")
         $scope.data.reportMainCategory = "Orders";
         $scope.data.reportSeries = "Order Status";
         $scope.data.selectedMonthYear = "2015";
-        $scope.data.main_cat = "Doses";
+        $scope.data.main_cat = "doses";
         $scope.data.reportPeriod = "Years"
         $scope.table = {};
         $scope.data.recipient = "";
         $scope.data.sources = "";
         $scope.data.activity = "";
         $scope.data.store = "";
-        $scope.data.main_date = "system entry date";
+        $scope.data.main_date = "system_date";
         $scope.selected_level = '1';
 
         $scope.childs = $scope.userRecipients;
@@ -146,11 +146,11 @@ angular.module("vssmApp")
                 $scope.prepareSeries();
             }
 
-        }
+        };
 
         //changing chart types
         $scope.showReport = false;
-        $scope.data.chartType = 'column'
+        $scope.data.chartType = 'column';
         $scope.changeChart = function(type){
             $scope.displayTable = false;
             $scope.showReport = true;
@@ -222,7 +222,7 @@ angular.module("vssmApp")
                 $scope.normalseries.push({type: $scope.data.chartType, name:$scope.UsedName , data: serie,showInLegend: true,
                     dataLabels: {
                         enabled: false
-                    } })
+                    } });
                 $scope.chartConfig.series = $scope.normalseries;
             }
             else if($scope.data.chartType == "excel"){
@@ -317,7 +317,7 @@ angular.module("vssmApp")
                 $scope.chartConfig.series = $scope.normalseries;
             }
             $scope.prepareTitle()
-        }
+        };
 
 
         //drawing some charts
@@ -372,7 +372,7 @@ angular.module("vssmApp")
             });
             result.count = count;
             return result;
-        }
+        };
 
         $scope.filterTime = function(series,value){
             var start = "";
@@ -446,7 +446,7 @@ angular.module("vssmApp")
                        $scope.data.store),
                  'source_id',
                   $scope.data.sources);
-        }
+        };
 
         $scope.reduceSeries = function(series,colum,val){
             var result = [];
@@ -461,11 +461,11 @@ angular.module("vssmApp")
             });
             return result;
 
-        }
+        };
 
-        $scope.title = ""
+        $scope.title = "";
         $scope.prepareTitle = function(){
-            $scope.title = ""
+            $scope.title = "";
 //            $scope.title += (!$scope.data.recipient || $scope.data.recipient == '')?'':" Recipient: "+$scope.getRecipientName($scope.data.recipient);
             $scope.title += (!$scope.data.activity || $scope.data.activity == '')?'':" Activity: "+$scope.getActivityName($scope.data.activity)+" | ";
             $scope.title += (!$scope.data.store || $scope.data.store == '')?'':" Store: "+$scope.getStoreName($scope.data.store)+" | ";

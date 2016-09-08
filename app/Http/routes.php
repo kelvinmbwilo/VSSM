@@ -389,6 +389,9 @@ Route::get('arrivalItems',array('uses'=>'StoreController@arrivalItems'));
 //getting all arival Items
 Route::get('arrivalItems/{recipient}/child/{level}',array('uses'=>'StoreController@arrivalItems1'));
 
+//getting all arival Items
+Route::get('stock_items/{recipient}/child/{level}',array('uses'=>'StoreController@stock_items'));
+
 //getting all adjustedItems
 Route::get('adjustedItems',array('uses'=>'StoreController@adjustedItems'));
 

@@ -32,20 +32,20 @@
     <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
     
    <div class="row">
-        <div class="col-sm-2">
-            <label for="source"  translate="labels.show"></label>
-            <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
-                <option value="doses" >Doses</option>
-                <option value="cost" >Cost</option>
-            </select>
-        </div>
-        <div class="col-sm-2">
-             <label translate="labels.date_option"></label>
-            <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
-                <option value="user_date" >user entry date</option>
-                <option value="system_date" >system entry date</option>
-            </select>
-        </div>
+       <div class="col-sm-2">
+           <label translate="labels.show"></label>
+           <select ng-model="data.main_cat" ng-click="changeMainCat()"  class="form-control">
+               <option value="doses" translate="labels.doses">Doses</option>
+               <option value="cost" >Cost</option>
+           </select>
+       </div>
+       <div class="col-sm-2">
+           <label translate="labels.date_option"></label>
+           <select ng-model="data.main_date" ng-click="changeMainCat()"  class="form-control">
+               <option value="user_date" translate="labels.user_entry_date"></option>
+               <option value="system_date" translate="labels.system_entry_date"></option>
+           </select>
+       </div>
 
         <div class="col-sm-2">
             <label translate="labels.period_type"></label>
