@@ -123,8 +123,10 @@ angular.module("vssmApp")
                         if($scope.oneItem.maxValue > new_item.doses ){
                             new_item.doses +=  $scope.oneItem.doses;
                             $scope.maximumExceeded = false;
+                            new_item.maximumExceeded = false;
                         }else{
                             $scope.maximumExceeded = true;
+                            new_item.maximumExceeded = true;
                         }
 
                         is_available = true;
