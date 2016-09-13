@@ -317,7 +317,8 @@
         "date_range":"Rango de Fechas",
         "above_maximum_value":"Artículos por Encima del Máximo",
         "below_minimum_value":"Artículos por Debajo del Mínimo",
-        "monthly_arrivals_title":"Ingresos"
+        "monthly_arrivals_title":"Ingresos",
+        "expected_amount":"cantidad prevista"
     },
     "help": {
         "add_another" : "Agrega Otro",

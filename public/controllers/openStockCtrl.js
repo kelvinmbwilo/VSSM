@@ -43,7 +43,9 @@ angular.module("vssmApp")
                             $scope.oneItem.manufacture      = value.manufacture.name;
                         }
                     });
-                }
+
+                    //#scan_item
+                };
 
                 $scope.getVaccineInfo = function(id){
                     angular.forEach($scope.packaging_information,function(value){

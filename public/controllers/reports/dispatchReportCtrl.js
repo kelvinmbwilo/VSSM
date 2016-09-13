@@ -45,7 +45,7 @@
                 $scope.data.orderCategory = [{ name: "Pending", ticked: true },{ name: "In Progress", ticked: true},{ name: "Complete", ticked: true},{name: "Declined", ticked: true}]
                 $scope.data.generalCategory = [{ name: "Good", ticked: true },{ name: "Average", ticked: true},{ name: "Bad", ticked: true}];
                 $scope.data.months = [{ name: "January", ticked: true },{ name: "February", ticked: true},{ name: "March", ticked: true},{ name: "April", ticked: true},{ name: "May", ticked: true},{ name: "June", ticked: true},{ name: "July", ticked: true},{ name: "August", ticked: true},{ name: "September", ticked: true},{ name: "October", ticked: true},{ name: "November", ticked: true},{ name: "December", ticked: true}];
-                $scope.data.years = [{ name: "2015", ticked: true },{ name: "2014", ticked: true}];
+                $scope.data.years = [{ name: "2016", ticked: true },{ name: "2015", ticked: true },{ name: "2014", ticked: true}];
                 $scope.startingYears = []
                 angular.forEach($scope.data.years,function(datta){
                     $scope.startingYears.push(datta.name);

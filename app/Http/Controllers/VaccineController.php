@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Adjustment;
+use App\AdjustmentReason;
 use App\Arrival;
 use App\ArrivalItem;
 use App\ItemMovement;
@@ -717,7 +718,21 @@ class VaccineController extends Controller
         $arrival->save();
 
         foreach($request->input('items') as $item){
-            $amount =  $item['doses'];
+            if(isset($item['number_received'])){
+                if(isset($item['damaged_amount'])){
+                    $amount = $item['number_received'] - $item['damaged_amount'];
+                    $amount = $amount <= 0?0:$amount;
+                }else{
+                    $amount = $item['number_received'];
+                }
+            }else{
+                if(isset($item['damaged_amount'])){
+                    $amount = $item['doses'] - $item['damaged_amount'];
+                    $amount = $amount <= 0?0:$amount;
+                }else{
+                    $amount = $item['doses'];
+                }
+            }
 
             $ArrivalItem = new ArrivalItem;
             $ArrivalItem->recipient_source_id       = $recipient->parent_id;
@@ -817,18 +832,18 @@ class VaccineController extends Controller
                 if(isset($item['damaged_amount'])){
                     $amountss = $item['number_received'] - $item['damaged_amount'];
                     $amountss = $amountss <= 0?0:$amountss;
-                    $this->adjustDuringArrival($stock->id,$amountss,$item['item_id'],$item['lot_number'],1);
-            }else{
+                    $this->adjustDuringArrival($stock->id, $amountss,$item['item_id'],$item['lot_number'],$item['doses']);
+                }else{
                     $amountss = $item['number_received'];
-                    $this->adjustDuringArrival($stock->id,$amountss,$item['item_id'],$item['lot_number'],1);
+                    $this->adjustDuringArrival($stock->id, $amountss,$item['item_id'],$item['lot_number'],$item['doses']);
                 }
             }else{
                 if(isset($item['damaged_amount'])){
                     $amountss = $item['doses'] - $item['damaged_amount'];
                     $amountss = $amountss <= 0?0:$amountss;
-                    $this->adjustDuringArrival($stock->id,$amountss,$item['item_id'],$item['lot_number'],1);
+                    $this->adjustDuringArrival($stock->id,$amountss,$item['item_id'],$item['lot_number'],$item['doses']);
                 }else{
-                    $amount = $item['doses'];
+                    $amountss = $item['doses'];
                 }
             }
         }
@@ -1126,30 +1141,35 @@ class VaccineController extends Controller
         return $adjustment->reference;
     }
 
-    public function adjustDuringArrival($stock_id,$doses,$item_id,$lot_number,$adjustment_reason){
+    public function adjustDuringArrival($stock_id,$doses,$item_id,$lot_number,$original_amount){
         $stock = Stock::find($stock_id);
-        $amount = $stock->amount;
+        $amount = $stock->amount + ($original_amount - $doses);
         $storeStock = StoreStock::where('store_id',$stock->store_id)->where('vaccine_id',$item_id)->where('lot_number',$lot_number)->first();
-        $stock->amount = $doses;
-        $storeStock->amount = $doses;
-        $volume = $doses * PackagingInformation::find($stock->packaging_id)->cm_per_dose * 0.001;
-        $current_occupied_volume = $amount * PackagingInformation::find($stock->packaging_id)->cm_per_dose * 0.001;
-        $volume_to_use = $current_occupied_volume - $volume;
+//        $stock->amount = $doses;
+//        $storeStock->amount = $doses;
+        $volume = ($original_amount - $doses) * PackagingInformation::find($stock->packaging_id)->cm_per_dose * 0.001;
+//        $current_occupied_volume = $amount * PackagingInformation::find($stock->packaging_id)->cm_per_dose * 0.001;
+//        $volume_to_use = $current_occupied_volume - $volume;
 
-        $stock->save();
-        $storeStock->save();
-        if($stock->amount == 0){
-            $stock->delete();
-        }
-        if($storeStock->amount == 0){
-            $storeStock->delete();
-        }
+//        $stock->save();
+//        $storeStock->save();
+//        if($stock->amount == 0){
+//            $stock->delete();
+//        }
+//        if($storeStock->amount == 0){
+//            $storeStock->delete();
+//        }
 
         //updating volumes
-        $store = Store::find($stock->store_id);
-        $store->used_volume = $store->used_volume - $volume_to_use ;
-        $store->save();
-
+//        $store = Store::find($stock->store_id);
+//        $store->used_volume = $store->used_volume - $volume_to_use ;
+//        $store->save();
+        $reason = AdjustmentReason::where('code','AR')->first();
+        if($reason){
+            $adjustment_reason = $reason->id;
+        }else{
+            $adjustment_reason = 1;
+        }
         $adjustment = new Adjustment;
         $nextNumber = $this->getNextAdjustmentNumber();
 
@@ -1173,7 +1193,7 @@ class VaccineController extends Controller
         $adjustment->recipient_id      = $stock->recipient_id;
         $adjustment->previous_amount   = $amount;
         $adjustment->current_amount    = $stock->amount;
-        $adjustment->adjusted_volume    = $volume;
+        $adjustment->adjusted_volume    = abs($volume);
         $adjustment->save();
         Log::create(array(
             "user_id"=>  Auth::user()->id,
