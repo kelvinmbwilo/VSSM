@@ -20,6 +20,9 @@ angular.module("vssmApp")
             });
         });
 
+
+
+
         //changing the item dropdown
         $scope.updateStock = function(id){
             angular.forEach($scope.currentAnnual,function(value){
@@ -41,7 +44,7 @@ angular.module("vssmApp")
                 $scope.maxexceed = false;
             }
 
-        }
+        };
 
         //react to changing recipients
         $scope.changeRecipient = function(id){
@@ -66,9 +69,9 @@ angular.module("vssmApp")
         }
 
         //adding Item to list
-        $scope.showAdd = function(){
+        $scope.showAdd = function(oneItem){
 
-            $scope.oneItem = {};
+            $scope.oneItem = (oneItem)?oneItem:{};
             $scope.editing = false;
             $scope.dilluentRequired = false;
             var modalInstance = $modal.open({
@@ -79,7 +82,90 @@ angular.module("vssmApp")
                 size: "lg",
                 "backdrop":"static"
             });
-        }
+        };
+
+        //The function that works with the scanning of item
+        $scope.prepareItems = function(str){
+            $scope.barcode ={};
+            $scope.showNotAvailableError = false;
+            $scope.barcode.lot_number = str.substring(29);
+            $scope.barcode.expiry = str.substring(21,27);
+            $scope.barcode.gtin = str.substring(5,19);
+            if($scope.barcode.lot_number){$scope.oneItem.lot_number = $scope.barcode.lot_number}
+            if($scope.barcode.expiry){
+                year  = $scope.barcode.expiry.substring(0,2) - 0;
+                month = $scope.barcode.expiry.substring(2,4) - 1;
+                day   = $scope.barcode.expiry.substring(4,6) - 0;
+                (year < 70) ? year += 2000: year += 1900;
+                $scope.oneItem.expired_date = new Date(year,month,day);}
+            var in_stock = false;
+            angular.forEach($scope.stock_items,function(stock_item){
+                if(stock_item.lot_number == $scope.barcode.lot_number){
+                    in_stock = true;
+                    $scope.oneItem.stock_id = stock_item.id;
+                    $scope.oneItem.maxAmount = stock_item.amount
+                }
+            });
+
+            if(in_stock){
+                angular.forEach($scope.packaging_information,function(value){
+                    if(value.GTIN == $scope.barcode.gtin){
+                        $scope.oneItem.doses   = value.dose_per_vial * value.vials_per_box;
+                    }
+                });
+                //$scope.showAdd($scope.oneItem);
+                $scope.getStockInfo($scope.oneItem.stock_id);
+                var is_available = false;
+                angular.forEach($scope.newItem.items,function(new_item){
+                    console.log(new_item.lot_number +'=='+ $scope.barcode.lot_number);
+                    if(new_item.lot_number == $scope.barcode.lot_number){
+                        console.log($scope.oneItem.maxValue + "  <" + new_item.doses )
+                        if($scope.oneItem.maxValue > new_item.doses ){
+                            new_item.doses +=  $scope.oneItem.doses;
+                            $scope.maximumExceeded = false;
+                        }else{
+                            $scope.maximumExceeded = true;
+                        }
+
+                        is_available = true;
+                        $scope.oneItem = {};
+                        $("#barcode_string").val('');
+                        angular.element(jQuery('#barcode_string')).triggerHandler('input');
+                    }
+                });
+                if(!is_available){
+                    $scope.oneItem.total_volume = $scope.oneItem.cm_per_dose * $scope.oneItem.doses * 0.001;
+                    $scope.oneItem.vials = $scope.oneItem.doses / $scope.oneItem.dose_vial;
+                    $scope.newItem.items.push($scope.oneItem);
+                    $scope.oneItem = {};
+                    $scope.current_batch_no = "";
+                    $("#barcode_string").val('');
+                    angular.element(jQuery('#barcode_string')).triggerHandler('input');
+                }
+                $scope.showNotAvailableError = false;
+            }else{
+                $scope.showNotAvailableError = true;
+                $scope.oneItem = {};
+                $("#barcode_string").val('');
+                angular.element(jQuery('#barcode_string')).triggerHandler('input');
+            }
+
+
+
+        };
+
+        $scope.checkAmount = function(item){
+
+            if(!item.doses){
+                item.maximumExceeded = true;
+                $scope.hideSave =  true;
+                $scope.maximumExceeded = true;
+            }else{
+                $scope.hideSave =  false;
+                $scope.maximumExceeded = false;
+                item.maximumExceeded = false;
+            }
+        };
 
         //adding Item to list
         $scope.showAEdit = function(item){
@@ -100,6 +186,7 @@ angular.module("vssmApp")
             angular.forEach($scope.stock_items,function(value){
                 if(value.id == id){
                     $scope.maxValue = value.amount;
+                    $scope.oneItem.maxValue = value.amount;
                     $scope.oneItem.packaging_id = value.packaging_id;
                     $scope.oneItem.expired_date = value.expiry_date;
                     $scope.oneItem.lot_number = value.lot_number;
@@ -139,7 +226,8 @@ angular.module("vssmApp")
                 .cancel($translate('labels.cancel'))
                 .targetEvent(ev);
             $mdDialog.show(confirm).then(function() {
-                delete $scope.newItem.items[$scope.newItem.items.indexOf(item)];
+                //delete $scope.newItem.items[$scope.newItem.items.indexOf(item)];
+                $scope.newItem.items.splice($scope.newItem.items.indexOf(item),1);
                 if($scope.newItem.items.length == 0){
                     $scope.hasItems = false;
                 }else{
@@ -188,7 +276,7 @@ angular.module("vssmApp")
         $scope.checkMate = function(){
             var match = true;
             angular.forEach($scope.newItem.items,function(value){
-                if(value.hasMatch == false){
+                if( value.hasMatch == false ){
                     match = false;
                 }
             });
@@ -369,7 +457,7 @@ angular.module("vssmApp")
             $scope.oneItem = {};
             $scope.checkVaccineDiluent();
             $modalInstance.close();
-        }
+        };
 
 
         $scope.cancel = function () {

@@ -1,3 +1,8 @@
+<style>
+    .red-back{
+        background-color: red;
+    }
+</style>
 <div class=contentwrapper>
     <!--Content wrapper-->
     <div class=heading>
@@ -51,10 +56,24 @@
             <!-- Start .panel -->
             <div class="panel-heading white-bg">
                 <h4 class="panel-title" translate="help.dispatch_items"></h4>
-                <div class="panel-controls panel-controls-right"><button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs" title="{{ 'help.add_dispatchline' | translate}} "><i class="icomoon-icon-plus"></i> <span translate="labels.add"></span></button>
+                <div class="panel-controls panel-controls-right">
+                    <button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs" title="{{ 'help.add_dispatchline' | translate}} ">
+                        <i class="icomoon-icon-plus"></i>
+                        <span translate="labels.add"></span>
+                    </button>
                 </div>
-            </div>
+
             <div  class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label translate="help.scan_item"></label>
+                        <input id="barcode_string" type="text" class="form-control" ng-model="current_batch_no" ng-change="prepareItems(current_batch_no)">
+                    </div>
+                    <div>
+                        <span translate="help.not_found" ng-if="showNotAvailableError"></span>
+                    </div>
+                </div>
+
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: auto;">
                     <div class="table-responsive" style="overflow: scroll; width: 100%; height: auto;">
                         <table datatable="ng" class="table table-striped table-bordered" dt-options="dtOptions" >
@@ -66,7 +85,7 @@
                                 <th translate="labels.lot_number"></th>
                                 <th translate="labels.Dose_vial"></th>
                                 <th translate="labels.expired_date"></th>
-                                <th translate="labels.doses"></th>
+                                <th translate="labels.doses" style="width: 150px"></th>
                                 <th translate="labels.vials"></th>
                                 <th translate="labels.total_volume"></th>
                                 <th translate="labels.u_price"></th>
@@ -84,12 +103,18 @@
                                 <td>{{ item.lot_number }}</td>
                                 <td>{{ item.packaging }}</td>
                                 <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
-                                <td>{{ item.doses | number:0 }}</td>
-                                <td>{{ item.vials | number:0 }}</td>
-                                <td>{{ item.total_volume | number:2 }}</td>
+                                <td ng-class="{ 'red-back': item.maximumExceeded }">
+                                    <input ng-change="checkAmount(item)" ng-model="item.doses" class="form-control" type="number" style="max-width: 100px" min="0" max="{{ item.maxValue }}">
+                                </td>
+                                <td>{{ item.doses / item.dose_vial | number:0 }}</td>
+                                <td>{{ item.cm_per_dose * item.doses * 0.001 | number:2 }}</td>
                                 <td>{{ main_currency }} {{ item.u_price | number : 2 }}</td>
                                 <td>{{ main_currency }} {{ item.u_price * item.doses | number:2 }}</td>
-                                <td>{{ getActivityName(item.activity) }}</td>
+                                <td>
+                                    <select required="" id="activity" class="form-control" ng-model="item.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true" style="max-width: 130px">
+                                        <option value="" translate="labels.select"></option>
+                                    </select>
+                                </td>
                                 <td>{{ getStoreName(item.store_id) }}</td>
                                 <td>
                                     <md-button aria-label="btu" class="md-hue-3 md-raised  md-fab"  ng-click="showAEdit(item,'updatePreAdvice')"><i class="fa fa-pencil-square"></i>
@@ -116,17 +141,18 @@
         </div>
 
     </div>
-    <!-- End .row -->
-    <h4 ng-if="!checkMate()" translate="error.no_diluent"></h4>
-    <div class="col-md-12"  ng-if="!showSummary">
-        <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-        <button  ng-disabled="myForm.$invalid" ng-click="dispatch(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="menu.dispatch"></button>
-    </div >
+        <!-- End .row -->
+        <h4 ng-if="!checkMate()" translate="error.no_diluent"></h4>
+        <h4 ng-if="maximumExceeded" class="text-warning" translate="error.no_stock"></h4>
+        <div class="col-md-12"  ng-if="!showSummary">
+            <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
+            <button  ng-disabled="myForm.$invalid" ng-click="dispatch(newItem)" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="menu.dispatch"></button>
+        </div >
+    </div>
 
     <!--printed voucher-->
     <div class="row" ng-if="showSummary">
         <div ng-include="'views/dispatch/voucher.html'"></div>
     </div>
 </div>
-
 
