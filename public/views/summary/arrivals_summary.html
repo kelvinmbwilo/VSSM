@@ -61,6 +61,7 @@
                 <th translate="labels.lot_number"></th>
                 <th translate="labels.source"></th>
                 <th translate="labels.expired_date"></th>
+                <th translate="labels.expected_amount"></th>
                 <th translate="labels.doses"></th>
                 <th translate="labels.vials"></th>
                 <th translate="labels.total_volume"></th>
@@ -80,6 +81,7 @@
                 <td>{{ item.lot_number }}</td>
                 <td>{{ getSourceName(item.source_id) }}</td>
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
+                <td>{{ item.number_expected | number:0  }}</td>
                 <td>{{ item.number_received | number:0  }}</td>
                 <td>{{ item.number_received / item.packaging.dose_per_vial | number:0 }}</td>
                 <td>{{ (item.number_received*item.packaging.cm_per_dose)*0.001 | number:4 }}</td>

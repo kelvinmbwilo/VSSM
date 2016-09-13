@@ -284,7 +284,8 @@
         "date_range":"Date Range",
         "above_maximum_value":"Item Above Maximum Value",
         "below_minimum_value":"Item Below Minimum Value",
-        "monthly_arrivals_title":"Monthly Arrivals"
+        "monthly_arrivals_title":"Monthly Arrivals",
+        "expected_amount":"Amount Expected"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

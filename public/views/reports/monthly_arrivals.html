@@ -56,6 +56,8 @@
         <div class="col-sm-3"  ng-if="showMonthRange">
              <label translate="labels.year"></label>
             <select ng-model="data.selectedMonthYear" class="form-control" ng-change="prepareSeries()">
+                <option value="2017" >2017</option>
+                <option value="2016" >2016</option>
                 <option value="2015" >2015</option>
                 <option value="2014" >2014</option>
             </select>
@@ -169,6 +171,7 @@
                 <th translate="labels.source"></th>
                 <th translate="labels.lot_number"></th>
                 <th translate="labels.expired_date"></th>
+                <th translate="labels.expected_amount"></th>
                 <th translate="labels.doses"></th>
                 <th translate="labels.total_volume"></th>
                 <th translate="labels.t_price"></th>
@@ -186,6 +189,7 @@
                 <td>{{ getSourceName(item.source_id) }}</td>
                 <td>{{ item.lot_number }}</td>
                 <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
+                <td>{{ item.number_expected | number:0  }}</td>
                 <td>{{ item.number_received | number:0 }}</td>
                 <td>{{ item.volume | number:2 }}</td>
                 <td>{{ item.unit_price * item.number_received | number:2 }} {{ main_currency }}</td>
