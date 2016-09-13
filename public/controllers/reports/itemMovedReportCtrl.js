@@ -1,9 +1,10 @@
 /**
- * Created by kelvin on 9/22/15.
+ * Created by florence on 13/09/15.
  */
 angular.module("vssmApp")
-    .controller("expiredItemsCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
-//getting all regions
+    .controller("itemMovedReportCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
+        
+        //getting all regions
         $scope.data = {};
         $scope.data.usedRegions = [];
         $scope.data.usedDistricts = [];
@@ -28,6 +29,13 @@ angular.module("vssmApp")
         $scope.childs.unshift($scope.logedInUser.recipient);
         $scope.data.children = $scope.logedInUser.recipient.id;
 
+        $scope.number_of_notification = 0
+        $scope.number_close_to_expiry = 0
+        $scope.number_below_minimum = 0
+        $scope.number_above_maximum = 0
+        $scope.number_expired_items = 0
+        $scope.notification_object = [];
+
         //preparing start date and end date
         var date = new Date();
         var curr_date	= date.getDate();
@@ -50,7 +58,7 @@ angular.module("vssmApp")
         $scope.data.orderCategory = [{ name: "Pending", ticked: true },{ name: "In Progress", ticked: true},{ name: "Complete", ticked: true},{name: "Declined", ticked: true}]
         $scope.data.generalCategory = [{ name: "Good", ticked: true },{ name: "Average", ticked: true},{ name: "Bad", ticked: true}];
         $scope.data.months = [{ name: "January", ticked: true },{ name: "February", ticked: true},{ name: "March", ticked: true},{ name: "April", ticked: true},{ name: "May", ticked: true},{ name: "June", ticked: true},{ name: "July", ticked: true},{ name: "August", ticked: true},{ name: "September", ticked: true},{ name: "October", ticked: true},{ name: "November", ticked: true},{ name: "December", ticked: true}];
-        $scope.data.years = [{ name: "2015", ticked: true },{ name: "2014", ticked: true}];
+        $scope.data.years = [{ name: "2016", ticked: true },{ name: "2015", ticked: true },{ name: "2014", ticked: true}];
         $scope.startingYears = [];
         angular.forEach($scope.data.years,function(datta){
             $scope.startingYears.push(datta.name);
@@ -74,90 +82,22 @@ angular.module("vssmApp")
             }
         };
 
-        $scope.number_of_notification = 0
-        $scope.number_close_to_expiry = 0
-        $scope.number_below_minimum = 0
-        $scope.number_above_maximum = 0
-        $scope.number_expired_items = 0
-        $scope.notification_object = [];
-
-        $http.get("index.php/near_expired_stock_items").success(function(data){
-            $scope.near_expired_stock_items = data;
-            angular.forEach($scope.near_expired_stock_items,function(value){
-
-                value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
-                $scope.notification_object.push({'url':'close_to_expiry','name':'Near Expired Item','descr':value.vaccine.name +" of Batch Number "+ value.lot_number+' Will Expire At ' +value.expiry_date })
-                $scope.number_of_notification += 1;
-                $scope.number_close_to_expiry += 1;
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
-            });
-        });
-
-        $http.get("index.php/vaccineStocks/1").success(function(data){
-            $scope.stockss = data;
-            $scope.below_minimum = []
-            $scope.above_maximum = []
-            angular.forEach($scope.stockss,function(value){
-                angular.forEach($scope.items_min_max,function(val){
-                    if(value.id == val.item_id){
-                        value.itemMinMax =  val;
-                        if(parseInt(value.amount) > parseInt(val.max_value)){
-                            $scope.above_maximum.push(value);
-                            $scope.notification_object.push({'url':'above_maximum','name':'Item Above Maximum','descr':value.itemMinMax.vaccine.name +" is Above Maximum Settled Value, Current Number of Dose is "+ value.amount+' and has maximum of ' +value.itemMinMax.max_value })
-                            $scope.number_of_notification += 1;
-                            $scope.number_above_maximum += 1;
-                        }else if(parseInt(value.amount) < parseInt(val.min_value)){
-                            $scope.below_minimum.push(value)
-                            $scope.notification_object.push({'url':'below_minimum','name': $translate('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+$translate('labels.is_below_minimum_settled_value')+", "+$translate('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translate('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
-                            $scope.number_of_notification += 1;
-                            $scope.number_below_minimum += 1;
-                        }
-                    }
-                })
-            })
-        });
-
         //getting screening types
-        
         $scope.fetchData = function(){
-            //get stock_items
-            $http.get("index.php/expired_stock_items").success(function(data){
-            $scope.stock_items = data;
-            angular.forEach($scope.stock_items,function(value){
-                value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
-                $scope.notification_object.push({'url':'expired_items','name':'Expired Item','descr':value.vaccine.name +" of Batch Number "+ value.lot_number+' Has expired Since ' +value.expiry_date })
-                $scope.number_of_notification += 1;
-                $scope.number_expired_items += 1;
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+            $http.get('index.php/movedItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.data.movedItems = data;
             });
-        });
         }
 
         $scope.fetchData();
-
-        $scope.updateExpired = function(){
-            //get stock_items
-            $http.get('index.php/expired_stock_items/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
-                $scope.stock_items = data;
-                angular.forEach($scope.stock_items,function(value){
-                    value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                    value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                    value.store = $scope.assignValue($scope.stores,value.store_id);
-                    $scope.notification_object.push({'url':'expired_items','name':'Expired Item','descr':value.vaccine.name +" of Batch Number "+ value.lot_number+' Has expired Since ' +value.expiry_date })
-                    $scope.number_of_notification += 1;
-                    $scope.number_expired_items += 1;
-                    value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
-                });
+        $scope.updateLevel = function(){
+            $$http.get('index.php/movedItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+                $scope.movedItems = data;
                 $scope.prepareSeries();
             });
-
-        }
-
-
+        };
+        $scope.updateLevel();
+        
         //get vaccines
         $http.get("index.php/vaccines").success(function(data){
             $scope.vaccines    = data;
@@ -195,6 +135,7 @@ angular.module("vssmApp")
         $scope.showYearRange = true;
         $scope.showMonthRange = false;
         $scope.showDayRange = false;
+        
         $scope.selectPeriod = function(){
             if($scope.data.reportPeriod == "Years"){
                 $scope.showYearRange = true;
@@ -217,6 +158,7 @@ angular.module("vssmApp")
         };
 
         $scope.prepareSeries = function(){
+            //$scope.chartConfig.title.text = $translate('labels.monthly_arrivals_title');
             $scope.area = [];
             if($scope.data.reportPeriod == "Years"){
                 angular.forEach($scope.data.selectedYear,function(value){
@@ -225,6 +167,7 @@ angular.module("vssmApp")
                 $scope.data.category = "Years"
             }
             if($scope.data.reportPeriod == "Month"){
+                //$scope.chartConfig.title.text +=" "+ $scope.data.selectedMonthYear+ " ";
                 angular.forEach($scope.data.selectedMonth,function(value){
                     $scope.area.push(value.name);
                 });
@@ -233,29 +176,155 @@ angular.module("vssmApp")
             if($scope.data.reportPeriod == "Date range"){
                 var startDate = $filter('date')($scope.data.startDate, 'dd MMM yyyy')
                 $scope.area[0] = startDate + " "+ $translate('labels.to')+" "+ $filter('date')($scope.data.endDate, 'dd MMM yyyy');
+                //$scope.chartConfig.title.text +="  "+ startDate + $translate('labels.to')+" "+ $filter('date')($scope.data.endDate, 'dd MMM yyyy');
                 $scope.data.category = "Date"
             }
+            //$scope.chartConfig.xAxis.categories = $scope.area;
+            /*if($scope.chartConfig.xAxis.categories.length == 0){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content('Please Select at least one period!')
+                        .position($scope.getToastPosition())
+                        .hideDelay(3000)
+                );
+            }*/
+
+            /*$scope.normalseries = [];
+            if($scope.data.chartType == "pie"){
+                delete $scope.chartConfig.chart;
+                var serie = [];
+                angular.forEach($scope.subCategory,function(value){
+                    angular.forEach($scope.chartConfig.xAxis.categories,function(val){
+                        var number = $scope.filterDataStatus(value.id,val);
+                        serie.push({name: value.name+" - "+ val , y: parseInt(number.count)})
+                    });
+                });
+                if($scope.data.main_cat == 'doses'){
+                    $scope.UsedName = "Doses";
+                }else if($scope.data.main_cat == 'cost'){
+                    $scope.UsedName = "Price($)";
+                }
+                $scope.normalseries.push({type: $scope.data.chartType, name:$scope.UsedName , data: serie,showInLegend: true,
+                    dataLabels: {
+                        enabled: false
+                    } });
+                $scope.chartConfig.series = $scope.normalseries;
+            }
+            else if($scope.data.chartType == "excel"){
+                $scope.table.headers = [];
+                $scope.table.colums =[];
+                angular.forEach($scope.subCategory,function(value){
+                    var serie = [];
+                    $scope.table.headers.push(value);
+                });
+                angular.forEach($scope.chartConfig.xAxis.categories,function(val){
+                    var seri = [];
+                    angular.forEach($scope.subCategory,function(value){
+                        seri.push({name:value,value:parseInt(Math.random()*100)});
+                    });
+
+                    $scope.table.colums.push({name:val,values:seri});
+
+                });
+                window.location.assign("index.php/excel?data="+JSON.stringify($scope.table));
+                alert("drawing excel");
+
+            }
+            else if($scope.data.chartType == "nyingine"){
+                delete $scope.chartConfig.chart;
+                var serie1 = [];
+                angular.forEach($scope.subCategory,function(value){
+                    var serie = [];
+
+                    angular.forEach($scope.chartConfig.xAxis.categories,function(val){
+                        var number = $scope.filterDataStatus(value.id,val);
+                        serie.push(parseInt(number.count));
+                        serie1.push({name: value.name+" - "+ val , y: parseInt(number.count) })
+                    });
+                    $scope.normalseries.push({type: 'column', name: value.name, data: serie});
+                    $scope.normalseries.push({type: 'spline', name: value.name, data: serie});
+                });
+                if($scope.data.main_cat == 'doses'){
+                    $scope.UsedName = "Doses";
+                }else if($scope.data.main_cat == 'cost'){
+                    $scope.UsedName = "Price($)";
+                }
+                $scope.normalseries.push({type: 'pie', name: $scope.UsedName, data: serie1,center: [100, 80],size: 150,showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }})
+                $scope.chartConfig.series = $scope.normalseries;
+            }
+            else if($scope.data.chartType == 'table'){
+                $scope.table.headers = [];
+                $scope.table.colums =[];
+                angular.forEach($scope.subCategory,function(value){
+                    var serie = [];
+                    $scope.table.headers.push(value.name);
+                });
+                angular.forEach($scope.chartConfig.xAxis.categories,function(val){
+                    var seri = [];
+                    angular.forEach($scope.subCategory,function(value){
+                        var number = $scope.filterDataStatus(value.id,val);
+                        seri.push({name:value.name,value:parseInt(number.count)});
+                    });
+
+                    $scope.table.colums.push({name:val,values:seri});
+                });
+            }else if($scope.data.chartType == 'list'){
+                $scope.table.headers = [];
+                $scope.table.colums =[];
+                $scope.itemsList = []
+                angular.forEach($scope.chartConfig.xAxis.categories,function(val){
+                    var seri = [];
+                    angular.forEach($scope.subCategory,function(value){
+                        var number = $scope.filterDataStatus(value.id,val);
+                        if(number.data.length != 0){
+                            angular.forEach(number.data,function(v){
+                                $scope.itemsList.push(v);
+                            });
+                        }
+
+                    });
+
+                });
+            }
+            else{
+                delete $scope.chartConfig.chart;
+                angular.forEach($scope.subCategory,function(value){
+                    var serie = [];
+                    angular.forEach($scope.area,function(val){
+                        var number = $scope.filterDataStatus(value.id,val);
+                        serie.push(number.count);
+                    });
+                    $scope.normalseries.push({type: $scope.data.chartType, name: value.name, data: serie})
+                });
+                $scope.chartConfig.series = $scope.normalseries;
+            }*/
+            $scope.prepareTitle()
         };
-            
-        $scope.filterDataStatus = function(vaccine_id,period){
+
+        /*$scope.filterDataStatus = function(vaccine_id,period){
             var result = {};
             result.data = [];
             var count = 0;
-            angular.forEach($scope.filterFilters($scope.filterTime( $scope.data.stock_items,period)),function(val){
+            angular.forEach($scope.filterFilters($scope.filterTime( $scope.data.movedItems,period)),function(val){
                 if(val.vaccine_id == vaccine_id){
                     result.data.push(val);
                     if($scope.data.main_cat == 'doses'){
                         count += parseInt(val.number_received);
+                        $scope.chartConfig.yAxis.title.text = 'Doses'
                     }else if($scope.data.main_cat == 'cost'){
                         count += parseInt(val.total_price);
+                        $scope.chartConfig.yAxis.title.text = 'Price ($)'
                     }
                 }
             });
             result.count = count;
             return result;
-        };
+        };*/
 
-        $scope.filterTime = function(series,value){
+        /*$scope.filterTime = function(series,value){
             var start = "";
             var end = "";
             if($scope.data.reportPeriod == "Years"){
@@ -310,16 +379,16 @@ angular.module("vssmApp")
                     if(val.created_at >= start && val.created_at <= end ){
                         result.push(val);
                     }
-                }/*else if($scope.data.main_date == "user_date"){
+                }else if($scope.data.main_date == "user_date"){
                     if(val.arrival_date >= start && val.arrival_date <= end ){
                         result.push(val);
                     }
-                }*/
+                }
             });
             return result;
-        };
+        }*/
 
-        $scope.filterFilters = function(series){
+        /*$scope.filterFilters = function(series){
            return $scope.reduceSeries($scope.reduceSeries($scope.reduceSeries(series,
                            'activity_id',
                             $scope.data.activity),
@@ -342,7 +411,7 @@ angular.module("vssmApp")
             });
             return result;
 
-        };
+        };*/
 
         $scope.title = "";
         $scope.prepareTitle = function(){
@@ -351,5 +420,9 @@ angular.module("vssmApp")
             $scope.title += (!$scope.data.activity || $scope.data.activity == '')?'':" Activity: "+$scope.getActivityName($scope.data.activity)+" | ";
             $scope.title += (!$scope.data.store || $scope.data.store == '')?'':" Store: "+$scope.getStoreName($scope.data.store)+" | ";
             $scope.title += (!$scope.data.sources || $scope.data.sources == '')?'':" Source: "+$scope.getSourceName($scope.data.sources)+" | ";
+            //$scope.chartConfig.subtitle={text :$scope.title};
         }
-});
+
+
+
+    });
