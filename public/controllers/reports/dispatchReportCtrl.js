@@ -1,6 +1,6 @@
  angular.module("vssmApp")
             .controller("dispatchReportCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
-//getting all regions
+                //getting all regions
                 $scope.data = {};
                 $scope.data.usedRegions = [];
                 $scope.data.usedDistricts = [];
@@ -167,7 +167,7 @@
                 };
 
                 $scope.prepareSeries = function(){
-                    $scope.chartConfig.title.text = "Dispatches";
+                    $scope.chartConfig.title.text = $translate('menu.monthly_dispatch');
                     $scope.area = [];
                     if($scope.data.reportPeriod == "Years"){
                         angular.forEach($scope.data.selectedYear,function(value){
