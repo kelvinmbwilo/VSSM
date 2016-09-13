@@ -192,7 +192,7 @@ angular.module("vssmApp")
 
         $routeProvider.when("/expired_items",{
             templateUrl: 'views/reports/expired_items.html',
-            controller: 'reportCtrl'
+            controller: 'expiredItemsCtrl' //'reportCtrl'
         });
 
 

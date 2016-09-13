@@ -130,7 +130,7 @@ else{
                         <ul class=sub>
                             <li ng-if="hasRole(userRoles,'see_closetoexpiry')"><a href="./#close_to_expiry" ng-class="{ active1: isActive('/close_to_expiry') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span>  </a></li>
                             <li ng-if="hasRole(userRoles,'see_belowminimum')"><a href="./#below_minimum" ng-class="{ active1: isActive('/below_minimum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span> </a></li>
-                            <li ng-if="hasRole(userRoles,'see_aboveminimum')"><a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span> </a></li>
+                           <li ng-if="hasRole(userRoles,'see_aboveminimum')"><a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span> </a></li>
                         </ul>
                     </li>
                     <li>
@@ -264,6 +264,7 @@ else{
 <script type="text/javascript" src="<?php echo  asset('js/libs/excanvas.min.js') ?>"></script>
 <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <script type="text/javascript" src="<?php echo  asset('js/libs/respond.min.js') ?>"></script>
+<script src="http://code.angularjs.org/1.0.8/i18n/angular-locale_fr-fr.js"></script>
 <![endif]-->
 
 
@@ -321,6 +322,7 @@ else{
 </script>
 <script src="<?php echo  asset('js/routes.js')  ?>"></script>
 
+
 //angularJs Controllers
 <script src="<?php echo  asset('controllers/homeCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/groupCtrl.js')  ?>"></script>
@@ -338,7 +340,8 @@ else{
 <script src="<?php echo  asset('controllers/reports/arrivalReportCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/reports/dispatchReportCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/reports/reportCtrl.js')  ?>"></script>
-<script src="<?php echo  asset('controllers/reports/stockStatusCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/reportCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/expiredItemsCtrl.js')  ?>"></script>
 <!--<script src="--><?php //echo  asset('bootstrap/js/bootstrap.min.js')  ?><!--"></script>-->
 <script src="<?php echo  asset('js/ie10-viewport-bug-workaround.js')  ?>"></script>
 <script src="<?php echo  asset('js/pages/blank.js') ?>"></script>
