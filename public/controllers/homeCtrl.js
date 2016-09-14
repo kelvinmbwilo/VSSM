@@ -11,7 +11,7 @@ angular.module("vssmApp")
         $translateProvider.preferredLanguage('enUS');
         $translateProvider.usePostCompiling(true);
     })
-    .controller("mainCtrl",function ($rootScope,$scope,$http,$location,$timeout,$translate,DTOptionsBuilder) {
+    .controller("mainCtrl",function ($rootScope,$scope,$http,$location,$timeout,$translate,DTOptionsBuilder,$filter) {
         //Variables Initialization
         $scope.data = {};
         var $translate = $filter('translate');
