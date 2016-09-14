@@ -239,7 +239,7 @@ angular.module("vssmApp")
                 $scope.packaging_information = [];
                 $scope.packagingInformation =[];
                 angular.forEach(data,function(value){
-                    value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
+                    value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box";
                     $scope.packagingInformation.push(value);
                     $scope.packaging_information.push(value);
                 });

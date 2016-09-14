@@ -677,15 +677,15 @@ angular.module("vssmApp")
             return result;
 
         }
-        $scope.title = ""
+        $scope.title = "";
         $scope.prepareTitle = function(){
-            $scope.title = ""
+            $scope.title = "";
             $scope.title += (!$scope.data.recipient || $scope.data.recipient == '')?'':" Recipient: "+$scope.getRecipientName($scope.data.recipient)+" | ";
             $scope.title += (!$scope.data.activity || $scope.data.activity == '')?'':" Activity: "+$scope.getActivityName($scope.data.activity)+" | ";
             $scope.title += (!$scope.data.store || $scope.data.store == '')?'':" Store: "+$scope.getStoreName($scope.data.store)+" | ";
             $scope.title += (!$scope.data.sources || $scope.data.sources == '')?'':" Source: "+$scope.getSourceName($scope.data.sources)+" | ";
             $scope.chartConfig.subtitle={text :$scope.title};
-        }
+        };
 
         var $translate = $filter('translate');
         $scope.downloadData =function(voucher_number){
