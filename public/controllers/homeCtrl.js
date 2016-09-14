@@ -14,7 +14,7 @@ angular.module("vssmApp")
     .controller("mainCtrl",function ($rootScope,$scope,$http,$location,$timeout,$translate,DTOptionsBuilder) {
         //Variables Initialization
         $scope.data = {};
-
+        var $translate = $filter('translate');
         //date picker initialization
         $scope.dateOptions = {
             changeYear: true,
@@ -424,7 +424,8 @@ angular.module("vssmApp")
             });
         });
 
-    }).controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http,$translate,$filter) {
+    })
+    .controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http,$translate,$filter) {
 
         //get stores
         $scope.storeNames= [];
@@ -433,6 +434,7 @@ angular.module("vssmApp")
         $scope.freeValues = [];
         $scope.storeTable = [];
         $scope.storeCapacity = [];
+        var $translate = $filter('translate');
 //getting the loggedIn User
         $http.get("index.php/updateItems").success(function(data){
 
@@ -456,7 +458,7 @@ angular.module("vssmApp")
         });
             console.log("volumes updated");
         });
-        var $translate = $filter('translate');
+
         $scope.vaccineNames = [];
         $scope.vacciineValues = [];
         $scope.setStoreType = function(id){
