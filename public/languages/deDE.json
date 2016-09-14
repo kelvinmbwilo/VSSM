@@ -308,6 +308,7 @@
         "will_expire_at":"caducará al",
         "item_below_minimum":"Producto debajo el mínimo",
         "is_below_minimum_settled_value":"está debajo del valor mínimo",
+        "is_above_maximum_settled_value":"está encima del valor máximo",
         "current_number_of_dose_is":"la cantidad actual de dosis es",
         "and_has_minimum_of":"y tiene un mínimo de",
         "graph":"Gráfico",
@@ -318,7 +319,13 @@
         "above_maximum_value":"Artículos por Encima del Máximo",
         "below_minimum_value":"Artículos por Debajo del Mínimo",
         "monthly_arrivals_title":"Ingresos",
-        "expected_amount":"cantidad prevista"
+        "expected_amount":"cantidad prevista",
+        "volume":"Volumen",
+        "used":"Utilizado",
+        "free":"Disponible",
+        "expired_item":"Producto Caducado",
+        "has_expired_since":"Ha Caducado Desde hace",
+        "remaining_volume":"Volumen Restante"
     },
     "help": {
         "add_another" : "Agrega Otro",
