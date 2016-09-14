@@ -239,7 +239,7 @@ angular.module("vssmApp")
                 $scope.packaging_information = [];
                 $scope.packagingInformation =[];
                 angular.forEach(data,function(value){
-                    value.usename = value.dose_per_vial+" dose_per_vial, "+ value.vials_per_box+" vials_per_box"
+                    value.usename = value.dose_per_vial+" "+$translates('labels.dose_per_vial')+", "+ value.vials_per_box+" "+$translates('labels.vials_per_box');
                     $scope.packagingInformation.push(value);
                     $scope.packaging_information.push(value);
                 });
@@ -420,7 +420,7 @@ angular.module("vssmApp")
                 $scope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
                 $scope.number_of_notification += 1;
                 $scope.number_expired_items += 1;
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" "+$translates('labels.dosis')+", "+$translates('labels.source')+": "+$scope.getSourceName(value.source_id);
             });
         });
 
