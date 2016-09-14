@@ -11,6 +11,8 @@ angular.module("vssmApp")
                 $scope.oneItem = {};
                 $scope.hasItems = false;
 
+        $("#scan_item1").focus();
+
         $scope.fetchBasicData();
                 $scope.prepareItems = function(str){
                     $scope.barcode ={};
@@ -46,6 +48,71 @@ angular.module("vssmApp")
 
                     //#scan_item
                 };
+
+        //this function will be used for the front scanning
+        $scope.prepareItems1 = function(str){
+            $scope.no_package = false;
+            $scope.barcode ={};
+            $scope.barcode.lot_number = str.substring(29);
+            $scope.barcode.expiry = str.substring(21,27)
+            $scope.barcode.gtin = str.substring(5,19);
+            if($scope.barcode.lot_number){$scope.oneItem.lot_number = $scope.barcode.lot_number}
+            if($scope.barcode.expiry){
+                year  = $scope.barcode.expiry.substring(0,2) - 0;
+                month = $scope.barcode.expiry.substring(2,4) - 1;
+                day   = $scope.barcode.expiry.substring(4,6) - 0;
+                (year < 70) ? year += 2000: year += 1900;
+                $scope.oneItem.expired_date = new Date(year,month,day);}
+//            if($scope.barcode.gtin){$scope.oneItem.packaging_id = $scope.barcode.gtin}
+            var pcakage_found = false;
+            angular.forEach($scope.packaging_information,function(value){
+                if(value.GTIN == $scope.barcode.gtin){
+                    pcakage_found = true;
+                    $scope.oneItem.packaging_id = value.id;
+                    $scope.oneItem.packaging = value.usename;
+                    $scope.oneItem.dose_vial = value.dose_per_vial;
+                    $scope.oneItem.doses            = value.dose_per_vial * value.vials_per_box;
+                    $scope.oneItem.vials_per_box    = value.vials_per_box;
+                    $scope.oneItem.cm_per_dose = value.cm_per_dose;
+                    $scope.oneItem.item_id = value.vaccine.id;
+                    $scope.oneItem.item_type = value.vaccine.type;
+                    $scope.oneItem.diluent_id = value.vaccine.diluent_id;
+                    $scope.oneItem.require_diluent = value.vaccine.require_diluent;
+                    $scope.oneItem.item = value.vaccine.name;
+                    $scope.vaccineStore = value.vaccine.storage_type;
+                    $scope.oneItem.manufacture_id = value.manufacture.id;
+                    $scope.oneItem.manufacture = value.manufacture.name;
+                }
+            });
+
+            if(pcakage_found){
+                $scope.no_package = false;
+                var is_available = false;
+                angular.forEach($scope.newItem.items,function(new_item){
+                    console.log(new_item.lot_number +'=='+ $scope.barcode.lot_number);
+                    if(new_item.lot_number == $scope.barcode.lot_number){
+                        new_item.doses +=  $scope.oneItem.doses;
+                        is_available = true;
+                        $scope.oneItem = {};
+                        $("#scan_item1").val('');
+                        angular.element(jQuery('#scan_item1')).triggerHandler('input');
+                    }
+                });
+                if(!is_available){
+                    $scope.oneItem.total_volume = $scope.oneItem.cm_per_dose * $scope.oneItem.doses * 0.001;
+                    $scope.oneItem.vials = $scope.oneItem.doses / $scope.oneItem.dose_vial;
+                    $scope.newItem.items.push($scope.oneItem);
+                    $scope.oneItem = {};
+                    $("#scan_item1").val('');
+                    angular.element(jQuery('#scan_item1')).triggerHandler('input');
+                }
+                $scope.showNotAvailableError = false;
+            }else{
+                $scope.no_package = true;
+            }
+
+
+        };
 
                 $scope.getVaccineInfo = function(id){
                     angular.forEach($scope.packaging_information,function(value){
