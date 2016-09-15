@@ -35,6 +35,7 @@
                     <th translate="labels.store"></th>
                     <th translate="labels.commercial_name"></th>
                     <th translate="labels.source"></th>
+                    <th translate="labels.site_of_origin"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,7 @@
                     <td>{{ getStoreName(item.store_id) }}</td>
                     <td>{{ item.packaging.commercial_name }}</td>
                     <td>{{ getSourceName(item.source_id) }}</td>
+                    <td>{{ getRecipientName1(item.recipient_id) }}</td>
                 </tr>
                 </tbody>
             </table>

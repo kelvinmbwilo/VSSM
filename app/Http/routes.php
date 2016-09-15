@@ -451,3 +451,6 @@ Route::post('cancelDispatch/{id}',array('uses'=>'VaccineController@cancelDispatc
 
 //updating the items
 Route::get('updateItems',array('uses'=>'VaccineController@updateItems'));
+
+//updating the items
+Route::get('mark_as_received/{id}',array('uses'=>'VaccineController@markAsReceived'));

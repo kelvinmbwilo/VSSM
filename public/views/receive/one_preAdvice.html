@@ -91,20 +91,8 @@
             </div>
             <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.number_as_expected == 'no'">
                 <label class="required" for="u_price" translate="labels.received_amount"></label>
-                <input  required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}">
-            </div>
-            <div class="col-md-3"  style="margin-bottom: 15px">
-                <label for="physical_damage" translate="labels.physical_damage"></label>
-                <!--status-->
-                <select id="physical_damage"  type="text" ng-model="oneItem.physical_damage" class="form-control" >
-                    <!--<option value="" translate="labels.select"></option>-->
-                    <option value="yes" translate="labels.yes"></option>
-                    <option value="no" translate="labels.no"></option>
-                </select>
-            </div>
-            <div class="col-md-3"  style="margin-bottom: 15px" ng-if="oneItem.physical_damage == 'yes'">
-                <label class="required" for="damaged_amount" translate="labels.damaged_amount"></label>
-                <input  required="" type="number" ng-model="oneItem.damaged_amount" class="form-control" id="damaged_amount" placeholder="{{ 'labels.damaged_amount' | translate }}">
+                <input name="required_amount" required="" type="number" ng-model="oneItem.number_received" class="form-control" id="u_price" placeholder="{{ 'labels.received_amount' | translate }}" min="0" max="{{ oneItem.doses }}">
+                <span ng-if="myForm.required_amount.$invalid && !myForm.required_amount.$pristine" class="text-danger" translate="error.exceed_expected"></span>
             </div>
         </div>
         <div class="col-sm-12" ng-if="oneItem.store_id && oneItem.store_type != oneItem.vaccineStore" class="text-danger" translate="error.store_do_not_match"></div>
@@ -113,7 +101,7 @@
         <div class="col-md-12"  style="margin-top: 10px">
             <button ng-if="!editing" type="submit" ng-disabled="myForm.$invalid" class="btn btn-default" translate="labels.submit" ng-click="saveOneItem(oneItem)"></button>
             <button ng-if="!editing" class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.cancel"></button>
-            <button ng-if="editing"  class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.done"></button>
+            <button ng-disabled="myForm.$invalid"  ng-if="editing"  class="btn btn-warning" type="button" ng-click="cancel()" translate="labels.done"></button>
             <br>
             <span  ng-if="currentSaving"><i class='fa fa-cog fa-2x fa-spin '></i> <span translate="labels.saving">Saving....</span> </span>
         </div>

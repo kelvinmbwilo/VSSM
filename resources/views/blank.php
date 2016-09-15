@@ -147,6 +147,7 @@ else{
                         <a href="blank.html#"><i class="s16 icomoon-icon-cart-remove"></i><span class=txt translate="menu.dispatch"></span></a>
                         <ul class=sub>
                             <li ng-if="hasRole(userRoles,'see_dispach')" ><a href="./#dispatch"  ng-class="{ active1: isActive('/dispatch') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>
+<!--                            <li ng-if="userRecipientLevel == 3 && hasRole(userRoles,'see_dispach')" ><a href="./#dispatch_mark"  ng-class="{ active1: isActive('/dispatch') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch"></span></a></li>-->
 <!--                            <li><a href="./#requests" ng-class="{ active1: isActive('/requests') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.requests"></span></a></li>-->
                         </ul>
                     </li>

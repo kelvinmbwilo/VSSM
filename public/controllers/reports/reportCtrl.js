@@ -217,7 +217,8 @@ angular.module("vssmApp")
                 value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
             });
         });
-    }).controller("cancelInvoiceCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
+    })
+    .controller("cancelInvoiceCtrl",function ($scope,$http,$mdDialog,$mdToast,$modal,$translate,$filter,DTOptionsBuilder, DTColumnBuilder) {
         //getting all regions
         $scope.data = {};
         $scope.data.usedRegions = [];

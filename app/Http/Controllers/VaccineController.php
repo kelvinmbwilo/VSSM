@@ -1318,5 +1318,12 @@ public function updateItems(){
 
     }
 
+    public function markAsReceived($id){
+        $package = RecipientPackage::find($id);
+        $package->receiving_status = "received";
+        $package->save();
+        return $package;
+    }
+
 
 }

@@ -70,7 +70,13 @@
                         <input id="barcode_string" type="text" class="form-control" ng-model="current_batch_no" ng-change="prepareItems(current_batch_no)">
                     </div>
                     <div>
-                        <span translate="help.not_found" ng-if="showNotAvailableError"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="text-danger" translate="error.not_found" ng-if="showNotAvailableError"></span>
+                        <span class="" ng-if="!showNotAvailableError && itemFound">Scanned String: {{ resultBarcode }} Vaccine: {{ resultvaccine }} Batch Number: {{ resultBatch }} Packaging(Dose per Vial): {{ resultDosePerVaial }}</span>
                     </div>
                 </div>
 
@@ -85,6 +91,7 @@
                                 <th translate="labels.lot_number"></th>
                                 <th translate="labels.Dose_vial"></th>
                                 <th translate="labels.expired_date"></th>
+                                <th translate="labels.boxes"></th>
                                 <th translate="labels.doses" style="width: 150px"></th>
                                 <th translate="labels.vials"></th>
                                 <th translate="labels.total_volume"></th>
@@ -103,6 +110,7 @@
                                 <td>{{ item.lot_number }}</td>
                                 <td>{{ item.packaging }}</td>
                                 <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
+                                <td>{{ (item.doses / item.dose_vial)/ item.vials_per_box | number:0  }}</td>
                                 <td ng-class="{ 'red-back': item.maximumExceeded }">
                                     <input ng-change="checkAmount(item)" ng-model="item.doses" class="form-control" type="number" style="max-width: 100px" min="0" max="{{ item.maxValue }}">
                                 </td>

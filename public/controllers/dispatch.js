@@ -88,6 +88,7 @@ angular.module("vssmApp")
         $scope.prepareItems = function(str){
             $scope.barcode ={};
             $scope.showNotAvailableError = false;
+            $scope.itemFound = false;
             $scope.barcode.lot_number = str.substring(29);
             $scope.barcode.expiry = str.substring(21,27);
             $scope.barcode.gtin = str.substring(5,19);
@@ -116,8 +117,13 @@ angular.module("vssmApp")
                 //$scope.showAdd($scope.oneItem);
                 $scope.getStockInfo($scope.oneItem.stock_id);
                 var is_available = false;
+
                 angular.forEach($scope.newItem.items,function(new_item){
                     console.log(new_item.lot_number +'=='+ $scope.barcode.lot_number);
+                    $scope.resultBarcode = str;
+                    $scope.resultvaccine = angular.copy($scope.oneItem.item);
+                    $scope.resultDosePerVaial = angular.copy($scope.oneItem.dose_vial);
+                    $scope.resultBatch = $scope.barcode.lot_number;
                     if(new_item.lot_number == $scope.barcode.lot_number){
                         console.log($scope.oneItem.maxValue + "  <" + new_item.doses )
                         if($scope.oneItem.maxValue > new_item.doses ){
@@ -136,6 +142,10 @@ angular.module("vssmApp")
                     }
                 });
                 if(!is_available){
+                    $scope.resultBarcode = str;
+                    $scope.resultvaccine = angular.copy($scope.oneItem.item);
+                    $scope.resultDosePerVaial = angular.copy($scope.oneItem.dose_vial);
+                    $scope.resultBatch = $scope.barcode.lot_number;
                     $scope.oneItem.total_volume = $scope.oneItem.cm_per_dose * $scope.oneItem.doses * 0.001;
                     $scope.oneItem.vials = $scope.oneItem.doses / $scope.oneItem.dose_vial;
                     $scope.newItem.items.push($scope.oneItem);
@@ -144,9 +154,15 @@ angular.module("vssmApp")
                     $("#barcode_string").val('');
                     angular.element(jQuery('#barcode_string')).triggerHandler('input');
                 }
+                $scope.resultBarcode =
+                $scope.resultvaccine =
+                $scope.resultDosePerVaial =
+                $scope.resultBatch =
                 $scope.showNotAvailableError = false;
+                $scope.itemFound = true;
             }else{
                 $scope.showNotAvailableError = true;
+                $scope.itemFound = false;
                 $scope.oneItem = {};
                 $("#barcode_string").val('');
                 angular.element(jQuery('#barcode_string')).triggerHandler('input');

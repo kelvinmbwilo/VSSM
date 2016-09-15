@@ -291,7 +291,10 @@
         "free":"Free",
         "expired_item":"Expired Item",
         "has_expired_since":"Has Expired Since",
-        "remaining_volume":"Remaining Volume"
+        "remaining_volume":"Remaining Volume",
+        "mark_as_received":"Mark As Received",
+        "confirm_complete":"Are you sure you want to mark this as received",
+        "boxes":"Packages"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",
@@ -320,7 +323,8 @@
         "max_stock":"You can provide to a maximum of {{ recipient }} Doses, current stock is {{ doses }} Remaining stock amount after is {{ remain }}",
         "no_package":"<i class='fa fa-warning'></i> No package with this number is expected!",
         "volume_used":"**Volume used is {{ volume }} % and can accommodate up to {{ volume1 }} doses",
-        "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience"
+        "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience",
+        "exceed_expected":"Amount received cannot be more than Expected"
     },
     "help": {
         "add_another" : "Add Another",
@@ -381,7 +385,8 @@
         "print":"Download File",
         "storage_use":"Storage Use",
         "current_stock_summary":"Current Stock Summary",
-        "how_long":"How Long Item Will Last"
+        "how_long":"How Long Item Will Last",
+        "summary_info":"Scanned String: {{ resultBarcode }} Vaccine: {{ resultvaccine }} Batch Number: {{ resultBatch }} Packaging(Dose per Vial): {{ resultDosePerVaial }}"
     },
     "global": {
         "back": "Back",

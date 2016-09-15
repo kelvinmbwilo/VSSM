@@ -99,7 +99,8 @@
         "max_stock":"Puede proporcionar un máximo de {{ doses }} dosis",
         "no_package":"<i class='fa fa-warning'></i> Sin paquete con este número se espera!",
         "volume_used":"**El volumen utilizado es {{ volume }} y con capacidad para {{ volume1 }}  dosis",
-        "oldBrowserError":"Está utilizando un < strong> obsoleta < / strong > navegador. Por favor, <a href='http://browsehappy.com/'> actualizar su navegador </a> para mejorar tu experiencia"
+        "oldBrowserError":"Está utilizando un < strong> obsoleta < / strong > navegador. Por favor, <a href='http://browsehappy.com/'> actualizar su navegador </a> para mejorar tu experiencia",
+        "exceed_expected":"Cantidad recibida no puede ser más de lo esperado"
     },
     "labels":{
         "navigation":"Navegación",
@@ -325,7 +326,10 @@
         "free":"Disponible",
         "expired_item":"Producto Caducado",
         "has_expired_since":"Ha Caducado Desde hace",
-        "remaining_volume":"Volumen Restante"
+        "remaining_volume":"Volumen Restante",
+        "mark_as_received":"Marcar como Recibido",
+        "confirm_complete":"¿Seguro que desea marcar esto como recibida",
+        "boxes":"paquetes"
     },
     "help": {
         "add_another" : "Agrega Otro",
@@ -386,7 +390,8 @@
         "print":"Descargar Archivo",
         "storage_use":"Utilización de Almacenes",
         "current_stock_summary":"Inventario Actual",
-        "how_long":"Duración del Articulo"
+        "how_long":"Duración del Articulo",
+        "summary_info":"cadena de escaneado: {{ resultBarcode }} Producto: {{ resultvaccine }} Número de lote: {{ resultBatch }} Packaging (dosis por vial ): {{ resultDosePerVaial }}"
     },
     "global": {
         "back": "Zurück",

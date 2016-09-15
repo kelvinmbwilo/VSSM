@@ -155,6 +155,7 @@
                     <th translate="labels.voucher_no"></th>
                     <th translate="labels.notes"></th>
                     <th translate="labels.cancelation_date"></th>
+                    <th translate="labels.site_of_origin"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -172,6 +173,7 @@
                     <td>{{ item.voucher_number }}</td>
                     <td>{{ item.package.comments }}</td>
                     <td>{{ item.package.updated_at | date:'yyyy-MMM-dd' }}</td>
+                    <td>{{ getRecipientName1(item.recipient_id) }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -195,6 +197,7 @@
                     <th translate="labels.voucher_no"></th>
                     <th translate="labels.notes"></th>
                     <th translate="labels.cancelation_date"></th>
+                    <th translate="labels.site_of_origin"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -211,7 +214,8 @@
                     <td>{{ getStoreName(item.store_id) }}</td>
                     <td>{{ item.voucher_number }}</td>
                     <td>{{ item.arrival.notes }}</td>
-                    <td>{{ item.package.updated_at | date:'yyyy-MMM-dd' }}</td>
+                    <td>{{ item.updated_at | date:'yyyy-MMM-dd' }}</td>
+                    <td>{{ getRecipientName1(item.recipient_destination_id) }}</td>
                 </tr>
                 </tbody>
             </table>

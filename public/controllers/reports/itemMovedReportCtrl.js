@@ -91,7 +91,7 @@ angular.module("vssmApp")
 
         $scope.fetchData();
         $scope.updateLevel = function(){
-            $$http.get('index.php/movedItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
+            $http.get('index.php/movedItems/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
                 $scope.movedItems = data;
                 $scope.prepareSeries();
             });

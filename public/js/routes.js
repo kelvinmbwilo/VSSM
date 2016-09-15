@@ -234,6 +234,11 @@ angular.module("vssmApp")
             controller: 'dispatchedCtrl'
         });
 
+        $routeProvider.when("/dispatch_mark",{
+            templateUrl: 'views/dispatch/dispatch_mark.html',
+            controller: 'dispatchedCtrl'
+        });
+
 
 
         $routeProvider.otherwise({

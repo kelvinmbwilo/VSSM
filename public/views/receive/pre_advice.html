@@ -130,9 +130,18 @@
                                 <td>{{ item.lot_number }}</td>
                                 <td>{{ item.packaging }}</td>
                                 <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
-                                <td>{{ item.doses | number:0  }}</td>
-                                <td>{{ item.vials | number:0 }}</td>
-                                <td>{{ item.total_volume | number:4 }}</td>
+                                <td >
+                                    <span ng-if="item.number_as_expected == 'no'">{{ item.number_received | number:0 }}</span>
+                                    <span ng-if="item.number_as_expected == 'yes'">{{ item.doses | number:0}}</span>
+                                </td>
+                                <td>
+                                    <span ng-if="item.number_as_expected == 'no'">{{ item.number_received / item.dose_vial | number:0 }}</span>
+                                    <span ng-if="item.number_as_expected == 'yes'">{{ item.doses / item.dose_vial | number:0 }}</span>
+                                </td>
+                                <td>
+                                    <span ng-if="item.number_as_expected == 'no'">{{ item.cm_per_dose * item.number_received * 0.001 | number:2 }}</span>
+                                    <span ng-if="item.number_as_expected == 'yes'">{{ item.cm_per_dose * item.doses * 0.001 | number:2 }}</span>
+                                </td>
                                 <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ main_currency }} {{ item.u_price | number:2 }}</td>
                                 <td>{{ main_currency }} {{ item.t_price | number:2 }}</td>
@@ -210,9 +219,18 @@
                     <td>{{ getManufactureName(item.manufacture_id) }}</td>
                     <td>{{ item.lot_number }}</td>
                     <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
-                    <td>{{ item.doses }}</td>
-                    <td>{{ item.vials }}</td>
-                    <td>{{ main_currency }} {{ item.u_price * item.doses }}</td>
+                    <td >
+                        <span ng-if="item.number_as_expected == 'no'">{{ item.number_received | number:0 }}</span>
+                        <span ng-if="item.number_as_expected == 'yes'">{{ item.doses | number:0}}</span>
+                    </td>
+                    <td>
+                        <span ng-if="item.number_as_expected == 'no'">{{ item.number_received / item.dose_vial | number:0 }}</span>
+                        <span ng-if="item.number_as_expected == 'yes'">{{ item.doses / item.dose_vial | number:0 }}</span>
+                    </td>
+                    <td>
+                        <span ng-if="item.number_as_expected == 'no'">{{ main_currency }} {{ item.u_price * item.number_received }}</span>
+                        <span ng-if="item.number_as_expected == 'yes'">{{ main_currency }} {{ item.u_price * item.doses }}</span>
+                    </td>
                 </tr>
                 </tbody>
             </table>

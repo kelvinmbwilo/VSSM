@@ -152,6 +152,7 @@
             <th translate="labels.store"></th>
             <th translate="labels.activity"></th>
             <th translate="labels.date"></th>
+            <th translate="labels.site_of_origin"></th>
         </tr>
         </thead>
         <tbody>
@@ -168,6 +169,7 @@
             <td>{{ getStoreName(item.store_id)  }}</td>
             <td>{{ getActivityName(item.activity_id) }}</td>
             <td>{{ item.created_at | date:'yyyy-MMM-dd' }}</td>
+            <td>{{ getRecipientName1(item.recipient_id) }}</td>
         </tr>
         </tbody>
     </table>

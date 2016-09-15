@@ -150,6 +150,7 @@
             <th translate="labels.expired_date"></th>
             <th translate="labels.total_volume"></th>
             <th translate="labels.date"></th>
+            <th translate="labels.site_of_origin"></th>
         </tr>
         </thead>
         <tbody>
@@ -164,6 +165,7 @@
             <td>{{ item.expiry_date | date:'yyyy-MMM-dd' }}</td>
             <td>{{ item.moved_volume | number:2 }}</td>
             <td>{{ item.created_at | date:'yyyy-MMM-dd' }}</td>
+            <td>{{ getRecipientName1( item.recipient_id ) }}</td>
 
         </tr>
         </tbody>

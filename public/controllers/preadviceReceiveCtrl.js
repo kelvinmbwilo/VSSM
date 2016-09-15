@@ -275,7 +275,12 @@ angular.module("vssmApp")
         $scope.cansave = function(){
             var i =0;
             angular.forEach($scope.newItem.items,function(value){
-                if(value.hasOwnProperty('expired_date') && value.hasOwnProperty('lot_number') && value.hasOwnProperty('u_price') && value.hasOwnProperty('store_id') && value.hasOwnProperty('activity')){
+                if(value.hasOwnProperty('expired_date')
+                    && value.hasOwnProperty('lot_number')
+                    && value.hasOwnProperty('u_price')
+                    && value.hasOwnProperty('store_id')
+                    && value.hasOwnProperty('activity')
+                ){
                     i++;
                 }
             })
