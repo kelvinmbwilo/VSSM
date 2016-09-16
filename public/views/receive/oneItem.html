@@ -7,7 +7,7 @@
     <form class="col-md-12" novalidate name="myForm">
         <!--item_id-->
         <div class="form-group" >
-            <div class="col-md-12"  style="margin-bottom: 15px">
+            <div class="col-md-12"  style="margin-bottom: 15px" ng-if="!editing">
                 <label  for="scan_item" translate="labels.scan_item"></label>
                 <input id="scan_item" ng-change="prepareItems(scanned_value)" type="text" ng-model="scanned_value" class="form-control" id="total_population" placeholder="{{ 'labels.scan_item' | translate }}">
         </div>

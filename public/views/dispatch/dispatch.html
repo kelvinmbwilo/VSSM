@@ -75,8 +75,16 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <span class="text-danger" translate="error.not_found" ng-if="showNotAvailableError"></span>
-                        <span class="" ng-if="!showNotAvailableError && itemFound">Scanned String: {{ resultBarcode }} Vaccine: {{ resultvaccine }} Batch Number: {{ resultBatch }} Packaging(Dose per Vial): {{ resultDosePerVaial }}</span>
+                        <span class="text-danger"  ng-if="showNotAvailableError">
+                            <span translate="error.not_found"></span>
+                            <strong translate="help.summary_info"></strong> : {{ barcode.str }}
+                        </span>
+                        <span class="" ng-if="!showNotAvailableError && itemFound">
+                            <strong translate="help.summary_info"></strong> : {{ barcode.str }}
+                            <strong translate="labels.product"></strong> : {{ barcode.vaccine }}
+                            <strong translate="labels.lot_number"></strong> : {{ barcode.lot_number }}
+                            <strong translate="labels.Dose_vial"></strong> : {{ barcode.dose_vial }}
+                        </span>
                     </div>
                 </div>
 

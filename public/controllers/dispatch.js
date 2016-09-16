@@ -66,7 +66,7 @@ angular.module("vssmApp")
             }else{
                 $scope.noAnnualQuota = false;
             }
-        }
+        };
 
         //adding Item to list
         $scope.showAdd = function(oneItem){
@@ -86,89 +86,91 @@ angular.module("vssmApp")
 
         //The function that works with the scanning of item
         $scope.prepareItems = function(str){
-            $scope.barcode ={};
-            $scope.showNotAvailableError = false;
-            $scope.itemFound = false;
-            $scope.barcode.lot_number = str.substring(29);
-            $scope.barcode.expiry = str.substring(21,27);
-            $scope.barcode.gtin = str.substring(5,19);
-            if($scope.barcode.lot_number){$scope.oneItem.lot_number = $scope.barcode.lot_number}
-            if($scope.barcode.expiry){
-                year  = $scope.barcode.expiry.substring(0,2) - 0;
-                month = $scope.barcode.expiry.substring(2,4) - 1;
-                day   = $scope.barcode.expiry.substring(4,6) - 0;
-                (year < 70) ? year += 2000: year += 1900;
-                $scope.oneItem.expired_date = new Date(year,month,day);}
-            var in_stock = false;
-            angular.forEach($scope.stock_items,function(stock_item){
-                if(stock_item.lot_number == $scope.barcode.lot_number){
-                    in_stock = true;
-                    $scope.oneItem.stock_id = stock_item.id;
-                    $scope.oneItem.maxAmount = stock_item.amount
-                }
-            });
-
-            if(in_stock){
-                angular.forEach($scope.packaging_information,function(value){
-                    if(value.GTIN == $scope.barcode.gtin){
-                        $scope.oneItem.doses   = value.dose_per_vial * value.vials_per_box;
+            if(str != ''){
+                $scope.barcode ={};
+                $scope.barcode.str = angular.copy(str);
+                $scope.showNotAvailableError = false;
+                $scope.itemFound = false;
+                $scope.barcode.lot_number = str.substring(29);
+                $scope.barcode.expiry = str.substring(21,27);
+                $scope.barcode.gtin = str.substring(5,19);
+                if($scope.barcode.lot_number){$scope.oneItem.lot_number = $scope.barcode.lot_number}
+                if($scope.barcode.expiry){
+                    var year  = $scope.barcode.expiry.substring(0,2) - 0;
+                    var month = $scope.barcode.expiry.substring(2,4) - 1;
+                    var day   = $scope.barcode.expiry.substring(4,6) - 0;
+                    (year < 70) ? year += 2000: year += 1900;
+                    $scope.oneItem.expired_date = new Date(year,month,day);}
+                var in_stock = false;
+                angular.forEach($scope.stock_items,function(stock_item){
+                    if(stock_item.lot_number == $scope.barcode.lot_number){
+                        in_stock = true;
+                        $scope.oneItem.stock_id = stock_item.id;
+                        $scope.oneItem.maxAmount = stock_item.amount
                     }
                 });
-                //$scope.showAdd($scope.oneItem);
-                $scope.getStockInfo($scope.oneItem.stock_id);
-                var is_available = false;
 
-                angular.forEach($scope.newItem.items,function(new_item){
-                    console.log(new_item.lot_number +'=='+ $scope.barcode.lot_number);
-                    $scope.resultBarcode = str;
-                    $scope.resultvaccine = angular.copy($scope.oneItem.item);
-                    $scope.resultDosePerVaial = angular.copy($scope.oneItem.dose_vial);
-                    $scope.resultBatch = $scope.barcode.lot_number;
-                    if(new_item.lot_number == $scope.barcode.lot_number){
-                        console.log($scope.oneItem.maxValue + "  <" + new_item.doses )
-                        if($scope.oneItem.maxValue > new_item.doses ){
-                            new_item.doses +=  $scope.oneItem.doses;
-                            $scope.maximumExceeded = false;
-                            new_item.maximumExceeded = false;
-                        }else{
-                            $scope.maximumExceeded = true;
-                            new_item.maximumExceeded = true;
+                if(in_stock){
+                    angular.forEach($scope.packaging_information,function(value){
+                        if(value.GTIN == $scope.barcode.gtin){
+                            $scope.oneItem.doses   = value.dose_per_vial * value.vials_per_box;
                         }
+                    });
+                    //$scope.showAdd($scope.oneItem);
+                    $scope.getStockInfo($scope.oneItem.stock_id);
+                    var is_available = false;
+                    $scope.barcode.vaccine = angular.copy($scope.oneItem.item);
+                    $scope.barcode.dose_vial = angular.copy($scope.oneItem.dose_vial);
+                    angular.forEach($scope.newItem.items,function(new_item){
+                        console.log(new_item.lot_number +'=='+ $scope.barcode.lot_number);
+                        if(new_item.lot_number == $scope.barcode.lot_number){
+                            console.log($scope.oneItem.maxValue + "  <" + new_item.doses )
+                            if($scope.oneItem.maxValue > new_item.doses ){
+                                new_item.doses +=  $scope.oneItem.doses;
+                                $scope.maximumExceeded = false;
+                                new_item.maximumExceeded = false;
+                            }else{
+                                $scope.maximumExceeded = true;
+                                new_item.maximumExceeded = true;
+                            }
 
-                        is_available = true;
+                            is_available = true;
+                            $scope.oneItem = {};
+                            $("#barcode_string").val('');
+                            angular.element(jQuery('#barcode_string')).triggerHandler('input');
+                        }
+                    });
+                    if(!is_available){
+                        $scope.resultBarcode = str;
+                        $scope.resultvaccine = angular.copy($scope.oneItem.item);
+                        $scope.resultDosePerVaial = angular.copy($scope.oneItem.dose_vial);
+                        $scope.resultBatch = $scope.barcode.lot_number;
+                        $scope.oneItem.total_volume = $scope.oneItem.cm_per_dose * $scope.oneItem.doses * 0.001;
+                        $scope.oneItem.vials = $scope.oneItem.doses / $scope.oneItem.dose_vial;
+                        $scope.newItem.items.push($scope.oneItem);
                         $scope.oneItem = {};
+                        $scope.current_batch_no = "";
                         $("#barcode_string").val('');
                         angular.element(jQuery('#barcode_string')).triggerHandler('input');
                     }
-                });
-                if(!is_available){
-                    $scope.resultBarcode = str;
-                    $scope.resultvaccine = angular.copy($scope.oneItem.item);
-                    $scope.resultDosePerVaial = angular.copy($scope.oneItem.dose_vial);
-                    $scope.resultBatch = $scope.barcode.lot_number;
-                    $scope.oneItem.total_volume = $scope.oneItem.cm_per_dose * $scope.oneItem.doses * 0.001;
-                    $scope.oneItem.vials = $scope.oneItem.doses / $scope.oneItem.dose_vial;
-                    $scope.newItem.items.push($scope.oneItem);
+                    $scope.resultBarcode =
+                        $scope.resultvaccine =
+                            $scope.resultDosePerVaial =
+                                $scope.resultBatch =
+                                    $scope.showNotAvailableError = false;
+                    $scope.itemFound = true;
+                }else{
+                    $scope.showNotAvailableError = true;
+                    $scope.itemFound = false;
                     $scope.oneItem = {};
-                    $scope.current_batch_no = "";
                     $("#barcode_string").val('');
                     angular.element(jQuery('#barcode_string')).triggerHandler('input');
+
+
+                    var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");
+                    snd.play();
                 }
-                $scope.resultBarcode =
-                $scope.resultvaccine =
-                $scope.resultDosePerVaial =
-                $scope.resultBatch =
-                $scope.showNotAvailableError = false;
-                $scope.itemFound = true;
-            }else{
-                $scope.showNotAvailableError = true;
-                $scope.itemFound = false;
-                $scope.oneItem = {};
-                $("#barcode_string").val('');
-                angular.element(jQuery('#barcode_string')).triggerHandler('input');
             }
-
-
 
         };
 

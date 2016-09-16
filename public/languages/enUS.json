@@ -323,6 +323,7 @@
         "max_stock":"You can provide to a maximum of {{ recipient }} Doses, current stock is {{ doses }} Remaining stock amount after is {{ remain }}",
         "no_package":"<i class='fa fa-warning'></i> No package with this number is expected!",
         "volume_used":"**Volume used is {{ volume }} % and can accommodate up to {{ volume1 }} doses",
+        "volume_used1":"**Volume used is {{ item.volume }} % and can accommodate up to {{ item.volume1 }} doses",
         "oldBrowserError":"You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience",
         "exceed_expected":"Amount received cannot be more than Expected"
     },
@@ -386,7 +387,7 @@
         "storage_use":"Storage Use",
         "current_stock_summary":"Current Stock Summary",
         "how_long":"How Long Item Will Last",
-        "summary_info":"Scanned String: {{ resultBarcode }} Vaccine: {{ resultvaccine }} Batch Number: {{ resultBatch }} Packaging(Dose per Vial): {{ resultDosePerVaial }}"
+        "summary_info":"Scanned String"
     },
     "global": {
         "back": "Back",
