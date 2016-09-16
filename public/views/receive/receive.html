@@ -204,7 +204,6 @@
     <h4 ng-if="!checkMate()" translate="error.no_diluent"></h4>
 <div class="col-md-12" ng-if="!showSummary">
     <h3  ng-if="currentSaving"><i class='fa fa-cog fa-3x fa-spin '></i> <span translate="labels.saving">Saving....</span> </h3>
-    {{ isArrivalSafe() }}
     <button ng-click="saveArrival(newItem)" ng-disabled="!isArrivalSafe()" class="btn btn-lg btn-primary" ng-if="newItem.items.length != 0 && checkMate()" translate="labels.save_package"> </button>
 </div>
 
