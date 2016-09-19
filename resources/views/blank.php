@@ -345,6 +345,7 @@ else{
 <script src="<?php echo  asset('controllers/reports/expiredItemsCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/reports/adjustmentReportCtrl.js')  ?>"></script>
 <script src="<?php echo  asset('controllers/reports/itemMovedReportCtrl.js')  ?>"></script>
+<script src="<?php echo  asset('controllers/reports/stockStatusCtrl.js')  ?>"></script>
 <!--<script src="--><?php //echo  asset('bootstrap/js/bootstrap.min.js')  ?><!--"></script>-->
 <script src="<?php echo  asset('js/ie10-viewport-bug-workaround.js')  ?>"></script>
 <script src="<?php echo  asset('js/pages/blank.js') ?>"></script>

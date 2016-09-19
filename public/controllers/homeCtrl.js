@@ -365,11 +365,11 @@ angular.module("vssmApp")
 
         //Get Notifications Up and Running
         //get stock_items
-        $scope.number_of_notification = 0
-        $scope.number_close_to_expiry = 0
-        $scope.number_below_minimum = 0
-        $scope.number_above_maximum = 0
-        $scope.number_expired_items = 0
+        $scope.number_of_notification = 0;
+        $scope.number_close_to_expiry = 0;
+        $scope.number_below_minimum = 0;
+        $scope.number_above_maximum = 0;
+        $scope.number_expired_items = 0;
         $scope.notification_object = [];
         $http.get("index.php/near_expired_stock_items").success(function(data){
             $scope.near_expired_stock_items = data;

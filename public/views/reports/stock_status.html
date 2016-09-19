@@ -2,7 +2,7 @@
     <!--Content wrapper-->
     <div class=heading>
         <!--  .heading-->
-        <h3 translate="menu.close_to_expiry"></h3>
+        <h3 translate="help.current_stock_summary"></h3>
         <div class=resBtnSearch><a href="blank.html#"><span class="s16 icomoon-icon-search-3"></span></a></div>
 
         <ul class=breadcrumb>
@@ -56,6 +56,7 @@
         <div class="col-sm-3"  ng-if="showMonthRange">
             <label translate="labels.year"></label>
             <select ng-model="data.selectedMonthYear" class="form-control" ng-change="prepareSeries()">
+                <option value="2016" >2016</option>
                 <option value="2015" >2015</option>
                 <option value="2014" >2014</option>
             </select>

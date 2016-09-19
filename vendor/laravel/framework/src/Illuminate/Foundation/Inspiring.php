@@ -11,12 +11,13 @@ class Inspiring
      *
      * Taylor & Dayle made this commit from Jungfraujoch. (11,333 ft.)
      *
+     * May McGinnis always control the board. #LaraconUS2015
+     *
      * @return string
      */
     public static function quote()
     {
         return Collection::make([
-
             'When there is no desire, all things are at peace. - Laozi',
             'Simplicity is the ultimate sophistication. - Leonardo da Vinci',
             'Simplicity is the essence of happiness. - Cedric Bledsoe',
