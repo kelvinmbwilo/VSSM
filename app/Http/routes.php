@@ -454,3 +454,6 @@ Route::get('updateItems',array('uses'=>'VaccineController@updateItems'));
 
 //updating the items
 Route::get('mark_as_received/{id}',array('uses'=>'VaccineController@markAsReceived'));
+
+//updating the items
+Route::get('to_pdf',array('uses'=>'VaccineController@to_pdf'));

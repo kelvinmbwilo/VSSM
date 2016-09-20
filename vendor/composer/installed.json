@@ -3484,5 +3484,59 @@
             "testing",
             "tests"
         ]
+    },
+    {
+        "name": "barryvdh/laravel-snappy",
+        "version": "v0.3.1",
+        "version_normalized": "0.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/barryvdh/laravel-snappy.git",
+            "reference": "509a4497be63d8ee7ff464a3daf00d9edde08e21"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/barryvdh/laravel-snappy/zipball/509a4497be63d8ee7ff464a3daf00d9edde08e21",
+            "reference": "509a4497be63d8ee7ff464a3daf00d9edde08e21",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/filesystem": "5.0.x|5.1.x|5.2.x|5.3.x",
+            "illuminate/support": "5.0.x|5.1.x|5.2.x|5.3.x",
+            "knplabs/knp-snappy": "*",
+            "php": ">=5.4.0"
+        },
+        "time": "2016-08-05 13:08:28",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Barryvdh\\Snappy\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Barry vd. Heuvel",
+                "email": "barryvdh@gmail.com"
+            }
+        ],
+        "description": "Snappy PDF/Image for Laravel 4",
+        "keywords": [
+            "image",
+            "laravel",
+            "pdf",
+            "snappy",
+            "wkhtmltoimage",
+            "wkhtmltopdf"
+        ]
     }
 ]
