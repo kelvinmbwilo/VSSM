@@ -127,8 +127,17 @@
         </div>
     </div>
 
-    <div class="row">
-        <h3 class="text-center" translate="help.current_stock_summary"></h3>
+    <div class="col-md-12" style="margin-top: 10px" >
+        <div class="panel panel-default toggle panelMove panelClose panelRefresh" id="supr0">
+            <!-- Start .panel -->
+            <div class="panel-heading white-bg">
+                <h4 class="panel-title" translate="labels.items"></h4>
+                <!--div class="panel-controls panel-controls-right"><button ng-click="showAdd()" style="margin-top: 6px" class="btn btn-info btn-xs"><i class="icomoon-icon-plus"></i><span translate="labels.add"></span></button>
+                </div-->
+            </div>
+            <div class="panel-body">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: auto;">
+                    <div class="table-responsive" style="overflow: scroll; width: 100%; height: auto;">
             <table  datatable="ng" class="table table-striped table-bordered table-responsive" dt-options="dtOptions" dt-columns="dtColumns" >
                 <thead>
                 <tr>
@@ -171,6 +180,12 @@
                 </tr>
                 </tbody>
             </table>
+    </div>
+    <div class="slimScrollBar ui-draggable" style="height: 5px; position: absolute; bottom: 3px; opacity: 0.4; display: none; border-radius: 5px; z-index: 99; width: 1014px; left: 0px; background: rgb(243, 243, 243);"></div>
+                    <div class="slimScrollRail" style="width: 100%; height: 5px; position: absolute; bottom: 3px; display: none; border-radius: 5px; opacity: 0.3; z-index: 90; background: rgb(51, 51, 51);"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- End .row -->
 </div>
