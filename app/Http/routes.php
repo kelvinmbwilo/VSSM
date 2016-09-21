@@ -457,3 +457,6 @@ Route::get('mark_as_received/{id}',array('uses'=>'VaccineController@markAsReceiv
 
 //updating the items
 Route::get('to_pdf',array('uses'=>'VaccineController@to_pdf'));
+
+//geting to display the dispatch voucher pdf
+Route::get('print_voucher/{id}',array('uses'=>'PackagingController@to_pdf'));
