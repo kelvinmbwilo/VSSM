@@ -372,6 +372,7 @@ angular.module("vssmApp")
         $scope.number_above_maximum = 0;
         $scope.number_expired_items = 0;
         $scope.notification_object = [];
+        $rootScope.notification_object = [];
         $http.get("index.php/near_expired_stock_items").success(function(data){
             $scope.near_expired_stock_items = data;
             angular.forEach($scope.near_expired_stock_items,function(value){
@@ -635,6 +636,7 @@ angular.module("vssmApp")
         $scope.number_above_maximum = 0;
         $scope.number_expired_items = 0;
         $scope.notification_object = [];
+        $rootScope.notification_object = [];
         $http.get("index.php/near_expired_stock_items").success(function(data){
             $scope.near_expired_stock_items = data;
             angular.forEach($scope.near_expired_stock_items,function(value){
