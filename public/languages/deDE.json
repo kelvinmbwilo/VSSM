@@ -191,7 +191,7 @@
         "lot_number":"Número de Lote",
         "expired_date":"Fecha de Caducación",
         "manufacture_date":"Fecha de fabricación",
-        "pending":"A la espera de",
+        "pending":"Pendiente",
         "received":"Recibido",
         "arrival_date":"Fecha de Ingreso",
         "packed_volume":"Volumen de Embalaje",
@@ -387,12 +387,12 @@
         "arrival_items":"Artículos",
         "add_dispatchline":"Introduzca la Nueva Línea de Despacho",
         "open_item":"Añadir Apertura de Partidas",
-        "scan_item":"Artículo Scan / Número de lote",
+        "scan_item":"Escanear el código de barras (encima de la caja del artículo)",
         "print":"Descargar Archivo",
         "storage_use":"Utilización de Almacenes",
         "current_stock_summary":"Inventario Actual",
         "how_long":"Duración del Articulo",
-        "summary_info":"cadena de escaneado:"
+        "summary_info":"Código de Barras Escaneado:"
     },
     "global": {
         "back": "Zurück",
