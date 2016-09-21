@@ -72,7 +72,7 @@ else{
             <ul class="nav navbar-right usernav">
                 <li class=dropdown>
                     <a href="#" class=dropdown-toggle data-toggle=dropdown><i class="s16 icomoon-icon-warning text-warning"></i><span class=txt translate="menu.warnings">Warnings <b class=caret></b></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
-                    <ul class="dropdown-menu right">
+                    <ul class="dropdown-menu right" ng-controller="homeCtrl">
                         <li class=menu>
                             <ul class=notif>
                                 <li class=header><strong translate="labels.Notifications"></strong ng-cloak> ({{ number_of_notification }}) items</li>
