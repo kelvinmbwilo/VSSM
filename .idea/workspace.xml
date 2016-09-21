@@ -58,8 +58,8 @@
       <file leaf-file-name="homeCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="445" column="59" selection-start-line="445" selection-start-column="59" selection-end-line="445" selection-end-column="59" />
+            <state relative-caret-position="303">
+              <caret line="658" column="77" selection-start-line="658" selection-start-column="77" selection-end-line="658" selection-end-column="77" />
               <folding>
                 <element signature="e#6232#6292#0" expanded="false" />
                 <element signature="e#6403#6463#0" expanded="false" />
@@ -529,12 +529,12 @@
       <workItem from="1474398599028" duration="1513000" />
       <workItem from="1474460224276" duration="8876000" />
       <workItem from="1474478311020" duration="799000" />
-      <workItem from="1474479158933" duration="9294000" />
+      <workItem from="1474479158933" duration="9476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20482000" />
+    <option name="totallyTimeSpent" value="20664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="24" width="1875" height="1056" extended-state="6" />
@@ -967,14 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/blank.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1566">
@@ -1007,10 +999,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/controllers/homeCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="445" column="59" selection-start-line="445" selection-start-column="59" selection-end-line="445" selection-end-column="59" />
+        <state relative-caret-position="303">
+          <caret line="658" column="77" selection-start-line="658" selection-start-column="77" selection-end-line="658" selection-end-column="77" />
           <folding>
             <element signature="e#6232#6292#0" expanded="false" />
             <element signature="e#6403#6463#0" expanded="false" />
