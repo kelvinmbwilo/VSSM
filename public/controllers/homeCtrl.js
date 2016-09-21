@@ -372,7 +372,6 @@ angular.module("vssmApp")
         $scope.number_above_maximum = 0;
         $scope.number_expired_items = 0;
         $scope.notification_object = [];
-        $rootScope.notification_object = [];
         $http.get("index.php/near_expired_stock_items").success(function(data){
             $scope.near_expired_stock_items = data;
             angular.forEach($scope.near_expired_stock_items,function(value){
@@ -381,7 +380,6 @@ angular.module("vssmApp")
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
                 $scope.notification_object.push({'url':'close_to_expiry','name': $translates('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translates('labels.of_batch_number')+" "+ value.lot_number+" "+$translates('labels.will_expire_at')+" " +value.expiry_date })
-                $rootScope.notification_object.push({'url':'close_to_expiry','name': $translates('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translates('labels.of_batch_number')+" "+ value.lot_number+" "+$translates('labels.will_expire_at')+" " +value.expiry_date })
                 console.log($translates('labels.near_expired_item'));
                 $scope.number_of_notification += 1;
                 $scope.number_close_to_expiry += 1;
@@ -400,13 +398,12 @@ angular.module("vssmApp")
                         if(parseInt(value.amount) > parseInt(val.max_value)){
                             $scope.above_maximum.push(value);
                             $scope.notification_object.push({'url':'above_maximum','name':$translates('labels.above_maximum_value'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_above_maximum_settled_value') +","+ $translates('labels.current_number_of_dose_is')+" " +value.itemMinMax.max_value });
-                            $rootScope.notification_object.push({'url':'above_maximum','name':$translates('labels.above_maximum_value'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_above_maximum_settled_value') +","+ $translates('labels.current_number_of_dose_is')+" " +value.itemMinMax.max_value });
+                            console.log($translates('labels.above_maximum_value'));
                             $scope.number_of_notification += 1;
                             $scope.number_above_maximum += 1;
                         }else if(parseInt(value.amount) < parseInt(val.min_value)){
                             $scope.below_minimum.push(value)
                             $scope.notification_object.push({'url':'below_minimum','name': $translates('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_below_minimum_settled_value') +", "+$translates('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translates('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
-                            $rootScope.notification_object.push({'url':'below_minimum','name': $translates('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_below_minimum_settled_value') +", "+$translates('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translates('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
                             console.log($translates('labels.item_below_minimum'));
                             $scope.number_of_notification += 1;
                             $scope.number_below_minimum += 1;
@@ -424,7 +421,7 @@ angular.module("vssmApp")
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
                 $scope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
-                $rootScope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
+                $translates('labels.expired_item');
                 $scope.number_of_notification += 1;
                 $scope.number_expired_items += 1;
                 value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" "+$translates('labels.dosis')+", "+$translates('labels.source')+": "+$scope.getSourceName(value.source_id);
@@ -636,7 +633,6 @@ angular.module("vssmApp")
         $scope.number_above_maximum = 0;
         $scope.number_expired_items = 0;
         $scope.notification_object = [];
-        $rootScope.notification_object = [];
         $http.get("index.php/near_expired_stock_items").success(function(data){
             $scope.near_expired_stock_items = data;
             angular.forEach($scope.near_expired_stock_items,function(value){
@@ -645,7 +641,6 @@ angular.module("vssmApp")
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
                 $scope.notification_object.push({'url':'close_to_expiry','name': $translates('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translates('labels.of_batch_number')+" "+ value.lot_number+" "+$translates('labels.will_expire_at')+" " +value.expiry_date })
-                $rootScope.notification_object.push({'url':'close_to_expiry','name': $translates('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translates('labels.of_batch_number')+" "+ value.lot_number+" "+$translates('labels.will_expire_at')+" " +value.expiry_date })
                 console.log($translates('labels.near_expired_item'));
                 $scope.number_of_notification += 1;
                 $scope.number_close_to_expiry += 1;
@@ -670,7 +665,6 @@ angular.module("vssmApp")
                         }else if(parseInt(value.amount) < parseInt(val.min_value)){
                             $scope.below_minimum.push(value)
                             $scope.notification_object.push({'url':'below_minimum','name': $translates('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_below_minimum_settled_value') +", "+$translates('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translates('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
-                            $rootScope.notification_object.push({'url':'below_minimum','name': $translates('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_below_minimum_settled_value') +", "+$translates('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translates('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
                             $scope.number_of_notification += 1;
                             $scope.number_below_minimum += 1;
                         }
@@ -687,12 +681,10 @@ angular.module("vssmApp")
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
                 $scope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
-                $rootScope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
                 $translates('labels.expired_item');
                 $scope.number_of_notification += 1;
                 $scope.number_expired_items += 1;
                 value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" "+$translates('labels.dosis')+", "+$translates('labels.source')+": "+$scope.getSourceName(value.source_id);
             });
         });
-
     });
