@@ -144,7 +144,10 @@
                                 </td>
                                 <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ main_currency }} {{ item.u_price | number:2 }}</td>
-                                <td>{{ main_currency }} {{ item.t_price | number:2 }}</td>
+                                <td>
+                                    <span ng-if="item.number_as_expected == 'no'">{{ item.u_price * item.number_received * 0.001 | number:2 }}</span>
+                                    <span ng-if="item.number_as_expected == 'yes'">{{ item.u_price * item.doses * 0.001 | number:2 }}</span>
+                                </td>
                                 <td>{{ getActivityName(item.activity) }}</td>
                                 <td>{{ getStoreName(item.store_id) }}</td>
                                 <td>

@@ -7,10 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PhpSpec' => array($vendorDir . '/phpspec/phpspec/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Milon\\Barcode' => array($vendorDir . '/milon/barcode/src'),
     'Knp\\Snappy' => array($vendorDir . '/knplabs/knp-snappy/src'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
     'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),

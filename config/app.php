@@ -145,6 +145,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Milon\Barcode\BarcodeServiceProvider::class,
 
     ],
 
@@ -195,6 +196,9 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
+
 
     ],
 

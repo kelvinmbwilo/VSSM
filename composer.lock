@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "216b24a041f8e5956650ebce993917a9",
-    "content-hash": "bea9bf48aa4d78346fb138f5e8eeb7ef",
+    "hash": "db06b4534ddca6a88223e61ce1d7bb8e",
+    "content-hash": "fd78f0fcd397d964a0d5050d95bfb91a",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -590,16 +590,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.43",
+            "version": "v5.1.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "db580b5b073ea3f1e095b30a75ae5d6394eb8e51"
+                "reference": "37b3488e49e5b4a86a21186b171826dd93961ccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/db580b5b073ea3f1e095b30a75ae5d6394eb8e51",
-                "reference": "db580b5b073ea3f1e095b30a75ae5d6394eb8e51",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/37b3488e49e5b4a86a21186b171826dd93961ccd",
+                "reference": "37b3488e49e5b4a86a21186b171826dd93961ccd",
                 "shasum": ""
             },
             "require": {
@@ -618,7 +618,7 @@
                 "psy/psysh": "0.7.*",
                 "swiftmailer/swiftmailer": "~5.1",
                 "symfony/console": "2.7.*",
-                "symfony/css-selector": "2.7.*",
+                "symfony/css-selector": "2.7.*|2.8.*",
                 "symfony/debug": "2.7.*",
                 "symfony/dom-crawler": "2.7.*",
                 "symfony/finder": "2.7.*",
@@ -715,7 +715,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-26 11:44:21"
+            "time": "2016-09-20 13:47:37"
         },
         {
             "name": "league/flysystem",
@@ -799,6 +799,55 @@
                 "storage"
             ],
             "time": "2016-08-10 08:55:11"
+        },
+        {
+            "name": "milon/barcode",
+            "version": "5.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milon/barcode.git",
+                "reference": "5b5646e9f7b56c965655cc6656593268b95058b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milon/barcode/zipball/5b5646e9f7b56c965655cc6656593268b95058b0",
+                "reference": "5b5646e9f7b56c965655cc6656593268b95058b0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Milon\\Barcode": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Nuruzzaman Milon",
+                    "email": "milon521@gmail.com"
+                }
+            ],
+            "description": "Barcode generator like Qr Code , PDF417,C39, C39+,C39E,C39E+,C93,S25,S25+,I25,I25+,C128,C128A,C128B,C128C,2-Digits UPC-Based Extention,5-Digits UPC-Based Extention,EAN 8,EAN 13,UPC-A,UPC-E,MSI (Variation of Plessey code) ",
+            "keywords": [
+                "CODABAR",
+                "CODE 128",
+                "CODE 39",
+                "barcode",
+                "datamatrix",
+                "ean",
+                "laravel",
+                "pdf417",
+                "qr code",
+                "qrcode"
+            ],
+            "time": "2016-02-22 09:01:48"
         },
         {
             "name": "monolog/monolog",
@@ -1138,22 +1187,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1167,12 +1224,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-09-19 16:02:08"
         },
         {
             "name": "psy/psysh",
@@ -1360,16 +1418,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.7.18",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "8316e61de0e0536b6e2cd3b41d2986d431b9cd2e"
+                "reference": "71c8c3a04c126300c37089b1baa7c6322dfb845f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/8316e61de0e0536b6e2cd3b41d2986d431b9cd2e",
-                "reference": "8316e61de0e0536b6e2cd3b41d2986d431b9cd2e",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/71c8c3a04c126300c37089b1baa7c6322dfb845f",
+                "reference": "71c8c3a04c126300c37089b1baa7c6322dfb845f",
                 "shasum": ""
             },
             "require": {
@@ -1378,7 +1436,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -1409,7 +1467,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06 07:26:07"
+            "time": "2016-09-06 10:55:00"
         },
         {
             "name": "symfony/debug",

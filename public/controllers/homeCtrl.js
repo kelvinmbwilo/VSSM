@@ -231,6 +231,7 @@ angular.module("vssmApp")
 
             //get transport_mode
             $http.get("index.php/transport_mode").success(function(data){
+                $scope.transport_mode = data;
             });
 
             //get packaging_information
@@ -506,9 +507,9 @@ angular.module("vssmApp")
                     $scope.curLevel = parseInt(value.amount);
                 }
             });
-            $scope.avg = (total_cons == 0)?0:total_cons/i
+            $scope.avg = (total_cons == 0)?0:total_cons/i;
             $scope.total_cons = total_cons;
-        }
+        };
 
 
 

@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
@@ -56,6 +56,7 @@ class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
         'P' => 
         array (
             'Psy\\' => 4,
+            'Psr\\Log\\' => 8,
             'PhpParser\\' => 10,
         ),
         'M' => 
@@ -186,6 +187,10 @@ class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src/Psy',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -246,10 +251,6 @@ class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
         ),
         'P' => 
         array (
-            'Psr\\Log\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/psr/log',
-            ),
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
@@ -264,6 +265,10 @@ class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
+            ),
+            'Milon\\Barcode' => 
+            array (
+                0 => __DIR__ . '/..' . '/milon/barcode/src',
             ),
         ),
         'K' => 
@@ -1607,6 +1612,14 @@ class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'Milon\\Barcode\\BarcodeServiceProvider' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/BarcodeServiceProvider.php',
+        'Milon\\Barcode\\DNS1D' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/DNS1D.php',
+        'Milon\\Barcode\\DNS2D' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/DNS2D.php',
+        'Milon\\Barcode\\Datamatrix' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/Datamatrix.php',
+        'Milon\\Barcode\\Facades\\DNS1DFacade' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/Facades/DNS1DFacade.php',
+        'Milon\\Barcode\\Facades\\DNS2DFacade' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/Facades/DNS2DFacade.php',
+        'Milon\\Barcode\\PDF417' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/PDF417.php',
+        'Milon\\Barcode\\QRcode' => __DIR__ . '/..' . '/milon/barcode/src/Milon/Barcode/QRcode.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -2927,6 +2940,7 @@ class ComposerStaticInitfe518675cbe4b93cb0b12c1e6c434dbb
         'Symfony\\Component\\Console\\Tester\\ApplicationTester' => __DIR__ . '/..' . '/symfony/console/Tester/ApplicationTester.php',
         'Symfony\\Component\\Console\\Tester\\CommandTester' => __DIR__ . '/..' . '/symfony/console/Tester/CommandTester.php',
         'Symfony\\Component\\CssSelector\\CssSelector' => __DIR__ . '/..' . '/symfony/css-selector/CssSelector.php',
+        'Symfony\\Component\\CssSelector\\CssSelectorConverter' => __DIR__ . '/..' . '/symfony/css-selector/CssSelectorConverter.php',
         'Symfony\\Component\\CssSelector\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/css-selector/Exception/ExceptionInterface.php',
         'Symfony\\Component\\CssSelector\\Exception\\ExpressionErrorException' => __DIR__ . '/..' . '/symfony/css-selector/Exception/ExpressionErrorException.php',
         'Symfony\\Component\\CssSelector\\Exception\\InternalErrorException' => __DIR__ . '/..' . '/symfony/css-selector/Exception/InternalErrorException.php',

@@ -17,7 +17,10 @@
         {{ newItem.voucher_no  }}
     </div>
     <div class="col-sm-10 col-sm-offset-1 text-center">
-        <h4 translate="labels.dispatch_date">{{ newItem.dispatch_date | date:'yyyy-MM-dd' }}</h4>
+        <h4>
+            <span translate="labels.dispatch_date"></span>
+            {{ newItem.dispatch_date | date:'yyyy-MM-dd' }}
+        </h4>
     </div>
     <div class="col-sm-10 col-sm-offset-1" style="margin-top: 10px;margin-bottom: 20px">
         <div class="col-sm-4"><h4 translate="labels.entered_by" translate-value-name="{{ logedInUserName }}"> </h4></div>
