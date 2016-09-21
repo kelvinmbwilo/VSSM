@@ -265,7 +265,7 @@ angular.module("vssmApp")
                 }
             });
             return item;
-        }
+        };
 
         $scope.getActivityName = function(id){
             var name = "";
@@ -275,7 +275,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getStoreName = function(id){
             var name = "";
             angular.forEach($scope.stores,function(value){
@@ -284,7 +284,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getManufactureName = function(id){
             var name = "";
             angular.forEach($scope.manufactures,function(value){
@@ -293,7 +293,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getRecipientName = function(id){
             var name = "";
             angular.forEach($scope.userRecipients,function(value){
@@ -302,7 +302,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getRecipientName1 = function(id){
             var name = "";
             angular.forEach($scope.allRecipients,function(value){
@@ -311,7 +311,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getTransportName = function(id){
             var name = "";
             angular.forEach($scope.transport_mode,function(value){
@@ -320,7 +320,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
 
         $scope.getSourceName = function(id){
             var name = "";
@@ -443,13 +443,14 @@ angular.module("vssmApp")
         $http.get("index.php/updateItems").success(function(data){
 
         $http.get("index.php/stores").success(function(data){
+            console.log($translates('labels.used_volume'));
             $scope.stores = data;
             var i = 0;
             angular.forEach(data,function(value){
                 i++;
                 if(i == 1){
                     $scope.data.storeName = value.name;
-                    $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.used_volume') , y: parseInt(value.net_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.used_volume') , y: parseInt(value.net_volume) });
                     $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.remaining_volume') , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
                 $scope.storeTable.push({name: value.name,volume:value.net_volume,used_volume:value.used_volume,free:parseInt(value.net_volume) - parseInt(value.used_volume)});
