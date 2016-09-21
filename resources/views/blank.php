@@ -72,9 +72,9 @@ else{
             <ul class="nav navbar-right usernav">
                 <li class=dropdown>
                     <a href="#" class=dropdown-toggle data-toggle=dropdown><i class="s16 icomoon-icon-warning text-warning"></i><span class=txt translate="menu.warnings">Warnings <b class=caret></b></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
-                    <ul class="dropdown-menu right" ng-controller="homeCtrl">
+                    <ul class="dropdown-menu right">
                         <li class=menu>
-                            <ul class=notif>
+                            <ul class=notif  ng-controller="homeCtrl">
                                 <li class=header><strong translate="labels.Notifications"></strong ng-cloak> ({{ number_of_notification }}) items</li>
                                 <li ng-repeat="item in notification_object"><a href="./#{{ item.url }}"><span class=icon><i class="s16 icomoon-icon-calendar"></i></span> <span class=event>{{ item.name }} : {{ item.descr }}</span></a></li>
                             </ul>
