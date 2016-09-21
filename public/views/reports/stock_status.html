@@ -109,19 +109,19 @@
     <div class="row">
         <div class="col-md-3"  ng-if="data.showFilter">
             <label for="transport_mode" translate="labels.source"></label>
-            <select id="transport_mode" ng-change="changeMainCat()" class="form-control" ng-model="data.sources"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
+            <select id="transport_mode" ng-change="reduce_based_on_filters()" class="form-control" ng-model="data.sources"  ng-options="obj.id as obj.name for obj in sources | filter:{status:'active'}:true">
                 <option value="" translate="labels.select"></option>
             </select>
         </div>
         <div class="col-md-3"  ng-if="data.showFilter">
             <label for="activity" translate="labels.activity"></label>
-            <select id="activity" ng-change="changeMainCat()" class="form-control" ng-model="data.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
+            <select id="activity" ng-change="reduce_based_on_filters()" class="form-control" ng-model="data.activity"  ng-options="obj.id as obj.name for obj in activities | filter:{status:'active'}:true">
                 <option value="" translate="labels.select"></option>
             </select>
         </div>
         <div class="col-md-3"  ng-if="data.showFilter">
             <label for="store" translate="labels.store"></label>
-            <select id="store" ng-change="changeMainCat()" class="form-control" ng-model="data.store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
+            <select id="store" ng-change="reduce_based_on_filters()" class="form-control" ng-model="data.store"  ng-options="obj.id as obj.name for obj in stores | filter:{status:'active'}:true">
                 <option value="" translate="labels.select"></option>
             </select>
         </div>
