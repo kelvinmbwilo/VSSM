@@ -76,7 +76,7 @@ else{
                         <li class=menu>
                             <ul class=notif>
                                 <li class=header><strong translate="labels.Notifications"></strong ng-cloak> ({{ number_of_notification }}) items</li>
-                                <li ng-repeat="item in $rootScope.notification_object"><a href="./#{{ item.url }}"><span class=icon><i class="s16 icomoon-icon-calendar"></i></span> <span class=event>{{ item.name }} : {{ item.descr }}</span></a></li>
+                                <li ng-repeat="item in notification_object"><a href="./#{{ item.url }}"><span class=icon><i class="s16 icomoon-icon-calendar"></i></span> <span class=event>{{ item.name }} : {{ item.descr }}</span></a></li>
                             </ul>
                         </li>
                     </ul>
