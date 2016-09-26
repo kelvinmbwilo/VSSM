@@ -231,6 +231,7 @@ angular.module("vssmApp")
 
             //get transport_mode
             $http.get("index.php/transport_mode").success(function(data){
+                $scope.transport_mode = data;
             });
 
             //get packaging_information
@@ -264,7 +265,7 @@ angular.module("vssmApp")
                 }
             });
             return item;
-        }
+        };
 
         $scope.getActivityName = function(id){
             var name = "";
@@ -274,7 +275,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getStoreName = function(id){
             var name = "";
             angular.forEach($scope.stores,function(value){
@@ -283,7 +284,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getManufactureName = function(id){
             var name = "";
             angular.forEach($scope.manufactures,function(value){
@@ -292,7 +293,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getRecipientName = function(id){
             var name = "";
             angular.forEach($scope.userRecipients,function(value){
@@ -301,7 +302,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getRecipientName1 = function(id){
             var name = "";
             angular.forEach($scope.allRecipients,function(value){
@@ -310,7 +311,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
         $scope.getTransportName = function(id){
             var name = "";
             angular.forEach($scope.transport_mode,function(value){
@@ -319,7 +320,7 @@ angular.module("vssmApp")
                 }
             });
             return name;
-        }
+        };
 
         $scope.getSourceName = function(id){
             var name = "";
@@ -378,10 +379,10 @@ angular.module("vssmApp")
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
-                $scope.notification_object.push({'url':'close_to_expiry','name': $filter('translate')('labels.near_expired_item'),'descr':value.vaccine.name +" "+$filter('translate')('labels.of_batch_number')+" "+ value.lot_number+" "+$filter('translate')('labels.will_expire_at')+" " +value.expiry_date })
+                // $scope.notification_object.push({'url':'close_to_expiry','name': $translates('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translates('labels.of_batch_number')+" "+ value.lot_number+" "+$translates('labels.will_expire_at')+" " +value.expiry_date })
                 $scope.number_of_notification += 1;
                 $scope.number_close_to_expiry += 1;
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount + $filter('translate')('labels.doses')+", "+ $filter('translate')('labels.source')+": "+$scope.getSourceName(value.source_id);
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount + $translates('labels.doses')+", "+ $translates('labels.source')+": "+$scope.getSourceName(value.source_id);
             });
         });
 
@@ -395,12 +396,12 @@ angular.module("vssmApp")
                         value.itemMinMax =  val;
                         if(parseInt(value.amount) > parseInt(val.max_value)){
                             $scope.above_maximum.push(value);
-                            $scope.notification_object.push({'url':'above_maximum','name':$filter('translate')('labels.above_maximum_value'),'descr':value.itemMinMax.vaccine.name +" "+ $filter('translate')('labels.is_above_maximum_settled_value') +","+ $filter('translate')('labels.current_number_of_dose_is')+" " +value.itemMinMax.max_value });
+                            // $scope.notification_object.push({'url':'above_maximum','name':$translates('labels.above_maximum_value'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_above_maximum_settled_value') +","+ $translates('labels.current_number_of_dose_is')+" " +value.itemMinMax.max_value });
                             $scope.number_of_notification += 1;
                             $scope.number_above_maximum += 1;
                         }else if(parseInt(value.amount) < parseInt(val.min_value)){
                             $scope.below_minimum.push(value)
-                            $scope.notification_object.push({'url':'below_minimum','name': $filter('translate')('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $filter('translate')('labels.is_below_minimum_settled_value') +", "+$filter('translate')('labels.current_number_of_dose_is')+" "+ value.amount+" "+$filter('translate')('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
+                            // $scope.notification_object.push({'url':'below_minimum','name': $translates('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_below_minimum_settled_value') +", "+$translates('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translates('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
                             $scope.number_of_notification += 1;
                             $scope.number_below_minimum += 1;
                         }
@@ -416,15 +417,15 @@ angular.module("vssmApp")
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
                 value.store = $scope.assignValue($scope.stores,value.store_id);
-                $scope.notification_object.push({'url':'expired_items','name': $filter('translate')('labels.expired_item'),'descr':value.vaccine.name +" "+ $filter('translate')('labels.of_batch_number')+" "+ value.lot_number+" "+ $filter('translate')('labels.has_expired_since')+" "+value.expiry_date })
+                // $scope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
                 $scope.number_of_notification += 1;
                 $scope.number_expired_items += 1;
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" "+$filter('translate')('labels.dosis')+", "+$filter('translate')('labels.source')+": "+$scope.getSourceName(value.source_id);
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" "+$translates('labels.dosis')+", "+$translates('labels.source')+": "+$scope.getSourceName(value.source_id);
             });
         });
 
     })
-    .controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http,$translate,$filter) {
+    .controller("homeCtrl",function ($scope,$mdDialog,$mdToast,$http,$translate,$filter,$rootScope) {
 
         //get stores
         $scope.storeNames= [];
@@ -433,19 +434,20 @@ angular.module("vssmApp")
         $scope.freeValues = [];
         $scope.storeTable = [];
         $scope.storeCapacity = [];
-        $translates = $filter('translate');
+        var $translates = $filter('translate');
 //getting the loggedIn User
         $http.get("index.php/updateItems").success(function(data){
 
         $http.get("index.php/stores").success(function(data){
+            console.log($translates('labels.used_volume'));
             $scope.stores = data;
             var i = 0;
             angular.forEach(data,function(value){
                 i++;
                 if(i == 1){
                     $scope.data.storeName = value.name;
-                    $scope.storeCapacity.push({name: value.name+" - "+$filter('translate')('labels.used_volume') , y: parseInt(value.net_volume) })
-                    $scope.storeCapacity.push({name: value.name+" - "+$filter('translate')('labels.remaining_volume') , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.used_volume') , y: parseInt(value.net_volume) });
+                    $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.remaining_volume') , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
                 $scope.storeTable.push({name: value.name,volume:value.net_volume,used_volume:value.used_volume,free:parseInt(value.net_volume) - parseInt(value.used_volume)});
                 $scope.storeNames.push(value.name);
@@ -469,15 +471,15 @@ angular.module("vssmApp")
                     $scope.detailedItems = $scope.storeItemsDetails[log];
                     while ($scope.vaccineNames.length) { $scope.vaccineNames.pop(); }
                     while ($scope.vacciineValues.length) { $scope.vacciineValues.pop(); }
-                    $scope.chartConfig1.title.text = value.name+ $filter('translate')('labels.items');
+                    $scope.chartConfig1.title.text = value.name+ $translates('labels.items');
                     angular.forEach($scope.storeItems[log],function(val){
                         $scope.vaccineNames.push($scope.getVaccineName(val.vaccine_id))
                         $scope.vacciineValues.push(parseInt(val.total))
                     });
 
                     $scope.data.storeName = value.name;
-                    $scope.storeCapacity.push({name: value.name+" - "+$filter('translate')('labels.used_volume') , y: parseInt(value.used_volume) })
-                    $scope.storeCapacity.push({name: value.name+" - "+$filter('translate')('labels.free_volume') , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.used_volume') , y: parseInt(value.used_volume) })
+                    $scope.storeCapacity.push({name: value.name+" - "+$translates('labels.free_volume') , y: parseInt(value.net_volume)-parseInt(value.used_volume) })
                 }
             })
         }
@@ -506,9 +508,9 @@ angular.module("vssmApp")
                     $scope.curLevel = parseInt(value.amount);
                 }
             });
-            $scope.avg = (total_cons == 0)?0:total_cons/i
+            $scope.avg = (total_cons == 0)?0:total_cons/i;
             $scope.total_cons = total_cons;
-        }
+        };
 
 
 
@@ -620,4 +622,65 @@ angular.module("vssmApp")
 //            xAxis: {currentMin: 0, currentMax: 10, minRange: 1},
             loading: false
         };
+
+        $scope.number_of_notification = 0;
+        $scope.number_close_to_expiry = 0;
+        $scope.number_below_minimum = 0;
+        $scope.number_above_maximum = 0;
+        $scope.number_expired_items = 0;
+        $scope.notification_object = [];
+        $http.get("index.php/near_expired_stock_items").success(function(data){
+            $scope.near_expired_stock_items = data;
+            angular.forEach($scope.near_expired_stock_items,function(value){
+
+                value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                value.store = $scope.assignValue($scope.stores,value.store_id);
+                $scope.notification_object.push({'url':'close_to_expiry','name': $translates('labels.near_expired_item'),'descr':value.vaccine.name +" "+$translates('labels.of_batch_number')+" "+ value.lot_number+" "+$translates('labels.will_expire_at')+" " +value.expiry_date })
+                console.log($translates('labels.near_expired_item'));
+                $scope.number_of_notification += 1;
+                $scope.number_close_to_expiry += 1;
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount + $translates('labels.doses')+", "+ $translates('labels.source')+": "+$scope.getSourceName(value.source_id);
+            });
+        });
+
+        $http.get("index.php/vaccineStocks/1").success(function(data){
+            $scope.stockss = data;
+            $scope.below_minimum = [];
+            $scope.above_maximum = [];
+            angular.forEach($scope.stockss,function(value){
+                angular.forEach($scope.items_min_max,function(val){
+                    if(value.id == val.item_id){
+                        value.itemMinMax =  val;
+                        if(parseInt(value.amount) > parseInt(val.max_value)){
+                            $scope.above_maximum.push(value);
+                            $scope.notification_object.push({'url':'above_maximum','name':$translates('labels.above_maximum_value'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_above_maximum_settled_value') +","+ $translates('labels.current_number_of_dose_is')+" " +value.itemMinMax.max_value });
+                            $rootScope.notification_object.push({'url':'above_maximum','name':$translates('labels.above_maximum_value'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_above_maximum_settled_value') +","+ $translates('labels.current_number_of_dose_is')+" " +value.itemMinMax.max_value });
+                            $scope.number_of_notification += 1;
+                            $scope.number_above_maximum += 1;
+                        }else if(parseInt(value.amount) < parseInt(val.min_value)){
+                            $scope.below_minimum.push(value)
+                            $scope.notification_object.push({'url':'below_minimum','name': $translates('labels.item_below_minimum'),'descr':value.itemMinMax.vaccine.name +" "+ $translates('labels.is_below_minimum_settled_value') +", "+$translates('labels.current_number_of_dose_is')+" "+ value.amount+" "+$translates('labels.and_has_minimum_of')+" "+value.itemMinMax.min_value })
+                            $scope.number_of_notification += 1;
+                            $scope.number_below_minimum += 1;
+                        }
+                    }
+                })
+            })
+        });
+
+        //get stock_items
+        $http.get("index.php/expired_stock_items").success(function(data){
+            $scope.stock_items = data;
+            angular.forEach($scope.stock_items,function(value){
+                value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
+                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                value.store = $scope.assignValue($scope.stores,value.store_id);
+                $scope.notification_object.push({'url':'expired_items','name': $translates('labels.expired_item'),'descr':value.vaccine.name +" "+ $translates('labels.of_batch_number')+" "+ value.lot_number+" "+ $translates('labels.has_expired_since')+" "+value.expiry_date })
+                $translates('labels.expired_item');
+                $scope.number_of_notification += 1;
+                $scope.number_expired_items += 1;
+                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" "+$translates('labels.dosis')+", "+$translates('labels.source')+": "+$scope.getSourceName(value.source_id);
+            });
+        });
     });

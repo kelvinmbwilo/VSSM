@@ -144,7 +144,10 @@
                                 </td>
                                 <td>{{ item.prod_date | date:'yyyy-MM-dd' }}</td>
                                 <td>{{ main_currency }} {{ item.u_price | number:2 }}</td>
-                                <td>{{ main_currency }} {{ item.t_price | number:2 }}</td>
+                                <td>
+                                    <span ng-if="item.number_as_expected == 'no'">{{ item.u_price * item.number_received * 0.001 | number:2 }}</span>
+                                    <span ng-if="item.number_as_expected == 'yes'">{{ item.u_price * item.doses * 0.001 | number:2 }}</span>
+                                </td>
                                 <td>{{ getActivityName(item.activity) }}</td>
                                 <td>{{ getStoreName(item.store_id) }}</td>
                                 <td>
@@ -188,10 +191,11 @@
             </div>
         </div>
         <div class="col-sm-10 col-sm-offset-1 text-center">
-            <span kendo-barcode k-type="'code128'" ng-model="newItem.reference" style="width: 250px; margin: 0 auto;"></span>
+            <div barcode-generator="{{ newItem.reference  }}" style="width: 250px; margin: 0 auto;height: 120px"></div>
+            <div class="text-center">{{ newItem.reference  }}</div>
         </div>
         <div class="col-sm-10 col-sm-offset-1 text-center">
-            <h4 translate="labels.arrival_date">{{ newItem.arrival_date | date:'yyyy-MM-dd' }}</h4>
+            <h4><span translate="labels.arrival_date"></span>{{ newItem.arrival_date | date:'yyyy-MM-dd' }}</h4>
         </div>
         <div class="col-sm-10 col-sm-offset-1" style="margin-top: 10px;margin-bottom: 20px">
             <div class="col-sm-6"><h4 translate="menu.vaccine_diluent"> </h4></div>

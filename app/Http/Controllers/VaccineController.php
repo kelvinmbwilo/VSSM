@@ -21,6 +21,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -1323,6 +1325,20 @@ public function updateItems(){
         $package->receiving_status = "received";
         $package->save();
         return $package;
+    }
+
+    public function to_pdf(){
+        $snappy = App::make('snappy.pdf');
+        $html = "<h1>ndio hapa</h1>";
+        //Or output:
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="file.pdf"'
+            )
+        );
     }
 
 

@@ -104,7 +104,10 @@
         </div>
     </div>
     <div class="row">
-        <label translate="labels.show_filters"><input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter"></label>
+        <label>
+            <span translate="labels.show_filters"></span>
+            <input ng-change="changeShowFilter()" type="checkbox" ng-model="data.showFilter">
+        </label>
     </div>
     <div class="row">
         <div class="col-md-3" ng-if="data.showFilter">

@@ -331,20 +331,8 @@ angular.module("vssmApp")
         }
 
 
-        $scope.downloadData1 =function(){
-            console.log(document.getElementById('exportthis'))
-            html2canvas(document.getElementById('exportthis'), {
-                onrendered: function (canvas) {
-                    var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 1100,
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("Score_Details.pdf");
-                }
-            });
+        $scope.downloadData1 =function(id){
+            window.location.href = "index.php/print_voucher/"+id;
         };
 
         $scope.downloadData =function(){

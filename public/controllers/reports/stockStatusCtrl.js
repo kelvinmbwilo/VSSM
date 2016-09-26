@@ -80,6 +80,7 @@ angular.module("vssmApp")
             //get stock_items
             $http.get('index.php/stock_items/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
                 $scope.stock_items = data;
+                $scope.stock_items1 = data;
                 angular.forEach($scope.stock_items,function(value){
                     value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                     value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
@@ -93,6 +94,7 @@ angular.module("vssmApp")
         $scope.updateLevel = function(){
             $http.get('index.php/stock_items/'+$scope.data.children+'/child/'+$scope.selected_level).success(function(data){
                 $scope.stock_items = data;
+                $scope.stock_items1 = data;
                 angular.forEach($scope.stock_items,function(value){
                     value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                     value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
@@ -186,7 +188,7 @@ angular.module("vssmApp")
         };
 
         $scope.prepareSeries = function(){
-            $scope.chartConfig.title.text = "Monthly Arrivals";
+            $scope.chartConfig.title.text = "Stock Status";
             $scope.area = [];
             if($scope.data.reportPeriod == "Years"){
                 angular.forEach($scope.data.selectedYear,function(value){
@@ -218,6 +220,8 @@ angular.module("vssmApp")
             }
 
             $scope.normalseries = [];
+            $scope.data.chartType = 'list';
+            console.log($scope.data.chartType);
             if($scope.data.chartType == "pie"){
                 delete $scope.chartConfig.chart;
                 var serie = [];
@@ -302,14 +306,15 @@ angular.module("vssmApp")
             }else if($scope.data.chartType == 'list'){
                 $scope.table.headers = [];
                 $scope.table.colums =[];
-                $scope.itemsList = []
+                $scope.itemsList = [];
+                console.log($scope.subCategory);
                 angular.forEach($scope.chartConfig.xAxis.categories,function(val){
                     var seri = [];
                     angular.forEach($scope.subCategory,function(value){
                         var number = $scope.filterDataStatus(value.id,val);
                         if(number.data.length != 0){
                             angular.forEach(number.data,function(v){
-                                $scope.itemsList.push(v);
+                                $scope.stock_items.push(v);
                             });
                         }
 
@@ -385,7 +390,7 @@ angular.module("vssmApp")
             });
             result.count = count;
             return result;
-        }
+        };
 
         $scope.filterTime = function(series,value){
             var start = "";
@@ -459,10 +464,27 @@ angular.module("vssmApp")
                 $scope.data.store),
                 'source_id',
                 $scope.data.sources);
-        }
+        };
+
+        $scope.reduce_based_on_filters = function(){
+            var new_data =  $scope.reduceSeries($scope.reduceSeries($scope.reduceSeries($scope.stock_items1,
+                'activity_id',
+                $scope.data.activity),
+                'store_id',
+                $scope.data.store),
+                'source_id',
+                $scope.data.sources);
+
+
+            $scope.stock_items = new_data;
+
+        };
 
         $scope.reduceSeries = function(series,colum,val){
             var result = [];
+            console.log("series:", series);
+            console.log("column:", colum);
+            console.log("val:", val);
             angular.forEach(series,function(value){
                 if(!val){
                     result.push(value);
