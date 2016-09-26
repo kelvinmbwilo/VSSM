@@ -172,8 +172,9 @@ angular.module("vssmApp")
             $scope.prepareSeries();
         };
 
+        $translates = $filter('translate');
         $scope.prepareSeries = function(){
-            $scope.chartConfig.title.text = $translate('labels.monthly_arrivals_title');
+            $scope.chartConfig.title.text = $translates('labels.monthly_arrivals_title');
             $scope.area = [];
             if($scope.data.reportPeriod == "Years"){
                 angular.forEach($scope.data.selectedYear,function(value){
@@ -190,8 +191,8 @@ angular.module("vssmApp")
             }
             if($scope.data.reportPeriod == "Date range"){
                 var startDate = $filter('date')($scope.data.startDate, 'dd MMM yyyy')
-                $scope.area[0] = startDate + " "+ $translate('labels.to')+" "+ $filter('date')($scope.data.endDate, 'dd MMM yyyy');
-                $scope.chartConfig.title.text +="  "+ startDate + $translate('labels.to')+" "+ $filter('date')($scope.data.endDate, 'dd MMM yyyy');
+                $scope.area[0] = startDate + " "+ $translates('labels.to')+" "+ $filter('date')($scope.data.endDate, 'dd MMM yyyy');
+                $scope.chartConfig.title.text +="  "+ startDate + $translates('labels.to')+" "+ $filter('date')($scope.data.endDate, 'dd MMM yyyy');
                 $scope.data.category = "Date"
             }
             $scope.chartConfig.xAxis.categories = $scope.area;
