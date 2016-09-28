@@ -687,38 +687,38 @@ angular.module("vssmApp")
             $scope.chartConfig.subtitle={text :$scope.title};
         };
 
-        $scope.markAsReceived = function(ev, item){
-            var confirm = $mdDialog.confirm()
-                .title($translate('labels.confirm_complete'))
-                .content($translate('labels.irreversible_warning'))
-                .ariaLabel('Lucky day')
-                .ok($translate('help.update'))
-                .cancel($translate('labels.cancel'))
-                .targetEvent(ev);
-            $mdDialog.show(confirm).then(function() {
-                $http.get("index.php/mark_as_received/"+item.package.id).success(function (d) {
-                    $scope.updateLevel();
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content($translate('error.update_success'))
-                            .position($scope.getToastPosition())
-                            .hideDelay(5000)
-                    );
-                    $scope.currentSaving = false;
+        $scope.showAsReceived = function (item) {
+            item.showAsReceived = true;
+        };
 
-                }).error(function(){
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content($translate('update_falure'))
-                            .position($scope.getToastPosition())
-                            .hideDelay(5000)
-                    );
-                    $scope.currentSaving = false;
-                })
+        $scope.cancelAsReceived = function (item) {
+            item.showAsReceived = false;
+        };
 
-            }, function() {
 
-            });
+        $scope.markAsReceived = function( item ){
+            item.confirming = true;
+            $http.get("index.php/mark_as_received/"+item.package.id).success(function (d) {
+                $scope.updateLevel();
+                item.confirming = false;
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('error.update_success'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+
+            }).error(function(){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content($translate('update_falure'))
+                        .position($scope.getToastPosition())
+                        .hideDelay(5000)
+                );
+                $scope.currentSaving = false;
+            })
+
         };
 
         var $translate = $filter('translate');

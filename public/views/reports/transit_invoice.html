@@ -183,10 +183,21 @@
             <td>{{ getActivityName(item.activity) }}</td>
             <td>{{ item.package.updated_at  | date:'yyyy-MMM-dd' }}</td>
             <td>{{ getRecipientName1(item.package.source_id) }}</td>
-            <th ng-if="logedInUser.recipient.level == '3'">
-                <button class="btn btn-xs btn-info" ng-click="markAsReceived($event, item)">
+            <td ng-if="logedInUser.recipient.level == '3'">
+                <button ng-if="!item.showAsReceived" class="btn btn-xs btn-info" ng-click="showAsReceived( item )">
                     <span class="glyphicon glyphicon-check"></span>
-                </button> </th>
+                </button>
+                <div style="line-height: 10px" ng-if="item.showAsReceived">
+                    <span translate="global.loading" ng-if="item.confirming"></span>
+                    <small style="font-size: 9px" translate="labels.confirm_complete"></small>
+                    <button class="btn btn-xs btn-success" ng-click="markAsReceived( item )">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                    <button class="btn btn-xs btn-danger" ng-click="cancelAsReceived( item )">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </td>
 
         </tr>
         </tbody>
