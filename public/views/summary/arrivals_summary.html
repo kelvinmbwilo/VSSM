@@ -17,7 +17,7 @@
     <!--<button style="margin: 5px" class="pull-right btn btn-info" ng-click="showAdd('addSources')"><i class="s16 icomoon-icon-plus-circle-2"></i><span translate="labels.add"></span><md-tooltip><span translate="help.add_another"></span> </md-tooltip></button>-->
     <div class="row" style="margin-bottom: 10px">
         <button ng-if="seeStock != 'products'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('products')"><i class="fa fa-table"></i> <label translate="labels.products"></label></button>
-        <button ng-if="seeStock != 'details'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('details')"><i class="fa fa-list"></i> Product Details</button>
+        <button ng-if="seeStock != 'details'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('details')"><i class="fa fa-list"></i> <label translate="labels.product_details"></label></button>
         <button ng-if="seeStock != 'graph'" class="btn btn-info btn-sm pull-right" ng-click="setSeeStock('graph')"><i class="fa fa-bar-chart-o"></i><label translate="labels.graph"></label></button>
     </div>
     <div class="row" ng-if="seeStock == 'products'">
