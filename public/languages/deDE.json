@@ -330,7 +330,8 @@
         "remaining_volume":"Volumen Restante",
         "mark_as_received":"Marcar como Recibido",
         "confirm_complete":"¿Seguro que desea marcar esto como recibida",
-        "boxes":"paquetes"
+        "boxes":"paquetes",
+        "received_by":"Por recibida: {{ name }}"
     },
     "help": {
         "add_another" : "Agrega Otro",
