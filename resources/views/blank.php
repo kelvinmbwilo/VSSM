@@ -193,23 +193,47 @@ else{
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-equalizer-2"></i><span class=txt translate="menu.adjustment">Adjustment</span></a>
                         <ul class=sub>
-                            <li ng-if="hasRole(userRoles,'see_arivalcancellation')" ><a href="./#arrival_adjustment" ng-class="{ active1: isActive('/arrival_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.arrival_adjustment"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_dispatchadjustment')" ><a href="./#dispatch_adjustment" ng-class="{ active1: isActive('/dispatch_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.dispatch_adjustment"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_stockadjustment')" ><a href="./#stock_adjustment" ng-class="{ active1: isActive('/stock_adjustment') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_adjustment"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_moveitems')" ><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.move_items"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_arivalcancellation')" ><a href="./#arrival_adjustment" ng-class="{ active1: isActive('/arrival_adjustment') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.arrival_adjustment"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_dispatchadjustment')" ><a href="./#dispatch_adjustment" ng-class="{ active1: isActive('/dispatch_adjustment') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.dispatch_adjustment"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_stockadjustment')" ><a href="./#stock_adjustment" ng-class="{ active1: isActive('/stock_adjustment') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.stock_adjustment"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_moveitems')" ><a href="./#move_items" ng-class="{ active1: isActive('/move_items') }" class="mymenu">
+                            <i class="icomoon-icon-arrow-right-3"></i>
+                            <span class=txt translate="menu.move_items"></span></a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="blank.html#"><i class="s16 icomoon-icon-stats-up"></i><span class=txt translate="menu.reports"></span></a>
                         <ul class=sub>
-                             <li ng-if="hasRole(userRoles,'see_arrivalreport')" ><a href="./#monthly_arrivals"  ng-class="{ active1: isActive('/monthly_arrivals') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_arrivals"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_dispatchreprt')" ><a href="./#dispatch_report"  ng-class="{ active1: isActive('/dispatch_report') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.monthly_dispatch"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_itemmovedreport')"><a href="./#stock_status" ng-class="{ active1: isActive('/stock_status') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.stock_items"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_intransityinvertory')"><a href="./#transit_invoice" ng-class="{ active1: isActive('/transit_invoice') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.transit_invoice"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_canceledinvoice')" ><a href="./#canceled_invoices" ng-class="{ active1: isActive('/canceled_invoices') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.canceled_invoices"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_adjustmentreport')"><a href="./#adjustmentreport" ng-class="{ active1: isActive('/adjustmentreport') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.adjustmentreport"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_itemmovedreport')"><a href="./#itemmovedreport" ng-class="{ active1: isActive('/itemmovedreport') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.itemmovedreport"></span></a></li>
-                            <li ng-if="hasRole(userRoles,'see_expireditems')" ><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.expired_items"></span> <span class="badge badge-info">{{ number_expired_items }}</span></a></li>
+                             <li ng-if="hasRole(userRoles,'see_arrivalreport')" ><a href="./#monthly_arrivals"  ng-class="{ active1: isActive('/monthly_arrivals') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.monthly_arrivals"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_dispatchreprt')" ><a href="./#dispatch_report"  ng-class="{ active1: isActive('/dispatch_report') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.monthly_dispatch"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_itemmovedreport')"><a href="./#stock_status" ng-class="{ active1: isActive('/stock_status') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.stock_items"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_intransityinvertory')"><a href="./#transit_invoice" ng-class="{ active1: isActive('/transit_invoice') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.transit_invoice"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_canceledinvoice')" ><a href="./#canceled_invoices" ng-class="{ active1: isActive('/canceled_invoices') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.canceled_invoices"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_adjustmentreport')"><a href="./#adjustmentreport" ng-class="{ active1: isActive('/adjustmentreport') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.adjustmentreport"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_itemmovedreport')"><a href="./#itemmovedreport" ng-class="{ active1: isActive('/itemmovedreport') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.itemmovedreport"></span></a></li>
+                            <li ng-if="hasRole(userRoles,'see_expireditems')" ><a href="./#expired_items"  ng-class="{ active1: isActive('/expired_items') }" class="mymenu">
+                                <i class="icomoon-icon-arrow-right-3"></i>
+                                <span class=txt translate="menu.expired_items"></span> <span class="badge badge-info">{{ number_expired_items }}</span></a></li>
                         </ul>
                     </li>
                     <li ng-if="hasRole(userRoles,'see_stockopening')" ><a href="./#open_stock" ng-class="{ active1: isActive('/open_stock') }"><i class="s16 icomoon-icon-folder-open-2"></i><span class=txt translate="menu.open_stock"></span></a></li>
