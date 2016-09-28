@@ -166,8 +166,9 @@
                     $scope.prepareSeries();
                 };
 
+                $translates = $filter('translate');
                 $scope.prepareSeries = function(){
-                    $scope.chartConfig.title.text = $translate('menu.monthly_dispatch');
+                    $scope.chartConfig.title.text = $translates('menu.monthly_dispatch');
                     $scope.area = [];
                     if($scope.data.reportPeriod == "Years"){
                         angular.forEach($scope.data.selectedYear,function(value){
