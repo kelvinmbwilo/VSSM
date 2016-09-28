@@ -160,8 +160,9 @@ class PackagingController extends Controller
                 "receiver" => "Recibido Por",
             ),
         );
-        $language = SystemSettings::where('id','!=',"0")->first();
-        $lanKey = $language->language;
+        $system_settings = SystemSettings::where('id','!=',"0")->first();
+        $lanKey = $system_settings->language;
+        $main_currency = $system_settings->main_currency;
         $translate = ($lanKey == "enUS")? $translation['english'] : $translation['spanish'];
 
 
@@ -218,20 +219,20 @@ class PackagingController extends Controller
             $packaging = PackagingInformation::find($val->packaging_id);
             $manufacture = Manufacture::find($packaging->manufacture_id);
             $html .= '<tr style="font-size: 12px">';
-            $html .= '<td>'.$i.'</td>';
-            $html .= '<td>'.$vaccine->name .'</td>';
-            $html .= '<td>'.$manufacture->name.'</td>';
-            $html .= '<td>'.$val->batch_number .'</td>';
-            $html .= '<td>'.$val->expiry_date .'</td>';
-            $html .= '<td>'.$val->amount .'</td>';
-            $html .= '<td>'.round($val->amount / $packaging->dose_per_vial, 0, PHP_ROUND_HALF_DOWN).'</td>';
-            $html .= '<td>'.$val->amount * $val->unit_price.'</td>';
+            $html .= '<td style="text-align: center">'.$i.'</td>';
+            $html .= '<td style="text-align: center">'.$vaccine->name .'</td>';
+            $html .= '<td style="text-align: center">'.$manufacture->name.'</td>';
+            $html .= '<td style="text-align: center">'.$val->batch_number .'</td>';
+            $html .= '<td style="text-align: center">'.$val->expiry_date .'</td>';
+            $html .= '<td style="text-align: center">'.$val->amount .'</td>';
+            $html .= '<td style="text-align: center">'.round($val->amount / $packaging->dose_per_vial, 0, PHP_ROUND_HALF_DOWN).'</td>';
+            $html .= '<td style="text-align: center">'.$main_currency."  ".$val->amount * $val->unit_price.'</td>';
             $html .= '</tr>';
             $total_price += ($val->amount * $val->unit_price);
         }
         $html .= "</table>";
 
-        $html .= "<div><h4>". $translate['total_price'] ." ".$total_price."</h4></div>";
+        $html .= "<div><h4>".$main_currency."  ". $translate['total_price'] ." ".$total_price."</h4></div>";
         $html .= "<table style='width: 710px;'>";
         $html .= '<tr>';
         $html .= '<td style="width: 30%; font-size: 12px"">';

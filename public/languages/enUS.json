@@ -295,7 +295,8 @@
         "remaining_volume":"Remaining Volume",
         "mark_as_received":"Mark As Received",
         "confirm_complete":"Are you sure you want to mark this as received",
-        "boxes":"Packages"
+        "boxes":"Packages",
+        "received_by":"Received By: {{ name }}"
     },
     "error": {
         "contact_email": "or contact softmed support at <a href=\"mailto:support@softmedtz.com\">support@softmedtz.com</a>.",

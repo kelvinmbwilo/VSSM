@@ -127,6 +127,7 @@
                                 <th translate="labels.lot_number"></th>
                                 <th translate="labels.Dose_vial"></th>
                                 <th translate="labels.expired_date"></th>
+                                <th translate="labels.boxes"></th>
                                 <th translate="labels.doses"></th>
                                 <th translate="labels.vials"></th>
                                 <th translate="labels.total_volume"></th>
@@ -146,6 +147,7 @@
                                 <td>{{ item.lot_number }}</td>
                                 <td>{{ item.packaging }}</td>
                                 <td>{{ item.expired_date | date:'yyyy-MM-dd' }}</td>
+                                <td>{{ (item.doses / item.dose_vial)/ item.vials_per_box | number:0  }}</td>
                                 <td>
                                     <input  ng-model="item.doses" class="form-control" type="number" style="width: 100px">
                                 </td>
@@ -225,11 +227,11 @@
             <span kendo-barcode k-type="'code128'" ng-model="newItem.reference" style="width: 250px; margin: 0 auto;"></span>
         </div>
         <div class="col-sm-10 col-sm-offset-1 text-center">
-            <h4 translate="labels.arrival_date">{{ newItem.arrival_date | date:'yyyy-MM-dd' }}</h4>
+            <h4><span translate="labels.arrival_date"></span>{{ newItem.arrival_date | date:'yyyy-MM-dd' }}</h4>
         </div>
         <div class="col-sm-10 col-sm-offset-1" style="margin-top: 10px;margin-bottom: 20px">
             <div class="col-sm-6"><h4 translate="menu.vaccine_diluent"> </h4></div>
-            <div class="col-sm-6"><h4 translate="labels.receive_by" translate-value-name="{{ logedInUserName }}"></h4></div>
+            <div class="col-sm-6"><h4 class="pull-right" translate="labels.receive_by" translate-value-name="{{ logedInUserName }}"></h4></div>
         </div>
         <div class="col-sm-10 col-sm-offset-1">
 

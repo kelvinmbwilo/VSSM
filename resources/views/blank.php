@@ -43,7 +43,22 @@ else{
     <link rel=icon href="<?php echo  asset('favicon.ico') ?>" type=image/png>
     <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
     <meta name="Vaccines and Supplies Stock Management" content="#3399cc">
-
+    <style>
+        #sidebar .sidenav .mainnav ul li a.mymenu {
+            position: relative;
+            /* font-size: 14px; */
+            height: 50px !important;
+            float: left;
+            width: 100%;
+            line-height: 18px !important;
+            border-bottom: 1px solid #c4c4c4;
+            border-top: 1px solid #fff;
+            box-shadow: 0 1px 0 #fff;
+            color: #3f3f3f;
+            box-sizing: border-box;
+            margin-left: 5px;
+        }
+    </style>
 <body>
 <!--<div id="load-screen" ng-if="showLoader"></div>-->
 <!--[if lt IE 9]>
@@ -128,9 +143,24 @@ else{
                     <li>
                         <a href="./#alarms" ng-class="{ active1: isActive('/alarms') }"><i class="s16 icomoon-icon-warning"></i><span class=txt translate="menu.warnings"></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
                         <ul class=sub>
-                            <li ng-if="hasRole(userRoles,'see_closetoexpiry')"><a href="./#close_to_expiry" ng-class="{ active1: isActive('/close_to_expiry') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.close_to_expiry"></span>  </a></li>
-                            <li ng-if="hasRole(userRoles,'see_belowminimum')"><a href="./#below_minimum" ng-class="{ active1: isActive('/below_minimum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.below_minimum"></span> </a></li>
-                           <li ng-if="hasRole(userRoles,'see_aboveminimum')"><a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }"><i class="s16 icomoon-icon-arrow-right-3"></i><span class=txt translate="menu.above_maximum"></span> </a></li>
+                            <li ng-if="hasRole(userRoles,'see_closetoexpiry')">
+                                <a href="./#close_to_expiry" ng-class="{ active1: isActive('/close_to_expiry') }" class="mymenu">
+                                        <i class="icomoon-icon-arrow-right-3"></i>
+                                        <span class=txt translate="menu.close_to_expiry"></span>
+                                </a>
+                            </li>
+                            <li ng-if="hasRole(userRoles,'see_belowminimum')">
+                                <a href="./#below_minimum" ng-class="{ active1: isActive('/below_minimum') }" class="mymenu">
+                                    <i class="icomoon-icon-arrow-right-3"></i>
+                                    <span class=txt translate="menu.below_minimum"></span>
+                                </a>
+                            </li>
+                           <li ng-if="hasRole(userRoles,'see_aboveminimum')">
+                               <a href="./#above_maximum" ng-class="{ active1: isActive('/above_maximum') }" class="mymenu">
+                                   <i class="icomoon-icon-arrow-right-3"></i>
+                                   <span class=txt translate="menu.above_maximum"></span>
+                               </a>
+                           </li>
                         </ul>
                     </li>
                     <li>
