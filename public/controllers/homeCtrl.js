@@ -471,7 +471,7 @@ angular.module("vssmApp")
                     $scope.detailedItems = $scope.storeItemsDetails[log];
                     while ($scope.vaccineNames.length) { $scope.vaccineNames.pop(); }
                     while ($scope.vacciineValues.length) { $scope.vacciineValues.pop(); }
-                    $scope.chartConfig1.title.text = value.name+ $translates('labels.items');
+                    $scope.chartConfig1.title.text = value.name+ " " + $translates('labels.items');
                     angular.forEach($scope.storeItems[log],function(val){
                         $scope.vaccineNames.push($scope.getVaccineName(val.vaccine_id))
                         $scope.vacciineValues.push(parseInt(val.total))
