@@ -331,7 +331,9 @@
         "mark_as_received":"Marcar como Recibido",
         "confirm_complete":"¿Seguro que desea marcar esto como recibida",
         "boxes":"paquetes",
-        "received_by":"Por recibida: {{ name }}"
+        "receive_by":"Por recibida: {{ name }}",
+        "received":"recibido",
+        "pending":"pendiente"
     },
     "help": {
         "add_another" : "Agrega Otro",

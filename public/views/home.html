@@ -24,16 +24,16 @@
                 <highchart id="chart1" config="chartConfig"></highchart>
                 <table class="table table-responsive">
                     <tr>
-                        <th translate="labels.name"></th>
-                        <th translate="labels.total_volume"></th>
-                        <th translate="labels.used_volume"></th>
-                        <th translate="labels.free_volume"></th>
+                        <th translate="labels.name"  style="text-align: right"></th>
+                        <th translate="labels.total_volume" style="text-align: right"></th>
+                        <th translate="labels.used_volume" style="text-align: right"></th>
+                        <th translate="labels.free_volume" style="text-align: right"></th>
                     </tr>
                     <tr ng-repeat="stores in storeTable">
-                        <td>{{ stores.name }}</td>
-                        <td>{{ stores.volume | number:2 }}</td>
-                        <td>{{ stores.used_volume | number:2 }}</td>
-                        <td>{{ stores.free  | number:2}}</td>
+                        <td style="text-align: right">{{ stores.name }}</td>
+                        <td style="text-align: right">{{ stores.volume | number:2 }}</td>
+                        <td style="text-align: right">{{ stores.used_volume | number:2 }}</td>
+                        <td style="text-align: right">{{ stores.free  | number:2}}</td>
                     </tr>
                 </table>
            </div>
@@ -88,7 +88,7 @@
                         <th translate="labels.vials"></th>
                         <th translate="labels.total_volume"></th>
                         <th translate="labels.u_price"></th>
-                        <th translate="labels.t_price"></th>
+                        <th translate="labels.t_price" style="width: 70px!important;"></th>
                         <th translate="labels.activity"></th>
                         <th translate="labels.source"></th>
                     </tr>
@@ -103,9 +103,9 @@
                         <td>{{ item.expiry_date | date:'yyyy-MM-dd' }}</td>
                         <td>{{ item.amount  | number:0 }}</td>
                         <td>{{ item.amount / item.packaging.dose_per_vial | number:0 }}</td>
-                        <td>{{ item.amount * item.packaging.cm_per_dose * 0.001  | number:4 }}</td>
-                        <td>{{ main_currency }} {{ item.unit_price | number:2 }}</td>
-                        <td>{{ main_currency }} {{ item.amount * item.unit_price | number:2 }}</td>
+                        <td style="text-align: right">{{ item.amount * item.packaging.cm_per_dose * 0.001  | number:4 }}</td>
+                        <td style="text-align: right">{{ main_currency }} {{ item.unit_price | number:2 }}</td>
+                        <td style="text-align: right;font-size: 12">{{ main_currency }} {{ item.amount * item.unit_price | number:2 }}</td>
                         <td>{{ getActivityName(item.activity_id) }}</td>
                         <td>{{ getSourceName(item.source_id) }}</td>
                     </tr>

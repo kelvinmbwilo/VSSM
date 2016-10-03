@@ -85,7 +85,9 @@
                 <td>{{ main_currency }} {{ item.unit_price * item.amount | number:2}}</td>
                 <td>{{ getActivityName(item.activity) }}</td>
                 <td>{{ item.created_at | limitTo:10 }}</td>
-                <td>{{ item.package.receiving_status }}
+                <td>
+                    <span ng-if="item.package.receiving_status != 'received'" translate="labels.pending"></span>
+                    <span ng-if="item.package.receiving_status == 'received'" translate="labels.received"></span>
                     <span ng-if="item.package.receiving_status == 'received'">
                         <br><small style="font-size: 8px">( {{ item.package.updated_at | limitTo:10 }} )</small>
                     </span>
