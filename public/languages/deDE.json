@@ -232,7 +232,7 @@
         "adjustment_number":"Dígitos de Ajuste",
         "entered_by":"Anotado por : {{ name }}",
         "issued_to":"Enviado a : {{ name }}",
-        "transport_mode":"Modo de Transporte : {{ name }}",
+        "transport_mode1":"Modo de Transporte : {{ name }}",
         "total_price":"Precio Total {{ price }} {{ currency }}",
         "issued":"Despachado por",
         "receiver":"Recibido Por",
