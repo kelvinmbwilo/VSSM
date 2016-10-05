@@ -89,9 +89,19 @@ else{
                     <a href="#" class=dropdown-toggle data-toggle=dropdown><i class="s16 icomoon-icon-warning text-warning"></i><span class=txt translate="menu.warnings">Warnings <b class=caret></b></span><span class=notification ng-cloak>{{ number_of_notification }}</span></a>
                     <ul class="dropdown-menu right">
                         <li class=menu>
-                            <ul class=notif  ng-controller="homeCtrl">
+                            <ul class=notif>
                                 <li class=header><strong translate="labels.Notifications"></strong ng-cloak> ({{ number_of_notification }}) items</li>
-                                <li ng-repeat="item in notification_object"><a href="./#{{ item.url }}"><span class=icon><i class="s16 icomoon-icon-calendar"></i></span> <span class=event>{{ item.name }} : {{ item.descr }}</span></a></li>
+                                <li ng-repeat="item in notification_object">
+                                    <a href="./#{{ item.url }}">
+                                        <span class=icon><i class="s16 icomoon-icon-calendar"></i></span>
+                                        <span class=event>
+                                            <span ng-if="item.type == 'near_expired_item'"><span translate="labels.near_expired_item"></span> : {{ item.descr }} <span translate="labels.of_batch_number"></span> {{ item.lot_number }} <span translate="labels.will_expire_at"></span> {{ item.expired_date }} </span>
+                                            <span ng-if="item.type == 'above_maximum_value'"><span translate="labels.above_maximum_value"> </span>: {{ item.descr }} <span translate="labels.is_above_maximum_settled_value"></span> <span translate="current_number_of_dose_is"></span> {{ item.max_val }} </span>
+                                            <span ng-if="item.type == 'item_below_minimum'"><span translate="labels.item_below_minimum"></span> : {{ item.descr }}<span translate="labels.is_below_minimum_settled_value"></span> <span translate="current_number_of_dose_is"></span> {{ item.amount }} <span translate="labels.and_has_minimum_of"></span> {{ item.min_value  }} </span>
+                                            <span ng-if="item.type == 'expired_item'"><span translate="labels.expired_item"></span> : {{ item.descr }} <span translate="labels.of_batch_number"></span> {{ item.lot }} <span translate="labels.has_expired_since"></span> {{ item.expired_date }} </span>
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
