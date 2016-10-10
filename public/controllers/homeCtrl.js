@@ -117,7 +117,7 @@ angular.module("vssmApp")
                 "sFirst":    "Primero",
                 "sLast":     "Último",
                 "sNext":     "Siguiente",
-                "sPrevious": "previo"
+                "sPrevious": "Previo"
             },
             "oAria": {
                 "sSortAscending":  ": aactivar para ordenar la columna ascendente",
