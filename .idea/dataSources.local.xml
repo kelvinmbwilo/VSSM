@@ -9,8 +9,9 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <introspection-scope>vvs:</introspection-scope>
+      <introspection-schemas>*:vvs|vvs:</introspection-schemas>
       <resolve-scope>vvs:</resolve-scope>
+      <unqualified-resolve-schemas>vvs:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>

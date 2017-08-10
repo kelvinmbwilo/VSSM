@@ -2,6 +2,7 @@ CACHE MANIFEST
 # system appcache
 NETWORK:
 *
+
 CACHE:
 js/libs/jquery-2.1.1.min.js
 plugins/core/pace/pace.min.js
@@ -73,7 +74,7 @@ bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.
 favicon.ico
 
 img/logo1.jpg
-img/logo.jpg
+img/logo.png
 img/patterns/2.png
 img/patterns/3.png
 img/patterns/4.png

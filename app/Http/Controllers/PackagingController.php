@@ -121,7 +121,7 @@ class PackagingController extends Controller
         $translation = array(
             "english" => array(
                 "title" => "Vaccines Visibility System",
-                "voucher_title" => "Ministry Of Health, Government of Nicaragua",
+                "voucher_title" => "Ministry Of Health",
                 "dispatch_date" => "Dispatch Date",
                 "entered_by" => "Entered By :",
                 "issued_to" => "Issued To :",
@@ -141,7 +141,7 @@ class PackagingController extends Controller
             ),
             "spanish" => array(
                 "title" => "Sistema de Visibilidad de Vacunas",
-                "voucher_title" => "Ministerio de Salud, Gobierno de Nicaragua",
+                "voucher_title" => "Ministerio de Salud",
                 "dispatch_date" => "Fecha de Despacho",
                 "entered_by" => "Anotado por :",
                 "issued_to" => "Enviado a :",
@@ -178,7 +178,7 @@ class PackagingController extends Controller
         $html .= '<h3 style="text-align: center">'. $translate['title'] .'</h3>';
         $html .= '<h4 style="text-align: center">'. $translate['voucher_title'].'</h4>';
         $html .= '</td>';
-        $html .= '<td style="text-align: right"><img src="'.asset('img/logo.jpg').'" style="height: 100px;width: 100px"></td>';
+        $html .= '<td style="text-align: right"><img src="'.asset('img/logo.png').'" style="height: 100px;width: 100px"></td>';
         $html .= '</tr>';
         $html .= "</table>";
 

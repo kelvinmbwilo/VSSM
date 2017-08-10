@@ -1,9 +1,9 @@
 {
     "app": {
         "title":"Sistema de Visibilidad de Vacunas",
-        "copyright":"Derechos de autor &copy; 2015 Todos los derechos reservados.",
+        "copyright":"Derechos de autor &copy; 2017 Todos los derechos reservados.",
         "user_manual":"Manual de Usuario",
-        "voucher_title":"Ministerio de Salud, Gobierno de Nicaragua",
+        "voucher_title":"Ministerio de Salud",
         "help":"Ayuda"
     },
     "menu":{

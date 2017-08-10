@@ -1,5 +1,8 @@
 <?php
-if(Auth::guest()){
+if (!Auth::check()) {
+    echo \Illuminate\Support\Facades\Redirect::to("login");
+}
+if(!Auth::check()){
 
     echo \Illuminate\Support\Facades\Redirect::to("login");
 }
@@ -7,9 +10,8 @@ else{
 ?>
 <!DOCTYPE html><!--[if lt IE 8]>
 <meta name="csrf-token" content="<?php echo csrf_token() ?>" />
-<html class="no-js lt-ie8" ng-app="bahariApp" ng-controller="mainCtrl">
 <![endif]--><!--[if gt IE 8]><!-->
-<html ng-app="vssmApp" ng-controller="mainCtrl" class='no-js' xmlns="http://www.w3.org/1999/html" manifest="cache.appcache">
+<!--<html ng-app="vssmApp" ng-controller="mainCtrl" class='no-js' xmlns="http://www.w3.org/1999/html" manifest="cache.appcache">-->
 <!--<![endif]-->
 <html class='no-js' ng-app="vssmApp" ng-controller="mainCtrl" manifest="cache.appcache">
 <head>
@@ -81,7 +83,7 @@ else{
             <span style="text-align: center;font-size: 15px;padding-top: 120px" ng-cloak> {{ logedInUser.recipient.name }}</span>
 
             <ul  class="nav navbar-right" style="margin-top: 4px">
-                <li><img class="img-rounded" src="<?php echo asset('img/logo.jpg') ?>" style="width: 70px; height: 60px"></li>
+                <li><img class="img-rounded" src="<?php echo asset('img/logo.png') ?>" style="width: 70px; height: 60px"></li>
             </ul>
 
             <ul class="nav navbar-right usernav">
@@ -466,4 +468,7 @@ else{
         $(".dashboard11").removeClass("active");
     })
 </script>
+</body>
+</html>
 <?php } ?>
+

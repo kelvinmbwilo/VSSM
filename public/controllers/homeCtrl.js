@@ -11,7 +11,7 @@ angular.module("vssmApp")
         $translateProvider.preferredLanguage('enUS');
         $translateProvider.usePostCompiling(true);
     })
-    .controller("mainCtrl",function ($rootScope,$scope,$http,$location,$timeout,$translate,DTOptionsBuilder,$filter) {
+    .controller("mainCtrl",function ($rootScope,$window,$scope,$http,$location,$timeout,$translate,DTOptionsBuilder,$filter) {
         //Variables Initialization
         $scope.data = {};
         var $translates = $filter('translate');
@@ -50,6 +50,8 @@ angular.module("vssmApp")
             $scope.logedInUser = data;
             $scope.logedInUserName = data.first_name +" "+ data.last_name;
             $scope.userRoles = data.roles.roles.split(":");
+        }).error(function (err) {
+            $window.location.href = "index.php/login";
         });
 
         //getting the loggedIn User

@@ -181,12 +181,13 @@ class UserController extends Controller
      * @return view
      */
     public function logout(){
-        Log::create(array(
-            "user_id"=>  Auth::user()->id,
-            "action"  =>"Logged Out"
-        ));
-        Auth::logout();
-
+        if(Auth::check()){
+            Log::create(array(
+                "user_id"=>  Auth::user()->id,
+                "action"  =>"Logged Out"
+            ));
+            Auth::logout();
+        }
         return Redirect::to("login");
     }
 

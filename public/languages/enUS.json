@@ -1,9 +1,9 @@
 {
     "app": {
         "title":"Vaccines Visibility System",
-        "copyright":"Copyrights &copy; 2015  All rights reserved.",
+        "copyright":"Copyrights &copy; 2017  All rights reserved.",
         "user_manual":"User Manual",
-        "voucher_title":"Ministry Of Health, Government of Nicaragua",
+        "voucher_title":"Ministry Of Health",
         "help":"Help"
     },
     "menu":{
