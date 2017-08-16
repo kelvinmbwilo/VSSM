@@ -10,12 +10,12 @@ angular.module("vssmApp")
         $scope.data.usedWards = [];
         $scope.data.usedVillages = [];
         $scope.data.report_type = "Order_Status";
-        $scope.data.category = "Years"
+        $scope.data.category = "Years";
         $scope.data.reportMainCategory = "Orders";
         $scope.data.reportSeries = "Order Status";
         $scope.data.selectedMonthYear = "2015";
         $scope.data.main_cat = "doses";
-        $scope.data.reportPeriod = "Years"
+        $scope.data.reportPeriod = "Years";
         $scope.table = {};
         $scope.data.recipient = "";
         $scope.data.sources = "";

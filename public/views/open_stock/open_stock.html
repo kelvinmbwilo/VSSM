@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <label  for="scan_item1" translate="labels.scan_item"></label>
-                        <input id="scan_item1" ng-change="prepareItems1(scanned_values)" type="text" ng-model="scanned_values" class="form-control" placeholder="{{ 'labels.scan_item' | translate }}">
+                        <input id="scan_item1" ng-keyup="prepareItems1(scanned_values,$event)" type="text" ng-model="scanned_values" class="form-control" placeholder="{{ 'labels.scan_item' | translate }}">
                     </div>
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4"></div>

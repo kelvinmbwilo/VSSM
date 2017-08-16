@@ -50,8 +50,8 @@ angular.module("vssmApp")
                 };
 
         //this function will be used for the front scanning
-        $scope.prepareItems1 = function(str){
-            if(str != ''){
+        $scope.prepareItems1 = function(str,$event){
+            if(str != '' && $event.keyCode == 13){
                 $scope.showNotAvailableError = false;
                 $scope.itemFound = false;
                 $scope.barcode ={};

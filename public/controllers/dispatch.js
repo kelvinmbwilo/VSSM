@@ -14,9 +14,14 @@ angular.module("vssmApp")
             $scope.stock_items = data;
             angular.forEach($scope.stock_items,function(value){
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                if(value.vaccine){
+                    value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                }else{
+                    $scope.stock_items.splice(value,1);
+                }
+
             });
         });
 
@@ -85,8 +90,9 @@ angular.module("vssmApp")
         };
 
         //The function that works with the scanning of item
-        $scope.prepareItems = function(str){
-            if(str != ''){
+        $scope.prepareItems = function(str, $event){
+            if(str != '' && $event.keyCode == 13){
+                console.log(str);
                 $scope.barcode ={};
                 $scope.barcode.str = angular.copy(str);
                 $scope.showNotAvailableError = false;
@@ -102,6 +108,7 @@ angular.module("vssmApp")
                     (year < 70) ? year += 2000: year += 1900;
                     $scope.oneItem.expired_date = new Date(year,month,day);}
                 var in_stock = false;
+                console.log(JSON.stringify($scope.stock_items))
                 angular.forEach($scope.stock_items,function(stock_item){
                     if(stock_item.lot_number == $scope.barcode.lot_number){
                         in_stock = true;

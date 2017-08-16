@@ -67,7 +67,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <label translate="help.scan_item"></label>
-                        <input id="barcode_string" type="text" class="form-control" ng-model="current_batch_no" ng-change="prepareItems(current_batch_no)">
+                        <input id="barcode_string" type="text" class="form-control" ng-model="current_batch_no" ng-keyup="prepareItems(current_batch_no, $event)">
                     </div>
                     <div>
 
