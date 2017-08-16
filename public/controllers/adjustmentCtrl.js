@@ -120,9 +120,14 @@ angular.module("vssmApp")
             $scope.stock_items = data;
             angular.forEach($scope.stock_items,function(value){
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
-                value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
+                if(value.vaccine){
+                    value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
+                }else{
+                    $scope.stock_items.splice(value,1);
+                }
+
 //                $scope.packagingInformation.push(value);
             });
         });
@@ -183,9 +188,14 @@ angular.module("vssmApp")
                     $scope.stock_items = data;
                     angular.forEach($scope.stock_items,function(value){
                         value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                        value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                        value.store = $scope.assignValue($scope.stores,value.store_id);
-                        value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
+                        if(value.vaccine){
+                            value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                            value.store = $scope.assignValue($scope.stores,value.store_id);
+                            value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
+                        }else{
+                            $scope.stock_items.splice(value,1);
+                        }
+
 //                $scope.packagingInformation.push(value);
                     });
                 });
@@ -332,9 +342,14 @@ angular.module("vssmApp")
             $scope.stock_items = data;
             angular.forEach($scope.stock_items,function(value){
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
-                value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
-                value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                if(value.vaccine){
+                    value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
+                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.usename = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.expiry_date+", "+ value.amount +" Doses, Source: "+$scope.getSourceName(value.source_id);
+                }else{
+                    $scope.stock_items.splice(value,1);
+                }
+
             });
         });
 
