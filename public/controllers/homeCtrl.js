@@ -212,6 +212,16 @@ angular.module("vssmApp")
                 });
             });
 
+            //get stores
+            $http.get("index.php/allstores").success(function(data){
+                $scope.allstores = data;
+                angular.forEach($scope.allstores,function(value){
+                    //var freeVol = ((value.net_volume - value.used_volume)/value.net_volume)*100;
+                    var freeVol = value.net_volume - value.used_volume;
+                    value.useName = value.name+","+$translates('labels.volume')+": "+value.net_volume+ $translates('labels.used') +": "+value.used_volume+ $translates('labels.free')+": "+ freeVol;
+                });
+            });
+
             //get adjustment_reasons
             $http.get("index.php/adjustment_reasons").success(function(data){
                 $scope.adjustment_reasons = data;

@@ -122,7 +122,7 @@ angular.module("vssmApp")
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 if(value.vaccine){
                     value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.store = $scope.assignValue($scope.allstores,value.store_id);
                     value.name = value.vaccine.name +" , "+ value.lot_number+" , "+value.store.name+", "+value.amount+" "+$translate('labels.doses')+", "+value.expiry_date
                 }else{
                     $scope.stock_items.splice(value,1);

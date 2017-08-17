@@ -96,7 +96,7 @@ angular.module("vssmApp")
                 angular.forEach($scope.stock_items,function(value){
                     value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                     value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.store = $scope.assignValue($scope.allstores,value.store_id);
                 });
                 $scope.prepareSeries();
             });

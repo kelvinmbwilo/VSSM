@@ -155,7 +155,7 @@ angular.module("vssmApp")
 
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
+                value.store = $scope.assignValue($scope.allstores,value.store_id);
                 $scope.notification_object.push({'url':'close_to_expiry','name': $filter('translate')('labels.near_expired_item'),'descr':value.vaccine.name +" "+$filter('translate')('labels.of_batch_number')+" "+ value.lot_number+" "+$filter('translate')('labels.will_expire_at')+" " +value.expiry_date })
                 $scope.number_of_notification += 1;
                 $scope.number_close_to_expiry += 1;
@@ -195,7 +195,7 @@ angular.module("vssmApp")
                 angular.forEach($scope.stock_items,function(value){
                     value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                     value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                    value.store = $scope.assignValue($scope.stores,value.store_id);
+                    value.store = $scope.assignValue($scope.allstores,value.store_id);
                     $scope.notification_object.push({'url':'expired_items','name': $filter('translate')('labels.expired_item'),'descr':value.vaccine.name +" "+ $filter('translate')('labels.of_batch_number')+" "+ value.lot_number+" "+ $filter('translate')('labels.has_expired_since')+" "+value.expiry_date })
                     $scope.number_of_notification += 1;
                     $scope.number_expired_items += 1;
@@ -210,7 +210,7 @@ angular.module("vssmApp")
             angular.forEach($scope.stock_items,function(value){
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
+                value.store = $scope.assignValue($scope.allstores,value.store_id);
                 $scope.notification_object.push({'url':'expired_items','name': $filter('translate')('labels.expired_item'),'descr':value.vaccine.name +" "+ $filter('translate')('labels.of_batch_number')+" "+ value.lot_number+" "+ $filter('translate')('labels.has_expired_since')+" "+value.expiry_date })
                 $scope.number_of_notification += 1;
                 $scope.number_expired_items += 1;
@@ -393,7 +393,7 @@ angular.module("vssmApp")
             angular.forEach($scope.stock_items,function(value){
                 value.vaccine = $scope.assignValue($scope.vaccines,value.vaccine_id);
                 value.packaging = $scope.assignValue($scope.packaging_information,value.packaging_id);
-                value.store = $scope.assignValue($scope.stores,value.store_id);
+                value.store = $scope.assignValue($scope.allstores,value.store_id);
             });
 
         });

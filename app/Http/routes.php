@@ -205,6 +205,9 @@ Route::post('sources/{id}',array('uses'=>'SourceController@update'));
 //getting stores
 Route::get('stores',array('uses'=>'StoreController@index'));
 
+//getting all stores
+Route::get('allstores',array('uses'=>'StoreController@allstores'));
+
 //saving new stores
 Route::post('stores',array('uses'=>'StoreController@store'));
 

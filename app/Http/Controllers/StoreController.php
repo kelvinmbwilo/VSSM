@@ -31,6 +31,16 @@ class StoreController extends Controller
         return Store::where('recipient_id',Auth::user()->recipient_id)->where('status','!=','deleted')->get();
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function allstores()
+    {
+        return Store::all();
+    }
+
 
     /**
      * Show the form for creating a new resource.
